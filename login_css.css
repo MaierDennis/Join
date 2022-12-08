@@ -8,8 +8,9 @@ body {
 }
 
 .complete-page {
+    position: relative;
     background-color: rgb(246, 247, 248);
-    width: 1024px;
+    width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
