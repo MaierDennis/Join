@@ -9,50 +9,14 @@
 
     <link rel="stylesheet" href="summary_style.css">
     <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="assets/templates/destop_template_style.css">
+
+    <script src="script.js"></script>
 </head>
 
-<body>
+<body onload="render('summary')">
     <div class="content">
-        <div class="nav-bar">
-            <img src="assets/img/logo_lefter.png">
-            <div class="content-section active-content-section" style="margin-top: 100px;">
-                <div>
-                    <img src="assets/img/icon-summary.png">
-                </div>
-                <span>Summary</span>
-            </div>
-            <div class="content-section">
-                <div>
-                    <img src="assets/img/icon-board.png">
-                </div>
-                <span>Board</span>
-            </div>
-            <div class="content-section">
-                <div>
-                    <img src="assets/img/icon-addtask.png">
-                </div>
-                <span>Add Task</span>
-            </div>
-            <div class="content-section">
-                <div>
-                    <img src="assets/img/icon-contacts.png">
-                </div>
-                <span>Contacts</span>
-            </div>
-            <div class="content-section" style="margin-top: 180px;">
-                <div>
-                    <img src="assets/img/icon-info.png">
-                </div>
-                <span>Legal notice</span>
-            </div>
-        </div>
-        <div class="topper">
-            <span>Kanban Project Management Tool</span>
-            <div class="img-topper">
-                <img src="assets/img/questionmark_topper.png" class="questionmark-topper">
-                <img src="assets/img/profile_pic.png" class="profile-pic">
-            </div>
-        </div>
+        <div w3-include-html="assets/templates/destop_template.html"></div>
         <div class="inner-content">
             <div class="headline">
                 <h1>Summary</h1>
