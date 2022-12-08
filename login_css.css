@@ -59,8 +59,8 @@ body {
 }
 
 .button {
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 22px;
+    padding-right: 22px;
     height: 30px;
     border-radius: 5px;
     background-color: rgb(42, 54, 71);
@@ -68,12 +68,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 13px;
     font-size: 13px;
     font-weight: 600;
 }
 
-
+.info-div {
+    width: 75%;
+    margin-bottom: 3%;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+}
 
 /* Design for Log in Area*/
 
@@ -154,7 +159,7 @@ margin-right: 10px;
 
 .guestLogin-button {
     width: 120px;
-    height: 35px;
+    height: 30px;
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(148, 154, 163);
@@ -162,19 +167,13 @@ margin-right: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 13px;
+    margin-left: 26px;
     font-size: 13px;
     font-weight: 700;
 }
 
 
 /* Design for Sign Up Area*/
-
-.signUp-display {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .signUp-area {
     position: relative;
@@ -212,15 +211,43 @@ margin-right: 10px;
     align-items: center;
 }
 
-.info-div {
-    width: 65%;
-    margin-bottom: 3%;
-    font-size: 13px;
-    font-weight: 700;
-    text-align: center;
-}
+
 
 .forgot-password-email-field {
     width: 55%;
     margin-bottom: 5%;
+}
+
+
+/* Design for reset-password Area*/
+
+.reset-password-area {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    box-shadow: 3px 6px 6px lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reset-password-field {
+    width: 55%;
+    margin-bottom: 5%;
+}
+
+.continue-button {
+    padding-left: 50px;
+    padding-right: 50px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(42, 54, 71);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
 }
