@@ -11,12 +11,40 @@ body{
     height: 100vh;
     display: flex;
     font-family: Inter;
+    box-sizing: border-box;
 }
 
-.lefter{
+.nav-bar{
     background-color: #2A3647;
     width: 16%;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-bar img{
+    width: 100px;
+    object-fit: contain;
+    margin-top: 66px;
+}
+
+.content-section{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    padding-left: 36%;
+    padding-right: 10%;
+    margin: 16px 0px;
+}
+
+.content-section img{
+    height: 24px;
+    width: unset;
+    object-fit: contain;
+    margin: unset;
 }
 
 .innercontent{
@@ -51,4 +79,5 @@ body{
 
 .profile_pic{
     border-radius: 100%;
+    border: 1px solid black;
 }
