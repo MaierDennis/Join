@@ -1,4 +1,54 @@
+body{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
 .content{
     width: 100%;
+    min-width: 1024px;
     max-width: 1280px;
+    height: 100vh;
+    display: flex;
+    font-family: Inter;
+}
+
+.lefter{
+    background-color: #2A3647;
+    width: 16%;
+    box-sizing: border-box;
+}
+
+.innercontent{
+    background-color: #F5F5F5;
+    width: 84%;
+    box-sizing: border-box;
+}
+
+.topper{
+    background-color: white;
+    width: 100%;
+    height: 89px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 8%;
+    padding-right: 33px;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 5px -2px grey;
+}
+
+.img_topper{
+    display: flex;
+    align-items: center;
+}
+
+.questionmark_topper{
+    width: 31px;
+    height: 31px;
+    margin-right: 24px;
+}
+
+.profile_pic{
+    border-radius: 100%;
 }
