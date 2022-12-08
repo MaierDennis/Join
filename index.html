@@ -12,42 +12,98 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <link rel="stylesheet" href="login_css.css">
+    <link rel="stylesheet" href="fonts.css">
 </head>
 
 <body>
     <div class="complete-page">
-        <div class="login-head">
-            <span>Not a Join user?</span>
-            <Button>Sign up</Button>
+        <div class="join-logo"><img src="assets/img/Capa 2join-logo.png" alt=""></div>
+
+        <div class="login-display d-none">
+            <div class="login-head">
+                <span>Not a Join user?</span>
+                <Button>Sign up</Button>
+            </div>
+
+            <div class="login-area">
+                <div class="headline">
+                    <h1>Log in</h1>
+                </div>
+
+                <div class="headline-underline"></div>
+
+                <div class="email-field">
+                    <input type="text" class="form-control" placeholder="Email" aria-label="First name">
+                </div>
+
+                <div class="password-field">
+                    <input type="text" class="form-control" placeholder="Password" aria-label="First name">
+                </div>
+
+                <div class="rememberMe-forgotPassword">
+                    <div class="remember-me"> <input type="button">Remember me</div>
+                    <div class="forgot-password"><a href="#">Forgot my password</a></div>
+                </div>
+
+                <div class="login-guestlogin">
+                    <div class="button">Log in</div>
+                    <div class="guestLogin-button">Guest Log in</div>
+                </div>
+            </div>
         </div>
 
-        <div class="login-area">
-            <div class="login-headline">
-                <h1>Log in</h1>
+        <div class="signUp-display d-none">
+            <div class="signUp-area">
+                <div class="arrow"><img src="assets/img/arrow-121-32.png"></div>
+
+                <div class="headline">
+                    <h1>Sign up</h1>
+                </div>
+
+                <div class="headline-underline"></div>
+
+                <div class="name-field">
+                    <input type="text" class="form-control" placeholder="Name" aria-label="First name">
+                </div>
+
+                <div class="email-field">
+                    <input type="text" class="form-control" placeholder="Email" aria-label="First name">
+                </div>
+
+                <div class="password-field">
+                    <input type="text" class="form-control" placeholder="Password" aria-label="First name">
+                </div>
+
+                <div class="button mt-5">Sign up</div>
+
             </div>
+        </div>
 
-            <div class="headline-underline"></div>
 
-            <div class="email-field">
-                <input type="text" class="form-control" placeholder="Email" aria-label="First name">
-            </div>
 
-            <div class="password-field">
-                <input type="text" class="form-control" placeholder="Password" aria-label="First name">
-            </div>
+        <div class="forgot-password-display">
+            <div class="forgot-password-area">
+                <div class="arrow"><img src="assets/img/arrow-121-32.png"></div>
 
-            <div class="rememberMe-forgotPassword">
-                <div class="remember-me"> <input type="button">Remember me</div>
-                <div class="forgot-password"><a href="#">Forgot my password</a></div>
-            </div>
+                <div class="headline">
+                    <h1>I forgot my password</h1>
+                </div>
 
-            <div class="login-guestlogin">
-                <div class="login-button">Log in</div>
-                <div class="guestLogin-button">Guest Log in</div>
+                <div class="headline-underline"></div>
+
+                <div class="info-div">
+                    <span>Don't worry! We will send you an email with the instructions to reset your password.</span>
+                </div>
+
+                <div class="forgot-password-email-field">
+                    <input type="text" class="form-control" placeholder="Email" aria-label="First name">
+                </div>
+
+                <div class="button">Send me the email</div>
+
             </div>
 
         </div>
-
     </div>
 
 

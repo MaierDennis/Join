@@ -1,5 +1,10 @@
 body {
     margin: 0;
+    font-family: 'Inter';
+}
+
+.d-none {
+    display: none;
 }
 
 .complete-page {
@@ -8,16 +13,85 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.join-logo {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.join-logo img {
+    height: 90px;
+}
+
+.headline {
+    margin-top: 4%;
+    margin-bottom: 2%;
+}
+
+.headline h1 {
+    font-size: 42px;
+    font-weight: 650;
+}
+
+.headline-underline {
+    width: 25%;
+    height: 3px;
+    background-color: rgb(41, 171, 226);
+    margin-bottom: 5%;
+}
+
+.name-field {
+    width: 65%;
+    margin-bottom: 6%;
+}
+
+.email-field {
+    width: 65%;
+    margin-bottom: 6%;
+}
+
+.password-field {
+    width: 65%;
+}
+
+.button {
+    padding-left: 18px;
+    padding-right: 18px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(42, 54, 71);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 13px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+
+/* Design for Log in Area*/
+
+.login-display {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 .login-head {
+    position: absolute;
+    top: 10%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
-    margin-top: 8%;
-    padding-right: 8%;
+    padding-right: 6%;
 }
 
 .login-head button {
@@ -34,41 +108,18 @@ body {
     height: 360px;
     width: 450px;
     background-color: rgb(255, 255, 255);
-    margin-top: 10%;
     border-radius: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.login-headline {
-    margin-top: 4%;
-    margin-bottom: 3%;
-}
-
-.login-headline h1 {
-    font-size: 45px;
-    font-weight: 650;
-}
-
-.headline-underline {
-    width: 25%;
-    height: 3px;
-    background-color: rgb(41, 171, 226);
-}
-
-.email-field {
-    width: 65%;
-    margin-top: 5%;
-}
-
-.password-field {
-    width: 65%;
-    margin-top: 8%;
+.form-control {
+    height: 35px;
 }
 
 .rememberMe-forgotPassword {
-    width: 55%;
+    width: 57%;
     height: 40px;
     display: flex;
     flex-direction: row;
@@ -81,12 +132,14 @@ body {
 .remember-me {
     display: flex;
     align-items: center;
+    font-weight: 600;
+    margin-right: 10px;
 }
 
 .remember-me input {
 height: 12px;
 width: 12px;
-margin-right: 12px;
+margin-right: 10px;
 }
 
 .forgot-password a {
@@ -99,28 +152,75 @@ margin-right: 12px;
     margin-top: 2%;
 }
 
-.login-button {
-    width: 100px;
-    height: 35px;
-    border-radius: 5px;
-    background-color: rgb(42, 54, 71);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 13px;
-}
-
 .guestLogin-button {
     width: 120px;
     height: 35px;
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(148, 154, 163);
+    border: 2px solid rgb(148, 154, 163);
     color: rgb(42, 54, 71);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 13px;
+    font-size: 13px;
     font-weight: 700;
+}
+
+
+/* Design for Sign Up Area*/
+
+.signUp-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signUp-area {
+    position: relative;
+    width: 450px;
+    height: 380px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.arrow {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.arrow img {
+    height: 18px;
+}
+
+
+/* Design for forgot-password Area*/
+
+.forgot-password-area {
+    position: relative;
+    width: 550px;
+    height: 300px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    box-shadow: 3px 6px 6px lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-div {
+    width: 65%;
+    margin-bottom: 3%;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.forgot-password-email-field {
+    width: 55%;
+    margin-bottom: 5%;
 }
