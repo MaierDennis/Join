@@ -1,3 +1,70 @@
 body {
     font-family: Inter;
+    background-color: #F6F7F8;
+    margin: 0;
+    display: flex;
+    
+}
+
+.content {
+    
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+    width: 80%;
+    align-items: center;
+}
+
+.main-heading {
+    font-size: 61px;
+    font-weight: 700;
+}
+
+.heading-search-add {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+}
+
+.tasks-container {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.task {
+    width: 20%;
+}
+
+.tasks-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 21px;
+}
+
+.plus-icon {
+    font-size: 27px;
+}
+
+
+
+
+
+/* DUMMY MENUS*/
+
+.top-menu {
+    height: 89px;
+    background-color: #2A3647;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.side-menu {
+    width: 232px;
+    height: 100vh;
+    background-color: #2A3647;
+
 }
