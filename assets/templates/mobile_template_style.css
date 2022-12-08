@@ -1,0 +1,74 @@
+@media(max-width: 1024px){
+
+    .topper{
+        z-index: 999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 24px;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 2px -2px rgb(195, 195, 195);
+    }
+
+    .topper img{
+        height: 39px;
+        object-fit: contain;
+    }
+
+    .profile-pic{
+        border-radius: 100%;
+        border: 1px solid black;
+    }
+
+    .footer{
+        z-index: 999;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        box-sizing: border-box;
+        background-color: #2A3647;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .content-section{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 24%;
+        color: white;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0px;
+    }
+
+    .content-section div{
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content-section img{
+        height: 24px;
+        object-fit: contain;
+    }
+
+    .content-section:hover{
+        cursor: pointer;
+        background-color: #091931;
+    }
+
+    .active-content-section{
+        background-color: #091931;
+    }
+}
