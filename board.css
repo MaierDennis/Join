@@ -1,13 +1,14 @@
 body {
     font-family: Inter;
+    color: #2A3647;
     background-color: #F6F7F8;
     margin: 0;
     display: flex;
-    
+
 }
 
 .content {
-    
+
     display: flex;
     flex-direction: column;
     margin-top: 150px;
@@ -27,6 +28,69 @@ body {
     width: 85%;
 }
 
+.input-and-button-container {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.board-input-container {
+    height: 45px;
+    width: 250px;
+    padding: 3px 7px;
+    border: 1px solid #A8A8A8;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.board-inputfield {
+    font-size: 16px;
+    font-weight: 100;
+    width: 200px;
+    border: none;
+    outline: none;
+}
+
+.search-icon {
+    margin-left: 7px;
+
+}
+
+.vertical-line {
+    color: lightgray;
+    font-weight: 200;
+    font-size: 25px;
+
+}
+
+.add-task-btn {
+    height: 50px;
+    width: 115px;
+    border-radius: 10px;
+    background: #2A3647;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.add-task-btn:hover {
+    background-color: #29ABE2;
+    box-shadow: #2A3647;
+    border: none;
+}
+
+
 .tasks-container {
     width: 85%;
     display: flex;
@@ -42,10 +106,213 @@ body {
     align-items: center;
     justify-content: space-between;
     font-size: 21px;
+    cursor: pointer;
 }
 
 .plus-icon {
-    font-size: 27px;
+    font-size: 30px;
+    font-weight: 200;
+    border: 2px solid #2A3647;
+    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.plus-icon:hover {
+    color: #29ABE2;
+    border: 2px solid #29ABE2;
+
+}
+
+.task-card {
+    min-height: 200px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    padding: 18px 19px;
+    gap: 10px;
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+    position: relative;
+
+    cursor: pointer;
+
+}
+
+.card-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 25px;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    width: 100px;
+    height: 27px;
+
+    background: #FF7A00;
+    border-radius: 8px;
+    color: white;
+    font-weight: 300;
+    font-size: 18px;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.card-title {
+    font-weight: 700;
+}
+
+.card-description {
+    color: #A8A8A8;
+
+}
+
+.card-bottom {
+    display: flex;
+    position: absolute;
+    bottom: 7px;
+    width: 85%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contributors {
+    box-sizing: border-box;
+
+    /* Auto layout */
+
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 9px;
+    /* gap: 10px; */
+
+    color: white;
+    font-weight: 200;
+
+    width: 30px;
+    height: 30px;
+
+    background: #02CF2F;
+    /* white */
+
+    /* border: 1px solid #FFFFFF; */
+    border-radius: 58px;
+
+    /* Inside auto layout */
+
+    /* flex: none;
+    order: 2;
+    flex-grow: 0; */
+
+}
+
+/* COLORS FOR CONTRIBUTORS */
+
+.blue {
+    background-color: #0390E0 !important;
+}
+.purple {
+    background-color: #EE01D6 !important;
+}
+.green {
+    background-color: #04CF2E !important;
+}
+
+.yellow-dark {
+    background-color: #FFA800 !important;
+}
+
+.lila {
+    background-color: #9326FF !important;
+}
+
+.orange {
+    background-color: #FF5C01 !important;
+}
+
+/* COLORS FOR CATEGORY */
+
+
+
+.design {
+    background-color: #FF7A00 !important;
+}
+.sales {
+    background-color: #FC71FF !important;
+}
+
+.backoffice {
+    background-color: #1FD7C1 !important;
+}
+
+.marketing {
+    background-color: #0038FF!important;
+}
+
+.media {
+    background-color: #FFC704!important;
+}
+
+
+/* CSS FOR OVERLAY */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9;
+}
+
+.d-none {
+    display: none;
+}
+
+.card-container {
+    position: relative;
+    position: fixed;
+    top: 11%;
+    bottom: 7%;
+    width: 620px;
+    z-index: 10;
+    border-radius: 20px;
+    object-fit: contain;
+    background-color: white;
+    /* padding: 20px; */
+    right: 25%;
+    /* left: 15%; */
+
+}
+
+.oflow-y-hid {
+    overflow-y: hidden !important;
+}
+
+.oflow-y-unset {
+    overflow-y: unset !important;
 }
 
 
