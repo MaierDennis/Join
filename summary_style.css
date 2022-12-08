@@ -130,3 +130,13 @@ body{
     color: #2A3647;
     margin: 0;
 }
+
+.summary{
+    display: flex;
+}
+
+.summary-information{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
