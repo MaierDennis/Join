@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+}
+
+.complete-page {
+    background-color: rgb(246, 247, 248);
+    width: 1024px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-head {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    margin-top: 8%;
+    padding-right: 8%;
+}
+
+.login-head button {
+    width: 65px;
+    height: 35px;
+    font-size: 12px;
+    background-color: rgb(42, 54, 71);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-left: 5%;
+}
+
+.login-area {
+    height: 360px;
+    width: 450px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 10%;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-headline {
+    margin-top: 4%;
+    margin-bottom: 3%;
+}
+
+.login-headline h1 {
+    font-size: 45px;
+    font-weight: 650;
+}
+
+.headline-underline {
+    width: 25%;
+    height: 3px;
+    background-color: rgb(41, 171, 226);
+}
+
+.email-field {
+    width: 65%;
+    margin-top: 5%;
+}
+
+.password-field {
+    width: 65%;
+    margin-top: 8%;
+}
+
+.rememberMe-forgotPassword {
+    width: 55%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 12px;
+    margin-top: 5%;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+height: 12px;
+width: 12px;
+margin-right: 12px;
+}
+
+.forgot-password a {
+    text-decoration: none;
+}
+
+.login-guestlogin {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+}
+
+.login-button {
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: rgb(42, 54, 71);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 13px;
+}
+
+.guestLogin-button {
+    width: 120px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(148, 154, 163);
+    color: rgb(42, 54, 71);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 13px;
+    font-weight: 700;
+}
