@@ -5,48 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Join - Summary</title>
+    <link rel="icon" type="image" href="assets/img/Capa 2join-logo.png">
 
     <link rel="stylesheet" href="summary_style.css">
     <link rel="stylesheet" href="fonts.css">
-    <link rel="stylesheet" href="assets/templates/destop_template_style.css">
 
     <script src="script.js"></script>
 </head>
 
 <body onload="render('summary')">
 
-
-    <div class="topper">
-        <img src="assets/img/Capa 2join-logo.png">
-        <img src="assets/img/profile_pic.png" class="profile-pic">
-    </div>
-    <div class="footer">
-        <div class="content-section" id="summary-section">
-            <div>
-                <img src="assets/img/icon-summary.png">
-            </div>
-            <span>Summary</span>
-        </div>
-        <div class="content-section" id="board-section">
-            <div>
-                <img src="assets/img/icon-board.png">
-            </div>
-            <span>Board</span>
-        </div>
-        <div class="content-section" id="addtask-section">
-            <div>
-                <img src="assets/img/icon-addtask.png">
-            </div>
-            <span>Add Task</span>
-        </div>
-        <div class="content-section" id="contacts-section">
-            <div>
-                <img src="assets/img/icon-contacts.png">
-            </div>
-            <span>Contacts</span>
-        </div>
-    </div>
+    <div w3-include-html="assets/templates/mobile_template.html"></div>
 
     <div class="content-destop">
         <div w3-include-html="assets/templates/destop_template.html"></div>
@@ -140,21 +110,21 @@
                     </div>
                 </div>
                 <div class="upcoming-deadline">
-                    <span style="font-size: 18px;"><strong>October 16, 2022</strong></span>
-                    <span style="font-size: 14px; margin-top: 6px;">Upcoming Deadline</span>
+                    <span style="font-size: 16px;"><strong>October 16, 2022</strong></span>
+                    <span style="font-size: 13px; margin-top: 6px;">Upcoming Deadline</span>
                 </div>
             </div>
             <div class="third-row">
                 <div>
                     <img src="assets/img/todoSymbolSummaryPen.png">
-                    <div class="content-div-row-3">
+                    <div class="content-div-row-3-mobile">
                         <h2>1</h2>
                         <span>To-do</span>
                     </div>
                 </div>
                 <div>
                     <img src="assets/img/doneSymbolSummary.png">
-                    <div class="content-div-row-3">
+                    <div class="content-div-row-3-mobile">
                         <h2>1</h2>
                         <span>Done</span>
                     </div>

@@ -2,6 +2,7 @@ body{
     display: flex;
     justify-content: center;
     margin: 0;
+    font-family: Inter;
 }
 
 .content-destop{
@@ -87,7 +88,7 @@ body{
 
 .first-row span{
     width: 64px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .second-row{
@@ -188,80 +189,12 @@ body{
     display: none;
 }
 
+.content-mobile{
+    display: none;
+}
+
 
 @media(max-width: 1024px){
-
-    .topper{
-        z-index: 999;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        background-color: white;
-        display: flex;
-        justify-content: space-between;
-        padding: 20px 24px;
-        box-sizing: border-box;
-        box-shadow: 0px 4px 2px -2px rgb(195, 195, 195);
-    }
-
-    .topper img{
-        height: 39px;
-        object-fit: contain;
-    }
-
-    .profile-pic{
-        border-radius: 100%;
-        border: 1px solid black;
-    }
-
-    .footer{
-        z-index: 999;
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        box-sizing: border-box;
-        background-color: #2A3647;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-
-    .content-section{
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 24%;
-        color: white;
-        box-sizing: border-box;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 0px;
-    }
-
-    .content-section div{
-        height: 34px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .content-section img{
-        height: 24px;
-        object-fit: contain;
-    }
-
-    .content-section:hover{
-        cursor: pointer;
-        background-color: #091931;
-    }
-
-    .active-content-section{
-        background-color: #091931;
-    }
 
     .content-destop{
         display: none;
@@ -273,12 +206,17 @@ body{
         box-sizing: border-box;
         width: 100%;
         height:calc(100vh - 159px);
+        overflow-y: scroll;
         top: 79px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .headline-mobile{
         margin-top: 32px;
-        margin-left: 32px;
+        margin-left: 16px;
+        align-self: flex-start;
     }
 
     .headline-mobile h1{
@@ -288,6 +226,80 @@ body{
 
     .summary-information-mobile{
         padding: 16px;
-        margin-top: 48px;
+        margin-top: 32px;
+        height: 481px;
+        width: 447px;
+    }
+
+    .first-row div{
+        height: 125px;
+        width: 125px;
+    }
+
+    .second-row{
+        height: 110px;
+        margin: 35px 0px;
+    }
+
+    .third-row div{
+        height: 110px;
+        width: 200px;
+    }
+
+    .content-div-row-3-mobile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50% !important;
+    }
+
+    .third-row img{
+        margin: 0;
+    }
+
+
+
+}
+
+@media(max-width: 500px){
+
+    .summary-information-mobile{
+        height: unset;
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }    
+
+    .first-row div{
+        height: 120px;
+        width: 29%;
+    }
+
+    .first-row span{
+        font-size: 14px;
+    }
+
+    .second-row{
+        height: 105px;
+    }
+
+    .upcoming-deadline{
+        padding-left: 10%;
+    }
+
+    .third-row div{
+        height: 120px;
+        width: 47%;
+    }
+
+    .third-row img{
+        margin: 0;
+    }
+
+    .content-div-row-3-mobile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
     }
 }
