@@ -3,6 +3,25 @@ body {
     font-family: 'Inter';
 }
 
+.content-destop{
+    width: 100%;
+    min-width: 1024px;
+    height: 100vh;
+    display: flex;
+    font-family: Inter;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.inner-content{
+    background-color: #F6F7F8;
+    position: relative;
+    left: 232px;
+    top: 89px;
+    height: calc(100vh - 89px);
+    width: calc(100% - 232px);
+}
+
 h3 {
     font-size: 20px;
     font-weight: 400;
@@ -237,3 +256,8 @@ margin-top: 30px;
     height: 45px;
 }
 
+@media (max-width: 1024px) {
+    .content-destop{
+        display: none;
+    }
+}

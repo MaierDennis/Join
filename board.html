@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="board.css">
     <link rel="stylesheet" href="fonts.css">
     <title>Join - Board</title>
+
+    <script src="script.js"></script>
 </head>
 
-<body id="body">
+<body id="body" onload="render('board')">
     <div class="side-menu">
 
     </div>
@@ -24,56 +26,97 @@
     </div>
 
     <div id="card-container" class="card-container d-none">
-        
-    
+
+
     </div>
-    
 
+    <div w3-include-html="assets/templates/mobile_template.html"></div>
 
-    <div class="content">
-
-        <div class="heading-search-add">
-            <h1 class="main-heading">Board</h1>
-            <div class="input-and-button-container">
-                <div class="board-input-container">
-                    <input class="board-inputfield" type="text" placeholder="Find Task">
-                    <div style="display: flex ;">
-                        <span class="vertical-line">|</span>
-                        <img class="search-icon" src="assets/img/search-icon.svg" alt="">
+    <div class="content-destop">
+        <div w3-include-html="assets/templates/destop_template.html"></div>
+        <div class="inner-content">
+            <div class="heading-search-add">
+                <h1 class="main-heading">Board</h1>
+                <div class="input-and-button-container">
+                    <div class="board-input-container">
+                        <input class="board-inputfield" type="text" placeholder="Find Task">
+                        <div style="display: flex ;">
+                            <span class="vertical-line">|</span>
+                            <img class="search-icon" src="assets/img/search-icon.svg" alt="">
+                        </div>
                     </div>
+                    <button class="add-task-btn">Add task <img style="margin-left: 5px; height: 15px; width: 15px;"
+                            src="assets/img/plus-icon.svg"> </button>
                 </div>
-                <button class="add-task-btn">Add task <img style="margin-left: 5px; height: 15px; width: 15px;" src="assets/img/plus-icon.svg"> </button>
             </div>
-        </div>
 
-        <div class="tasks-container">
+            <div class="tasks-container">
 
-            <div class="task">
+                <div class="task">
 
-                <div class="tasks-heading">
-                    <h3>To do</h3>
-                    <span class="plus-icon">+</span>
-                </div>
+                    <div class="tasks-heading">
+                        <h3>To do</h3>
+                        <span class="plus-icon">+</span>
+                    </div>
 
-                <div class="tasks-main">
+                    <div class="tasks-main">
 
-                    <div class="task-card">
-                        
-                        <span class="card-category design">Design</span>
+                        <div class="task-card">
 
-                        <span class="card-title">Website redesign</span>
+                            <span class="card-category design">Design</span>
 
-                        <span class="card-description">Modify the contents of the main website...</span>
+                            <span class="card-title">Website redesign</span>
 
-                        <div class="card-bottom">
-                            
-                            <div class="contributors-container">
-                                <span class="contributors blue">AM</span>
-                                <span class="contributors purple">BS</span>
+                            <span class="card-description">Modify the contents of the main website...</span>
+
+                            <div class="card-bottom">
+
+                                <div class="contributors-container">
+                                    <span class="contributors blue">AM</span>
+                                    <span class="contributors purple">BS</span>
+
+                                </div>
+
+                                <img src="assets/img/low.svg" alt="">
 
                             </div>
-                            
-                            <img src="assets/img/low.svg" alt="">
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="task">
+
+                    <div class="tasks-heading">
+                        <h3>In progress</h3>
+                        <span class="plus-icon">+</span>
+                    </div>
+
+                    <div class="tasks-main">
+
+                        <div onclick="openCard()" class="task-card">
+
+                            <span class="card-category sales">Sales</span>
+
+                            <span class="card-title">Call potential clients</span>
+
+                            <span class="card-description">Present product to prespective clients...</span>
+
+                            <div class="card-bottom">
+
+                                <div class="contributors-container">
+                                    <span class="contributors yellow-dark">DM</span>
+                                    <span class="contributors lila">NM</span>
+                                    <span class="contributors orange">SV</span>
+                                </div>
+
+                                <img src="assets/img/low.svg" alt="">
+
+                            </div>
+
 
                         </div>
 
@@ -82,76 +125,39 @@
 
                 </div>
 
-            </div>
+                <div class="task">
 
-            <div class="task">
+                    <div class="tasks-heading">
+                        <h3>Awaiting feedback</h3>
+                        <span class="plus-icon">+</span>
+                    </div>
 
-                <div class="tasks-heading">
-                    <h3>In progress</h3>
-                    <span class="plus-icon">+</span>
-                </div>
-
-                <div class="tasks-main">
-                    
-                    <div onclick="openCard()" class="task-card">
-                        
-                        <span class="card-category sales">Sales</span>
-
-                        <span class="card-title">Call potential clients</span>
-
-                        <span class="card-description">Present product to prespective clients...</span>
-
-                        <div class="card-bottom">
-                            
-                            <div class="contributors-container">
-                                <span class="contributors yellow-dark">DM</span>
-                                <span class="contributors lila">NM</span>
-                                <span class="contributors orange">SV</span>
-                            </div>
-                            
-                            <img src="assets/img/low.svg" alt="">
-
-                        </div>
-
+                    <div class="tasks-main">
 
                     </div>
 
+                </div>
+
+                <div class="task">
+
+                    <div class="tasks-heading">
+                        <h3>Done</h3>
+                        <span class="plus-icon">+</span>
+                    </div>
+
+                    <div class="tasks-main">
+
+                    </div>
 
                 </div>
+
 
             </div>
-
-            <div class="task">
-
-                <div class="tasks-heading">
-                    <h3>Awaiting feedback</h3>
-                    <span class="plus-icon">+</span>
-                </div>
-
-                <div class="tasks-main">
-
-                </div>
-
-            </div>
-
-            <div class="task">
-
-                <div class="tasks-heading">
-                    <h3>Done</h3>
-                    <span class="plus-icon">+</span>
-                </div>
-
-                <div class="tasks-main">
-
-                </div>
-
-            </div>
-
-
         </div>
     </div>
 
 </body>
 
 <script src="board.js"></script>
+
 </html>

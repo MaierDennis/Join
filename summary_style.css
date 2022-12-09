@@ -8,7 +8,6 @@ body{
 .content-destop{
     width: 100%;
     min-width: 1024px;
-    max-width: 1280px;
     height: 100vh;
     display: flex;
     font-family: Inter;
@@ -19,10 +18,10 @@ body{
 .inner-content{
     background-color: #F6F7F8;
     position: relative;
-    left: 16%;
+    left: 232px;
     top: 89px;
     height: calc(100vh - 89px);
-    width: 84%;
+    width: calc(100% - 232px);
 }
 
 .headline{
@@ -175,7 +174,7 @@ body{
     align-items: center;
     justify-content: center;
     color: #2A3647;
-    font-size: 48px;
+    font-size: 46px;
     padding-left: 7%;
 }
 

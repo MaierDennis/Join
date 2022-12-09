@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join - Add task</title>
     <link rel="shortcut icon" href="assets/img/logo_lefter.png" type="image/x-icon">
+    <link rel="stylesheet" href="add_task.css">
+
+    <script src="script.js"></script>
 </head>
-<body>
-    <h1>Add task</h1>
-    
+
+<body onload="render('addtask')">
+
+    <div w3-include-html="assets/templates/mobile_template.html"></div>
+
+    <div class="content-destop">
+        <div w3-include-html="assets/templates/destop_template.html"></div>
+        <div class="inner-content">
+            <h1>Add task</h1>
+        </div>
+    </div>
+
 </body>
+
 </html>

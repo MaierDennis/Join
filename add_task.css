@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+}
+
+.content-destop{
+    width: 100%;
+    min-width: 1024px;
+    height: 100vh;
+    display: flex;
+    font-family: Inter;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.inner-content{
+    background-color: #F6F7F8;
+    position: relative;
+    left: 232px;
+    top: 89px;
+    height: calc(100vh - 89px);
+    width: calc(100% - 232px);
+}

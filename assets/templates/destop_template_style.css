@@ -5,7 +5,7 @@
         top: 0;
         left: 0;
         background-color: #2A3647;
-        width: 16%;
+        width: 232px;
         height: 100vh;
         box-sizing: border-box;
         display: flex;
@@ -58,8 +58,8 @@
         position: absolute;
         top: 0;
         right: 0;
+        left: 232px;
         background-color: white;
-        width: 84%;
         height: 89px;
         display: flex;
         align-items: center;

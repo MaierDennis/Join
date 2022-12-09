@@ -13,166 +13,178 @@
 
     <link rel="stylesheet" href="contacts_style.css">
     <link rel="stylesheet" href="fonts.css">
+
+    <script src="script.js"></script>
 </head>
 
-<body>
-    <div class="complete-page">
-        <div class="all-contacts">
+<body onload="render('contacts')">
 
-            <div class="alphabet-box">
-                <div class="first-letter-box">
-                    <h3>A</h3>
+    <div w3-include-html="assets/templates/mobile_template.html"></div>
+
+    <div class="content-destop">
+        <div w3-include-html="assets/templates/destop_template.html"></div>
+        <div class="inner-content">
+            <div class="complete-page">
+                <div class="all-contacts">
+
+                    <div class="alphabet-box">
+                        <div class="first-letter-box">
+                            <h3>A</h3>
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="single-contact">
+                            <div class="initials">DM</div>
+                            <div class="name-email">
+                                <div class="name-small">Dennis Maier</div>
+                                <div class="email-small">test123@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="single-contact">
+                            <div class="initials">DM</div>
+                            <div class="name-email">
+                                <div class="name-small">Dennis Maier</div>
+                                <div class="email-small">test123@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alphabet-box">
+                        <div class="first-letter-box">
+                            <h3>B</h3>
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="single-contact">
+                            <div class="initials">DM</div>
+                            <div class="name-email">
+                                <div class="name-small">Dennis Maier</div>
+                                <div class="email-small">test123@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="single-contact">
+                            <div class="initials">DM</div>
+                            <div class="name-email">
+                                <div class="name-small">Dennis Maier</div>
+                                <div class="email-small">test123@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alphabet-box">
+                        <div class="first-letter-box">
+                            <h3>C</h3>
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="single-contact">
+                            <div class="initials">DM</div>
+                            <div class="name-email">
+                                <div class="name-small">Dennis Maier</div>
+                                <div class="email-small">test123@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="single-contact">
+                            <div class="initials">DM</div>
+                            <div class="name-email">
+                                <div class="name-small">Dennis Maier</div>
+                                <div class="email-small">test123@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alphabet-box">
+                        <div class="first-letter-box">
+                            <h3>D</h3>
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="single-contact">
+                            <div class="initials">DM</div>
+                            <div class="name-email">
+                                <div class="name-small">Dennis Maier</div>
+                                <div class="email-small">test123@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="single-contact">
+                            <div class="initials">DM</div>
+                            <div class="name-email">
+                                <div class="name-small">Dennis Maier</div>
+                                <div class="email-small">test123@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alphabet-box">
+                        <div class="first-letter-box">
+                            <h3>E</h3>
+                        </div>
+
+                        <div class="line"></div>
+
+                        <div class="single-contact">
+                            <div class="initials">DM</div>
+                            <div class="name-email">
+                                <div class="name-small">Dennis Maier</div>
+                                <div class="email-small">test123@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="single-contact">
+                            <div class="initials">DM</div>
+                            <div class="name-email">
+                                <div class="name-small">Dennis Maier</div>
+                                <div class="email-small">test123@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </div>
 
-                <div class="line"></div>
+                <div class="complete-contact">
+                    <div class="this-contact">
+                        <div class="head">
+                            <div class="headline-contacts">
+                                <h1>Contacts</h1>
+                            </div>
+                            <div class="horizontal-line"></div>
+                            <div class="motivation"><span>Better with a team</span></div>
+                        </div>
 
-                <div class="single-contact">
-                    <div class="initials">DM</div>
-                    <div class="name-email">
-                        <div class="name-small">Dennis Maier</div>
-                        <div class="email-small">test123@gmail.com</div>
+                        <div class="name">
+                            <div class="initials-big">DM</div>
+                            <div class="name-addTask">
+                                <div class="name-big">
+                                    <h2>Dennis Maier</h2>
+                                </div>
+                                <div class="addTask-button">+ Add Task</div>
+                            </div>
+                        </div>
+
+                        <div class="contact-information">
+                            <div class="heading-information"> <span>Contact Information</span></div>
+                            <div class="edit-contact"> <img src="assets/img/pencil.png"><span>Edit Contact</span></div>
+                        </div>
+
+                        <div class="email-div">
+                            <div class="contact-variant">Email</div>
+                            <div class="email-adress">test123@gmail.com</div>
+                        </div>
+
+                        <div class="phone-div">
+                            <div class="contact-variant">Phone</div>
+                            <div class="phone-number">+01 1234 567 89</div>
+                        </div>
+
+                        <div class="new-contact-button"><img src="assets/img/New_Contact_Button.png"></div>
+
                     </div>
                 </div>
-                <div class="single-contact">
-                    <div class="initials">DM</div>
-                    <div class="name-email">
-                        <div class="name-small">Dennis Maier</div>
-                        <div class="email-small">test123@gmail.com</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="alphabet-box">
-                <div class="first-letter-box">
-                    <h3>B</h3>
-                </div>
-
-                <div class="line"></div>
-
-                <div class="single-contact">
-                    <div class="initials">DM</div>
-                    <div class="name-email">
-                        <div class="name-small">Dennis Maier</div>
-                        <div class="email-small">test123@gmail.com</div>
-                    </div>
-                </div>
-                <div class="single-contact">
-                    <div class="initials">DM</div>
-                    <div class="name-email">
-                        <div class="name-small">Dennis Maier</div>
-                        <div class="email-small">test123@gmail.com</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="alphabet-box">
-                <div class="first-letter-box">
-                    <h3>C</h3>
-                </div>
-
-                <div class="line"></div>
-
-                <div class="single-contact">
-                    <div class="initials">DM</div>
-                    <div class="name-email">
-                        <div class="name-small">Dennis Maier</div>
-                        <div class="email-small">test123@gmail.com</div>
-                    </div>
-                </div>
-                <div class="single-contact">
-                    <div class="initials">DM</div>
-                    <div class="name-email">
-                        <div class="name-small">Dennis Maier</div>
-                        <div class="email-small">test123@gmail.com</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="alphabet-box">
-                <div class="first-letter-box">
-                    <h3>D</h3>
-                </div>
-
-                <div class="line"></div>
-
-                <div class="single-contact">
-                    <div class="initials">DM</div>
-                    <div class="name-email">
-                        <div class="name-small">Dennis Maier</div>
-                        <div class="email-small">test123@gmail.com</div>
-                    </div>
-                </div>
-                <div class="single-contact">
-                    <div class="initials">DM</div>
-                    <div class="name-email">
-                        <div class="name-small">Dennis Maier</div>
-                        <div class="email-small">test123@gmail.com</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="alphabet-box">
-                <div class="first-letter-box">
-                    <h3>E</h3>
-                </div>
-
-                <div class="line"></div>
-
-                <div class="single-contact">
-                    <div class="initials">DM</div>
-                    <div class="name-email">
-                        <div class="name-small">Dennis Maier</div>
-                        <div class="email-small">test123@gmail.com</div>
-                    </div>
-                </div>
-                <div class="single-contact">
-                    <div class="initials">DM</div>
-                    <div class="name-email">
-                        <div class="name-small">Dennis Maier</div>
-                        <div class="email-small">test123@gmail.com</div>
-                    </div>
-                </div>
-            </div>
-
-
-
-        </div>
-
-        <div class="complete-contact">
-            <div class="this-contact">
-                <div class="head">
-                    <div class="headline-contacts">
-                        <h1>Contacts</h1>
-                    </div>
-                    <div class="horizontal-line"></div>
-                    <div class="motivation"><span>Better with a team</span></div>
-                </div>
-
-                <div class="name">
-                    <div class="initials-big">DM</div>
-                    <div class="name-addTask">
-                        <div class="name-big"><h2>Dennis Maier</h2></div>
-                        <div class="addTask-button">+ Add Task</div>
-                    </div>
-                </div>
-
-                <div class="contact-information">
-                    <div class="heading-information"> <span>Contact Information</span></div>
-                    <div class="edit-contact"> <img src="assets/img/pencil.png"><span>Edit Contact</span></div>
-                </div>
-
-                <div class="email-div">
-                    <div class="contact-variant">Email</div>
-                    <div class="email-adress">test123@gmail.com</div>
-                </div>
-
-                <div class="phone-div">
-                    <div class="contact-variant">Phone</div>
-                    <div class="phone-number">+01 1234 567 89</div>
-                </div>
-
-                <div class="new-contact-button"><img src="assets/img/New_Contact_Button.png"></div>
-
             </div>
         </div>
 
