@@ -2,3 +2,17 @@ body{
     margin: 0;
 }
 
+.content-mobile{
+    display: none;
+}
+
+@media(max-width: 1024px){
+
+    .content-destop{
+        display: none;
+    }
+
+    .content-mobile{
+        display: unset;
+    }
+}

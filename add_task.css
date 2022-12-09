@@ -21,8 +21,16 @@ body{
     width: calc(100% - 232px);
 }
 
+.content-mobile{
+    display: none;
+}
+
 @media(max-width: 1024px){
     .content-destop{
         display: none;
+    }
+
+    .content-mobile{
+        display: unset;
     }
 }
