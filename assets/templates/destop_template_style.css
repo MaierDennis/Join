@@ -80,9 +80,17 @@
         height: 31px;
         margin-right: 24px;
     }
+
+    .questionmark-topper:hover{
+        cursor: pointer;
+    }
     
     .profile-pic{
         border-radius: 100%;
         border: 1px solid black;
+    }
+
+    .d-none{
+        display: none;
     }
 }

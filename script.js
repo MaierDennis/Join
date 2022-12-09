@@ -42,3 +42,17 @@ function setActiveSection(currentSection){
         document.getElementById('summary-section-mobile').classList.add('active-content-section');
     }
 }
+
+/*on help button clicked destop template*/
+function showHelp(){
+    document.getElementById('inner-content').classList.add('d-none');
+    document.getElementById('help-content').classList.remove('d-none');
+    document.getElementById('help-button').classList.add('d-none');
+}
+
+/* hide help page*/
+function hideHelp(){
+    document.getElementById('inner-content').classList.remove('d-none');
+    document.getElementById('help-content').classList.add('d-none');
+    document.getElementById('help-button').classList.remove('d-none');
+}

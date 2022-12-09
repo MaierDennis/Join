@@ -79,4 +79,8 @@
     .active-content-section{
         background-color: #091931;
     }
+
+    .d-none{
+        display: none;
+    }
 }
