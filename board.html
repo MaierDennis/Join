@@ -23,12 +23,55 @@
 
     <div id="overlay" class="overlay d-none" onclick="closeCard()">
 
+        <div id="card-container" class="card-container d-none">
+
+            <img class="close-overlay-btn" src="assets/img/close.svg" alt="">
+            <button class="edit-overlay-btn"><img src="assets/img/pencil.svg" alt=""></button>
+
+            <span class="card-category-big sales">Sales</span>
+
+            <span class="card-title-big">Call potential clients</span>
+
+            <span class="card-description-big">Present product to prospective clients...</span>
+
+            <div class="due-date-prio">
+                <span style="font-weight:bold; margin-right: 50px;">Due date:</span>
+                <span> 05-08-2022 </span>
+            </div>
+
+            <div class="due-date-prio">
+                <span style="font-weight:bold; margin-right: 50px;">Priority:</span>
+                <span><img src="assets/img/urgent-filled.svg" alt=""></span>
+            </div>
+
+            <div class="assigned">
+
+                <span class="due-date-prio" style="font-weight:bold;">Assigned to:</span>
+
+                <div class="contributor-container">
+                    <span class="contributors-circle-big yellow-dark" style="margin-right: 32px;">DM</span>
+                    <span class="due-date-prio" style="margin-bottom: 0 !important ;" >Dennis Maier</span>
+                </div>
+                
+                <div class="contributor-container">
+                    <span class="contributors-circle-big lila" style="margin-right: 32px;">NM</span>
+                    <span class="due-date-prio" style="margin-bottom: 0 !important ;" >Niclas Michel</span>
+                </div>
+                
+                <div class="contributor-container">
+                    <span class="contributors-circle-big orange" style="margin-right: 32px;">SV</span>
+                    <span class="due-date-prio" style="margin-bottom: 0 !important ;" >Simon Vitt</span>
+                </div>
+
+            </div>
+
+
+        </div>
+
     </div>
 
-    <div id="card-container" class="card-container d-none">
 
 
-    </div>
 
     <div w3-include-html="assets/templates/mobile_template.html"></div>
 
@@ -72,8 +115,8 @@
                             <div class="card-bottom">
 
                                 <div class="contributors-container">
-                                    <span class="contributors blue">AM</span>
-                                    <span class="contributors purple">BS</span>
+                                    <span class="contributors-circle blue">AM</span>
+                                    <span class="contributors-circle purple">BS</span>
 
                                 </div>
 
@@ -108,9 +151,9 @@
                             <div class="card-bottom">
 
                                 <div class="contributors-container">
-                                    <span class="contributors yellow-dark">DM</span>
-                                    <span class="contributors lila">NM</span>
-                                    <span class="contributors orange">SV</span>
+                                    <span class="contributors-circle yellow-dark">DM</span>
+                                    <span class="contributors-circle lila">NM</span>
+                                    <span class="contributors-circle orange">SV</span>
                                 </div>
 
                                 <img src="assets/img/low.svg" alt="">
