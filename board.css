@@ -26,15 +26,6 @@ body {
     width: calc(100% - 232px);
 }
 
-/*.content {
-
-    display: flex;
-    flex-direction: column;
-    margin-top: 150px;
-    width: 80%;
-    align-items: center;
-}*/
-
 .main-heading {
     font-size: 61px;
     font-weight: 700;

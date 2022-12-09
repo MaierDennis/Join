@@ -20,3 +20,9 @@ body{
     height: calc(100vh - 89px);
     width: calc(100% - 232px);
 }
+
+@media(max-width: 1024px){
+    .content-destop{
+        display: none;
+    }
+}
