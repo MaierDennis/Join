@@ -92,7 +92,7 @@ body {
 
 .login-head {
     position: absolute;
-    top: 10%;
+    top: 6%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -108,6 +108,7 @@ body {
     color: rgb(255, 255, 255);
     border-radius: 5px;
     margin-left: 5%;
+    border: none;
 }
 
 .login-area {
