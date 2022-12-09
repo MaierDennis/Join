@@ -9,9 +9,10 @@ body {
 
 .content-destop{
     width: 100%;
-    min-width: 1024px;
+    /* min-width: 1024px; */
     height: 100vh;
     display: flex;
+    justify-content: center;
     font-family: Inter;
     box-sizing: border-box;
     position: relative;
@@ -23,7 +24,7 @@ body {
     left: 232px;
     top: 89px;
     height: calc(100vh - 89px);
-    width: calc(100% - 232px);
+    /* width: calc(100% - 232px); */
 }
 
 .main-heading {
@@ -169,7 +170,7 @@ body {
     gap: 10px;
     margin-bottom: 10px;
 
-    width: 100px;
+    width: 50%;
     height: 27px;
 
     background: #FF7A00;
@@ -312,7 +313,7 @@ body {
     object-fit: contain;
     background-color: white;
     /* padding: 20px; */
-    right: 25%;
+    right: 28%;
     /* left: 15%; */
 
 }
@@ -325,8 +326,13 @@ body {
     overflow-y: unset !important;
 }
 
+
+
+/* MOBILE VERSION */
+
+
 @media(max-width: 1024px){
-    .content-destop{
+    /* .content-destop{
         display: none;
-    }
+    } */
 }
