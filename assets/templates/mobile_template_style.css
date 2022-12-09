@@ -47,7 +47,7 @@
         justify-content: space-evenly;
     }
 
-    .content-section{
+    .content-section-mobile{
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -59,19 +59,19 @@
         padding: 10px 0px;
     }
 
-    .content-section div{
+    .content-section-mobile div{
         height: 34px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    .content-section img{
+    .content-section-mobile img{
         height: 24px;
         object-fit: contain;
     }
 
-    .content-section:hover{
+    .content-section-mobile:hover{
         cursor: pointer;
         background-color: #091931;
     }

@@ -18,52 +18,6 @@ body {
     position: relative;
 }
 
-/* help page start*/
-.help-content{
-    background-color: #F6F7F8;
-    position: relative;
-    left: 232px;
-    top: 89px;
-    height: calc(100vh - 89px);
-    width: calc(100% - 232px);
-    padding: 80px;
-    box-sizing: border-box;
-}
-
-.help-content img{
-    position: absolute;
-    top: 80px;
-    right: 80px;
-}
-
-.help-content img:hover{
-    cursor: pointer;
-}
-
-.help-content h1{
-    margin: 0;
-    font-size: 48px;
-    margin-bottom: 40px;
-}
-
-.help-table{
-    margin-top: 44px;
-}
-
-
-.help-table div{
-    display: flex;
-    align-items: center;
-}
-
-.help-table span{
-    font-size: 24px;
-    font-weight: bold;
-    margin-right: 24px ;
-}
-
-/* help page end*/
-
 .inner-content {
     background-color: #F6F7F8;
     position: relative;
