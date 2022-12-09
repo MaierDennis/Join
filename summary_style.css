@@ -15,6 +15,49 @@ body{
     position: relative;
 }
 
+.help-content{
+    background-color: #F6F7F8;
+    position: relative;
+    left: 232px;
+    top: 89px;
+    height: calc(100vh - 89px);
+    width: calc(100% - 232px);
+    padding: 80px;
+    box-sizing: border-box;
+}
+
+.help-content img{
+    position: absolute;
+    top: 80px;
+    right: 80px;
+}
+
+.help-content img:hover{
+    cursor: pointer;
+}
+
+.help-content h1{
+    margin: 0;
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+.help-table{
+    margin-top: 44px;
+}
+
+
+.help-table div{
+    display: flex;
+    align-items: center;
+}
+
+.help-table span{
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 24px ;
+}
+
 .inner-content{
     background-color: #F6F7F8;
     position: relative;
@@ -38,9 +81,10 @@ body{
 }
 
 .headline img{
-    height: 60px;
+    height: 2px;
     object-fit: contain;
     margin: 0px 30px;
+    transform: rotate(90deg);
 }
 
 .headline span{
@@ -80,6 +124,11 @@ body{
     text-align: center;
 }
 
+.first-row div:hover{
+    cursor: pointer;
+    filter: brightness(0.7);
+}
+
 .first-row h2{
     font-size: 48px;
     margin: 0;
@@ -103,6 +152,11 @@ body{
 .second-row div{
     display: flex;
     align-items: center;
+}
+
+.second-row:hover{
+    cursor: pointer;
+    filter: brightness(0.7);
 }
 
 .urgent-tasks{
@@ -152,9 +206,15 @@ body{
     justify-content: center;
 }
 
+.third-row div:hover{
+    cursor: pointer;
+    filter: brightness(0.7);
+}
+
 .content-div-row-3{
     flex-direction: column;
     width: unset !important;
+    pointer-events: none;
 }
 
 .third-row img{
@@ -216,6 +276,14 @@ body{
         margin-top: 32px;
         margin-left: 16px;
         align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .headline-mobile img{
+        width: 100px;
+        object-fit: contain;
+        margin-top: 32px;
     }
 
     .headline-mobile h1{
@@ -225,7 +293,7 @@ body{
 
     .summary-information-mobile{
         padding: 16px;
-        margin-top: 32px;
+        margin-top: 4px;
         height: 481px;
         width: 447px;
     }
@@ -250,6 +318,7 @@ body{
         flex-direction: column;
         align-items: center;
         width: 50% !important;
+        pointer-events: none;
     }
 
     .third-row img{
