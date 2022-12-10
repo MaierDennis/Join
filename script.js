@@ -62,11 +62,11 @@ function hideHelp(){
 /*show LogoutButton*/
 function showLogout(){
     document.getElementById('logout-button').classList.remove('d-none');
-    document.getElementById('logout-button-mobile').classList.remove('d-none');
+    document.getElementById('options-mobile').classList.remove('d-none');
 }
 
 /*hide LogoutButton*/
 function hideLogout(){
     document.getElementById('logout-button').classList.add('d-none');
-    document.getElementById('logout-button-mobile').classList.add('d-none');
+    document.getElementById('options-mobile').classList.add('d-none');
 }
