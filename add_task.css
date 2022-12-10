@@ -19,10 +19,100 @@ body{
     top: 89px;
     height: calc(100vh - 89px);
     width: calc(100% - 232px);
+    padding: 48px 80px;
+    box-sizing: border-box;
 }
 
 .content-mobile{
     display: none;
+}
+
+.inner-content h1{
+    font-size: 52px;
+    margin: 0;
+    margin-bottom: 32px;
+}
+
+.inner-content form{
+    display: flex;
+}
+
+.divContentAddtask{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 16px 24px;
+}
+
+input{
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid rgb(214, 214, 214);
+    margin-left: 8px;
+}
+
+input:focus{
+    outline: none;
+}
+
+textarea{
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid rgb(214, 214, 214);
+    margin-left: 8px;
+    resize: none;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+select{
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid rgb(214, 214, 214);
+    margin-left: 8px;
+}
+
+.divContentAddtask span{
+    margin-top: 24px;
+    margin-bottom: 6px;
+}
+
+.choosePriority{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.choosePriority img{
+    object-fit: contain;
+    width: 16px;
+    margin-left: 8px;
+}
+
+.choosePriority span{
+    margin: 0;
+}
+
+.choosePriority div{
+    width: 100px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-button{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
 
 @media(max-width: 1024px){

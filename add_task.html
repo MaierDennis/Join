@@ -8,6 +8,7 @@
     <title>Join - Add task</title>
     <link rel="shortcut icon" href="assets/img/logo_lefter.png" type="image/x-icon">
     <link rel="stylesheet" href="add_task.css">
+    <link rel="stylesheet" href="fonts.css">
 
     <script src="script.js"></script>
 </head>
@@ -21,6 +22,59 @@
         <div w3-include-html="assets/templates/help_template.html"></div>
         <div class="inner-content" id="inner-content">
             <h1>Add task</h1>
+            <form action="">
+                <div class="divContentAddtask" style="border-right: 1px solid rgb(186, 186, 186); padding-left: 0;">
+                    <span style="margin-top: 0;">Title</span>
+                    <input placeholder="Enter a title">
+                    <span>Description</span>
+                    <textarea placeholder="Enter a description"></textarea>
+                    <span>Category</span>
+                    <select>
+                        <option value="" disabled selected>Select task category</option>
+                        <option>New Category</option>
+                        <option value="sales">Sales</option>
+                        <option value="backoffice">Backoffice</option>
+                    </select>
+                    <span>Assigned to</span>
+                    <select>
+                        <option value="" disabled selected>Select contacts to assign</option>
+                        <option>You</option>
+                        <option value="content 1">Contact 1</option>
+                        <option>Invite new contact</option>
+                    </select>
+                </div>
+                <div class="divContentAddtask">
+                    <span style="margin-top: 0;">Due date</span>
+                    <input type="date">
+                    <span>Prio</span>
+                    <div class="choosePriority">
+                        <div>
+                            <span>Urgent</span>
+                            <img src="assets/img/addTaskUrgentSymbol.svg">
+                        </div>
+                        <div>
+                            <span>Medium</span>
+                            <img src="assets/img/addTaskMediumSymbol.svg">
+                        </div>
+                        <div>
+                            <span>Low</span>
+                            <img src="assets/img/addTaskLowSymbol.svg">
+                        </div>
+                    </div>
+                    <span>Subtasks</span>
+                    <input>
+                    <div>
+                        <div>
+                            <input type="checkbox">
+                            <span>Subtask 1</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="div-button">
+                <button>Clear</button>
+                <button>Create Task</button>
+            </div>
         </div>
     </div>
 
