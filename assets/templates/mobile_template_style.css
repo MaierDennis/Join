@@ -47,11 +47,17 @@
         justify-content: space-evenly;
     }
 
+    .footer a{
+        text-decoration: none;
+        height: 100%;
+        width: 24%;
+    }
+
     .content-section-mobile{
         display: flex;
         flex-direction: column;
         height: 100%;
-        width: 24%;
+        width: 100%;
         color: white;
         box-sizing: border-box;
         align-items: center;

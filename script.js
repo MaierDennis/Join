@@ -27,19 +27,19 @@ function setActiveSection(currentSection){
     }
     if(currentSection == 'board'){
         document.getElementById('board-section').classList.add('active-content-section');
-        document.getElementById('summary-section-mobile').classList.add('active-content-section');
+        document.getElementById('board-section-mobile').classList.add('active-content-section');
     }
     if(currentSection == 'addtask'){
         document.getElementById('addtask-section').classList.add('active-content-section');
-        document.getElementById('summary-section-mobile').classList.add('active-content-section');
+        document.getElementById('addtask-section-mobile').classList.add('active-content-section');
     }
     if(currentSection == 'contacts'){
         document.getElementById('contacts-section').classList.add('active-content-section');
-        document.getElementById('summary-section-mobile').classList.add('active-content-section');
+        document.getElementById('contacts-section-mobile').classList.add('active-content-section');
     }
     if(currentSection == 'legalnotice'){
         document.getElementById('legalnotice-section').classList.add('active-content-section');
-        document.getElementById('summary-section-mobile').classList.add('active-content-section');
+        document.getElementById('legalnotice-section-mobile').classList.add('active-content-section');
     }
 }
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,46 +9,62 @@
     <link rel="stylesheet" href="assets/templates/destop_template_style.css">
     <script src="script.js"></script>
 </head>
+
 <body>
     <div class="nav-bar">
-        <img src="assets/img/logo_lefter.svg">
-        <div class="content-section" style="margin-top: 100px;" id="summary-section">
-            <div>
-                <img src="assets/img/icon-summary.svg">
+        <a href="summary.html">
+            <img src="assets/img/logo_lefter.svg">
+            <div class="content-section" style="margin-top: 100px;" id="summary-section">
+                <div>
+                    <img src="assets/img/icon-summary.svg">
+                </div>
+                <span>Summary</span>
             </div>
-            <span>Summary</span>
-        </div>
-        <div class="content-section" id="board-section">
-            <div>
-                <img src="assets/img/icon-board.svg">
+        </a>
+        <a href="board.html">
+            <div class="content-section" id="board-section">
+                <div>
+                    <img src="assets/img/icon-board.svg">
+                </div>
+                <span>Board</span>
             </div>
-            <span>Board</span>
-        </div>
-        <div class="content-section" id="addtask-section">
-            <div>
-                <img src="assets/img/icon-addtask.svg">
+        </a>
+        <a href="add_task.html">
+            <div class="content-section" id="addtask-section">
+                <div>
+                    <img src="assets/img/icon-addtask.svg">
+                </div>
+                <span>Add Task</span>
             </div>
-            <span>Add Task</span>
-        </div>
-        <div class="content-section" id="contacts-section">
-            <div>
-                <img src="assets/img/icon-contacts.svg">
+        </a>
+        <a href="contacts.html">
+            <div class="content-section" id="contacts-section">
+                <div>
+                    <img src="assets/img/icon-contacts.svg">
+                </div>
+                <span>Contacts</span>
             </div>
-            <span>Contacts</span>
-        </div>
-        <div class="content-section" style="margin-top: 180px;" id="legalnotice-section">
-            <div>
-                <img src="assets/img/icon-info.svg">
+        </a>
+        <a href="legal_notice.html">
+            <div class="content-section" style="margin-top: 180px;" id="legalnotice-section">
+                <div>
+                    <img src="assets/img/icon-info.svg">
+                </div>
+                <span>Legal notice</span>
             </div>
-            <span>Legal notice</span>
-        </div>
+        </a>
     </div>
     <div class="topper">
         <span style="font-size: small;">Kanban Project Management Tool</span>
         <div class="img-topper">
-            <img src="assets/img/questionmark_topper.svg" onclick="showHelp()" id="help-button" class="questionmark-topper">
-            <img src="assets/img/profile_pic.svg" class="profile-pic">
+            <img src="assets/img/questionmark_topper.svg" onclick="showHelp()" id="help-button"
+                class="questionmark-topper">
+            <img src="assets/img/profile_pic.svg" onclick="showLogout()" class="profile-pic">
         </div>
     </div>
+    <div class="logoutButton">
+
+    </div>
 </body>
+
 </html>
