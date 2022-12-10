@@ -58,3 +58,15 @@ function hideHelp(){
     document.getElementById('help-content-mobile').classList.add('d-none');
     document.getElementById('help-button').classList.remove('d-none');
 }
+
+/*show LogoutButton*/
+function showLogout(){
+    document.getElementById('logout-button').classList.remove('d-none');
+    document.getElementById('logout-button-mobile').classList.remove('d-none');
+}
+
+/*hide LogoutButton*/
+function hideLogout(){
+    document.getElementById('logout-button').classList.add('d-none');
+    document.getElementById('logout-button-mobile').classList.add('d-none');
+}
