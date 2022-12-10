@@ -69,7 +69,8 @@ body{
     justify-content: space-between;
 }
 
-.first-row div{
+.first-row a{
+    text-decoration: none;
     width: 29%;
     aspect-ratio: 1 / 1;
     display: flex;
@@ -78,12 +79,16 @@ body{
     align-items: center;
     border-radius: 30px;
     background-color: white;
+    color: black;
     text-align: center;
 }
 
-.first-row div:hover{
+.first-row a:hover{
     cursor: pointer;
-    filter: brightness(0.7);
+    transform: scale(1.1);
+    background-color: #2A3647;
+    color: white;
+    transition: 225ms ease-in-out;
 }
 
 .first-row h2{
@@ -104,6 +109,8 @@ body{
     background-color: white;
     display: flex;
     align-items: center;
+    text-decoration: none;
+    color: black;
 }
 
 .second-row div{
@@ -113,7 +120,10 @@ body{
 
 .second-row:hover{
     cursor: pointer;
-    filter: brightness(0.7);
+    transform: scale(1.1);
+    background-color: #2A3647;
+    color: white;
+    transition: 225ms ease-in-out;
 }
 
 .urgent-tasks{
@@ -154,6 +164,10 @@ body{
 }
 
 .third-row div{
+    text-align: center;
+}
+
+.third-row a{
     width: 47%;
     aspect-ratio: 100 / 55;
     border-radius: 30px;
@@ -161,11 +175,21 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
+    color: black;
 }
 
-.third-row div:hover{
+.third-row a:hover{
     cursor: pointer;
-    filter: brightness(0.7);
+    transform: scale(1.1);
+    background-color: #2A3647;
+    color: white;
+    transition: 175ms ease-in-out;
+}
+
+/*TODO*/
+.third-row div:hover img{
+    background-color: white;
 }
 
 .content-div-row-3{
@@ -323,8 +347,9 @@ body{
 
     .content-div-row-3-mobile{
         display: flex;
-        flex-direction: column;
         align-items: center;
+        justify-content: center;
         width: 50%;
+        height: 100%;
     }
 }
