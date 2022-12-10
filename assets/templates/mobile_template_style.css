@@ -13,7 +13,7 @@
 @media(max-width: 1024px){
 
     .topper-mobile{
-        z-index: 999;
+        z-index: 1;
         position: fixed;
         top: 0;
         left: 0;
