@@ -56,7 +56,7 @@
         right: 20px;
         top: 81px;
         background-color:#2A3647;
-        width: 100px;
+        width: 120px;
         border-radius: 16px 0px 16px 16px;
         display: flex;
         flex-direction: column;
@@ -67,9 +67,9 @@
     }
 
     .options-mobile a{
-        text-decoration: none;
-        margin: 4px 0px;
-        color: rgb(201, 201, 201);
+        text-decoration: none !important;
+        margin: 4px 0px !important;
+        color: rgb(201, 201, 201) !important;
     }
 
     .options-mobile a:hover{
