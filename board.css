@@ -514,6 +514,30 @@ body {
     }
 
 
+    .card-category {
+        width: 30%;
+    }
+
+
+
+}
+
+@media (max-width: 850px) {
+    .card-container {
+        position: relative;
+        top: 80px;
+        bottom: 80px;
+        width: 100vw;
+        border-radius: none;
+
+
+    }
+
+    .edit-overlay-btn {
+        position: fixed;
+        bottom: 22px;
+        right: 22px;
+    }
 
 }
 
@@ -548,4 +572,5 @@ body {
     .card-bottom {
         width: 90%;
     }
+
 }
