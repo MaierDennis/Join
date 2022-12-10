@@ -23,63 +23,117 @@
         <div class="inner-content" id="inner-content">
             <h1>Add task</h1>
             <form action="">
-                <div class="divContentAddtask" style="border-right: 1px solid rgb(186, 186, 186); padding-left: 0;">
-                    <span style="margin-top: 0;">Title</span>
-                    <input placeholder="Enter a title">
-                    <span>Description</span>
-                    <textarea placeholder="Enter a description"></textarea>
-                    <span>Category</span>
-                    <select>
-                        <option value="" disabled selected>Select task category</option>
-                        <option>New Category</option>
-                        <option value="sales">Sales</option>
-                        <option value="backoffice">Backoffice</option>
-                    </select>
-                    <span>Assigned to</span>
-                    <select>
-                        <option value="" disabled selected>Select contacts to assign</option>
-                        <option>You</option>
-                        <option value="content 1">Contact 1</option>
-                        <option>Invite new contact</option>
-                    </select>
+                <div class="formContentWithButton">
+                    <div class="divContentAddtask" style="border-right: 1px solid rgb(186, 186, 186); padding-left: 0;">
+                        <span style="margin-top: 0;">Title</span>
+                        <input required placeholder="Enter a title">
+                        <span>Description</span>
+                        <textarea required placeholder="Enter a description"></textarea>
+                        <span>Category</span>
+                        <select required>
+                            <option value="" disabled selected>Select task category</option>
+                            <option>New Category</option>
+                            <option value="sales">Sales</option>
+                            <option value="backoffice">Backoffice</option>
+                        </select>
+                        <span>Assigned to</span>
+                        <select required>
+                            <option value="" disabled selected>Select contacts to assign</option>
+                            <option>You</option>
+                            <option value="content 1">Contact 1</option>
+                            <option>Invite new contact</option>
+                        </select>
+                    </div>
+                    <div class="divContentAddtask" style="padding-right: 0;">
+                        <span style="margin-top: 0;">Due date</span>
+                        <input required type="date">
+                        <span>Prio</span>
+                        <div class="choosePriority">
+                            <div id="urgent-btn">
+                                <span>Urgent</span>
+                                <img src="assets/img/addTaskUrgentSymbol.svg">
+                            </div>
+                            <div id="medium-btn">
+                                <span>Medium</span>
+                                <img src="assets/img/addTaskMediumSymbol.svg">
+                            </div>
+                            <div id="low-btn">
+                                <span>Low</span>
+                                <img src="assets/img/addTaskLowSymbol.svg">
+                            </div>
+                        </div>
+                        <span>Subtasks</span>
+                        <input>
+                        <div class="allSubtasks">
+                            <div class="subtask">
+                                <input type="checkbox">
+                                <span>Subtask 1</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="divContentAddtask">
-                    <span style="margin-top: 0;">Due date</span>
-                    <input type="date">
-                    <span>Prio</span>
-                    <div class="choosePriority">
-                        <div>
-                            <span>Urgent</span>
-                            <img src="assets/img/addTaskUrgentSymbol.svg">
-                        </div>
-                        <div>
-                            <span>Medium</span>
-                            <img src="assets/img/addTaskMediumSymbol.svg">
-                        </div>
-                        <div>
-                            <span>Low</span>
-                            <img src="assets/img/addTaskLowSymbol.svg">
-                        </div>
-                    </div>
-                    <span>Subtasks</span>
-                    <input>
-                    <div>
-                        <div>
-                            <input type="checkbox">
-                            <span>Subtask 1</span>
-                        </div>
-                    </div>
+                <div class="div-button">
+                    <button class="clear-btn">Clear<img src="assets/img/clearTaskImg.svg"></button>
+                    <button type="submit" class="create-task-btn">Create Task<img
+                            src="assets/img/createTaskImg.svg"></button>
                 </div>
             </form>
-            <div class="div-button">
-                <button>Clear</button>
-                <button>Create Task</button>
-            </div>
         </div>
     </div>
 
+        
+    </div>
     <div class="content-mobile">
         <div w3-include-html="assets/templates/help_template_mobile.html"></div>
+        <span style="font-size: small;">Kanban Project Management Tool</span>
+        <h1>Add task</h1>
+        <form class="form-mobile">
+            <span style="margin-top: 0;">Title</span>
+            <input required placeholder="Enter a title">
+            <span>Description</span>
+            <textarea required placeholder="Enter a description"></textarea>
+            <span>Category</span>
+            <select required>
+                <option value="" disabled selected>Select task category</option>
+                <option>New Category</option>
+                <option value="sales">Sales</option>
+                <option value="backoffice">Backoffice</option>
+            </select>
+            <span>Assigned to</span>
+            <select required>
+                <option value="" disabled selected>Select contacts to assign</option>
+                <option>You</option>
+                <option value="content 1">Contact 1</option>
+                <option>Invite new contact</option>
+            </select>
+            <span>Prio</span>
+            <div class="choosePriority">
+                <div id="urgent-btn">
+                    <span>Urgent</span>
+                    <img src="assets/img/addTaskUrgentSymbol.svg">
+                </div>
+                <div id="medium-btn">
+                    <span>Medium</span>
+                    <img src="assets/img/addTaskMediumSymbol.svg">
+                </div>
+                <div id="low-btn">
+                    <span>Low</span>
+                    <img src="assets/img/addTaskLowSymbol.svg">
+                </div>
+            </div>
+            <span>Due date</span>
+            <input required type="date">
+            <span>Subtasks</span>
+            <input>
+            <div class="allSubtasks">
+                <div class="subtask">
+                    <input type="checkbox">
+                    <span>Subtask 1</span>
+                </div>
+            </div>
+            <button type="submit" class="create-task-btn-mobile">Create Task<img
+                src="assets/img/createTaskImg.svg"></button>
+        </form>
     </div>
 
 </body>

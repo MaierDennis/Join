@@ -1,18 +1,18 @@
-body{
+body {
     margin: 0;
+    font-family: Inter;
 }
 
-.content-destop{
+.content-destop {
     width: 100%;
     min-width: 1024px;
     height: 100vh;
     display: flex;
-    font-family: Inter;
     box-sizing: border-box;
     position: relative;
 }
 
-.inner-content{
+.inner-content {
     background-color: #F6F7F8;
     position: relative;
     left: 232px;
@@ -23,41 +23,47 @@ body{
     box-sizing: border-box;
 }
 
-.content-mobile{
+.content-mobile {
     display: none;
 }
 
-.inner-content h1{
+.inner-content h1 {
     font-size: 52px;
     margin: 0;
     margin-bottom: 32px;
 }
 
-.inner-content form{
+.formContentWithButton {
     display: flex;
 }
 
-.divContentAddtask{
+.divContentAddtask {
     display: flex;
     flex-direction: column;
     width: 50%;
     padding: 16px 24px;
 }
 
-input{
-    font-size: 16px;
+input {
+    font-family: Inter;
+    font-size: 14px;
     padding: 4px;
     border-radius: 8px;
     border: 1px solid rgb(214, 214, 214);
     margin-left: 8px;
 }
 
-input:focus{
+input:hover {
+    cursor: pointer;
+}
+
+input:focus {
     outline: none;
 }
 
-textarea{
-    font-size: 16px;
+textarea {
+    font-family: Inter;
+    font-size: 14px;
     padding: 4px;
     border-radius: 8px;
     border: 1px solid rgb(214, 214, 214);
@@ -65,41 +71,54 @@ textarea{
     resize: none;
 }
 
-textarea:focus{
+textarea:hover {
+    cursor: pointer;
+}
+
+textarea:focus {
     outline: none;
 }
 
-select{
-    font-size: 16px;
+select {
+    font-family: Inter;
+    font-size: 14px;
     padding: 4px;
     border-radius: 8px;
     border: 1px solid rgb(214, 214, 214);
     margin-left: 8px;
 }
 
-.divContentAddtask span{
+select:focus {
+    outline: none;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+.divContentAddtask span {
     margin-top: 24px;
     margin-bottom: 6px;
 }
 
-.choosePriority{
+.choosePriority {
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
 }
 
-.choosePriority img{
+.choosePriority img {
     object-fit: contain;
     width: 16px;
     margin-left: 8px;
 }
 
-.choosePriority span{
+.choosePriority span {
     margin: 0;
 }
 
-.choosePriority div{
+.choosePriority div {
     width: 100px;
     height: 40px;
     border-radius: 8px;
@@ -109,18 +128,162 @@ select{
     justify-content: center;
 }
 
-.div-button{
+.choosePriority div:hover {
+    cursor: pointer;
+    transition: 175ms ease-in-out;
+    transform: scale(1.1);
+    box-shadow: 1px 1px 1px 1px rgb(194, 194, 194);
+}
+
+.div-button {
+    margin-top: 48px;
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-@media(max-width: 1024px){
-    .content-destop{
+.div-button button {
+    font-size: 16px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0px 8px;
+}
+
+.div-button img {
+    height: 10px;
+    object-fit: contain;
+    margin-left: 10px;
+}
+
+.clear-btn {
+    border: 1px solid #2A3647;
+    border-radius: 10px;
+    color: #2A3647;
+    background-color: white;
+    width: 88px;
+    display: flex;
+    justify-content: center;
+}
+
+.clear-btn:hover {
+    cursor: pointer;
+    border-color: #29ABE2;
+    color: #29ABE2;
+}
+
+.clear-btn:hover img {
+    filter: invert(55%) sepia(88%) saturate(713%) hue-rotate(165deg) brightness(92%) contrast(92%);
+}
+
+.create-task-btn {
+    margin-left: 32px;
+    background-color: #2A3647;
+    border: 0;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+}
+
+.create-task-btn:hover {
+    background-color: #29ABE2;
+    cursor: pointer;
+}
+
+.allSubtasks {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.subtask {
+    display: flex;
+    align-items: center;
+}
+
+.subtask span {
+    margin: 0;
+}
+
+.create-task-btn-mobile{
+    display: none;
+}
+
+@media(max-width: 1024px) {
+    .content-destop {
         display: none;
     }
 
-    .content-mobile{
+    .content-mobile {
+        position: relative;
+        top: 79px;
+        height: calc(100vh - 159px);
         display: unset;
+        padding: 16px 10%;
+        display: flex;
+        flex-direction: column;
+        background-color: #F6F7F8;
+        box-sizing: border-box;
+        overflow-y: scroll;
+    }
+
+    h1{
+        font-size: 42px;
+    }
+
+    .form-mobile {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-mobile span {
+        margin-top: 24px;
+        margin-bottom: 6px;
+    }
+
+    .choosePriority div {
+        min-width: 96px;
+        width: 20%;
+    }
+
+    .choosePriority span {
+        margin: 0;
+    }
+
+    .create-task-btn-mobile {
+        z-index: 10;
+        position: fixed;
+        top: 16px;
+        right: 18px;
+        background-color: #2A3647;
+        border: 0;
+        border-radius: 10px;
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        padding: 0px 8px;
+    }
+
+    .create-task-btn-mobile img {
+        height: 10px;
+        object-fit: contain;
+        margin-left: 10px;
+    }
+
+    .create-task-btn-mobile:hover {
+        background-color: #29ABE2;
+        cursor: pointer;
+    }
+
+    .subtask span{
+        margin: 0;
+    }
+}
+
+@media(max-width: 500px){
+    .content-mobile {
+        padding: 16px 2%;
     }
 }
