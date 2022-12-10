@@ -278,9 +278,9 @@ margin-top: 30px;
 
 
 
-/* Add Contact Style*/
+/* Add & Edit Contact Style*/
 
-.add-contact-display {
+.addedit-contact-display {
     height: 100%;
     width: 100%;
     display: flex;
@@ -288,15 +288,15 @@ margin-top: 30px;
     align-items: center;
 }
 
-.add-contact {
-    height: 56%;
+.addedit-contact {
+    height: 430px;
     width: 900px;
     display: flex;
     flex-direction: row;
     position: relative;
 }
 
-.add-contact-design {
+.addedit-contact-design {
     width: 40%;
     background-color: rgb(42, 54, 71);
     border-top-left-radius: 25px;
@@ -308,38 +308,38 @@ margin-top: 30px;
     justify-content: center;
 }
 
-.add-contact-logo {
+.addedit-contact-logo {
     margin-bottom: 10px;
 }
 
-.add-contact-logo img {
+.addedit-contact-logo img {
     height: 55px;
 }
 
-.add-contact-headline {
+.addedit-contact-headline {
     color: white;
 }
 
-.add-contact-headline h2 {
+.addedit-contact-headline h2 {
     font-size: 50px;
     font-weight: 600;
 }
 
-.add-contact-motivation {
+.addedit-contact-motivation {
     color: white;
     font-size: 21px;
 
 }
 
-.add-contact-line {
+.addedit-contact-line {
     height: 2px;
     background-color: rgb(41, 171, 226);
     width: 25%;
-    margin-top: 2%;
+    margin-top: 1%;
     margin-bottom: 20%;
 }
 
-.add-contact-fields {
+.addedit-contact-fields {
     width: 60%;
     display: flex;
     flex-direction: row;
@@ -355,7 +355,7 @@ margin-top: 30px;
    height: 26px;
 }
 
-.add-contact-image {
+.addedit-contact-image {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -363,11 +363,11 @@ margin-top: 30px;
     padding-bottom: 50px;
 }
 
-.add-contact-image img {
+.addedit-contact-image img {
     height: 100px;
 }
 
-.add-contact-input-fields {
+.addedit-contact-input-fields {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -397,4 +397,14 @@ margin-top: 30px;
 .add-contact-buttons img {
     height: 50px;
     margin-right: 30px;
+}
+
+.edit-contact-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.edit-contact-buttons img {
+    height: 40px;
+    margin-top: 25%;
 }
