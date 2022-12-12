@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/img/logo_lefter.png" type="image/x-icon">
     <link rel="stylesheet" href="board.css">
+    <link rel="stylesheet" href="board-mobile.css">
     <link rel="stylesheet" href="fonts.css">
     <title>Join - Board</title>
 
     <script src="script.js"></script>
+    <script src="add_task.js"></script>
 </head>
 
 <body id="body" onload="render('board')">
@@ -24,10 +26,10 @@
 
     <div id="overlay" class="overlay d-none" onclick="closeCard()">
 
-        <div id="card-container" class="card-container d-none">
+        <div id="card-container" class="card-container d-none" onclick="doNotClose(event)">
 
-            <img class="close-overlay-btn" src="assets/img/close.svg" alt="">
-            <button class="edit-overlay-btn"><img src="assets/img/pencil.svg" alt=""></button>
+            <img class="close-overlay-btn" src="assets/img/close.svg" onclick="closeCard()">
+            <button class="edit-overlay-btn"><img src="assets/img/pencil.svg" ></button>
 
             <span class="card-category-big sales">Sales</span>
 
@@ -129,6 +131,28 @@
 
                         </div>
 
+                        <div onclick="openCard()" class="task-card">
+
+                            <span class="card-category backoffice">Backoffice</span>
+
+                            <span class="card-title">Call potential clients</span>
+
+                            <span class="card-description">Present product to prespective clients...</span>
+
+                            <div class="card-bottom">
+
+                                <div class="contributors-container">
+                                    <span class="contributors-circle lila">NM</span>
+                                    <span class="contributors-circle orange">SV</span>
+                                </div>
+
+                                <img src="assets/img/medium.svg" alt="">
+
+                            </div>
+
+
+                        </div>
+
                     </div>
 
                 </div>
@@ -158,7 +182,7 @@
                                     <span class="contributors-circle orange">SV</span>
                                 </div>
 
-                                <img src="assets/img/low.svg" alt="">
+                                <img src="assets/img/urgent.svg" alt="">
 
                             </div>
 
@@ -217,7 +241,7 @@
                 </div>
                 <button onclick="showAddTask()" class="add-task-btn">Add task<img style="margin-left: 5px; height: 15px; width: 15px;"
                         src="assets/img/plus-icon.svg"> </button>
-                <button class="add-task-btn-mobile"><img src="assets/img/plus-icon.svg"> </button>
+                <button onclick="showAddTask()" class="add-task-btn-mobile"><img src="assets/img/plus-icon.svg"> </button>
             </div>
         </div>
 

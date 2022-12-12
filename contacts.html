@@ -20,6 +20,9 @@
 
 <body onload="render('contacts'), showContacts()">
 
+    <div w3-include-html="assets/templates/add_task_template.html" class="d-none" id="add-task-overlay-board"></div>
+
+
     <div w3-include-html="assets/templates/mobile_template.html"></div>
 
     <div id="overlay" class="overlay d-none">
@@ -255,7 +258,7 @@
                                 <div class="name-big">
                                     <h2>Dennis Maier</h2>
                                 </div>
-                                <div class="addTask-button">+ Add Task</div>
+                                <div class="addTask-button" onclick="showAddTask()">+ Add Task</div>
                             </div>
                         </div>
 
