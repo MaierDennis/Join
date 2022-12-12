@@ -34,6 +34,7 @@ function showContacts() {
     }
 }
 
+
 function openSingleContact() {
     if (window.innerWidth < 1024) {
         document.getElementById('complete-contact').classList.remove('d-none');
@@ -43,4 +44,9 @@ function openSingleContact() {
         document.getElementById('complete-contact').classList.remove('d-none');
         document.getElementById('contact-list').classList.remove('d-none');
     }
+}
+
+function closeSingleContact(){
+        document.getElementById('complete-contact').classList.add('d-none');
+        document.getElementById('contact-list').classList.remove('d-none');
 }

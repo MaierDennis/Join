@@ -10,7 +10,7 @@ body {
 .overlay {
     position: fixed;
     top: 0;
-    bottom: 0;
+    bottom: 80px;
     right: 0;
     left: 0;
     z-index: 1;
@@ -150,6 +150,11 @@ h3 {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.arrow-back {
+    position: absolute;
+    right: 30px;
 }
 
 .headline-contacts h1 {
@@ -314,8 +319,8 @@ margin-top: 30px;
 
 .mobile-edit-button {
     background-color: rgb(42, 54, 71);
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -331,7 +336,7 @@ margin-top: 30px;
 }
 
 .mobile-edit-button img {
-    height: 40px;
+    height: 30px;
 }
 
 
@@ -535,6 +540,10 @@ margin-top: 30px;
     .mobile-edit-button {
         display: none;
     }
+
+    .arrow-back {
+        display: none;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -693,10 +702,19 @@ margin-top: 30px;
             align-items: center;
             padding-top: 50px;
         }
+
+        .addedit-contact-fields {
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
     
         .addedit-contact-image img{
-            height: 16%;
+            height: 130px;
             position: absolute;
+        }
+
+        .addedit-contact-image {
+            margin-top: -15px;
         }
     
         .addedit-contact-headline h2 {
