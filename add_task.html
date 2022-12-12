@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="fonts.css">
 
     <script src="script.js"></script>
+    <script src="add_task.js"></script>
 </head>
 
 <body onload="render('addtask')">
@@ -49,15 +50,15 @@
                         <input required type="date">
                         <span>Prio</span>
                         <div class="choosePriority">
-                            <div id="urgent-btn">
+                            <div id="urgent-btn" onclick="clickPriorityButton('urgent-btn')">
                                 <span>Urgent</span>
                                 <img src="assets/img/addTaskUrgentSymbol.svg">
                             </div>
-                            <div id="medium-btn">
+                            <div id="medium-btn" onclick="clickPriorityButton('medium-btn')">
                                 <span>Medium</span>
                                 <img src="assets/img/addTaskMediumSymbol.svg">
                             </div>
-                            <div id="low-btn">
+                            <div id="low-btn" onclick="clickPriorityButton('low-btn')">
                                 <span>Low</span>
                                 <img src="assets/img/addTaskLowSymbol.svg">
                             </div>
@@ -100,15 +101,15 @@
             </select>
             <span>Prio</span>
             <div class="choosePriority">
-                <div id="urgent-btn">
+                <div id="urgent-btn-mobile" onclick="clickPriorityButton('urgent-btn-mobile')">
                     <span>Urgent</span>
                     <img src="assets/img/addTaskUrgentSymbol.svg">
                 </div>
-                <div id="medium-btn">
+                <div id="medium-btn-mobile" onclick="clickPriorityButton('medium-btn-mobile')">
                     <span>Medium</span>
                     <img src="assets/img/addTaskMediumSymbol.svg">
                 </div>
-                <div id="low-btn">
+                <div id="low-btn-mobile" onclick="clickPriorityButton('low-btn-mobile')">
                     <span>Low</span>
                     <img src="assets/img/addTaskLowSymbol.svg">
                 </div>

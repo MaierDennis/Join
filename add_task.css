@@ -128,6 +128,19 @@ select:hover {
     justify-content: center;
 }
 
+
+.choosePriorityPicked{
+    transform: scale(1.1);
+    box-shadow: 1px 1px 1px 1px rgb(194, 194, 194);
+    pointer-events: none;
+    color: white;
+}
+
+.choosePriorityPicked img{
+    filter: invert(99%) sepia(64%) saturate(2%) hue-rotate(57deg) brightness(109%) contrast(101%);
+}
+
+
 .choosePriority div:hover {
     cursor: pointer;
     transition: 175ms ease-in-out;
@@ -230,6 +243,8 @@ select:hover {
         min-width: 96px;
         width: 20%;
     }
+
+    
 
     .choosePriority span {
         margin: 0;

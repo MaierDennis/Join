@@ -31,7 +31,7 @@ body{
 .close-btn{
     position: absolute;
     right: 32px;
-    top: 32px;
+    top: 36px;
 }
 
 .close-btn:hover{
@@ -146,6 +146,17 @@ select:hover {
     box-shadow: 1px 1px 1px 1px rgb(194, 194, 194);
 }
 
+.choosePriorityPicked{
+    transform: scale(1.1);
+    box-shadow: 1px 1px 1px 1px rgb(194, 194, 194);
+    pointer-events: none;
+    color: white;
+}
+
+.choosePriorityPicked img{
+    filter: invert(99%) sepia(64%) saturate(2%) hue-rotate(57deg) brightness(109%) contrast(101%);
+}
+
 .div-button {
     margin-top: 48px;
     width: 100%;
@@ -203,20 +214,20 @@ select:hover {
 
 @media(max-width:1024px){
     .content-background{
-        z-index: 2;
-        top: 112px;
+        z-index: 4;
+        top: 120px;
     }
 
     .content-addtask{
         width: 100%;
         height: 100%;
-        overflow-y: scroll;
         border-radius: 0;
-        background-color: F6F7F8;
+        background-color: #F6F7F8;
     }
 
     .formContentWithButton{
         flex-direction: column;
+        align-items: center;
     }
 
     .clear-btn{
@@ -234,9 +245,36 @@ select:hover {
         color: white;
         font-weight: 600;
         font-size: 16px;
-        height: 48px;
+        height: 48px !important;
         display: flex;
         align-items: center;
         padding: 0px 8px;
+    }
+
+    .divContentAddtask{
+        width: 66%;
+    }
+
+    .choosePriority{
+        justify-content: space-evenly;
+    }
+
+    .choosePriority div {
+        min-width: 88px;
+        width: 20%;
+    }
+}
+
+@media(max-width:700px){
+    .divContentAddtask{
+        width: 100%;
+    }
+
+    .content-addtask{
+        padding: 16px 2%;
+    }
+
+    h1{
+        font-size: 42px;
     }
 }
