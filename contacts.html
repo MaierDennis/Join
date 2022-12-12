@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="contacts_style.css">
     <link rel="stylesheet" href="fonts.css">
+    <script src="contacts.js"></script>
 
     <script src="script.js"></script>
 </head>
@@ -25,9 +26,12 @@
         <div w3-include-html="assets/templates/destop_template.html"></div>
         <div w3-include-html="assets/templates/help_template.html"></div>
         <div class="inner-content" id="inner-content">
-            <div class="complete-page d-none">
+           
+           
+            <div id="overview" class="complete-page">
                 <div class="all-contacts">
-
+                    <div class="button-new-contact"><button class="button-dark" onclick="openNewContact()">New contakt <img
+                        src="assets/img/add_contact_icon.png"></button></div>
                     <div class="alphabet-box">
                         <div class="first-letter-box">
                             <h3>A</h3>
@@ -147,7 +151,7 @@
 
                 </div>
 
-                <div class="complete-contact">
+                <div class="complete-contact d-none">
                     <div class="this-contact">
                         <div class="head">
                             <div class="headline-contacts">
@@ -182,52 +186,22 @@
                             <div class="phone-number">+01 1234 567 89</div>
                         </div>
 
-                        <div class="new-contact-button"><img src="assets/img/New_Contact_Button.png"></div>
+                        <div class="new-contact-button"><button>New contact <img
+                                    src="assets/img/add_contact_icon.png"></button></div>
 
                     </div>
                 </div>
             </div>
 
-            <div class="add-contact-display d-none">
-                <div class="add-contact">
-                    <div class="add-contact-design">
-                        <div class="add-contact-logo"><img src="assets/img/Join_White.png"></div>
-                        <div class="add-contact-headline"><h2>Add contact</h2></div>
-                        <div class="add-contact-motivation"><span>Tasks are better with a team!</span></div>
-                        <div class="add-contact-line"></div>
-                    </div>
-
-                    <div class="add-contact-fields">
-                        <div class="close-x"><img src="assets/img/X.png"></div>
-
-                        <div class="add-contact-image"><img src="assets/img/add_contact_img.png"></div>
-
-                        <div class="add-contact-input-fields">
-                            <div class="name-field">
-                                <input type="text" class="form-control" placeholder="Name" aria-label="First name">
-                            </div>
-                            <div class="email-field">
-                                <input type="text" class="form-control" placeholder="Email" aria-label="First name">
-                            </div>
-                            <div class="phone-field">
-                                <input type="text" class="form-control" placeholder="Phone" aria-label="First name">
-                            </div>
-                            <div class="add-contact-buttons">
-                                <div><img src="assets/img/cancel_icon.png"></div>
-                                <div><img src="assets/img/create_contact_icon.png"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-
-
-            <div class="addedit-contact-display">
+            <div id="add-contact" class="addedit-contact-display d-none">
                 <div class="addedit-contact">
                     <div class="addedit-contact-design">
+                        <div class="white-x" onclick="closeNewContact()"><img src="assets/img/x_white.png"></div>
                         <div class="addedit-contact-logo"><img src="assets/img/Join_White.png"></div>
-                        <div class="addedit-contact-headline"><h2>Edit contact</h2></div>
+                        <div class="addedit-contact-headline">
+                            <h2>Add contact</h2>
+                        </div>
+                        <div class="addedit-contact-motivation"><span>Tasks are better with a team!</span></div>
                         <div class="addedit-contact-line"></div>
                     </div>
 
@@ -237,22 +211,72 @@
                         <div class="addedit-contact-image"><img src="assets/img/add_contact_img.png"></div>
 
                         <div class="addedit-contact-input-fields">
-                            <div class="name-field">
-                                <input type="text" class="form-control" placeholder="Name" aria-label="First name">
-                            </div>
-                            <div class="email-field">
-                                <input type="text" class="form-control" placeholder="Email" aria-label="First name">
-                            </div>
-                            <div class="phone-field">
-                                <input type="text" class="form-control" placeholder="Phone" aria-label="First name">
-                            </div>
-                            <div class="edit-contact-buttons">
-                                <div><img src="assets/img/Save_Button.png"></div>
+                            <form style="width: 100%;" onsubmit="">
+                                <div class="name-field">
+                                    <input required type="text" class="form-control" placeholder="Name"
+                                        aria-label="First name">
+                                </div>
+                                <div class="email-field">
+                                    <input required type="email" class="form-control" placeholder="Email"
+                                        aria-label="First name">
+                                </div>
+                                <div class="phone-field">
+                                    <input required type="number" minlength="5" class="form-control" placeholder="Phone"
+                                        aria-label="First name">
+                                </div>
+                            </form>
+                            <div class="add-contact-buttons">
+                                <div class="button-cancel"><button>Cancel <img src="assets/img/X.png"></button></div>
+                                <div class="button-create"><button>Create contakt <img
+                                            src="assets/img/hook.png"></button></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
+            </div>
+
+
+            <div class="addedit-contact-display d-none">
+                <div class="addedit-contact">
+                    <div class="addedit-contact-design">
+                        <div class="addedit-contact-logo"><img src="assets/img/Join_White.png"></div>
+                        <div>
+                            <div class="addedit-contact-headline">
+                                <h2>Edit contact</h2>
+                            </div>
+
+                            <div class="addedit-contact-line"></div>
+                        </div>
+                    </div>
+
+                    <div class="addedit-contact-fields">
+                        <div class="close-x"><img src="assets/img/X.png"></div>
+
+                        <div class="addedit-contact-image"><img src="assets/img/add_contact_img.png"></div>
+
+                        <div class="addedit-contact-input-fields">
+                            <form onsubmit="">
+                                <div class="name-field">
+                                    <input required type="text" class="form-control" placeholder="Name"
+                                        aria-label="First name">
+                                </div>
+                                <div class="email-field">
+                                    <input required type="email" class="form-control" placeholder="Email"
+                                        aria-label="First name">
+                                </div>
+                                <div class="phone-field">
+                                    <input required type="number" class="form-control" placeholder="Phone"
+                                        aria-label="First name">
+                                </div>
+                            </form>
+                            <div class="edit-contact-buttons">
+                                <button>Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
 

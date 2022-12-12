@@ -19,10 +19,10 @@
     <div class="complete-page">
         <div class="join-logo"><img src="assets/img/Capa 2join-logo.png" alt=""></div>
 
-        <div class="login-display">
+        <div class="login-display d-none">
             <div class="login-head">
-                <span>Not a Join user?</span>
-                <Button>Sign up</Button>
+                <span class="hover-bright" style="border: none;">Not a Join user?</span>
+                <Button class="hover-dark">Sign up</Button>
             </div>
 
             <div class="login-area">
@@ -31,28 +31,29 @@
                 </div>
 
                 <div class="headline-underline"></div>
+                <form class="form-style" onsubmit="">
+                    <div class="email-field">
+                        <input required type="email" class="form-control" placeholder="Email" aria-label="First name">
+                    </div>
 
-                <div class="email-field">
-                    <input type="text" class="form-control" placeholder="Email" aria-label="First name">
-                </div>
-
-                <div class="password-field">
-                    <input type="text" class="form-control" placeholder="Password" aria-label="First name">
-                </div>
-
+                    <div class="password-field">
+                        <input required type="password" class="form-control" placeholder="Password"
+                            aria-label="First name">
+                    </div>
+                </form>
                 <div class="rememberMe-forgotPassword">
                     <div class="remember-me"> <input type="button">Remember me</div>
                     <div class="forgot-password"><a href="#">Forgot my password</a></div>
                 </div>
 
                 <div class="login-guestlogin">
-                    <div class="button">Log in</div>
-                    <div class="guestLogin-button">Guest Log in</div>
+                    <div class="button hover-dark">Log in</div>
+                    <div class="guestLogin-button hover-bright">Guest Log in</div>
                 </div>
             </div>
         </div>
 
-        <div class="signUp-display d-none">
+        <div class="signUp-display">
             <div class="signUp-area">
                 <div class="arrow"><img src="assets/img/arrow-121-32.png"></div>
 
@@ -61,19 +62,19 @@
                 </div>
 
                 <div class="headline-underline"></div>
+                <form onsubmit="" class="form-style">
+                    <div class="name-field">
+                        <input required type="text" class="form-control" placeholder="Name" aria-label="First name">
+                    </div>
 
-                <div class="name-field">
-                    <input type="text" class="form-control" placeholder="Name" aria-label="First name">
-                </div>
+                    <div class="email-field">
+                        <input required type="email" class="form-control" placeholder="Email" aria-label="First name">
+                    </div>
 
-                <div class="email-field">
-                    <input type="text" class="form-control" placeholder="Email" aria-label="First name">
-                </div>
-
-                <div class="password-field">
-                    <input type="text" class="form-control" placeholder="Password" aria-label="First name">
-                </div>
-
+                    <div class="password-field">
+                        <input required type="text" class="form-control" placeholder="Password" aria-label="First name">
+                    </div>
+                </form>
                 <div class="button mt-5">Sign up</div>
 
             </div>
@@ -81,7 +82,7 @@
 
 
 
-        <div class="forgot-password-display d-none">
+        <div class="forgot-password-display  d-none">
             <div class="forgot-password-area">
                 <div class="arrow"><img src="assets/img/arrow-121-32.png"></div>
 
@@ -96,7 +97,8 @@
                 </div>
 
                 <div class="forgot-password-email-field">
-                    <input type="text" class="form-control" placeholder="Email" aria-label="First name">
+                    <form onsubmit=""> <input required type="email" class="form-control" placeholder="Email"
+                            aria-label="First name"></form>
                 </div>
 
                 <div class="button">Send me the email</div>
@@ -118,15 +120,17 @@
                 <div class="info-div">
                     <span>Change your account password</span>
                 </div>
+                <form class="form-style" onsubmit="">
+                    <div class="reset-password-field">
+                        <input required type="text" class="form-control" placeholder="New password"
+                            aria-label="First name">
+                    </div>
 
-                <div class="reset-password-field">
-                    <input type="text" class="form-control" placeholder="New password" aria-label="First name">
-                </div>
-
-                <div class="reset-password-field">
-                    <input type="text" class="form-control" placeholder="Confirm password" aria-label="First name">
-                </div>
-
+                    <div class="reset-password-field">
+                        <input required type="text" class="form-control" placeholder="Confirm password"
+                            aria-label="First name">
+                    </div>
+                </form>
                 <div class="continue-button">Continue</div>
 
             </div>
