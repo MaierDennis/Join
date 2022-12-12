@@ -101,7 +101,28 @@ body {
     align-items: center;
 }
 
+
+.add-task-btn-mobile {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    background: #2A3647;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    display: none;
+
+}
+
 .add-task-btn:hover {
+    background-color: #29ABE2;
+    box-shadow: #2A3647;
+    border: none;
+}
+
+.add-task-btn-mobile:hover {
     background-color: #29ABE2;
     box-shadow: #2A3647;
     border: none;
@@ -291,6 +312,16 @@ body {
     cursor: pointer;
 }
 
+.back-overlay-btn {
+    height: 22px;
+    width: 22px;
+    position: absolute;
+    right: 32px;
+    top: 55px;
+    cursor: pointer;
+    display: none;
+}
+
 .edit-overlay-btn {
     width: 57px;
     height: 57px;
@@ -429,7 +460,7 @@ body {
     position: relative;
     position: fixed;
     top: 8%;
-    bottom: 7%;
+    bottom: 8%;
     width: 620px;
     z-index: 10;
     border-radius: 20px;
@@ -459,18 +490,5 @@ body {
     font-size: 18px;
 }
 
-.add-task-btn-mobile {
-    height: 50px;
-    width: 50px;
-    border-radius: 10px;
-    background: #2A3647;
-    border: none;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    cursor: pointer;
-    display: none;
-
-}
 
 

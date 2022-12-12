@@ -62,24 +62,31 @@
         margin-top: 22px;
     }
 
-    
+
 
 
 }
 
 @media (max-width: 850px) {
     .card-container {
-        position: relative;
+        position: absolute;
         top: 80px;
         bottom: 80px;
-        width: 100vw;
-        border-radius: none;
+        width: 88%;
+        border-radius: unset;
+        background-color: #F6F7F8;
+    }
 
+    .close-overlay-btn {
+        display: none;
+    }
 
+    .back-overlay-btn {
+        display: block;
     }
 
     .edit-overlay-btn {
-        position: fixed;
+        position: absolute;
         bottom: 22px;
         right: 22px;
     }
@@ -121,6 +128,33 @@
     .main-heading {
         margin-bottom: 22px !important;
     }
+
+
+}
+
+@media (max-width: 350px) {
+    .small-heading-mobile {
+        font-size: 16px;
+    }
+
+    .main-heading {
+        font-size: 45px;
+
+    }
+
+    .add-task-btn-mobile {
+        height: 35px;
+        width: 35px;
+    }
+
+    .board-input-container {
+        width: 200px;
+    }
+
+    .board-inputfield {
+        width: 150px;
+    }
+
 
 
 }
