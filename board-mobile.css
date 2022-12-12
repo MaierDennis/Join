@@ -58,6 +58,11 @@
         width: 30%;
     }
 
+    .heading-search-add {
+        margin-top: 22px;
+    }
+
+    
 
 
 }
@@ -101,7 +106,7 @@
         align-items: center;
         justify-content: center;
         position: absolute;
-        top: 50px;
+        top: 12px;
         right: 0px;
     }
 
@@ -112,5 +117,10 @@
     .card-bottom {
         width: 90%;
     }
+
+    .main-heading {
+        margin-bottom: 22px !important;
+    }
+
 
 }
