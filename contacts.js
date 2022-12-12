@@ -34,9 +34,13 @@ function showContacts() {
     }
 }
 
-function showSingleContacts() {
+function openSingleContact() {
     if (window.innerWidth < 1024) {
         document.getElementById('complete-contact').classList.remove('d-none');
         document.getElementById('contact-list').classList.add('d-none');
+    }
+    else {
+        document.getElementById('complete-contact').classList.remove('d-none');
+        document.getElementById('contact-list').classList.remove('d-none');
     }
 }
