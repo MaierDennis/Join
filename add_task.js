@@ -1,3 +1,5 @@
+let selectedPriority;
+
 function clickPriorityButton(id) {
     unsetBtnClicked();
     if (id == 'urgent-btn-mobile' || id == 'urgent-btn') {
@@ -8,6 +10,19 @@ function clickPriorityButton(id) {
     }
     if (id == 'low-btn-mobile' || id == 'low-btn') {
         lowBtnclicked();
+    }
+    defineSelectedPriority(id);
+}
+
+function defineSelectedPriority(id) {
+    if (id == 'urgent-btn-mobile' || id == 'urgent-btn') {
+        selectedPriority = 'urgent';
+    }
+    if (id == 'medium-btn-mobile' || id == 'medium-btn') {
+        selectedPriority = 'urgent';
+    }
+    if (id == 'low-btn-mobile' || id == 'low-btn') {
+        selectedPriority = 'urgent';
     }
 }
 
@@ -69,4 +84,38 @@ function lowBtnclicked() {
         document.getElementById('low-btn-mobile').style = 'background-color: green;';
         document.getElementById('low-btn-mobile').classList.add('choosePriorityPicked');
     }
+}
+
+/*create Task on click create Button*/
+function createTask() {
+    if (selectedPriority) {
+        showSuccessMessage();
+        clearTask();
+    } else {
+        alert('Please select a priority!');
+    }
+}
+
+/*clear Button on click, reset Form*/
+function clearTask() {
+    document.getElementById('input-title').value = '';
+    document.getElementById('input-description').value = '';
+    document.getElementById('select-category').selectedIndex = 0;
+    document.getElementById('select-assigned').selectedIndex = 0;
+    document.getElementById('input-date').value = '';
+    unsetBtnClicked();
+    if (document.getElementById('low-btn-mobile')) {
+        document.getElementById('input-title-mobile').value = '';
+        document.getElementById('input-description-mobile').value = '';
+        document.getElementById('select-category-mobile').selectedIndex = 0;
+        document.getElementById('select-assigned-mobile').selectedIndex = 0;
+        document.getElementById('input-date-mobile').value = '';
+    }
+}
+
+function showSuccessMessage(){
+    document.getElementById("dialog-taskadded").classList.remove('d-none');
+    setTimeout(function () { 
+        document.getElementById("dialog-taskadded").classList.add('d-none');
+    }, 3000);
 }

@@ -23,22 +23,22 @@
         <div w3-include-html="assets/templates/help_template.html"></div>
         <div class="inner-content" id="inner-content">
             <h1>Add task</h1>
-            <form action="">
+            <form onsubmit="createTask(); return false">
                 <div class="formContentWithButton">
                     <div class="divContentAddtask" style="border-right: 1px solid rgb(186, 186, 186); padding-left: 0;">
                         <span style="margin-top: 0;">Title</span>
-                        <input required placeholder="Enter a title">
+                        <input required placeholder="Enter a title" id="input-title">
                         <span>Description</span>
-                        <textarea required placeholder="Enter a description"></textarea>
+                        <textarea required placeholder="Enter a description" id="input-description"></textarea>
                         <span>Category</span>
-                        <select required>
+                        <select required id="select-category">
                             <option value="" disabled selected>Select task category</option>
                             <option>New Category</option>
                             <option value="sales">Sales</option>
                             <option value="backoffice">Backoffice</option>
                         </select>
                         <span>Assigned to</span>
-                        <select required>
+                        <select required id="select-assigned">
                             <option value="" disabled selected>Select contacts to assign</option>
                             <option>You</option>
                             <option value="content 1">Contact 1</option>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="divContentAddtask" style="padding-right: 0;">
                         <span style="margin-top: 0;">Due date</span>
-                        <input required type="date">
+                        <input required type="date" id="input-date">
                         <span>Prio</span>
                         <div class="choosePriority">
                             <div id="urgent-btn" onclick="clickPriorityButton('urgent-btn')">
@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="div-button">
-                    <button class="clear-btn">Clear<img src="assets/img/clearTaskImg.svg"></button>
+                    <button class="clear-btn" type="button" onclick="clearTask()">Clear<img src="assets/img/clearTaskImg.svg"></button>
                     <button type="submit" class="create-task-btn">Create Task<img
                             src="assets/img/createTaskImg.svg"></button>
                 </div>
@@ -80,20 +80,20 @@
         <div w3-include-html="assets/templates/help_template_mobile.html"></div>
         <span style="font-size: small;">Kanban Project Management Tool</span>
         <h1>Add task</h1>
-        <form class="form-mobile">
+        <form class="form-mobile" onsubmit="createTask(); return false">
             <span style="margin-top: 0;">Title</span>
-            <input required placeholder="Enter a title">
+            <input required placeholder="Enter a title" id="input-title-mobile">
             <span>Description</span>
-            <textarea required placeholder="Enter a description"></textarea>
+            <textarea required placeholder="Enter a description" id="input-description-mobile"></textarea>
             <span>Category</span>
-            <select required>
+            <select required id="select-category-mobile">
                 <option value="" disabled selected>Select task category</option>
                 <option>New Category</option>
                 <option value="sales">Sales</option>
                 <option value="backoffice">Backoffice</option>
             </select>
             <span>Assigned to</span>
-            <select required>
+            <select required id="select-assigned-mobile">
                 <option value="" disabled selected>Select contacts to assign</option>
                 <option>You</option>
                 <option value="content 1">Contact 1</option>
@@ -115,10 +115,16 @@
                 </div>
             </div>
             <span>Due date</span>
-            <input required type="date">
+            <input required type="date" id="input-date-mobile">
             <button type="submit" class="create-task-btn-mobile">Create Task<img
                 src="assets/img/createTaskImg.svg"></button>
         </form>
+    </div>
+
+    
+    <div class="dialog-taskadded d-none" id="dialog-taskadded">
+        <span>Task added to board</span>
+        <img src="assets/img/icon-summary.svg">
     </div>
 
 </body>

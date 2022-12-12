@@ -212,6 +212,32 @@ select:hover {
     cursor: pointer;
 }
 
+.dialog-taskadded{
+    z-index: 999;
+    width: 280px;
+    display: flex;
+    background-color: #2A3647;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    padding: 16px;
+    position: fixed;
+    top: 78%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dialog-taskadded img{
+    height: 24px;
+    object-fit: contain;
+    margin-left: 32px;
+}
+
+.d-none{
+    display: none;
+}
+
 @media(max-width:1024px){
     .content-background{
         z-index: 4;

@@ -207,6 +207,31 @@ select:hover {
     display: none;
 }
 
+.dialog-taskadded{
+    width: 280px;
+    display: flex;
+    background-color: #2A3647;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    padding: 16px;
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dialog-taskadded img{
+    height: 24px;
+    object-fit: contain;
+    margin-left: 32px;
+}
+
+.d-none{
+    display: none;
+}
+
 @media(max-width: 1024px) {
     .content-destop {
         display: none;
