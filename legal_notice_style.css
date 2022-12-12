@@ -1,11 +1,42 @@
-body{
-    margin: 0;
+body {
     font-family: Inter;
+    color: #2A3647;
+    background-color: #F6F7F8;
+    margin: 0;
+    display: flex;
+
 }
 
 .content-mobile{
     display: none;
 }
+
+.inner-content {
+    background-color: #F6F7F8;
+    position: absolute;
+    left: 232px;
+    top: 89px;
+    height: calc(100vh - 89px);
+    width: calc(100% - 232px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-container {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    /* margin-top: 32px; */
+}
+
+.main-heading {
+    font-size: 61px;
+    font-weight: 700;
+    margin-bottom: 0 !important;
+
+}
+
 
 @media(max-width: 1024px){
 
