@@ -3,6 +3,19 @@ body {
     font-family: 'Inter';
 }
 
+.hover:hover {
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
 .content-destop{
     width: 100%;
     min-width: 1024px;
@@ -152,6 +165,13 @@ h3 {
     margin-right: 20px;
 }
 
+.vertical-line {
+    width: 105px;
+    height: 2px;
+    background-color: rgb(41, 171, 226);
+    margin-top: 25px;
+}
+
 .motivation {
     font-size: 25px;
     font-weight: 500;
@@ -234,12 +254,12 @@ margin-top: 30px;
 }
 
 .contact-variant {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 800;
 }
 
 .email-adress a{
-    font-size: 12px;
+    font-size: 14px;
     color: rgb(41, 171, 226);
     font-weight: 600;
     margin-top: 7px;
@@ -256,7 +276,7 @@ margin-top: 30px;
 }
 
 .phone-number {
-    font-size: 13px;
+    font-size: 14px;
     color: black;
     font-weight: 600;
     margin-top: 7px;
@@ -292,6 +312,28 @@ margin-top: 30px;
     background-color: rgb(41, 171, 226);
 }
 
+.mobile-edit-button {
+    background-color: rgb(42, 54, 71);
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 140px;
+    right: 40px;
+}
+
+.mobile-edit-button:hover {
+    cursor: pointer;
+    background-color: rgb(41, 171, 226);
+}
+
+.mobile-edit-button img {
+    height: 40px;
+}
+
 
 /*@media (max-width: 1024px) {
     .content-destop{
@@ -309,6 +351,7 @@ margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 
 .addedit-contact {
@@ -484,10 +527,28 @@ margin-top: 30px;
     .white-x {
         display: none;
     }
+
+    .vertical-line {
+        display: none;
+    }
+
+    .mobile-edit-button {
+        display: none;
+    }
 }
 
-
 @media (max-width: 1024px) {
+    .overlay {
+        top: 90px;
+    }
+
+    .overlay-complete-contact {
+        background-color: rgb(246, 247, 248);
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
     .content-destop {
         min-width: 0px;
     }
@@ -511,6 +572,10 @@ margin-top: 30px;
         margin: 10px;
         width: 90%;
         
+    }
+
+    .button-new-contact button:hover {
+        background-color: rgb(41, 171, 226);
     }
 
     .button-new-contact img {
@@ -550,90 +615,125 @@ margin-top: 30px;
     font-weight: 500;
    }
 
-    .complete-contact {
-        display: none;
-    }
-
     .addedit-contact {
+        margin-bottom: 15%;
+    }
+
+    
+    
+    /* Show complete contact*/
+
+    .complete-contact {
+        width: 100%;
+    }
+
+    .head {
         flex-direction: column;
-        width: 100%;
-        height: 100%;
+        align-items: flex-start;
     }
 
-    .addedit-contact-design {
-        width: 100%;
-        height: 43vh;
-        border-bottom-left-radius: 0;
-        border-top-right-radius: 25px;
-    }
-
-    .white-x {
-        position: absolute;
-        top: 30px;
-        right: 25px;
-    }
-
-    .addedit-contact-fields {
-        width: 100%;
-        height: 53vh;
-        flex-direction: column;
-        align-items: center;
-        border-top-right-radius: 0;
-        border-bottom-left-radius: 25px;
-        border-bottom-right-radius: 25px;
-        border: 2px solid lightgrey;
-    }
-
-    .addedit-contact-logo {
+    .horizontal-line {
         display: none;
     }
 
-    .addedit-contact-design {
-        align-items: center;
-        padding-top: 50px;
+    .initials-big {
+        margin-right: 15px;
     }
 
-    .addedit-contact-image img{
-        height: 16%;
-        position: absolute;
+    .heading-information {
+        font-size: 22px;
+        margin-right: 0;
     }
 
-    .addedit-contact-headline h2 {
-        font-size: 50px;
-    }
-
-    .addedit-contact-line {
-        width: 35%;
-    }
-
-    .name-field {
-        width: 100%;
-    }
-
-    .email-field {
-        width: 100%;
-    }
-
-    .phone-field {
-        width: 100%;
-    }
-
-
-
-    .addedit-contact-input-fields {
-        align-items: center;
-    }
-
-    .button-cancel {
+    .edit-contact {
         display: none;
     }
 
-    .button-create button {
-        width: 210px;
-        font-size: 20px;
-    }
-
-    .close-x {
+    .new-contact-button {
         display: none;
     }
-}
+
+} 
+
+    @media (max-width: 900px) {
+        .addedit-contact {
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            margin-bottom: 0;
+        }
+    
+        .addedit-contact-design {
+            width: 100%;
+            height: 43vh;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 25px;
+        }
+    
+        .white-x {
+            position: absolute;
+            top: 30px;
+            right: 25px;
+        }
+    
+        .addedit-contact-fields {
+            width: 100%;
+            height: 53vh;
+            flex-direction: column;
+            align-items: center;
+            border-top-right-radius: 0;
+            border: 2px solid lightgrey;
+        }
+    
+        .addedit-contact-logo {
+            display: none;
+        }
+    
+        .addedit-contact-design {
+            align-items: center;
+            padding-top: 50px;
+        }
+    
+        .addedit-contact-image img{
+            height: 16%;
+            position: absolute;
+        }
+    
+        .addedit-contact-headline h2 {
+            font-size: 50px;
+        }
+    
+        .addedit-contact-line {
+            width: 35%;
+        }
+    
+        .name-field {
+            width: 100%;
+        }
+    
+        .email-field {
+            width: 100%;
+        }
+    
+        .phone-field {
+            width: 100%;
+        }
+    
+        .addedit-contact-input-fields {
+            align-items: center;
+        }
+    
+        .button-cancel {
+            display: none;
+        }
+    
+        .button-create button {
+            width: 210px;
+            font-size: 20px;
+        }
+    
+        .close-x {
+            display: none;
+        }
+        
+    }
