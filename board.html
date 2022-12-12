@@ -17,12 +17,6 @@
 
 <body id="body" onload="render('board')">
     <div w3-include-html="assets/templates/add_task_template.html" class="d-none" id="add-task-overlay-board"></div>
-    <div class="side-menu">
-
-    </div>
-
-    <div class="top-menu">
-    </div>
 
     <div id="overlay" class="overlay d-none" onclick="closeCard()">
 
@@ -109,7 +103,7 @@
 
                     <div class="tasks-main">
 
-                        <div class="task-card">
+                        <div onclick="openCard()" class="task-card">
 
                             <span class="card-category design">Design</span>
 
@@ -132,27 +126,7 @@
 
                         </div>
 
-                        <div onclick="openCard()" class="task-card">
-
-                            <span class="card-category backoffice">Backoffice</span>
-
-                            <span class="card-title">Call potential clients</span>
-
-                            <span class="card-description">Present product to prespective clients...</span>
-
-                            <div class="card-bottom">
-
-                                <div class="contributors-container">
-                                    <span class="contributors-circle lila">NM</span>
-                                    <span class="contributors-circle orange">SV</span>
-                                </div>
-
-                                <img src="assets/img/medium.svg" alt="">
-
-                            </div>
-
-
-                        </div>
+                        
 
                     </div>
 
@@ -184,6 +158,28 @@
                                 </div>
 
                                 <img src="assets/img/urgent.svg" alt="">
+
+                            </div>
+
+
+                        </div>
+
+                        <div onclick="openCard()" class="task-card">
+
+                            <span class="card-category backoffice">Backoffice</span>
+
+                            <span class="card-title">Do important stuff</span>
+
+                            <span class="card-description">Present product to prespective clients...</span>
+
+                            <div class="card-bottom">
+
+                                <div class="contributors-container">
+                                    <span class="contributors-circle blue">HS</span>
+                                    <span class="contributors-circle yellow-dark">OS</span>
+                                </div>
+
+                                <img src="assets/img/medium.svg" alt="">
 
                             </div>
 

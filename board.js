@@ -38,6 +38,6 @@ function getElement(id) {
 // EVENT LISTENERS
 document.addEventListener('keydown', function(event){      
 	if(event.key === "Escape"){
-		closeCard();
+		closeCard();        // an der Stelle die Funktion einsetzen, die das Fenster schließen soll
 	}
 }); 
