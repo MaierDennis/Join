@@ -15,6 +15,7 @@
 </head>
 
 <body id="body" onload="render('board')">
+    <div w3-include-html="assets/templates/add_task_template.html" class="d-none" id="add-task-overlay-board"></div>
     <div class="side-menu">
 
     </div>
@@ -90,7 +91,7 @@
                             <img class="search-icon" src="assets/img/search-icon.svg" alt="">
                         </div>
                     </div>
-                    <button class="add-task-btn">Add task <img style="margin-left: 5px; height: 15px; width: 15px;"
+                    <button onclick="showAddTask()" class="add-task-btn">Add task <img style="margin-left: 5px; height: 15px; width: 15px;"
                             src="assets/img/plus-icon.svg"> </button>
                 </div>
             </div>
@@ -237,7 +238,7 @@
                         <img class="search-icon" src="assets/img/search-icon.svg" alt="">
                     </div>
                 </div>
-                <button class="add-task-btn">Add task<img style="margin-left: 5px; height: 15px; width: 15px;"
+                <button onclick="showAddTask()" class="add-task-btn">Add task<img style="margin-left: 5px; height: 15px; width: 15px;"
                         src="assets/img/plus-icon.svg"> </button>
                 <button class="add-task-btn-mobile"><img src="assets/img/plus-icon.svg"> </button>
             </div>

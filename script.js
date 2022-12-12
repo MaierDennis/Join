@@ -70,3 +70,17 @@ function hideLogout(){
     document.getElementById('logout-button').classList.add('d-none');
     document.getElementById('options-mobile').classList.add('d-none');
 }
+
+/*show add Task*/
+function showAddTask(){
+    document.getElementById('add-task-overlay-board').classList.remove('d-none');
+}
+
+function hideAddTask(){
+    document.getElementById('add-task-overlay-board').classList.add('d-none');
+}
+
+/*stop Propagation*/
+function doNotClose(event) {
+    event.stopPropagation();
+}
