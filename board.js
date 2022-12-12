@@ -1,6 +1,6 @@
 let cardOpened = false;
 
-
+// OVERLAY 
 function closeCard () {
     getElement('card-container').classList.add('d-none');
     getElement('overlay').classList.add('d-none');
@@ -16,9 +16,18 @@ function openCard(){
     getElement('overlay').classList.remove('d-none');
     getElement('body').classList.add('oflow-y-hid');
     getElement('body').classList.remove('oflow-y-unset');
+}
 
+function doNotClose(event) {
+    event.stopPropagation();
 
 }
+
+
+
+
+
+//HELP FUNCTIONS 
 
 function getElement(id) {
     return document.getElementById(id);
