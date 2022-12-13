@@ -13,18 +13,18 @@
 
     <link rel="stylesheet" href="login_style.css">
     <link rel="stylesheet" href="fonts.css">
+
+    <script src="index.js"></script>
 </head>
 
 <body>
     <div class="complete-page">
         <div class="join-logo"><img src="assets/img/Capa 2join-logo.png" alt=""></div>
-
-        <div class="login-display d-none">
-            <div class="login-head">
-                <span class="hover-bright" style="border: none;">Not a Join user?</span>
-                <Button class="hover-dark">Sign up</Button>
-            </div>
-
+        <div class="login-head">
+            <span class="hover-bright" style="border: none;">Not a Join user?</span>
+            <Button class="hover-dark" onclick="openSignUp()">Sign up</Button>
+        </div>
+        <div id="login" class="login-display">
             <div class="login-area">
                 <div class="headline">
                     <h1>Log in</h1>
@@ -43,7 +43,7 @@
                 </form>
                 <div class="rememberMe-forgotPassword">
                     <div class="remember-me"> <input type="button">Remember me</div>
-                    <div class="forgot-password"><a href="#">Forgot my password</a></div>
+                    <div class="forgot-password" onclick="openForgotPassword()"><a href="#">Forgot my password</a></div>
                 </div>
 
                 <div class="login-guestlogin">
@@ -51,27 +51,31 @@
                     <div class="guestLogin-button hover-bright">Guest Log in</div>
                 </div>
             </div>
+            <div class="login-head-mobile">
+                <span class="hover-bright" style="border: none;">Not a Join user?</span>
+                <Button class="hover-dark" onclick="openSignUp()">Sign up</Button>
+            </div>
         </div>
 
-        <div class="signUp-display">
+        <div id="sign-up" class="signUp-display  d-none">
             <div class="signUp-area">
-                <div class="arrow"><img src="assets/img/arrow-121-32.png"></div>
+                <div class="arrow" onclick="closeSignUp()"><img src="assets/img/arrow-121-32.png"></div>
 
                 <div class="headline">
-                    <h1>Sign up</h1>
+                    <h1>Sign in</h1>
                 </div>
 
                 <div class="headline-underline"></div>
                 <form onsubmit="" class="form-style">
-                    <div class="name-field">
+                    <div class="signup-name-field">
                         <input required type="text" class="form-control" placeholder="Name" aria-label="First name">
                     </div>
 
-                    <div class="email-field">
+                    <div class="signup-email-field">
                         <input required type="email" class="form-control" placeholder="Email" aria-label="First name">
                     </div>
 
-                    <div class="password-field">
+                    <div class="signup-password-field">
                         <input required type="text" class="form-control" placeholder="Password" aria-label="First name">
                     </div>
                 </form>
@@ -82,9 +86,9 @@
 
 
 
-        <div class="forgot-password-display  d-none">
+        <div id="forgot-password" class="forgot-password-display  d-none">
             <div class="forgot-password-area">
-                <div class="arrow"><img src="assets/img/arrow-121-32.png"></div>
+                <div class="arrow" onclick="closeForgotPassword()"><img src="assets/img/arrow-121-32.png"></div>
 
                 <div class="headline">
                     <h1>I forgot my password</h1>
