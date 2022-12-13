@@ -39,23 +39,20 @@ function setActiveSection(currentSection){
     }
     if(currentSection == 'legalnotice'){
         document.getElementById('legalnotice-section').classList.add('active-content-section');
-        document.getElementById('legalnotice-section-mobile').classList.add('active-content-section');
     }
 }
 
 /*on help button clicked destop template*/
 function showHelp(){
-    document.getElementById('inner-content').classList.add('d-none');
+    document.getElementById('body').style = 'overflow-y: hidden;';
     document.getElementById('help-content').classList.remove('d-none');
-    document.getElementById('help-content-mobile').classList.remove('d-none');
     document.getElementById('help-button').classList.add('d-none');
 }
 
 /* hide help page*/
 function hideHelp(){
-    document.getElementById('inner-content').classList.remove('d-none');
+    document.getElementById('body').style = '';
     document.getElementById('help-content').classList.add('d-none');
-    document.getElementById('help-content-mobile').classList.add('d-none');
     document.getElementById('help-button').classList.remove('d-none');
 }
 

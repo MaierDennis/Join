@@ -17,6 +17,8 @@
 
 <body id="body" onload="render('board')" id="body">
     <div w3-include-html="assets/templates/add_task_template.html" class="d-none" id="add-task-overlay-board"></div>
+    <div w3-include-html="assets/templates/help_template.html"></div>
+
 
     <div id="overlay" class="overlay d-none" onclick="closeCard()">
 
@@ -75,7 +77,6 @@
 
     <div class="content-destop">
         <div w3-include-html="assets/templates/destop_template.html"></div>
-        <div w3-include-html="assets/templates/help_template.html"></div>
         <div class="inner-content" id="inner-content">
             <div class="heading-search-add">
                 <h1 class="main-heading">Board</h1>
@@ -223,7 +224,6 @@
     </div>
 
     <div class="content-mobile">
-
         <span class="small-heading-mobile">Kanban Project Management Tool</span>
 
         <div class="heading-search-add">
