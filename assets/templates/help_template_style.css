@@ -1,7 +1,8 @@
 
 .help-content{
+    z-index: 999;
     background-color: #F6F7F8;
-    position: relative;
+    position: fixed;
     left: 232px;
     top: 89px;
     height: calc(100vh - 89px);
