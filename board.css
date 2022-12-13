@@ -472,6 +472,7 @@ body {
     /* left: 15%; */
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 
 }
 
