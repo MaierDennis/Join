@@ -168,6 +168,15 @@
     
 }
 
+
+@media(max-width: 375px) {
+    .card-container {
+        top: 0;
+        bottom: 0;
+    }
+
+}
+
 @media (max-width: 350px) {
     .small-heading-mobile {
         font-size: 16px;
