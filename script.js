@@ -46,7 +46,6 @@ function setActiveSection(currentSection){
 function showHelp(){
     document.getElementById('body').style = 'overflow-y: hidden;';
     document.getElementById('help-content').classList.remove('d-none');
-    document.getElementById('help-content-mobile').classList.remove('d-none');
     document.getElementById('help-button').classList.add('d-none');
 }
 
@@ -54,7 +53,6 @@ function showHelp(){
 function hideHelp(){
     document.getElementById('body').style = '';
     document.getElementById('help-content').classList.add('d-none');
-    document.getElementById('help-content-mobile').classList.add('d-none');
     document.getElementById('help-button').classList.remove('d-none');
 }
 
