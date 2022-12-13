@@ -445,4 +445,17 @@ margin-right: 10px;
         width: 80%;
         margin-bottom: 11%;
     }
+
+    /* Forgot Password*/
+
+    .forgot-password-display {
+        display: flex;
+        justify-content: center;
+    }
+
+    .forgot-password-area {
+        width: 90%;
+        justify-content: center;
+        height: 400px;
+    }
 }
