@@ -334,7 +334,7 @@ margin-right: 10px;
 
 @media (max-width: 550px) {
     .join-logo img{
-        height: 80px;
+        height: 50px;
     }
 
     .join-logo {
@@ -354,7 +354,6 @@ margin-right: 10px;
         align-items: center;
         width: 100%;
         padding-right: 6%;
-        margin-top: 30px;
         font-size: 17px;
     }
 
@@ -383,15 +382,15 @@ margin-right: 10px;
     }
 
     .login-display {
-        position: absolute;
-        margin-top: 15%;
-        min-height: 580px;
+        margin-top: 0;
+        min-height: 200px;
     }
 
     .login-area {
         height: 90%;
         width: 90%;
         padding-bottom: 30px;
+        margin-top: 20px;
     }
 
     .rememberMe-forgotPassword {
