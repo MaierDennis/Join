@@ -14,9 +14,11 @@
     <script src="script.js"></script>
 </head>
 
-<body onload="render('summary')">
+<body onload="render('summary')" id="body">
 
     <div w3-include-html="assets/templates/mobile_template.html"></div>
+    <div w3-include-html="assets/templates/help_template.html"></div>
+
 
     <div class="content-destop">
         <div w3-include-html="assets/templates/destop_template.html"></div>
@@ -82,11 +84,9 @@
                 </div>
             </div>
         </div>
-        <div w3-include-html="assets/templates/help_template.html"></div>
     </div>
 
     <div class="content-mobile">
-        <div w3-include-html="assets/templates/help_template_mobile.html"></div>
         <div class="headline-mobile">
             <span style="font-size: 14px;">Kanban Project Management Tool</span>
             <h1>Summary</h1>

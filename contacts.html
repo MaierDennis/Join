@@ -19,8 +19,9 @@
     <script src="add_task.js"></script>
 </head>
 
-<body onload="render('contacts'), showContacts()" onresize="showContacts()">
-        <div w3-include-html="assets/templates/add_task_template.html" class="d-none" id="add-task-overlay-board"></div>
+<body onload="render('contacts'), showContacts()" id="body">
+
+    <div w3-include-html="assets/templates/add_task_template.html" class="d-none" id="add-task-overlay-board"></div>
 
 
         <div w3-include-html="assets/templates/mobile_template.html"></div>

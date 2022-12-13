@@ -14,13 +14,14 @@
     <script src="add_task.js"></script>
 </head>
 
-<body onload="render('addtask')">
+<body onload="render('addtask')" id="body">
 
     <div w3-include-html="assets/templates/mobile_template.html"></div>
+    <div w3-include-html="assets/templates/help_template.html"></div>
+
 
     <div class="content-destop">
         <div w3-include-html="assets/templates/destop_template.html"></div>
-        <div w3-include-html="assets/templates/help_template.html"></div>
         <div class="inner-content" id="inner-content">
             <h1>Add task</h1>
             <form onsubmit="createTask(); return false">
@@ -77,7 +78,6 @@
         
     </div>
     <div class="content-mobile">
-        <div w3-include-html="assets/templates/help_template_mobile.html"></div>
         <span style="font-size: small;">Kanban Project Management Tool</span>
         <h1>Add task</h1>
         <form class="form-mobile" onsubmit="createTask(); return false">
