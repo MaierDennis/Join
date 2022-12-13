@@ -35,6 +35,7 @@ body {
     font-size: 61px;
     font-weight: 700;
     margin-bottom: 0 !important;
+    margin-top: 0 !important;
 
 }
 
@@ -149,7 +150,7 @@ body {
 }
 
 .plus-icon {
-    font-size: 30px;
+    /* font-size: 30px;
     font-weight: 200;
     border: 2px solid #2A3647;
     border-radius: 10px;
@@ -158,12 +159,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    cursor: pointer; */
+
+    background-image: url('assets/img/plus_black.svg');
+    object-fit: cover;
+    height: 30px;
+    width: 30px;
 }
 
 .plus-icon:hover {
-    color: #29ABE2;
-    border: 2px solid #29ABE2;
+    background-image: url('assets/img/plus_blue.svg');
+
+    
 
 }
 
