@@ -1,5 +1,35 @@
 let selectedPriority;
 
+function initAddTask() {
+    initDestop();
+    initMobile();
+}
+
+function initDestop() {
+    let checkList = document.getElementById('assign-to-list');
+    checkList.getElementsByClassName('anchor')[0].onclick = function () {
+        if (checkList.classList.contains('visible'))
+            checkList.classList.remove('visible');
+        else
+            checkList.classList.add('visible');
+    }
+}
+
+function initMobile() {
+    if (document.getElementById('assign-to-list-mobile')) {
+        let checkList = document.getElementById('assign-to-list-mobile');
+        checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
+            if (checkList.classList.contains('visible'))
+                checkList.classList.remove('visible');
+            else
+                checkList.classList.add('visible');
+        }
+    }
+}
+
+
+
+
 function clickPriorityButton(id) {
     unsetBtnClicked();
     if (id == 'urgent-btn-mobile' || id == 'urgent-btn') {
@@ -101,21 +131,27 @@ function clearTask() {
     document.getElementById('input-title').value = '';
     document.getElementById('input-description').value = '';
     document.getElementById('select-category').selectedIndex = 0;
-    document.getElementById('select-assigned').selectedIndex = 0;
+    clearAssignedContacts();
     document.getElementById('input-date').value = '';
     unsetBtnClicked();
     if (document.getElementById('low-btn-mobile')) {
         document.getElementById('input-title-mobile').value = '';
         document.getElementById('input-description-mobile').value = '';
         document.getElementById('select-category-mobile').selectedIndex = 0;
-        document.getElementById('select-assigned-mobile').selectedIndex = 0;
         document.getElementById('input-date-mobile').value = '';
     }
 }
 
-function showSuccessMessage(){
+function clearAssignedContacts(){
+    let contactsSelection = Array.from(document.getElementsByClassName('input-contact'));
+    contactsSelection.forEach(contact => {
+        contact.checked = false;
+    });
+}
+
+function showSuccessMessage() {
     document.getElementById("dialog-taskadded").classList.remove('d-none');
-    setTimeout(function () { 
+    setTimeout(function () {
         document.getElementById("dialog-taskadded").classList.add('d-none');
     }, 3000);
 }

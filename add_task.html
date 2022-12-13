@@ -14,7 +14,7 @@
     <script src="add_task.js"></script>
 </head>
 
-<body onload="render('addtask')" id="body">
+<body onload="render('addtask'); initAddTask()" id="body">
 
     <div w3-include-html="assets/templates/mobile_template.html"></div>
     <div w3-include-html="assets/templates/help_template.html"></div>
@@ -38,13 +38,6 @@
                             <option value="sales">Sales</option>
                             <option value="backoffice">Backoffice</option>
                         </select>
-                        <span>Assigned to</span>
-                        <select required id="select-assigned">
-                            <option value="" disabled selected>Select contacts to assign</option>
-                            <option>You</option>
-                            <option value="content 1">Contact 1</option>
-                            <option>Invite new contact</option>
-                        </select>
                     </div>
                     <div class="divContentAddtask" style="padding-right: 0;">
                         <span style="margin-top: 0;">Due date</span>
@@ -64,10 +57,24 @@
                                 <img src="assets/img/addTaskLowSymbol.svg">
                             </div>
                         </div>
+                        <span>Assigned to</span>
+                        <div id="assign-to-list" class="dropdown-check-list-contacts" tabindex="100">
+                            <span class="anchor">Select Contacts</span>
+                            <ul class="items">
+                                <li><input class="input-contact" type="checkbox" />1 </li>
+                                <li><input class="input-contact" type="checkbox" />2</li>
+                                <li><input class="input-contact" type="checkbox" />3 </li>
+                                <li><input class="input-contact" type="checkbox" />4 </li>
+                                <li><input class="input-contact" type="checkbox" />5 </li>
+                                <li><input class="input-contact" type="checkbox" />6 </li>
+                                <li><input class="input-contact" type="checkbox" />7</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="div-button">
-                    <button class="clear-btn" type="button" onclick="clearTask()">Clear<img src="assets/img/clearTaskImg.svg"></button>
+                    <button class="clear-btn" type="button" onclick="clearTask()">Clear<img
+                            src="assets/img/clearTaskImg.svg"></button>
                     <button type="submit" class="create-task-btn">Create Task<img
                             src="assets/img/createTaskImg.svg"></button>
                 </div>
@@ -75,7 +82,7 @@
         </div>
     </div>
 
-        
+
     </div>
     <div class="content-mobile">
         <span style="font-size: small;">Kanban Project Management Tool</span>
@@ -93,12 +100,18 @@
                 <option value="backoffice">Backoffice</option>
             </select>
             <span>Assigned to</span>
-            <select required id="select-assigned-mobile">
-                <option value="" disabled selected>Select contacts to assign</option>
-                <option>You</option>
-                <option value="content 1">Contact 1</option>
-                <option>Invite new contact</option>
-            </select>
+            <div id="assign-to-list-mobile" class="dropdown-check-list-contacts" tabindex="100">
+                <span class="anchor">Select Contacts</span>
+                <ul class="items">
+                    <li><input class="input-contact" type="checkbox" />1 </li>
+                    <li><input class="input-contact" type="checkbox" />2</li>
+                    <li><input class="input-contact" type="checkbox" />3 </li>
+                    <li><input class="input-contact" type="checkbox" />4 </li>
+                    <li><input class="input-contact" type="checkbox" />5 </li>
+                    <li><input class="input-contact" type="checkbox" />6 </li>
+                    <li><input class="input-contact" type="checkbox" />7</li>
+                </ul>
+            </div>
             <span>Prio</span>
             <div class="choosePriority">
                 <div id="urgent-btn-mobile" onclick="clickPriorityButton('urgent-btn-mobile')">
@@ -117,11 +130,11 @@
             <span>Due date</span>
             <input required type="date" id="input-date-mobile">
             <button type="submit" class="create-task-btn-mobile">Create Task<img
-                src="assets/img/createTaskImg.svg"></button>
+                    src="assets/img/createTaskImg.svg"></button>
         </form>
     </div>
 
-    
+
     <div class="dialog-taskadded d-none" id="dialog-taskadded">
         <span>Task added to board</span>
         <img src="assets/img/icon-summary.svg">

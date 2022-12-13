@@ -42,6 +42,7 @@ body {
     flex-direction: column;
     width: 50%;
     padding: 16px 24px;
+    height: 350px;
 }
 
 input {
@@ -129,14 +130,14 @@ select:hover {
 }
 
 
-.choosePriorityPicked{
+.choosePriorityPicked {
     transform: scale(1.1);
     box-shadow: 1px 1px 1px 1px rgb(194, 194, 194);
     pointer-events: none;
     color: white;
 }
 
-.choosePriorityPicked img{
+.choosePriorityPicked img {
     filter: invert(99%) sepia(64%) saturate(2%) hue-rotate(57deg) brightness(109%) contrast(101%);
 }
 
@@ -203,11 +204,11 @@ select:hover {
     cursor: pointer;
 }
 
-.create-task-btn-mobile{
+.create-task-btn-mobile {
     display: none;
 }
 
-.dialog-taskadded{
+.dialog-taskadded {
     width: 280px;
     display: flex;
     background-color: #2A3647;
@@ -222,14 +223,71 @@ select:hover {
     transform: translateX(-50%);
 }
 
-.dialog-taskadded img{
+.dialog-taskadded img {
     height: 24px;
     object-fit: contain;
     margin-left: 32px;
 }
 
-.d-none{
+.d-none {
     display: none;
+}
+
+
+/*chechlist for contacts*/
+.dropdown-check-list-contacts {
+    display: inline-block;
+}
+
+.dropdown-check-list-contacts .anchor {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 50px 5px 10px;
+    border: 1px solid #ccc;
+    margin: 0;
+}
+
+.dropdown-check-list-contacts .anchor:after {
+    position: absolute;
+    content: "";
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    padding: 5px;
+    right: 10px;
+    top: 20%;
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+.dropdown-check-list-contacts .anchor:active:after {
+    right: 8px;
+    top: 21%;
+}
+
+.dropdown-check-list-contacts ul.items {
+    padding: 2px;
+    display: none;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 82px;
+    overflow-y: auto;
+}
+
+.dropdown-check-list-contacts ul.items li {
+    list-style: none;
+}
+
+.dropdown-check-list-contacts.visible .anchor {
+    color: #0094ff;
+}
+
+.dropdown-check-list-contacts.visible .items {
+    display: block;
 }
 
 @media(max-width: 1024px) {
@@ -250,7 +308,7 @@ select:hover {
         overflow-y: scroll;
     }
 
-    h1{
+    h1 {
         font-size: 42px;
     }
 
@@ -269,7 +327,7 @@ select:hover {
         width: 20%;
     }
 
-    
+
 
     .choosePriority span {
         margin: 0;
@@ -304,7 +362,7 @@ select:hover {
     }
 }
 
-@media(max-width: 500px){
+@media(max-width: 500px) {
     .content-mobile {
         padding: 16px 2%;
     }

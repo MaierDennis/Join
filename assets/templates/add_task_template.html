@@ -31,14 +31,7 @@
                             <option>New Category</option>
                             <option value="sales">Sales</option>
                             <option value="backoffice">Backoffice</option>
-                        </select>
-                        <span>Assigned to</span>
-                        <select required id="select-assigned">
-                            <option value="" disabled selected>Select contacts to assign</option>
-                            <option>You</option>
-                            <option value="content 1">Contact 1</option>
-                            <option>Invite new contact</option>
-                        </select>
+                        </select>                          
                     </div>
                     <div class="divContentAddtask" style="@media(min-width:1024px){padding-right: 0;}">
                         <span style="margin-top: 0;">Due date</span>
@@ -57,6 +50,19 @@
                                 <span>Low</span>
                                 <img src="assets/img/addTaskLowSymbol.svg">
                             </div>
+                        </div>
+                        <span>Assigned to</span>
+                        <div id="assign-to-list" class="dropdown-check-list-contacts" tabindex="100">
+                            <span class="anchor">Select Contacts</span>
+                            <ul class="items">
+                              <li><input class="input-contact" type="checkbox" />1 </li>
+                              <li><input class="input-contact" type="checkbox" />2</li>
+                              <li><input class="input-contact" type="checkbox" />3 </li>
+                              <li><input class="input-contact" type="checkbox" />4 </li>
+                              <li><input class="input-contact" type="checkbox" />5 </li>
+                              <li><input class="input-contact" type="checkbox" />6 </li>
+                              <li><input class="input-contact" type="checkbox" />7</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
