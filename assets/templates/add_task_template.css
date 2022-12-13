@@ -286,7 +286,6 @@ select:hover {
     display: none;
     margin: 0;
     border: 1px solid #ccc;
-    border-top: none;
     max-height: 82px;
     overflow-y: auto;
 }

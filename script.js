@@ -17,6 +17,7 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
+    initAddTask();
 }
 
 /*set currentSection in templates*/

@@ -1,4 +1,5 @@
 let selectedPriority;
+let contactAssigned = false;
 
 function initAddTask() {
     initDestop();
@@ -116,13 +117,23 @@ function lowBtnclicked() {
     }
 }
 
+function checkAssignedTo(){
+    let contactsSelection = Array.from(document.getElementsByClassName('input-contact'));
+    contactsSelection.forEach(contact => {
+        if(contact.checked == true){
+            contactAssigned = true;
+        }
+    });
+}
+
 /*create Task on click create Button*/
 function createTask() {
-    if (selectedPriority) {
+    checkAssignedTo();
+    if (selectedPriority && contactAssigned) {
         showSuccessMessage();
         clearTask();
     } else {
-        alert('Please select a priority!');
+        alert('Please select a priority and assign a contact!');
     }
 }
 
@@ -132,6 +143,8 @@ function clearTask() {
     document.getElementById('input-description').value = '';
     document.getElementById('select-category').selectedIndex = 0;
     clearAssignedContacts();
+    contactAssigned = false;
+    selectedPriority = false;
     document.getElementById('input-date').value = '';
     unsetBtnClicked();
     if (document.getElementById('low-btn-mobile')) {
