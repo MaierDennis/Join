@@ -763,6 +763,10 @@ margin-top: 30px;
         .phone-field {
             width: 100%;
         }
+
+        .add-contact-buttons {
+            justify-content: center;
+        }
     
         .addedit-contact-input-fields {
             align-items: center;

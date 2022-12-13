@@ -45,7 +45,7 @@
                         <div class="addedit-contact-image"><img src="assets/img/add_contact_img.png"></div>
 
                         <div class="addedit-contact-input-fields">
-                            <form style="width: 100%;" onsubmit="hello()">
+                            <form style="width: 100%;" onsubmit="">
                                 <div class="name-field">
                                     <input required type="text" class="form-control" placeholder="Name"
                                         aria-label="First name">
@@ -58,14 +58,16 @@
                                     <input required type="number" minlength="5" class="form-control" placeholder="Phone"
                                         aria-label="First name">
                                 </div>
-                            </form>
-                            <div class="add-contact-buttons">
-                                <div class="button-cancel"><button onclick="closeEditNewContact()">Cancel<img
-                                            src="assets/img/X.png"></button></div>
-                                <div class="button-create"><button>Create contact <img
-                                            src="assets/img/hook.png"></button>
+
+                                <div class="add-contact-buttons">
+                                    <div class="button-cancel"><button onclick="closeEditNewContact()">Cancel<img
+                                                src="assets/img/X.png"></button></div>
+                                    <div class="button-create"><button>Create contact <img
+                                                src="assets/img/hook.png"></button>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
+                            
                         </div>
                     </div>
                 </div>
