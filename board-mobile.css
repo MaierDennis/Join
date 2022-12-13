@@ -137,7 +137,34 @@
 
 }
 
-@media(max-width: 450px) {
+@media(max-width: 500px) {
+    .card-title-big {
+        font-size: 32px;
+    }
+    
+    .card-description-big {
+        font-size: 16px;
+    }
+
+    .due-date-prio {
+        font-size: 18px;
+    }
+
+    .priority-tag {
+        height: 32px;
+    }
+
+    .contributors-circle-big {
+        height: 35px;
+        width: 35px;
+    }
+
+    .edit-overlay-btn {
+        bottom: 22px;
+        right: 44px;
+    }
+
+
     
 }
 
