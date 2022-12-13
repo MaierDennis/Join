@@ -46,3 +46,9 @@ function closeSingleContact(){
 function doNotClose(event) {
     event.stopPropagation();
 }
+
+document.addEventListener('keydown', function(event){      
+	if(event.key === "Escape"){
+		closeEditNewContact();        // an der Stelle die Funktion einsetzen, die das Fenster schließen soll
+	}
+}); 
