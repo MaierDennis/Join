@@ -52,3 +52,8 @@ document.addEventListener('keydown', function(event){
 		closeEditNewContact();        // an der Stelle die Funktion einsetzen, die das Fenster schließen soll
 	}
 }); 
+
+
+function hello(){
+    alert('funktioniert');
+}
