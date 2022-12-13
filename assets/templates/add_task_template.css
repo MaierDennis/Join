@@ -38,14 +38,17 @@ body{
     cursor: pointer;
 }
 
-h1{
+.addtask-h1{
     font-size: 52px;
     margin: 0;
     margin-bottom: 32px;
+    color:#2A3647;
+    font-weight: bold;
 }
 
 .formContentWithButton {
     display: flex;
+    box-sizing: unset;
 }
 
 .divContentAddtask {
@@ -108,6 +111,7 @@ select:hover {
 }
 
 .divContentAddtask span {
+    box-sizing: unset;
     margin-top: 24px;
     margin-bottom: 6px;
 }
@@ -238,22 +242,40 @@ select:hover {
     display: none;
 }
 
+.background{
+    display: none;
+}
+
 @media(max-width:1024px){
+    .background{
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #F6F7F8;
+    }
+
     .content-background{
+        box-sizing: unset;
         z-index: 4;
-        top: 120px;
+        top: 84px;
     }
 
     .content-addtask{
         width: 100%;
         height: 100%;
+        padding-top: 32px;
         border-radius: 0;
         background-color: #F6F7F8;
+        box-sizing: border-box;
+        justify-content: unset;
     }
 
     .formContentWithButton{
         flex-direction: column;
         align-items: center;
+        height: 60%;
     }
 
     .clear-btn{
@@ -279,6 +301,7 @@ select:hover {
 
     .divContentAddtask{
         width: 66%;
+        box-sizing: unset;
     }
 
     .choosePriority{
@@ -289,6 +312,10 @@ select:hover {
         min-width: 88px;
         width: 20%;
     }
+
+    .div-button{
+        margin: 0;
+    }
 }
 
 @media(max-width:700px){
@@ -297,10 +324,10 @@ select:hover {
     }
 
     .content-addtask{
-        padding: 16px 2%;
+        padding: 28px 2%;
     }
 
-    h1{
+    .addtask-h1{
         font-size: 42px;
     }
 }

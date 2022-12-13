@@ -74,10 +74,12 @@ function hideLogout(){
 /*show add Task*/
 function showAddTask(){
     document.getElementById('add-task-overlay-board').classList.remove('d-none');
+    document.getElementById('body').style = 'overflow-y: hidden;';
 }
 
 function hideAddTask(){
     document.getElementById('add-task-overlay-board').classList.add('d-none');
+    document.getElementById('body').style = '';
 }
 
 /*stop Propagation*/
