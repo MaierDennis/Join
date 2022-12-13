@@ -54,6 +54,6 @@ document.addEventListener('keydown', function(event){
 }); 
 
 
-function hello(){
+function hallo(){
     alert('funktioniert');
 }

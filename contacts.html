@@ -45,27 +45,28 @@
                         <div class="addedit-contact-image"><img src="assets/img/add_contact_img.png"></div>
 
                         <div class="addedit-contact-input-fields">
-                            <form style="width: 100%;" onsubmit="">
+                            
+                            <form style="width: 100%" onsubmit="hallo(); return false">
                                 <div class="name-field">
-                                    <input required type="text" class="form-control" placeholder="Name"
-                                        aria-label="First name">
+                                    <input required="true" type="text" class="form-control" placeholder="Name"
+                                        aria-label="Name">
                                 </div>
                                 <div class="email-field">
-                                    <input required type="email" class="form-control" placeholder="Email"
-                                        aria-label="First name">
+                                    <input required="true" type="email" class="form-control" placeholder="Email"
+                                        aria-label="Email">
                                 </div>
                                 <div class="phone-field">
-                                    <input required type="number" minlength="5" class="form-control" placeholder="Phone"
-                                        aria-label="First name">
+                                    <input required="true" type="number" minlength="5" class="form-control" placeholder="Phone"
+                                        aria-label="Phone">
                                 </div>
 
                                 <div class="add-contact-buttons">
-                                    <div class="button-cancel"><button onclick="closeEditNewContact()">Cancel<img
-                                                src="assets/img/X.png"></button></div>
-                                    <div class="button-create"><button>Create contact <img
-                                                src="assets/img/hook.png"></button>
-                                    </div>
+                                <div class="button-cancel"><button type="button" onclick="closeEditNewContact()">Cancel<img
+                                            src="assets/img/X.png"></button></div>
+                                <div class="button-create"><button type="submit">Create contact <img
+                                            src="assets/img/hook.png"></button>
                                 </div>
+                            </div>
                             </form>
                             
                         </div>
@@ -93,7 +94,7 @@
                         <div class="addedit-contact-image"><img src="assets/img/add_contact_img.png"></div>
 
                         <div class="addedit-contact-input-fields">
-                            <form onsubmit="" style="width: 100%;">
+                            <form style="width: 100%" onsubmit="hallo(); return false">
                                 <div class="name-field">
                                     <input required type="text" class="form-control" placeholder="Name"
                                         aria-label="First name">
@@ -106,10 +107,12 @@
                                     <input required type="number" class="form-control" placeholder="Phone"
                                         aria-label="First name">
                                 </div>
+
+                                <div class="edit-contact-buttons">
+                                    <button type="submit">Save</button>
+                                </div>
                             </form>
-                            <div class="edit-contact-buttons">
-                                <button>Save</button>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
