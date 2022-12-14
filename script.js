@@ -1,13 +1,13 @@
 let users = [];
-setURL('http://developerakademie.com/smallest_backend_ever');
 
 async function init() {
-   
+   setURL('http://developerakademie.com/smallest_backend_ever');
+
 
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
 
-    backend.setItem('test', '123');
+    backend.setItem('hallo', 'hallo');
 }
 
 function addUser() {
