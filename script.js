@@ -1,4 +1,3 @@
-let users = [];
 let tasks = [];
 
 async function init() {

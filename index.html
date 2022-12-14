@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="fonts.css">
 
     <script src="mini_backend.js"></script>
+    <script src="login.js"></script>
     <script src="index.js"></script>
     <script src="script.js"></script>
 
@@ -73,20 +74,20 @@
                 </div>
 
                 <div class="headline-underline"></div>
-                <form onsubmit="hallo(); return false" class="form-style">
+                <form onsubmit="addUser(); return false" class="form-style">
                     <div class="signup-name-field">
-                        <input required type="text" class="form-control" placeholder="Name" aria-label="First name">
+                        <input id="name" required type="text" class="form-control" placeholder="Name" aria-label="First name">
                     </div>
 
                     <div class="signup-email-field">
-                        <input required type="email" class="form-control" placeholder="Email" aria-label="First name">
+                        <input id="email" required type="email" class="form-control" placeholder="Email" aria-label="First name">
                     </div>
 
                     <div class="signup-password-field">
-                        <input required type="text" class="form-control" placeholder="Password" aria-label="First name">
+                        <input id="password" required type="text" class="form-control" placeholder="Password" aria-label="First name">
                     </div>
 
-                    <div class="button mt-4"><button type="submit">Sign up</button></div>
+                    <div><button class="button mt-4" type="submit">Sign up</button></div>
                 </form>
 
 
