@@ -38,25 +38,26 @@
                 </div>
 
                 <div class="headline-underline"></div>
-                <form class="form-style" onsubmit="">
+                <form class="form-style" onsubmit="login()">
                     <div class="email-field">
-                        <input required type="email" class="form-control" placeholder="Email" aria-label="First name">
+                        <input id="email-login" required type="email" class="form-control" placeholder="Email" aria-label="First name">
                     </div>
 
                     <div class="password-field">
-                        <input required type="password" class="form-control" placeholder="Password"
+                        <input id="password-login" required type="password" class="form-control" placeholder="Password"
                             aria-label="First name">
                     </div>
-                </form>
-                <div class="rememberMe-forgotPassword">
-                    <div class="remember-me"> <input type="checkbox">Remember me</div>
-                    <div class="forgot-password" onclick="openForgotPassword()"><a href="#">Forgot my password</a></div>
-                </div>
+                
+                    <div class="rememberMe-forgotPassword">
+                        <div class="remember-me"> <input type="checkbox">Remember me</div>
+                        <div class="forgot-password" onclick="openForgotPassword()"><a href="#">Forgot my password</a></div>
+                    </div>
 
-                <div class="login-guestlogin">
-                    <div class="button hover-dark" style="width: 110px;">Log in</div>
-                    <div class="guestLogin-button hover-bright">Guest Log in</div>
-                </div>
+                    <div class="login-guestlogin">
+                        <button class="button hover-dark" style="width: 110px;">Log in</button>
+                        <div class="guestLogin-button hover-bright">Guest Log in</div>
+                    </div>
+                </form>
             </div>
 
         </div>
@@ -76,15 +77,15 @@
                 <div class="headline-underline"></div>
                 <form onsubmit="addUser(); return false" class="form-style">
                     <div class="signup-name-field">
-                        <input id="name" required type="text" class="form-control" placeholder="Name" aria-label="First name">
+                        <input id="name-signup" required type="text" class="form-control" placeholder="Name" aria-label="First name">
                     </div>
 
                     <div class="signup-email-field">
-                        <input id="email" required type="email" class="form-control" placeholder="Email" aria-label="First name">
+                        <input id="email-signup" required type="email" class="form-control" placeholder="Email" aria-label="First name">
                     </div>
 
                     <div class="signup-password-field">
-                        <input id="password" required type="text" class="form-control" placeholder="Password" aria-label="First name">
+                        <input id="password-signup" required type="text" class="form-control" placeholder="Password" aria-label="First name">
                     </div>
 
                     <div><button class="button mt-4" type="submit">Sign up</button></div>
