@@ -34,12 +34,27 @@
                         <span>Description</span>
                         <textarea required placeholder="Enter a description" id="input-description"></textarea>
                         <span>Category</span>
-                        <select required id="select-category">
-                            <option value="" disabled selected>Select task category</option>
-                            <option>New Category</option>
-                            <option value="sales">Sales</option>
-                            <option value="backoffice">Backoffice</option>
+                        <select required id="select-category" onchange="showAddCategory()">
+                            <option disabled selected>Select task category</option>
+                            <option id="new-category-selected">New Category</option>
                         </select>
+                        <div class="new-category d-none" id="create-category">
+                            <div class="new-category-name">
+                                <input id="new-category" placeholder="Name"></input>
+                                <button onclick="createNewCategory()" type="button"><img style="height: 18px;"
+                                        src="assets/img/close-button-addtask.svg"></button>
+                                <button onclick="showAddCategory()" type="button"><img src="assets/img/check-addtask.svg"></button>
+                            </div>
+                            <div class="select-color-category">
+                                <div onclick="selectColor(1)" id="color1" style="background-color: #FC71FF;"></div>
+                                <div onclick="selectColor(2)" id="color2" style="background-color: #FF7A00;"></div>
+                                <div onclick="selectColor(3)" id="color3" style="background-color: #1FD7C1;"></div>
+                                <div onclick="selectColor(4)" id="color4" style="background-color: #2AD300;"></div>
+                                <div onclick="selectColor(5)" id="color5" style="background-color: red;"></div>
+                                <div onclick="selectColor(6)" id="color6" style="background-color: #8AA4FF;"></div>
+                                <div onclick="selectColor(7)" id="color7" style="background-color: blue;"></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="divContentAddtask" style="padding-right: 0;">
                         <span style="margin-top: 0;">Due date</span>

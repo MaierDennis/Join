@@ -28,8 +28,29 @@ function initMobile() {
     }
 }
 
+function renderCategories() {
+    categories.forEach(category => {
+        document.getElementById('select-category').innerHTML += categoriesDropdownTemplate(category);
+    });
+}
 
+function categoriesDropdownTemplate(category) {
+    return `<option value="${category['name']}">${category['name']}</option>`;
+}
 
+function showAddCategory() {
+    if (document.getElementById('select-category').selectedIndex == 1); {
+        document.getElementById('select-category').classList.add('d-none');
+        document.getElementById('create-category').classList.remove('d-none');
+    }
+}
+
+function selectColor(id){
+    for(let i = 1; i < 8; i++){
+        document.getElementById(`color${i}`).classList.remove('selected-color');
+    }
+    document.getElementById(`color${id}`).classList.add('selected-color');
+}
 
 function clickPriorityButton(id) {
     unsetBtnClicked();
