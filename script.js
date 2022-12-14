@@ -17,7 +17,6 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
-    initAddTask();
 }
 
 /*set currentSection in templates*/
@@ -29,6 +28,7 @@ function setActiveSection(currentSection){
     if(currentSection == 'board'){
         document.getElementById('board-section').classList.add('active-content-section');
         document.getElementById('board-section-mobile').classList.add('active-content-section');
+        initAddTask();
     }
     if(currentSection == 'addtask'){
         document.getElementById('addtask-section').classList.add('active-content-section');
@@ -37,6 +37,7 @@ function setActiveSection(currentSection){
     if(currentSection == 'contacts'){
         document.getElementById('contacts-section').classList.add('active-content-section');
         document.getElementById('contacts-section-mobile').classList.add('active-content-section');
+        initAddTask();
     }
     if(currentSection == 'legalnotice'){
         document.getElementById('legalnotice-section').classList.add('active-content-section');
