@@ -1,4 +1,4 @@
-let allContacts = [];
+let contacts = [];
 
 function addNewContact(){
     let name = document.getElementById('contact-name');
@@ -15,8 +15,15 @@ function addNewContact(){
     email.innerHTML = '';
     phone.innerHTML = '';
 
-    allContacts.push(contact);
     console.log(allContacts);
 
     closeEditNewContact();
+    pushNewContact(contact);
+}
+
+function pushNewContact(contact) {
+    contacts.push(contact);
+
+    console.log(contacts);
+    backend.setItem('contact', JSON.stringify(contacts));
 }
