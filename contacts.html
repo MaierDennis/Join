@@ -18,7 +18,7 @@
     <script src="script.js"></script>
     <script src="add_task.js"></script>
     <script src="new_contact.js"></script>
-    
+
 </head>
 
 <body onload="init(), render('contacts'), showContacts()" onresize="showContacts()" id="body">
@@ -26,113 +26,115 @@
     <div w3-include-html="assets/templates/add_task_template.html" class="d-none" id="add-task-overlay-board"></div>
 
 
-        <div w3-include-html="assets/templates/mobile_template.html"></div>
+    <div w3-include-html="assets/templates/mobile_template.html"></div>
 
-        <div id="overlay" class="overlay d-none" onclick="closeEditNewContact()">
-            <div id="add-contact" class="addedit-contact-display d-none">
-                <div class="addedit-contact" onclick="doNotClose(event)">
-                    <div class="addedit-contact-design">
-                        <div class="white-x hover" onclick="closeEditNewContact()"><img src="assets/img/x_white.png"></div>
-                        <div class="addedit-contact-logo"><img src="assets/img/Join_White.png"></div>
-                        <div class="addedit-contact-headline">
-                            <h2>Add contact</h2>
-                        </div>
-                        <div class="addedit-contact-motivation"><span>Tasks are better with a team!</span></div>
-                        <div class="addedit-contact-line"></div>
+    <div id="overlay" class="overlay d-none" onclick="closeEditNewContact()">
+        <div id="add-contact" class="addedit-contact-display d-none">
+            <div class="addedit-contact" onclick="doNotClose(event)">
+                <div class="addedit-contact-design">
+                    <div class="white-x hover" onclick="closeEditNewContact()"><img src="assets/img/x_white.png"></div>
+                    <div class="addedit-contact-logo"><img src="assets/img/Join_White.png"></div>
+                    <div class="addedit-contact-headline">
+                        <h2>Add contact</h2>
                     </div>
-
-                    <div class="addedit-contact-fields">
-                        <div class="close-x hover" onclick="closeEditNewContact()"><img src="assets/img/X.png"></div>
-
-                        <div class="addedit-contact-image"><img src="assets/img/add_contact_img.png"></div>
-
-                        <div class="addedit-contact-input-fields">
-                            
-                            <form style="width: 100%" onsubmit="addNewContact(); return false">
-                                <div class="name-field">
-                                    <input id="contact-name" required type="text" class="form-control" placeholder="Name"
-                                        aria-label="Name">
-                                </div>
-                                <div class="email-field">
-                                    <input id="contact-email" required type="email" class="form-control" placeholder="Email"
-                                        aria-label="Email">
-                                </div>
-                                <div class="phone-field">
-                                    <input id="contact-phone" required type="number" minlength="5" class="form-control" placeholder="Phone"
-                                        aria-label="Phone">
-                                </div>
-
-                                <div class="add-contact-buttons">
-                                <div class="button-cancel"><button type="button" onclick="closeEditNewContact()">Cancel<img
-                                            src="assets/img/X.png"></button></div>
-                                <div class="button-create"><button type="submit" onclick="addNewContact()">Create contact <img
-                                            src="assets/img/hook.png"></button>
-                                </div>
-                            </div>
-                            </form>
-                            
-                        </div>
-                    </div>
+                    <div class="addedit-contact-motivation"><span>Tasks are better with a team!</span></div>
+                    <div class="addedit-contact-line"></div>
                 </div>
-            </div>
 
-            <div id="edit-contact" class="addedit-contact-display d-none">
-                <div class="addedit-contact" onclick="doNotClose(event)">
-                    <div class="addedit-contact-design">
-                        <div class="white-x hover" onclick="closeEditNewContact()"><img src="assets/img/x_white.png"></div>
-                        <div class="addedit-contact-logo"><img src="assets/img/Join_White.png"></div>
-                        <div>
-                            <div class="addedit-contact-headline">
-                                <h2>Edit contact</h2>
+                <div class="addedit-contact-fields">
+                    <div class="close-x hover" onclick="closeEditNewContact()"><img src="assets/img/X.png"></div>
+
+                    <div class="addedit-contact-image"><img src="assets/img/add_contact_img.png"></div>
+
+                    <div class="addedit-contact-input-fields">
+
+                        <form style="width: 100%" onsubmit="addNewContact(); return false">
+                            <div class="name-field">
+                                <input id="contact-name" required type="text" class="form-control" placeholder="Name"
+                                    aria-label="Name">
+                            </div>
+                            <div class="email-field">
+                                <input id="contact-email" required type="email" class="form-control" placeholder="Email"
+                                    aria-label="Email">
+                            </div>
+                            <div class="phone-field">
+                                <input id="contact-phone" required type="number" minlength="5" class="form-control"
+                                    placeholder="Phone" aria-label="Phone">
                             </div>
 
-                            <div class="addedit-contact-line"></div>
-                        </div>
-                    </div>
-
-                    <div class="addedit-contact-fields">
-                        <div class="close-x hover" onclick="closeEditNewContact()"><img src="assets/img/X.png"></div>
-
-                        <div class="addedit-contact-image"><img src="assets/img/add_contact_img.png"></div>
-
-                        <div class="addedit-contact-input-fields">
-                            <form style="width: 100%" onsubmit="hallo(); return false">
-                                <div class="name-field">
-                                    <input required type="text" class="form-control" placeholder="Name">
+                            <div class="add-contact-buttons">
+                                <div class="button-cancel"><button type="button"
+                                        onclick="closeEditNewContact()">Cancel<img src="assets/img/X.png"></button>
                                 </div>
-                                <div class="email-field">
-                                    <input required type="email" class="form-control" placeholder="Email">
+                                <div class="button-create"><button type="submit" onclick="addNewContact()">Create
+                                        contact <img src="assets/img/hook.png"></button>
                                 </div>
-                                <div class="phone-field">
-                                    <input required type="number" class="form-control" placeholder="Phone">
-                                </div>
+                            </div>
+                        </form>
 
-                                <div class="edit-contact-buttons">
-                                    <button type="submit">Save</button>
-                                </div>
-                            </form>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="content-destop">
-            <div w3-include-html="assets/templates/destop_template.html"></div>
-            <div w3-include-html="assets/templates/help_template.html"></div>
-            <div class="inner-content" id="inner-content">
+
+        <div id="edit-contact" class="addedit-contact-display d-none">
+            <div class="addedit-contact" onclick="doNotClose(event)">
+                <div class="addedit-contact-design">
+                    <div class="white-x hover" onclick="closeEditNewContact()"><img src="assets/img/x_white.png"></div>
+                    <div class="addedit-contact-logo"><img src="assets/img/Join_White.png"></div>
+                    <div>
+                        <div class="addedit-contact-headline">
+                            <h2>Edit contact</h2>
+                        </div>
+
+                        <div class="addedit-contact-line"></div>
+                    </div>
+                </div>
+
+                <div class="addedit-contact-fields">
+                    <div class="close-x hover" onclick="closeEditNewContact()"><img src="assets/img/X.png"></div>
+
+                    <div class="addedit-contact-image"><img src="assets/img/add_contact_img.png"></div>
+
+                    <div class="addedit-contact-input-fields">
+                        <form style="width: 100%" onsubmit="hallo(); return false">
+                            <div class="name-field">
+                                <input required type="text" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="email-field">
+                                <input required type="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="phone-field">
+                                <input required type="number" class="form-control" placeholder="Phone">
+                            </div>
+
+                            <div class="edit-contact-buttons">
+                                <button type="submit">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-destop">
+        <div w3-include-html="assets/templates/destop_template.html"></div>
+        <div w3-include-html="assets/templates/help_template.html"></div>
+        <div class="inner-content" id="inner-content">
 
 
-                <div id="overview" class="complete-page">
-                    <div id="contact-list" class="all-contacts">
+            <div id="overview" class="complete-page">
+                <div id="contact-list" class="all-contacts">
 
-                        <!--Nur zur demonstration -->
-                        <button onclick="renderContacts()">Load</button>
+                    <!--Nur zur demonstration -->
+                    <button onclick="checkContacts()">Load</button>
 
-
-                        <div class="button-new-contact"><button class="button-dark" onclick="openNewContact()">New
-                                contact
-                                <img src="assets/img/add_contact_icon.png"></button></div>
-                        <div class="alphabet-box">
+                    <div class="button-new-contact"><button class="button-dark" onclick="openNewContact()">New
+                            contact
+                            <img src="assets/img/add_contact_icon.png"></button>
+                    </div>
+                    <div id="all-contacts" class="all-contacts" style="width: 100%;">
+                        <!--<div class="alphabet-box">
                             <div class="first-letter-box">
                                 <h3>A</h3>
                             </div>
@@ -140,175 +142,73 @@
                             <div class="line"></div>
 
                             <div style="width: 100%;" id="single-contact"></div>
-                            <!--
-                            <div onclick="openSingleContact()" class="single-contact">
-                                <div class="initials">DM</div>
-                                <div class="name-email">
-                                    <div class="name-small">Dennis Maier</div>
-                                    <div class="email-small">test123@gmail.com</div>
-                                </div>
-                            </div>
-                            <div class="single-contact">
-                                <div class="initials">DM</div>
-                                <div class="name-email">
-                                    <div class="name-small">Dennis Maier</div>
-                                    <div class="email-small">test123@gmail.com</div>
-                                </div>
-                            </div>-->
-                        </div>   
 
-                        <div class="alphabet-box">
-                            <div class="first-letter-box">
-                                <h3>B</h3>
-                            </div>
-
-                            <div class="line"></div>
-
-                            <div class="single-contact">
-                                <div class="initials">DM</div>
-                                <div class="name-email">
-                                    <div class="name-small">Dennis Maier</div>
-                                    <div class="email-small">test123@gmail.com</div>
-                                </div>
-                            </div>
-                            <div class="single-contact">
-                                <div class="initials">DM</div>
-                                <div class="name-email">
-                                    <div class="name-small">Dennis Maier</div>
-                                    <div class="email-small">test123@gmail.com</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="alphabet-box">
-                            <div class="first-letter-box">
-                                <h3>C</h3>
-                            </div>
-
-                            <div class="line"></div>
-
-                            <div class="single-contact">
-                                <div class="initials">DM</div>
-                                <div class="name-email">
-                                    <div class="name-small">Dennis Maier</div>
-                                    <div class="email-small">test123@gmail.com</div>
-                                </div>
-                            </div>
-                            <div class="single-contact">
-                                <div class="initials">DM</div>
-                                <div class="name-email">
-                                    <div class="name-small">Dennis Maier</div>
-                                    <div class="email-small">test123@gmail.com</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="alphabet-box">
-                            <div class="first-letter-box">
-                                <h3>D</h3>
-                            </div>
-
-                            <div class="line"></div>
-
-                            <div class="single-contact">
-                                <div class="initials">DM</div>
-                                <div class="name-email">
-                                    <div class="name-small">Dennis Maier</div>
-                                    <div class="email-small">test123@gmail.com</div>
-                                </div>
-                            </div>
-                            <div class="single-contact">
-                                <div class="initials">DM</div>
-                                <div class="name-email">
-                                    <div class="name-small">Dennis Maier</div>
-                                    <div class="email-small">test123@gmail.com</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="alphabet-box">
-                            <div class="first-letter-box">
-                                <h3>E</h3>
-                            </div>
-
-                            <div class="line"></div>
-
-                            <div class="single-contact">
-                                <div class="initials">DM</div>
-                                <div class="name-email">
-                                    <div class="name-small">Dennis Maier</div>
-                                    <div class="email-small">test123@gmail.com</div>
-                                </div>
-                            </div>
-                            <div class="single-contact">
-                                <div class="initials">DM</div>
-                                <div class="name-email">
-                                    <div class="name-small">Dennis Maier</div>
-                                    <div class="email-small">test123@gmail.com</div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                    </div>
-
-                    <div id="complete-contact" class="complete-contact d-none">
-                        <div id="full-contact" style="width: 90%;"></div>
-                        <!--
-                            <div class="this-contact">
-                            <div class="head">
-                                <div class="arrow-back" onclick="closeSingleContact()"><img
-                                        src="assets/img/arrow_left_black.png"></div>
-                                <div class="headline-contacts">
-                                    <h1>Contacts</h1>
-                                </div>
-                                <div class="horizontal-line"></div>
-                                <div class="motivation"><span>Better with a team</span></div>
-                                <div class="vertical-line"></div>
-                            </div>
-
-                            <div class="name">
-                                <div class="initials-big">DM</div>
-                                <div class="name-addTask">
-                                    <div class="name-big">
-                                        <h2>Dennis Maier</h2>
-                                    </div>
-                                    <div class="addTask-button" onclick="showAddTask()">+ Add Task</div>
-                                </div>
-                            </div>
-
-                            <div class="contact-information">
-                                <div class="heading-information"> <span>Contact Information</span></div>
-                                <div class="edit-contact" onclick="openEditContact()"> <img
-                                        src="assets/img/pencil.png"><span>Edit Contact</span></div>
-                            </div>
-
-                            <div class="email-div">
-                                <div class="contact-variant">Email</div>
-                                <div class="email-adress"><a href="#">test123@gmail.com</a></div>
-                            </div>
-
-                            <div class="phone-div">
-                                <div class="contact-variant">Phone</div>
-                                <div class="phone-number">+01 1234 567 89</div>
-                            </div>
-
-                            <div class="new-contact-button" onclick="openNewContact()"><button>New contact<img
-                                        src="assets/img/add_contact_icon.png"></button>
-                            </div>
-
-                            <div class="mobile-edit-button" onclick="openEditContact()"><img
-                                    src="assets/img/white_pencil.png"></div>
-
-                        </div>
-                        -->
+                        </div>-->
                     </div>
                 </div>
 
+                <div id="complete-contact" class="complete-contact d-none">
+                    <div class="this-contact">
+                        <div class="head">
+                            <div class="arrow-back" onclick="closeSingleContact()"><img
+                                    src="assets/img/arrow_left_black.png"></div>
+                            <div class="headline-contacts">
+                                <h1>Contacts</h1>
+                            </div>
+                            <div class="horizontal-line"></div>
+                            <div class="motivation"><span>Better with a team</span></div>
+                            <div class="vertical-line"></div>
+                        </div>
+
+                        <div class="name">
+                            <div class="initials-big">
+                                <div id="bigContactInitials"></div>
+                            </div>
+                            <div class="name-addTask">
+                                <div class="name-big">
+                                    <h2>
+                                        <div id="bigContactName"></div>
+                                    </h2>
+                                </div>
+                                <div class="addTask-button" onclick="showAddTask()">+ Add Task</div>
+                            </div>
+                        </div>
+
+                        <div class="contact-information">
+                            <div class="heading-information"> <span>Contact Information</span></div>
+                            <div class="edit-contact" onclick="openEditContact()"> <img
+                                    src="assets/img/pencil.png"><span>Edit Contact</span></div>
+                        </div>
+
+                        <div class="email-div">
+                            <div class="contact-variant">Email</div>
+                            <div class="email-adress"><a href="#">
+                                    <div id="bigContactEmail"></div>
+                                </a></div>
+                        </div>
+
+                        <div class="phone-div">
+                            <div class="contact-variant">Phone</div>
+                            <div class="phone-number">
+                                <div id="bigContactPhone"></div>
+                            </div>
+                        </div>
+
+                        <div class="new-contact-button" onclick="openNewContact()"><button>New contact<img
+                                    src="assets/img/add_contact_icon.png"></button>
+                        </div>
+
+                        <div class="mobile-edit-button" onclick="openEditContact()"><img
+                                src="assets/img/white_pencil.png"></div>
+
+                    </div>
+
+                </div>
             </div>
 
         </div>
+
+    </div>
 </body>
 
 </html>

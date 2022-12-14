@@ -122,12 +122,12 @@ h3 {
 }
 
 .name-small {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 21px;
+    font-weight: 500;
 }
 
 .email-small {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     color: rgb(41, 171, 226);
 }
@@ -144,7 +144,7 @@ h3 {
 }
 
 .this-contact {
-    width: 100%;
+    width: 90%;
     margin-top: 60px;
     overflow-y: auto;
 }
