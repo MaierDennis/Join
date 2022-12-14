@@ -11,14 +11,12 @@ function addNewContact(){
         'phone' : phone.value
     }
 
-    
-
+    name.innerHTML = '';
+    email.innerHTML = '';
+    phone.innerHTML = '';
 
     allContacts.push(contact);
     console.log(allContacts);
 
     closeEditNewContact();
-    name.innerHTML = '';
-    email.innerHTML = '';
-    phone.innerHTML = '';
 }
