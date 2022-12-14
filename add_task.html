@@ -16,7 +16,7 @@
 
 </head>
 
-<body onload="init(), render('addtask'); initAddTask()" id="body">
+<body onload="initAddTask()" id="body">
 
     <div w3-include-html="assets/templates/mobile_template.html"></div>
     <div w3-include-html="assets/templates/help_template.html"></div>
@@ -36,14 +36,14 @@
                         <span>Category</span>
                         <select required id="select-category" onchange="showAddCategory()">
                             <option disabled selected>Select task category</option>
-                            <option id="new-category-selected">New Category</option>
+                            <option id="new-category-selected" style="background-color: rgb(161, 161, 255);">New Category</option>
                         </select>
                         <div class="new-category d-none" id="create-category">
                             <div class="new-category-name">
                                 <input id="new-category" placeholder="Name"></input>
-                                <button onclick="createNewCategory()" type="button"><img style="height: 18px;"
+                                <button onclick="dismissCategory()" type="button"><img style="height: 18px;"
                                         src="assets/img/close-button-addtask.svg"></button>
-                                <button onclick="showAddCategory()" type="button"><img src="assets/img/check-addtask.svg"></button>
+                                <button onclick="createNewCategory()" type="button"><img src="assets/img/check-addtask.svg"></button>
                             </div>
                             <div class="select-color-category">
                                 <div onclick="selectColor(1)" id="color1" style="background-color: #FC71FF;"></div>

@@ -1,7 +1,11 @@
 let selectedPriority;
 let contactAssigned = false;
+let selectedColor;
+let selectedCategory;
 
-function initAddTask() {
+async function initAddTask() {
+    await init(); 
+    render('addtask'); 
     initDestop();
     initMobile();
 }
@@ -14,6 +18,7 @@ function initDestop() {
         else
             checkList.classList.add('visible');
     }
+    renderCategories();
 }
 
 function initMobile() {
@@ -35,21 +40,51 @@ function renderCategories() {
 }
 
 function categoriesDropdownTemplate(category) {
+    console.log(category['name']);
     return `<option value="${category['name']}">${category['name']}</option>`;
 }
 
 function showAddCategory() {
-    if (document.getElementById('select-category').selectedIndex == 1); {
+    let selectedIndex = document.getElementById('select-category').selectedIndex;
+    if (selectedIndex === 1) {
         document.getElementById('select-category').classList.add('d-none');
         document.getElementById('create-category').classList.remove('d-none');
+    }else{
+        selectedCategory = categories[selectedIndex - 2];
     }
 }
 
-function selectColor(id){
-    for(let i = 1; i < 8; i++){
+function selectColor(id) {
+    for (let i = 1; i < 8; i++) {
         document.getElementById(`color${i}`).classList.remove('selected-color');
     }
     document.getElementById(`color${id}`).classList.add('selected-color');
+    selectedColor = document.getElementById(`color${id}`).style.backgroundColor;
+}
+
+async function createNewCategory() {
+    if (selectedColor && document.getElementById('new-category').value != '') {
+        let category = {
+            'name': document.getElementById('new-category').value,
+            'color': selectedColor
+        }
+        categories.push(category);
+        await backend.setItem('categories', JSON.stringify(categories));
+        dismissCategory();
+        renderCategories();
+    }else{
+        alert('Please insert Categoryname and a color. To dismiss click x.');
+    }
+}
+
+function dismissCategory() {
+    document.getElementById('new-category').value = '';
+    if(document.getElementsByClassName('selected-color').length > 0){
+        document.getElementsByClassName('selected-color')[0].classList.remove('selected-color');
+    }
+    document.getElementById('select-category').classList.remove('d-none');
+    document.getElementById('create-category').classList.add('d-none');
+    document.getElementById('select-category').selectedIndex = 0;
 }
 
 function clickPriorityButton(id) {
@@ -150,7 +185,7 @@ function checkAssignedTo() {
 /*create Task on click create Button*/
 function createTask() {
     checkAssignedTo();
-    if (selectedPriority && contactAssigned) {
+    if (selectedPriority && contactAssigned && selectedCategory) {
         saveTask();
         showSuccessMessage();
         clearTask();
@@ -164,9 +199,11 @@ function clearTask() {
     document.getElementById('input-title').value = '';
     document.getElementById('input-description').value = '';
     document.getElementById('select-category').selectedIndex = 0;
+    document.getElementById('assign-to-list').classList.remove('visible');
     clearAssignedContacts();
     contactAssigned = false;
     selectedPriority = false;
+    selectedCategory = null;
     document.getElementById('input-date').value = '';
     unsetBtnClicked();
     if (document.getElementById('low-btn-mobile')) {
@@ -190,7 +227,7 @@ async function saveTask() {
         'id': tasks.length,
         'title': document.getElementById('input-title').value,
         'description': document.getElementById('input-description').value,
-        'category': document.getElementById('select-category').options[document.getElementById('select-category').selectedIndex].text,
+        'category': selectedCategory,
         'assigned-contacts': getAssignedContacts(),
         'due-date': document.getElementById('input-date').value,
         'priority': selectedPriority
@@ -210,7 +247,6 @@ function getAssignedContacts() {
         }
         counter++;
     });
-    console.log(assignedContacts);
     return assignedContacts;
 }
 
