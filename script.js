@@ -1,11 +1,12 @@
-let users = [];
-let allTasks = [];
+let tasks = [];
 
 async function init() {
     setURL('https://gruppe-400.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
+    tasks = JSON.parse(backend.getItem('tasks')) || [];
     contacts = JSON.parse(backend.getItem('contact')) || [];
+
 }
 
 async function render(currentSection) {

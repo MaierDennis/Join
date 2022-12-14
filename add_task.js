@@ -50,10 +50,10 @@ function defineSelectedPriority(id) {
         selectedPriority = 'urgent';
     }
     if (id == 'medium-btn-mobile' || id == 'medium-btn') {
-        selectedPriority = 'urgent';
+        selectedPriority = 'medium';
     }
     if (id == 'low-btn-mobile' || id == 'low-btn') {
-        selectedPriority = 'urgent';
+        selectedPriority = 'low';
     }
 }
 
@@ -117,10 +117,10 @@ function lowBtnclicked() {
     }
 }
 
-function checkAssignedTo(){
+function checkAssignedTo() {
     let contactsSelection = Array.from(document.getElementsByClassName('input-contact'));
     contactsSelection.forEach(contact => {
-        if(contact.checked == true){
+        if (contact.checked == true) {
             contactAssigned = true;
         }
     });
@@ -130,6 +130,7 @@ function checkAssignedTo(){
 function createTask() {
     checkAssignedTo();
     if (selectedPriority && contactAssigned) {
+        saveTask();
         showSuccessMessage();
         clearTask();
     } else {
@@ -155,11 +156,41 @@ function clearTask() {
     }
 }
 
-function clearAssignedContacts(){
+function clearAssignedContacts() {
     let contactsSelection = Array.from(document.getElementsByClassName('input-contact'));
     contactsSelection.forEach(contact => {
         contact.checked = false;
     });
+}
+
+/*upload Task to database*/
+async function saveTask() {
+    let task = {
+        'id': tasks.length,
+        'title': document.getElementById('input-title').value,
+        'description': document.getElementById('input-description').value,
+        'category': document.getElementById('select-category').options[document.getElementById('select-category').selectedIndex].text,
+        'assigned-contacts': getAssignedContacts(),
+        'due-date': document.getElementById('input-date').value,
+        'priority': selectedPriority
+    }
+    tasks.push(task);
+    await backend.setItem('tasks', JSON.stringify(tasks));
+}
+
+function getAssignedContacts() {
+    let assignedContacts = [];
+    let counter = 0;
+    let contactsSelection = Array.from(document.getElementsByClassName('input-contact'));
+    let contactsSelectionList = Array.from(document.getElementsByClassName('input-contact-listitem'));
+    contactsSelection.forEach(contact => {
+        if (contact.checked) {
+            assignedContacts.push(contactsSelectionList[counter].value);
+        }
+        counter++;
+    });
+    console.log(assignedContacts);
+    return assignedContacts;
 }
 
 function showSuccessMessage() {
