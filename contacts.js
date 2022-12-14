@@ -15,7 +15,6 @@ function openEditContact(){
 }
 
 function showContacts() {
-    console.log(window.innerWidth)
     if (window.innerWidth < 1024) {
         document.getElementById('complete-contact').classList.add('d-none');
         document.getElementById('contact-list').classList.remove('d-none');
@@ -55,5 +54,5 @@ document.addEventListener('keydown', function(event){
 
 
 function hallo(){
-    alert('funktioniert');
+    
 }
