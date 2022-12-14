@@ -50,22 +50,22 @@
                             
                             <form style="width: 100%" onsubmit="addNewContact(); return false">
                                 <div class="name-field">
-                                    <input id="contact-name" required="true" type="text" class="form-control" placeholder="Name"
+                                    <input id="contact-name" required type="text" class="form-control" placeholder="Name"
                                         aria-label="Name">
                                 </div>
                                 <div class="email-field">
-                                    <input id="contact-email" required="true" type="email" class="form-control" placeholder="Email"
+                                    <input id="contact-email" required type="email" class="form-control" placeholder="Email"
                                         aria-label="Email">
                                 </div>
                                 <div class="phone-field">
-                                    <input id="contact-phone" required="true" type="number" minlength="5" class="form-control" placeholder="Phone"
+                                    <input id="contact-phone" required type="number" minlength="5" class="form-control" placeholder="Phone"
                                         aria-label="Phone">
                                 </div>
 
                                 <div class="add-contact-buttons">
                                 <div class="button-cancel"><button type="button" onclick="closeEditNewContact()">Cancel<img
                                             src="assets/img/X.png"></button></div>
-                                <div class="button-create"><button type="submit">Create contact <img
+                                <div class="button-create"><button type="submit" onclick="addNewContact()">Create contact <img
                                             src="assets/img/hook.png"></button>
                                 </div>
                             </div>
@@ -124,6 +124,11 @@
 
                 <div id="overview" class="complete-page">
                     <div id="contact-list" class="all-contacts">
+
+                        <!--Nur zur demonstration -->
+                        <button onclick="renderContacts()">Load</button>
+
+
                         <div class="button-new-contact"><button class="button-dark" onclick="openNewContact()">New
                                 contact
                                 <img src="assets/img/add_contact_icon.png"></button></div>
@@ -134,6 +139,8 @@
 
                             <div class="line"></div>
 
+                            <div style="width: 100%;" id="single-contact"></div>
+                            <!--
                             <div onclick="openSingleContact()" class="single-contact">
                                 <div class="initials">DM</div>
                                 <div class="name-email">
@@ -147,8 +154,8 @@
                                     <div class="name-small">Dennis Maier</div>
                                     <div class="email-small">test123@gmail.com</div>
                                 </div>
-                            </div>
-                        </div>
+                            </div>-->
+                        </div>   
 
                         <div class="alphabet-box">
                             <div class="first-letter-box">
@@ -247,7 +254,9 @@
                     </div>
 
                     <div id="complete-contact" class="complete-contact d-none">
-                        <div class="this-contact">
+                        <div id="full-contact" style="width: 90%;"></div>
+                        <!--
+                            <div class="this-contact">
                             <div class="head">
                                 <div class="arrow-back" onclick="closeSingleContact()"><img
                                         src="assets/img/arrow_left_black.png"></div>
@@ -293,6 +302,7 @@
                                     src="assets/img/white_pencil.png"></div>
 
                         </div>
+                        -->
                     </div>
                 </div>
 

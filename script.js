@@ -1,4 +1,3 @@
-let users = [];
 let tasks = [];
 let categories = [];
 
@@ -8,6 +7,8 @@ async function init() {
     users = JSON.parse(backend.getItem('users')) || [];
     categories = JSON.parse(backend.getItem('categories')) || [];
     tasks = JSON.parse(backend.getItem('tasks')) || [];
+    contacts = JSON.parse(backend.getItem('contact')) || [];
+
 }
 
 async function render(currentSection) {
