@@ -9,7 +9,7 @@ function openNewContact() {
     document.getElementById('overlay').classList.remove('d-none');
 }
 
-function openEditContact(){
+function openEditContact() {
     document.getElementById('edit-contact').classList.remove('d-none');
     document.getElementById('overlay').classList.remove('d-none');
 }
@@ -37,22 +37,22 @@ function openSingleContact() {
     }
 }
 
-function closeSingleContact(){
-        document.getElementById('complete-contact').classList.add('d-none');
-        document.getElementById('contact-list').classList.remove('d-none');
+function closeSingleContact() {
+    document.getElementById('complete-contact').classList.add('d-none');
+    document.getElementById('contact-list').classList.remove('d-none');
 }
 
 function doNotClose(event) {
     event.stopPropagation();
 }
 
-document.addEventListener('keydown', function(event){      
-	if(event.key === "Escape"){
-		closeEditNewContact();        // an der Stelle die Funktion einsetzen, die das Fenster schließen soll
-	}
-}); 
+document.addEventListener('keydown', function (event) {
+    if (event.key === "Escape") {
+        closeEditNewContact();        // an der Stelle die Funktion einsetzen, die das Fenster schließen soll
+    }
+});
 
 
-function hallo(){
-    
+function hallo() {
+
 }
