@@ -1,22 +1,3 @@
-let users = [
-    {
-        'name': 'Niclas',
-        'email': 'niclas@join.de',
-        'password': 'niclas123',
-    },
-
-    {
-        'name': 'Dennis',
-        'email': 'dennis@join.de',
-        'password': 'dennis123',
-    },
-
-    {
-        'name': 'Simon',
-        'email': 'simon@join.de',
-        'password': 'simon123',
-    }
-];
 
 
 function addUser() {
@@ -27,6 +8,8 @@ function addUser() {
     users.push({ name: name.value, email: email.value, password: password.value });
 
     backend.setItem('users', JSON.stringify(users));
+
+
 
     console.log(users);
 
@@ -50,11 +33,11 @@ function login() {
 
     
     if(user) {
-        alert ('You are logged in. Click "OK" to proceed');
-        window.open("board.html");
-        // window.open("board.html", "_self");
+        window.open("board.html", "_self"); 
+        alert ('You are logged in. Click "OK" to proceed');  
+        backend.setItem('activeUser', JSON.stringify(user));  // saving active user in database
     } else {
-        alert ('Wrong E-Mail or Password. User not found. Try again or sign up if you have no Join account');
+        alert ('User not found');
     }
 
     email.value = "";
