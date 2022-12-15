@@ -19,6 +19,7 @@ function initDestop() {
             checkList.classList.add('visible');
     }
     renderCategories();
+    renderContacts()
 }
 
 function initMobile() {
@@ -32,8 +33,59 @@ function initMobile() {
         }
     }
     renderCategoriesMobile();
+    renderContactsMobile();
 }
 
+/*contacts*/
+
+function renderContactsMobile(){
+    document.getElementById('contacts-to-assign-mobile').innerHTML = '';
+    for(let i = 0; i < contacts.length; i++){
+        document.getElementById('contacts-to-assign-mobile').innerHTML += `
+        <li class="input-contact-listitem-mobile" value="${[i]}"><input class="input-contact-mobile"
+            type="checkbox" />${contacts[i]['name']} </li>
+        `;
+    }
+}
+
+function getAssignedContactsMobile() {
+    let assignedContacts = [];
+    let counter = 0;
+    let contactsSelection = Array.from(document.getElementsByClassName('input-contact-mobile'));
+    contactsSelection.forEach(contact => {
+        if (contact.checked) {
+            assignedContacts.push(contacts[counter]);
+        }
+        counter++;
+    });
+    return assignedContacts;
+}
+
+function renderContacts(){
+    document.getElementById('contacts-to-assign').innerHTML = '';
+    for(let i = 0; i < contacts.length; i++){
+        document.getElementById('contacts-to-assign').innerHTML += `
+        <li class="input-contact-listitem" value="${[i]}"><input class="input-contact"
+            type="checkbox" />${contacts[i]['name']} </li>
+        `;
+    }
+}
+
+function getAssignedContacts() {
+    let assignedContacts = [];
+    let counter = 0;
+    let contactsSelection = Array.from(document.getElementsByClassName('input-contact'));
+    contactsSelection.forEach(contact => {
+        if (contact.checked) {
+            assignedContacts.push(contacts[counter]);
+        }
+        counter++;
+    });
+    return assignedContacts;
+}
+
+
+/*render categories*/
 function renderCategoriesMobile(){
     document.getElementById('select-category-mobile').innerHTML = '';
     document.getElementById('select-category-mobile').innerHTML = `
@@ -231,7 +283,13 @@ function lowBtnclicked() {
 
 function checkAssignedTo() {
     let contactsSelection = Array.from(document.getElementsByClassName('input-contact'));
+    let contactsSelectionMobile = Array.from(document.getElementsByClassName('input-contact-mobile'));
     contactsSelection.forEach(contact => {
+        if (contact.checked == true) {
+            contactAssigned = true;
+        }
+    });
+    contactsSelectionMobile.forEach(contact => {
         if (contact.checked == true) {
             contactAssigned = true;
         }
@@ -275,6 +333,10 @@ function clearAssignedContacts() {
     contactsSelection.forEach(contact => {
         contact.checked = false;
     });
+    let contactsSelectionMobile = Array.from(document.getElementsByClassName('input-contact-mobile'));
+    contactsSelectionMobile.forEach(contact => {
+        contact.checked = false;
+    });
 }
 
 /*upload Task to database*/
@@ -290,20 +352,6 @@ async function saveTask() {
     }
     tasks.push(task);
     await backend.setItem('tasks', JSON.stringify(tasks));
-}
-
-function getAssignedContacts() {
-    let assignedContacts = [];
-    let counter = 0;
-    let contactsSelection = Array.from(document.getElementsByClassName('input-contact'));
-    let contactsSelectionList = Array.from(document.getElementsByClassName('input-contact-listitem'));
-    contactsSelection.forEach(contact => {
-        if (contact.checked) {
-            assignedContacts.push(contactsSelectionList[counter].value);
-        }
-        counter++;
-    });
-    return assignedContacts;
 }
 
 function showSuccessMessage() {
