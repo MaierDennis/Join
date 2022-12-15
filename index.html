@@ -40,17 +40,22 @@
                 <div class="headline-underline"></div>
                 <form class="form-style" onsubmit="login()">
                     <div class="email-field">
-                        <input id="email-login" required type="email" class="form-control" placeholder="Email" aria-label="First name">
+                        <input id="email-login" required type="email" class="form-control" placeholder="Email"
+                            aria-label="First name">
+                        <img class="mail-icon" src="assets/img/mail-icon.svg" alt="">
                     </div>
 
                     <div class="password-field">
                         <input id="password-login" required type="password" class="form-control" placeholder="Password"
                             aria-label="First name">
+                        <img class="password-icon" src="assets/img/password-icon.svg" alt="">
+
                     </div>
-                
+
                     <div class="rememberMe-forgotPassword">
                         <div class="remember-me"> <input type="checkbox">Remember me</div>
-                        <div class="forgot-password" onclick="openForgotPassword()"><a href="#">Forgot my password</a></div>
+                        <div class="forgot-password" onclick="openForgotPassword()"><a href="#">Forgot my password</a>
+                        </div>
                     </div>
 
                     <div class="login-guestlogin">
@@ -77,15 +82,23 @@
                 <div class="headline-underline"></div>
                 <form onsubmit="addUser(); return false" class="form-style">
                     <div class="signup-name-field">
-                        <input id="name-signup" required type="text" class="form-control" placeholder="Name" aria-label="First name">
+                        <input id="name-signup" required type="text" class="form-control" placeholder="Name"
+                            aria-label="First name">
+                        <img class="name-signup-icon" src="assets/img/name-icon.svg" alt="">
                     </div>
 
                     <div class="signup-email-field">
-                        <input id="email-signup" required type="email" class="form-control" placeholder="Email" aria-label="First name">
+                        <input id="email-signup" required type="email" class="form-control" placeholder="Email"
+                            aria-label="First name">
+                        <img class="mail-signup-icon" src="assets/img/mail-icon.svg" alt="">
+
                     </div>
 
                     <div class="signup-password-field">
-                        <input id="password-signup" required type="text" class="form-control" placeholder="Password" aria-label="First name">
+                        <input id="password-signup" required type="text" class="form-control" placeholder="Password"
+                            aria-label="First name">
+                        <img class="password-signup-icon" src="assets/img/password-icon.svg" alt="">
+
                     </div>
 
                     <div><button class="button mt-4" type="submit">Sign up</button></div>
@@ -112,8 +125,11 @@
                 </div>
 
                 <div class="forgot-password-email-field">
-                    <form onsubmit=""> <input required type="email" class="form-control" placeholder="Email"
-                            aria-label="First name"></form>
+                    <form onsubmit="">
+                        <input required type="email" class="form-control" placeholder="Email" aria-label="First name">
+                        <img class="forgot-password-icon" src="assets/img/mail-icon.svg" alt="">
+
+                    </form>
                 </div>
 
                 <div class="button">Send me the email</div>

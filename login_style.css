@@ -70,6 +70,8 @@ body {
 .email-field {
     width: 65%;
     margin-bottom: 6%;
+    display: flex;
+    position: relative;
 }
 
 .email-field input {
@@ -79,6 +81,8 @@ body {
 
 .password-field {
     width: 65%;
+    display: flex;
+    position: relative;
 }
 
 .password-field input {
@@ -89,6 +93,8 @@ body {
 .signup-name-field {
     width: 65%;
     margin-bottom: 6%;
+    display: flex;
+    position: relative;
 }
 
 .signup-name-field input {
@@ -100,6 +106,8 @@ body {
 .signup-email-field {
     width: 65%;
     margin-bottom: 6%;
+    display: flex;
+    position: relative;
 }
 
 .signup-email-field input {
@@ -109,6 +117,8 @@ body {
 
 .signup-password-field {
     width: 65%;
+    display: flex;
+    position: relative;
 }
 
 .signup-password-field input {
@@ -303,6 +313,7 @@ margin-right: 10px;
 .forgot-password-email-field {
     width: 55%;
     margin-bottom: 5%;
+    position: relative;
 }
 
 
@@ -323,6 +334,8 @@ margin-right: 10px;
 .reset-password-field {
     width: 55%;
     margin-bottom: 5%;
+    display: flex;
+    position: relative;
 }
 
 .continue-button {
@@ -490,3 +503,55 @@ margin-right: 10px;
         width: 80%;
     }
 }
+
+/* LOGIN FORM ICONS */
+
+.mail-icon {
+    position: absolute;
+    right: 7px;
+    top: 11px;
+    z-index: 5;
+    height: 17px;
+}
+
+.password-icon {
+    position: absolute;
+    right: 7px;
+    top: 11px;
+    z-index: 5;
+    height: 20px;
+}
+
+.forgot-password-icon {
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    z-index: 5;
+    height: 17px;
+}
+
+.name-signup-icon {
+    position: absolute;
+    right: 11px;
+    top: 11px;
+    z-index: 5;
+    height: 17px;
+}
+
+.mail-signup-icon {
+    position: absolute;
+    right: 11px;
+    top: 12px;
+    z-index: 5;
+    height: 15px;
+}
+
+.password-signup-icon {
+    position: absolute;
+    right: 11px;
+    top: 11px;
+    z-index: 5;
+    height: 17px;
+}
+
+
