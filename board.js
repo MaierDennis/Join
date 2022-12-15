@@ -32,15 +32,14 @@ document.addEventListener('keydown', function (event) {
 //render Tasks from Database
 
 function resetArrays() {
-    let tasksToDo = [];
-    let tasksProgress = [];
-    let tasksFeedback = [];
-    let tasksDone = [];
+    tasksToDo = [];
+    tasksProgress = [];
+    tasksFeedback = [];
+    tasksDone = [];
 }
 
 function declareArrays() {
     tasks.forEach(task => {
-        console.log('hallo');
         if (task['status'] === 'todo') {
             tasksToDo.push(task);
         }
@@ -56,7 +55,12 @@ function declareArrays() {
     });
 }
 
-function renderTasks() {
+function renderTasks(){
+    renderTasksDestop();
+    renderTasksMobile();
+}
+
+function renderTasksDestop() {
     document.getElementById('tasks-todo').innerHTML = '';
     tasksToDo.forEach(task => {
         document.getElementById('tasks-todo').innerHTML += taskCardTemplate(task);
@@ -65,7 +69,7 @@ function renderTasks() {
     });
     document.getElementById('tasks-inprogress').innerHTML = '';
     tasksProgress.forEach(task => {
-        document.getElementById('tasks-progress').innerHTML += taskCardTemplate(task);
+        document.getElementById('tasks-inprogress').innerHTML += taskCardTemplate(task);
         renderContributorsContainer(task);
         renderPrioritySymbol(task);
     });
@@ -83,6 +87,33 @@ function renderTasks() {
     });
 }
 
+function renderTasksMobile() {
+    document.getElementById('tasks-todo-mobile').innerHTML = '';
+    tasksToDo.forEach(task => {
+        document.getElementById('tasks-todo-mobile').innerHTML += taskCardTemplateMobile(task);
+        renderContributorsContainerMobile(task);
+        renderPrioritySymbolMobile(task);
+    });
+    document.getElementById('tasks-inprogress-mobile').innerHTML = '';
+    tasksProgress.forEach(task => {
+        document.getElementById('tasks-inprogress-mobile').innerHTML += taskCardTemplateMobile(task);
+        renderContributorsContainerMobile(task);
+        renderPrioritySymbolMobile(task);
+    });
+    document.getElementById('tasks-feedback-mobile').innerHTML = '';
+    tasksFeedback.forEach(task => {
+        document.getElementById('tasks-feedback-mobile').innerHTML += taskCardTemplateMobile(task);
+        renderContributorsContainerMobile(task);
+        renderPrioritySymbolMobile(task);
+    });
+    document.getElementById('tasks-done-mobile').innerHTML = '';
+    tasksDone.forEach(task => {
+        document.getElementById('tasks-done-mobile').innerHTML += taskCardTemplateMobile(task);
+        renderContributorsContainerMobile(task);
+        renderPrioritySymbolMobile(task);
+    });
+}
+
 function renderPrioritySymbol(task) {
     if (task['priority'] === 'urgent') {
         document.getElementById(`prioritySymbol${task['id']}`).src = "assets/img/urgent.svg";
@@ -95,11 +126,31 @@ function renderPrioritySymbol(task) {
     }
 }
 
+function renderPrioritySymbolMobile(task) {
+    if (task['priority'] === 'urgent') {
+        document.getElementById(`prioritySymbol${task['id']}-mobile`).src = "assets/img/urgent.svg";
+    }
+    if (task['priority'] === 'medium') {
+        document.getElementById(`prioritySymbol${task['id']}-mobile`).src = 'assets/img/medium.svg';
+    }
+    if (task['priority'] === 'low') {
+        document.getElementById(`prioritySymbol${task['id']}-mobile`).src = 'assets/img/low.svg';
+    }
+}
+
 function renderContributorsContainer(task) {
     let contacts = task['assigned-contacts'];
     document.getElementById(`contributers-container-${task['id']}`).innerHTML = '';
     contacts.forEach(contact => {
         document.getElementById(`contributers-container-${task['id']}`).innerHTML += contributorsContainerTemplate(contact);
+    });
+}
+
+function renderContributorsContainerMobile(task) {
+    let contacts = task['assigned-contacts'];
+    document.getElementById(`contributers-container-${task['id']}-mobile`).innerHTML = '';
+    contacts.forEach(contact => {
+        document.getElementById(`contributers-container-${task['id']}-mobile`).innerHTML += contributorsContainerTemplate(contact);
     });
 }
 
@@ -118,6 +169,21 @@ function taskCardTemplate(task) {
             <div class="contributors-container" id="contributers-container-${task['id']}">
             </div>
             <img id="prioritySymbol${task['id']}">
+        </div>
+    </div>
+    `;
+}
+
+function taskCardTemplateMobile(task) {
+    return /*html*/`
+    <div onclick='openCard(${JSON.stringify(task)})' class="task-card">
+        <span class="card-category" style="background-color: ${task['category']['color']};">${task['category']['name']}</span>
+        <span class="card-title">${task['title']}</span>
+        <span class="card-description">${task['description']}</span>
+        <div class="card-bottom">
+            <div class="contributors-container" id="contributers-container-${task['id']}-mobile">
+            </div>
+            <img id="prioritySymbol${task['id']}-mobile">
         </div>
     </div>
     `;

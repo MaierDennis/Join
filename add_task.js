@@ -322,6 +322,7 @@ function createTask() {
         clearTask();
         if(!document.getElementById('low-btn-mobile')){
             resetArrays();
+            declareArrays();
             renderTasks();
             hideAddTask();
         }
@@ -340,6 +341,7 @@ function clearTask() {
     contactAssigned = false;
     selectedPriority = false;
     selectedCategory = null;
+    statusTaskOnCreate = 'todo';
     document.getElementById('input-date').value = '';
     unsetBtnClicked();
     if (document.getElementById('low-btn-mobile')) {
@@ -372,8 +374,9 @@ async function saveTask() {
         'assigned-contacts': getAssignedContacts(),
         'due-date': document.getElementById('input-date').value,
         'priority': selectedPriority,
-        'status': 'todo'
+        'status': statusTaskOnCreate
     }
+
     tasks.push(task);
     await backend.setItem('tasks', JSON.stringify(tasks));
 }
@@ -386,7 +389,8 @@ async function saveTaskMobile() {
         'category': selectedCategory,
         'assigned-contacts': getAssignedContactsMobile(),
         'due-date': document.getElementById('input-date-mobile').value,
-        'priority': selectedPriority
+        'priority': selectedPriority,
+        'status': statusTaskOnCreate
     }
     tasks.push(task);
     await backend.setItem('tasks', JSON.stringify(tasks));

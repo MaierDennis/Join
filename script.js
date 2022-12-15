@@ -1,3 +1,4 @@
+let statusTaskOnCreate = 'todo';
 let tasks = [];
 let tasksToDo = [];
 let tasksProgress = [];
@@ -111,12 +112,14 @@ function hideLogout(){
 }
 
 /*show add Task*/
-function showAddTask(){
+function showAddTask(statusPro){
+    statusTaskOnCreate = statusPro;
     document.getElementById('add-task-overlay-board').classList.remove('d-none');
     document.getElementById('body').style = 'overflow-y: hidden;';
 }
 
 function hideAddTask(){
+    statusTaskOnCreate = 'todo';
     document.getElementById('add-task-overlay-board').classList.add('d-none');
     document.getElementById('body').style = '';
 }

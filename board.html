@@ -29,7 +29,7 @@
 
             <img class="close-overlay-btn" src="assets/img/close.svg" onclick="closeCard()">
             <img class="back-overlay-btn" src="assets/img/backButton.svg" onclick="closeCard()">
-            <button class="edit-overlay-btn"><img src="assets/img/pencil.svg" ></button>
+            <button class="edit-overlay-btn" onclick="showAddTask()"><img src="assets/img/pencil.svg" ></button>
 
             <div id="task-overly-details"></div>
         </div>
@@ -54,7 +54,7 @@
                             <img class="search-icon" src="assets/img/search-icon.svg" alt="">
                         </div>
                     </div>
-                    <button onclick="showAddTask()" class="add-task-btn">Add task <img style="margin-left: 5px; height: 15px; width: 15px;"
+                    <button onclick="showAddTask('todo')" class="add-task-btn">Add task <img style="margin-left: 5px; height: 15px; width: 15px;"
                             src="assets/img/plus-icon.svg"> </button>
                 </div>
             </div>
@@ -65,7 +65,7 @@
 
                     <div class="tasks-heading">
                         <h3>To do</h3>
-                        <span class="plus-icon"></span>
+                        <span class="plus-icon" onclick="showAddTask('todo')"></span>
                     </div>
 
                     <div class="tasks-main" id="tasks-todo">
@@ -77,7 +77,7 @@
 
                     <div class="tasks-heading">
                         <h3>In progress</h3>
-                        <span class="plus-icon"></span>
+                        <span class="plus-icon" onclick="showAddTask('progress')"></span>
                     </div>
 
                     <div class="tasks-main" id="tasks-inprogress">
@@ -89,7 +89,7 @@
 
                     <div class="tasks-heading">
                         <h3>Feedback</h3>
-                        <span class="plus-icon"></span>
+                        <span class="plus-icon" onclick="showAddTask('feedback')"></span>
                     </div>
 
                     <div class="tasks-main" id="tasks-feedback">
@@ -102,7 +102,7 @@
 
                     <div class="tasks-heading">
                         <h3>Done</h3>
-                        <span class="plus-icon"></span>
+                        <span class="plus-icon" onclick="showAddTask('done')"></span>
                     </div>
 
                     <div class="tasks-main" id="tasks-done">
@@ -129,9 +129,9 @@
                         <img class="search-icon" src="assets/img/search-icon.svg" alt="">
                     </div>
                 </div>
-                <button onclick="showAddTask()" class="add-task-btn">Add task<img style="margin-left: 5px; height: 15px; width: 15px;"
+                <button onclick="showAddTask('todo')" class="add-task-btn">Add task<img style="margin-left: 5px; height: 15px; width: 15px;"
                         src="assets/img/plus-icon.svg"> </button>
-                <button onclick="showAddTask()" class="add-task-btn-mobile"><img src="assets/img/plus-icon.svg"> </button>
+                <button onclick="showAddTask('todo')" class="add-task-btn-mobile"><img src="assets/img/plus-icon.svg"> </button>
             </div>
         </div>
 
@@ -141,35 +141,11 @@
 
                 <div class="tasks-heading">
                     <h3>To do</h3>
-                    <span class="plus-icon"></span>
+                    <span class="plus-icon" onclick="showAddTask('todo')"></span>
                 </div>
 
-                <div class="tasks-main">
-
-                    <div class="task-card" onclick="openCard()">
-
-                        <span class="card-category design">Design</span>
-
-                        <span class="card-title">Website redesign</span>
-
-                        <span class="card-description">Modify the contents of the main website...</span>
-
-                        <div class="card-bottom">
-
-                            <div class="contributors-container">
-                                <span class="contributors-circle blue">AM</span>
-                                <span class="contributors-circle purple">BS</span>
-
-                            </div>
-
-                            <img src="assets/img/low.svg" alt="">
-
-                        </div>
-
-
+                <div class="tasks-main" id="tasks-todo-mobile">
                     </div>
-
-                </div>
 
             </div>
 
@@ -177,35 +153,10 @@
 
                 <div class="tasks-heading">
                     <h3>In progress</h3>
-                    <span class="plus-icon"></span>
+                    <span class="plus-icon" onclick="showAddTask('progress')"></span>
                 </div>
 
-                <div class="tasks-main">
-
-                    <div onclick="openCard()" class="task-card">
-
-                        <span class="card-category sales">Sales</span>
-
-                        <span class="card-title">Call potential clients</span>
-
-                        <span class="card-description">Present product to prespective clients...</span>
-
-                        <div class="card-bottom">
-
-                            <div class="contributors-container">
-                                <span class="contributors-circle yellow-dark">DM</span>
-                                <span class="contributors-circle lila">NM</span>
-                                <span class="contributors-circle orange">SV</span>
-                            </div>
-
-                            <img src="assets/img/low.svg" alt="">
-
-                        </div>
-
-
-                    </div>
-
-
+                <div class="tasks-main" id="tasks-inprogress-mobile">
                 </div>
 
             </div>
@@ -214,34 +165,11 @@
 
                 <div class="tasks-heading">
                     <h3>Feedback</h3>
-                    <span class="plus-icon"></span>
+                    <span class="plus-icon" onclick="showAddTask('feedback')"></span>
                 </div>
 
-                <div class="tasks-main">
-                    <div onclick="openCard()" class="task-card">
-
-                        <span class="card-category media">Media</span>
-
-                        <span class="card-title">Call potential clients</span>
-
-                        <span class="card-description">Present product to prespective clients...</span>
-
-                        <div class="card-bottom">
-
-                            <div class="contributors-container">
-                                <span class="contributors-circle yellow-dark">DM</span>
-                                <span class="contributors-circle lila">NM</span>
-                                <span class="contributors-circle orange">SV</span>
-                            </div>
-
-                            <img src="assets/img/low.svg" alt="">
-
-                        </div>
-
-
+                <div class="tasks-main" id="tasks-feedback-mobile">
                     </div>
-
-                </div>
 
             </div>
 
@@ -249,58 +177,10 @@
 
                 <div class="tasks-heading">
                     <h3>Done</h3>
-                    <span class="plus-icon"></span>
+                    <span class="plus-icon" onclick="showAddTask('done')"></span>
                 </div>
 
-                <div class="tasks-main">
-                    <div onclick="openCard()" class="task-card">
-
-                        <span class="card-category backoffice">Backoffice</span>
-
-                        <span class="card-title">Call potential clients</span>
-
-                        <span class="card-description">Present product to prespective clients...</span>
-
-                        <div class="card-bottom">
-
-                            <div class="contributors-container">
-                                <span class="contributors-circle yellow-dark">DM</span>
-                                <span class="contributors-circle lila">NM</span>
-                                <span class="contributors-circle orange">SV</span>
-                            </div>
-
-                            <img src="assets/img/low.svg" alt="">
-
-                        </div>
-
-
-
-
-                    </div>
-
-                    <div onclick="openCard()" class="task-card">
-
-                        <span class="card-category marketing">Marketing</span>
-
-                        <span class="card-title">Call potential clients</span>
-
-                        <span class="card-description">Present product to prespective clients...</span>
-
-                        <div class="card-bottom">
-
-                            <div class="contributors-container">
-                                <span class="contributors-circle yellow-dark">DM</span>
-                                <span class="contributors-circle lila">NM</span>
-                                <span class="contributors-circle orange">SV</span>
-                            </div>
-
-                            <img src="assets/img/low.svg" alt="">
-
-                        </div>
-
-
-                    </div>
-
+                <div class="tasks-main" id="tasks-done-mobile">
                 </div>
 
             </div>
