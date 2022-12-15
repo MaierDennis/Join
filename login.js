@@ -46,12 +46,19 @@ function login() {
 
 }
 
+function guestLogin() {
 
-function getData() {
-    backend.getItem('users');
-    JSON.parse(backend.getItem('users'));
-    users = JSON.parse(backend.getItem('users'));
-    console.log(users);
+    window.open("board.html", "_self");
+    console.log ('Guest is logged in'); 
 
 }
+
+
+// function getData() {
+//     backend.getItem('users');
+//     JSON.parse(backend.getItem('users'));
+//     users = JSON.parse(backend.getItem('users'));
+//     console.log(users);
+
+// }
 

@@ -2,19 +2,19 @@ let tasks = [];
 let categories = [];
 let users = [
     {
-        'name': 'Niclas',
+        'name': 'Niclas Michel',
         'email': 'niclas@join.de',
         'password': '111',
     },
 
     {
-        'name': 'Dennis',
+        'name': 'Dennis Maier',
         'email': 'dennis@join.de',
         'password': '222',
     },
 
     {
-        'name': 'Simon',
+        'name': 'Simon Vitt',
         'email': 'simon@join.de',
         'password': '333',
     }
