@@ -42,7 +42,9 @@ function checkContacts() {
     }
     sortAlphabetList();
     createAlphabetBox();
-    renderThisContacts();
+    renderContacts();
+    showFirstContactInfos();
+    
 }
 
 function checkAlphabetBox(firstLetter) {
@@ -84,7 +86,8 @@ function createAlphabetBox() {
     }
 }
 
-function renderThisContacts() {
+function renderContacts() {
+    contacts.sort(sortContacts('name'));
     for (let i = 0; i < contacts.length; i++) {
         let thisContact = contacts[i];
         contactName = thisContact['name'];
@@ -107,7 +110,26 @@ function renderThisContacts() {
     }
 }
 
+function showFirstContactInfos(){
+        contactName = contacts[0]['name'];
+        contactEmail = contacts[0]['email'];
+        contactPhone = contacts[0]['phone'];
 
+        let initials = getInitials(contactName);
+
+        showThisContactInfos(contactName, contactEmail, contactPhone, initials);
+}
+
+function sortContacts(contactName) {    
+    return function(a, b) {    
+        if (a[contactName] > b[contactName]) {    
+            return 1;    
+        } else if (a[contactName] < b[contactName]) {    
+            return -1;    
+        }    
+        return 0;    
+    }    
+}    
 
 function getInitials(name) {
     let parts = name.split(' ')
