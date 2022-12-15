@@ -8,8 +8,6 @@ async function init() {
     categories = JSON.parse(backend.getItem('categories')) || [];
     tasks = JSON.parse(backend.getItem('tasks')) || [];
     contacts = JSON.parse(backend.getItem('contact')) || [];
-
-    checkContacts();
 }
 
 

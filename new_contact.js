@@ -190,7 +190,7 @@ function showThisContactInfos(i, contactName, contactEmail, contactPhone, initia
     activeContact = i;
 }
 
- function editContact(activeContact) {
+ function editContact() {
     let newName = document.getElementById('edit-name');
     let newEmail = document.getElementById('edit-email');
     let newPhone = document.getElementById('edit-phone');
@@ -210,4 +210,9 @@ function showThisContactInfos(i, contactName, contactEmail, contactPhone, initia
     pushAllContacts();
     checkContacts();
     closeEditNewContact();
+
+    newName.value = '';
+    newEmail.value = '';
+    newPhone.value = '';
+
 }
