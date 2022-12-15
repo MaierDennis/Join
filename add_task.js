@@ -4,14 +4,14 @@ let selectedColor;
 let selectedCategory;
 
 async function initAddTask() {
-    await init(); 
-    render('addtask'); 
+    await init();
     initDestop();
     initMobile();
 }
 
 function initDestop() {
     let checkList = document.getElementById('assign-to-list');
+    console.log('hier');
     checkList.getElementsByClassName('anchor')[0].onclick = function () {
         if (checkList.classList.contains('visible'))
             checkList.classList.remove('visible');
@@ -31,16 +31,32 @@ function initMobile() {
                 checkList.classList.add('visible');
         }
     }
+    renderCategoriesMobile();
+}
+
+function renderCategoriesMobile(){
+    document.getElementById('select-category-mobile').innerHTML = '';
+    document.getElementById('select-category-mobile').innerHTML = `
+    <option disabled selected>Select task category</option>
+    <option style="background-color: rgb(161, 161, 255);">New Category</option>
+    `;
+    categories.forEach(category => {
+        document.getElementById('select-category-mobile').innerHTML += categoriesDropdownTemplate(category);
+    });
 }
 
 function renderCategories() {
+    document.getElementById('select-category').innerHTML = '';
+    document.getElementById('select-category').innerHTML = `
+    <option disabled selected>Select task category</option>
+    <option style="background-color: rgb(161, 161, 255);">New Category</option>
+    `;
     categories.forEach(category => {
         document.getElementById('select-category').innerHTML += categoriesDropdownTemplate(category);
     });
 }
 
 function categoriesDropdownTemplate(category) {
-    console.log(category['name']);
     return `<option value="${category['name']}">${category['name']}</option>`;
 }
 
@@ -49,7 +65,17 @@ function showAddCategory() {
     if (selectedIndex === 1) {
         document.getElementById('select-category').classList.add('d-none');
         document.getElementById('create-category').classList.remove('d-none');
-    }else{
+    } else {
+        selectedCategory = categories[selectedIndex - 2];
+    }
+}
+
+function showAddCategoryMobile() {
+    let selectedIndex = document.getElementById('select-category-mobile').selectedIndex;
+    if (selectedIndex === 1) {
+        document.getElementById('select-category-mobile').classList.add('d-none');
+        document.getElementById('create-category-mobile').classList.remove('d-none');
+    } else {
         selectedCategory = categories[selectedIndex - 2];
     }
 }
@@ -57,8 +83,10 @@ function showAddCategory() {
 function selectColor(id) {
     for (let i = 1; i < 8; i++) {
         document.getElementById(`color${i}`).classList.remove('selected-color');
+        document.getElementById(`color${i}-mobile`).classList.remove('selected-color');
     }
     document.getElementById(`color${id}`).classList.add('selected-color');
+    document.getElementById(`color${id}-mobile`).classList.add('selected-color');
     selectedColor = document.getElementById(`color${id}`).style.backgroundColor;
 }
 
@@ -72,19 +100,47 @@ async function createNewCategory() {
         await backend.setItem('categories', JSON.stringify(categories));
         dismissCategory();
         renderCategories();
-    }else{
+    } else {
         alert('Please insert Categoryname and a color. To dismiss click x.');
     }
+    selectedColor = null;
+}
+
+async function createNewCategoryMobile() {
+    debugger;
+    if (selectedColor && document.getElementById('new-category-mobile').value != '') {
+        let category = {
+            'name': document.getElementById('new-category-mobile').value,
+            'color': selectedColor
+        }
+        categories.push(category);
+        await backend.setItem('categories', JSON.stringify(categories));
+        dismissCategoryMobile();
+        renderCategoriesMobile();
+    } else {
+        alert('Please insert Categoryname and a color. To dismiss click x.');
+    }
+    selectedColor = null;
 }
 
 function dismissCategory() {
     document.getElementById('new-category').value = '';
-    if(document.getElementsByClassName('selected-color').length > 0){
+    if (document.getElementsByClassName('selected-color').length > 0) {
         document.getElementsByClassName('selected-color')[0].classList.remove('selected-color');
     }
     document.getElementById('select-category').classList.remove('d-none');
     document.getElementById('create-category').classList.add('d-none');
     document.getElementById('select-category').selectedIndex = 0;
+}
+
+function dismissCategoryMobile() {
+    document.getElementById('new-category-mobile').value = '';
+    if (document.getElementsByClassName('selected-color').length > 0) {
+        document.getElementsByClassName('selected-color')[0].classList.remove('selected-color');
+    }
+    document.getElementById('select-category-mobile').classList.remove('d-none');
+    document.getElementById('create-category-mobile').classList.add('d-none');
+    document.getElementById('select-category-mobile').selectedIndex = 0;
 }
 
 function clickPriorityButton(id) {
