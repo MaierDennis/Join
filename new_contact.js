@@ -2,6 +2,7 @@ let contacts = [];
 let alphabetList = [];
 let sortedAlphabetList = [];
 
+//function to read the informations from display and implement to contacts-array
 function addNewContact() {
     let name = document.getElementById('contact-name');
     let email = document.getElementById('contact-email');
@@ -10,7 +11,8 @@ function addNewContact() {
     let contact = {
         'name': name.value,
         'email': email.value,
-        'phone': phone.value
+        'phone': phone.value,
+        'bg-color': 'white'
     }
 
     name.value = '';
@@ -24,11 +26,12 @@ function addNewContact() {
 
 }
 
+//function to push the next letter into backend
 function pushNewContact() {
     backend.setItem('contact', JSON.stringify(contacts));
 }
 
-
+//function to create parameters the next functions need
 function checkContacts() {
     for (let i = 0; i < contacts.length; i++) {
         let thisContact = contacts[i];
@@ -44,15 +47,17 @@ function checkContacts() {
     createAlphabetBox();
     renderContacts();
     showFirstContactInfos();
-    
+
 }
 
+//function to check if the letter for alphabet-boxes already exists
 function checkAlphabetBox(firstLetter) {
     if (!alphabetList.includes(firstLetter)) {
         alphabetList.push(firstLetter)
     }
 }
 
+//function to sort the letters in alphabetList by alphabet
 function sortAlphabetList() {
     alphabetList.sort();
     sortedAlphabetList = [];
@@ -63,6 +68,7 @@ function sortAlphabetList() {
     }
 }
 
+//function to create the contact-boxes with the right letters, where the contacts are inserted
 function createAlphabetBox() {
     let contactList = document.getElementById('all-contacts');
 
@@ -86,6 +92,7 @@ function createAlphabetBox() {
     }
 }
 
+//function to render all contacts to the list
 function renderContacts() {
     contacts.sort(sortContacts('name'));
     for (let i = 0; i < contacts.length; i++) {
@@ -99,38 +106,45 @@ function renderContacts() {
         let initials = getInitials(contactName);
 
         document.getElementById('single-contact' + firstLetter).innerHTML += `
-        <div onclick="openSingleContact(), showThisContactInfos('${contactName}', '${contactEmail}', ${contactPhone}, '${initials}')" class="single-contact">
-                                <div class="initials">${initials}</div>
+        <div onclick="openSingleContact(), showThisContactInfos(${i},'${contactName}', '${contactEmail}', ${contactPhone}, '${initials}')" class="single-contact">
+                                <div id="initials${i}" class="initials">${initials}</div>
                                 <div class="name-email">
                                     <div class="name-small">${contactName}</div>
                                     <div class="email-small">${contactEmail}</div>
                                 </div>
                             </div>
         `;
+
+        let randomColor = getRandomColor();
+        document.getElementById('initials' + i).style.backgroundColor = randomColor;
+        contacts[i]['bg-color'] = randomColor;
     }
 }
 
-function showFirstContactInfos(){
-        contactName = contacts[0]['name'];
-        contactEmail = contacts[0]['email'];
-        contactPhone = contacts[0]['phone'];
+//function to show the first contact from the contacts-array on big screen 
+function showFirstContactInfos() {
+    contactName = contacts[0]['name'];
+    contactEmail = contacts[0]['email'];
+    contactPhone = contacts[0]['phone'];
 
-        let initials = getInitials(contactName);
+    let initials = getInitials(contactName);
 
-        showThisContactInfos(contactName, contactEmail, contactPhone, initials);
+    showThisContactInfos(0, contactName, contactEmail, contactPhone, initials);
 }
 
-function sortContacts(contactName) {    
-    return function(a, b) {    
-        if (a[contactName] > b[contactName]) {    
-            return 1;    
-        } else if (a[contactName] < b[contactName]) {    
-            return -1;    
-        }    
-        return 0;    
-    }    
-}    
+//function to sort the contacts by its names
+function sortContacts(contactName) {
+    return function (a, b) {
+        if (a[contactName] > b[contactName]) {
+            return 1;
+        } else if (a[contactName] < b[contactName]) {
+            return -1;
+        }
+        return 0;
+    }
+}
 
+// function to get the first letters of all names
 function getInitials(name) {
     let parts = name.split(' ')
     let initials = ''
@@ -142,8 +156,19 @@ function getInitials(name) {
     return initials
 }
 
+//function to get the first letter 
 function getFirstLetter(name) {
     return name.charAt(0);
+}
+
+//function to get a random color
+function getRandomColor() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
 
 
@@ -153,10 +178,15 @@ async function deleteUser() {
     await backend.deleteItem('contact',);
 }
 
-
-function showThisContactInfos(contactName, contactEmail, contactPhone, initials) {
+//function to show the contact on big screen you clicked on 
+function showThisContactInfos(i, contactName, contactEmail, contactPhone, initials) {
     document.getElementById('bigContactInitials').innerHTML = initials;
     document.getElementById('bigContactName').innerHTML = contactName;
     document.getElementById('bigContactEmail').innerHTML = contactEmail;
     document.getElementById('bigContactPhone').innerHTML = contactPhone;
+    document.getElementById('bigInitials').style.backgroundColor = contacts[i]['bg-color'];
+}
+
+function editContact() {
+
 }
