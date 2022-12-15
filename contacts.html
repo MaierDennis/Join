@@ -97,19 +97,19 @@
                     <div class="addedit-contact-image"><img src="assets/img/add_contact_img.png"></div>
 
                     <div class="addedit-contact-input-fields">
-                        <form style="width: 100%" onsubmit="hallo(); return false">
+                        <form style="width: 100%" onsubmit="editContact(activeContact); return false">
                             <div class="name-field">
-                                <input required type="text" class="form-control" placeholder="Name">
+                                <input id="edit-name" type="text" class="form-control" placeholder="Name">
                             </div>
                             <div class="email-field">
-                                <input required type="email" class="form-control" placeholder="Email">
+                                <input id="edit-email" type="email" class="form-control" placeholder="Email">
                             </div>
                             <div class="phone-field">
-                                <input required type="number" class="form-control" placeholder="Phone">
+                                <input id="edit-phone" type="number" class="form-control" placeholder="Phone">
                             </div>
 
                             <div class="edit-contact-buttons">
-                                <button type="submit">Save</button>
+                                <button type="submit" onclick="editContact(activeContact)">Save</button>
                             </div>
                         </form>
                     </div>
@@ -126,14 +126,14 @@
             <div id="overview" class="complete-page">
                 <div id="contact-list" class="all-contacts">
 
-                    <!--Nur zur demonstration -->
+                    <!--Nur zur demonstration  -->
                     <button onclick="checkContacts()">Load</button>
-
+                   
                     <div class="button-new-contact"><button class="button-dark" onclick="openNewContact()">New
                             contact
                             <img src="assets/img/add_contact_icon.png"></button>
                     </div>
-                    <div id="all-contacts" class="all-contacts-div" style="width: 100%;">
+                    <div id="all-contacts" class="all-contacts-div">
                         <!--<div class="alphabet-box">
                             <div class="first-letter-box">
                                 <h3>A</h3>
@@ -176,7 +176,7 @@
 
                         <div class="contact-information">
                             <div class="heading-information"> <span>Contact Information</span></div>
-                            <div class="edit-contact" onclick="openEditContact()"> <img
+                            <div class="edit-contact" onclick="openEditContact(activeContact)"> <img
                                     src="assets/img/pencil.png"><span>Edit Contact</span></div>
                         </div>
 

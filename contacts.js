@@ -12,6 +12,10 @@ function openNewContact() {
 function openEditContact() {
     document.getElementById('edit-contact').classList.remove('d-none');
     document.getElementById('overlay').classList.remove('d-none');
+
+    document.getElementById('edit-name').placeholder = (contacts[activeContact]['name']);
+    document.getElementById('edit-email').placeholder = (contacts[activeContact]['email']);
+    document.getElementById('edit-phone').placeholder = (contacts[activeContact]['phone']);
 }
 
 function showContacts() {
@@ -51,8 +55,3 @@ document.addEventListener('keydown', function (event) {
         closeEditNewContact();        // an der Stelle die Funktion einsetzen, die das Fenster schließen soll
     }
 });
-
-
-function hallo() {
-
-}

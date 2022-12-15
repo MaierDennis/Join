@@ -9,7 +9,9 @@ async function init() {
     tasks = JSON.parse(backend.getItem('tasks')) || [];
     contacts = JSON.parse(backend.getItem('contact')) || [];
 
+    checkContacts();
 }
+
 
 async function render(currentSection) {
     await includeHTML();

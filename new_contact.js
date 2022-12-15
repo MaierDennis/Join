@@ -1,6 +1,8 @@
 let contacts = [];
 let alphabetList = [];
 let sortedAlphabetList = [];
+let activeContact = 0;
+let lockFunction = true;
 
 //function to read the informations from display and implement to contacts-array
 function addNewContact() {
@@ -8,11 +10,13 @@ function addNewContact() {
     let email = document.getElementById('contact-email');
     let phone = document.getElementById('contact-phone');
 
+    let randomColor = getRandomColor();
+
     let contact = {
         'name': name.value,
         'email': email.value,
         'phone': phone.value,
-        'bg-color': 'white'
+        'bg-color': randomColor
     }
 
     name.value = '';
@@ -22,12 +26,12 @@ function addNewContact() {
     contacts.push(contact);
 
     closeEditNewContact();
-    pushNewContact();
-
+    pushAllContacts();
+    checkContacts();
 }
 
 //function to push the next letter into backend
-function pushNewContact() {
+function pushAllContacts() {
     backend.setItem('contact', JSON.stringify(contacts));
 }
 
@@ -95,6 +99,7 @@ function createAlphabetBox() {
 //function to render all contacts to the list
 function renderContacts() {
     contacts.sort(sortContacts('name'));
+
     for (let i = 0; i < contacts.length; i++) {
         let thisContact = contacts[i];
         contactName = thisContact['name'];
@@ -112,12 +117,9 @@ function renderContacts() {
                                     <div class="name-small">${contactName}</div>
                                     <div class="email-small">${contactEmail}</div>
                                 </div>
-                            </div>
-        `;
+                            </div>`;
 
-        let randomColor = getRandomColor();
-        document.getElementById('initials' + i).style.backgroundColor = randomColor;
-        contacts[i]['bg-color'] = randomColor;
+        document.getElementById('initials' + i).style.backgroundColor = contacts[i]['bg-color'];
     }
 }
 
@@ -185,8 +187,27 @@ function showThisContactInfos(i, contactName, contactEmail, contactPhone, initia
     document.getElementById('bigContactEmail').innerHTML = contactEmail;
     document.getElementById('bigContactPhone').innerHTML = contactPhone;
     document.getElementById('bigInitials').style.backgroundColor = contacts[i]['bg-color'];
+    activeContact = i;
 }
 
-function editContact() {
+ function editContact(activeContact) {
+    let newName = document.getElementById('edit-name');
+    let newEmail = document.getElementById('edit-email');
+    let newPhone = document.getElementById('edit-phone');
+    
+    if (newName.value !== ``) {
+        contacts[activeContact]['name'] = newName.value;
+    }
 
+    if (newEmail.value !== '') {
+        contacts[activeContact]['email'] = newEmail.value;
+    }
+
+    if (newPhone.value !== '') {
+        contacts[activeContact]['phone'] = newPhone.value;
+    }
+
+    pushAllContacts();
+    checkContacts();
+    closeEditNewContact();
 }
