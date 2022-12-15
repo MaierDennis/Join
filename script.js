@@ -1,10 +1,30 @@
 let tasks = [];
 let categories = [];
+let users = [
+    {
+        'name': 'Niclas',
+        'email': 'niclas@join.de',
+        'password': '111',
+    },
+
+    {
+        'name': 'Dennis',
+        'email': 'dennis@join.de',
+        'password': '222',
+    },
+
+    {
+        'name': 'Simon',
+        'email': 'simon@join.de',
+        'password': '333',
+    }
+];
+
 
 async function init() {
     setURL('https://gruppe-400.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
-    // users = JSON.parse(backend.getItem('users')) || [];
+    users = JSON.parse(backend.getItem('users')) || [];
     categories = JSON.parse(backend.getItem('categories')) || [];
     tasks = JSON.parse(backend.getItem('tasks')) || [];
     contacts = JSON.parse(backend.getItem('contact')) || [];
