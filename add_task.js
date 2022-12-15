@@ -141,10 +141,14 @@ function showAddCategoryMobile() {
 function selectColor(id) {
     for (let i = 1; i < 8; i++) {
         document.getElementById(`color${i}`).classList.remove('selected-color');
-        document.getElementById(`color${i}-mobile`).classList.remove('selected-color');
+        if (document.getElementById(`color${i}-mobile`)) {
+            document.getElementById(`color${i}-mobile`).classList.remove('selected-color');
+        }
     }
     document.getElementById(`color${id}`).classList.add('selected-color');
-    document.getElementById(`color${id}-mobile`).classList.add('selected-color');
+    if (document.getElementById(`color${id}-mobile`)) {
+        document.getElementById(`color${id}-mobile`).classList.add('selected-color');
+    }
     selectedColor = document.getElementById(`color${id}`).style.backgroundColor;
 }
 
@@ -158,7 +162,9 @@ async function createNewCategory() {
         await backend.setItem('categories', JSON.stringify(categories));
         dismissCategory();
         renderCategories();
-        renderCategoriesMobile();
+        if (document.getElementById(`urgent-btn-mobile`)) {
+            renderCategoriesMobile();
+        }
     } else {
         alert('Please insert Categoryname and a color. To dismiss click x.');
     }
@@ -360,7 +366,8 @@ async function saveTask() {
         'category': selectedCategory,
         'assigned-contacts': getAssignedContacts(),
         'due-date': document.getElementById('input-date').value,
-        'priority': selectedPriority
+        'priority': selectedPriority,
+        'status': 'todo'
     }
     tasks.push(task);
     await backend.setItem('tasks', JSON.stringify(tasks));

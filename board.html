@@ -17,7 +17,7 @@
     
 </head>
 
-<body id="body" onload="init(), render('board')" id="body">
+<body id="body" onload="initBoard(), render('board')" id="body">
     <div w3-include-html="assets/templates/add_task_template.html" class="d-none" id="add-task-overlay-board"></div>
     <div w3-include-html="assets/templates/help_template.html"></div>
 
@@ -30,44 +30,7 @@
             <img class="back-overlay-btn" src="assets/img/backButton.svg" onclick="closeCard()">
             <button class="edit-overlay-btn"><img src="assets/img/pencil.svg" ></button>
 
-            <span class="card-category-big sales">Sales</span>
-
-            <span class="card-title-big">Call potential clients</span>
-
-            <span class="card-description-big">Present product to prospective clients...</span>
-
-            <div class="due-date-prio">
-                <span style="font-weight:bold; margin-right: 50px;">Due date:</span>
-                <span> 05-08-2022 </span>
-            </div>
-
-            <div class="due-date-prio">
-                <span style="font-weight:bold; margin-right: 50px;">Priority:</span>
-                <span><img class="priority-tag" src="assets/img/urgent-filled.svg" alt=""></span>
-            </div>
-
-            <div class="assigned">
-
-                <span class="due-date-prio" style="font-weight:bold;">Assigned to:</span>
-
-                <div class="contributor-container">
-                    <span class="contributors-circle-big yellow-dark" style="margin-right: 32px;">DM</span>
-                    <span class="due-date-prio" style="margin-bottom: 0 !important ;">Dennis Maier</span>
-                </div>
-
-                <div class="contributor-container">
-                    <span class="contributors-circle-big lila" style="margin-right: 32px;">NM</span>
-                    <span class="due-date-prio" style="margin-bottom: 0 !important ;">Niclas Michel</span>
-                </div>
-
-                <div class="contributor-container">
-                    <span class="contributors-circle-big orange" style="margin-right: 32px;">SV</span>
-                    <span class="due-date-prio" style="margin-bottom: 0 !important ;">Simon Vitt</span>
-                </div>
-
-            </div>
-
-
+            <div id="task-overly-details"></div>
         </div>
 
     </div>
@@ -104,33 +67,7 @@
                         <span class="plus-icon"></span>
                     </div>
 
-                    <div class="tasks-main">
-
-                        <div onclick="openCard()" class="task-card">
-
-                            <span class="card-category design">Design</span>
-
-                            <span class="card-title">Website redesign</span>
-
-                            <span class="card-description">Modify the contents of the main website...</span>
-
-                            <div class="card-bottom">
-
-                                <div class="contributors-container">
-                                    <span class="contributors-circle blue">AM</span>
-                                    <span class="contributors-circle purple">BS</span>
-
-                                </div>
-
-                                <img src="assets/img/low.svg" alt="">
-
-                            </div>
-
-
-                        </div>
-
-                        
-
+                    <div class="tasks-main" id="tasks-todo">
                     </div>
 
                 </div>
@@ -142,54 +79,7 @@
                         <span class="plus-icon"></span>
                     </div>
 
-                    <div class="tasks-main">
-
-                        <div onclick="openCard()" class="task-card">
-
-                            <span class="card-category sales">Sales</span>
-
-                            <span class="card-title">Call potential clients</span>
-
-                            <span class="card-description">Present product to prespective clients...</span>
-
-                            <div class="card-bottom">
-
-                                <div class="contributors-container">
-                                    <span class="contributors-circle yellow-dark">DM</span>
-                                    <span class="contributors-circle lila">NM</span>
-                                    <span class="contributors-circle orange">SV</span>
-                                </div>
-
-                                <img src="assets/img/urgent.svg" alt="">
-
-                            </div>
-
-
-                        </div>
-
-                        <div onclick="openCard()" class="task-card">
-
-                            <span class="card-category backoffice">Backoffice</span>
-
-                            <span class="card-title">Do important stuff</span>
-
-                            <span class="card-description">Present product to prespective clients...</span>
-
-                            <div class="card-bottom">
-
-                                <div class="contributors-container">
-                                    <span class="contributors-circle blue">HS</span>
-                                    <span class="contributors-circle yellow-dark">OS</span>
-                                </div>
-
-                                <img src="assets/img/medium.svg" alt="">
-
-                            </div>
-
-
-                        </div>
-
-
+                    <div class="tasks-main" id="tasks-inprogress">
                     </div>
 
                 </div>
@@ -201,7 +91,7 @@
                         <span class="plus-icon"></span>
                     </div>
 
-                    <div class="tasks-main">
+                    <div class="tasks-main" id="tasks-feedback">
 
                     </div>
 
@@ -214,7 +104,7 @@
                         <span class="plus-icon"></span>
                     </div>
 
-                    <div class="tasks-main">
+                    <div class="tasks-main" id="tasks-done">
 
                     </div>
 
