@@ -36,6 +36,7 @@ function login() {
         window.open("board.html", "_self"); 
         alert ('You are logged in. Click "OK" to proceed');  
         backend.setItem('activeUser', JSON.stringify(user));  // saving active user in database
+        console.log(activeUser);
     } else {
         alert ('User not found');
     }
@@ -44,11 +45,6 @@ function login() {
     password.value = "";
 
 }
-
-
-
-
-
 
 
 function getData() {

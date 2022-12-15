@@ -19,6 +19,7 @@ let users = [
         'password': '333',
     }
 ];
+let activeUser;
 
 
 async function init() {
@@ -28,6 +29,8 @@ async function init() {
     categories = JSON.parse(backend.getItem('categories')) || [];
     tasks = JSON.parse(backend.getItem('tasks')) || [];
     contacts = JSON.parse(backend.getItem('contact')) || [];
+    activeUser = JSON.parse(backend.getItem('activeUser')) || [];
+    console.log('Active user:', JSON.parse(backend.getItem('activeUser')));
 }
 
 
