@@ -2,16 +2,17 @@ let selectedPriority;
 let contactAssigned = false;
 let selectedColor;
 let selectedCategory;
+let contactsSorted;
 
 async function initAddTask() {
     await init();
+    sortContacts();
     initDestop();
     initMobile();
 }
 
 function initDestop() {
     let checkList = document.getElementById('assign-to-list');
-    console.log('hier');
     checkList.getElementsByClassName('anchor')[0].onclick = function () {
         if (checkList.classList.contains('visible'))
             checkList.classList.remove('visible');
@@ -31,19 +32,24 @@ function initMobile() {
             else
                 checkList.classList.add('visible');
         }
+        renderCategoriesMobile();
+        renderContactsMobile();
     }
-    renderCategoriesMobile();
-    renderContactsMobile();
 }
 
 /*contacts*/
 
-function renderContactsMobile(){
+function sortContacts() {
+    contactsSorted = contacts.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function renderContactsMobile() {
+
     document.getElementById('contacts-to-assign-mobile').innerHTML = '';
-    for(let i = 0; i < contacts.length; i++){
+    for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign-mobile').innerHTML += `
-        <li class="input-contact-listitem-mobile" value="${[i]}"><input class="input-contact-mobile"
-            type="checkbox" />${contacts[i]['name']} </li>
+        <li class="input-contact-listitem-mobile" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact-mobile"
+            type="checkbox" />${contactsSorted[i]['name']} </li>
         `;
     }
 }
@@ -54,19 +60,19 @@ function getAssignedContactsMobile() {
     let contactsSelection = Array.from(document.getElementsByClassName('input-contact-mobile'));
     contactsSelection.forEach(contact => {
         if (contact.checked) {
-            assignedContacts.push(contacts[counter]);
+            assignedContacts.push(contactsSorted[counter]);
         }
         counter++;
     });
     return assignedContacts;
 }
 
-function renderContacts(){
+function renderContacts() {
     document.getElementById('contacts-to-assign').innerHTML = '';
-    for(let i = 0; i < contacts.length; i++){
+    for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign').innerHTML += `
-        <li class="input-contact-listitem" value="${[i]}"><input class="input-contact"
-            type="checkbox" />${contacts[i]['name']} </li>
+        <li class="input-contact-listitem" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact"
+            type="checkbox" />${contactsSorted[i]['name']} </li>
         `;
     }
 }
@@ -77,7 +83,7 @@ function getAssignedContacts() {
     let contactsSelection = Array.from(document.getElementsByClassName('input-contact'));
     contactsSelection.forEach(contact => {
         if (contact.checked) {
-            assignedContacts.push(contacts[counter]);
+            assignedContacts.push(contactsSorted[counter]);
         }
         counter++;
     });
@@ -86,11 +92,11 @@ function getAssignedContacts() {
 
 
 /*render categories*/
-function renderCategoriesMobile(){
+function renderCategoriesMobile() {
     document.getElementById('select-category-mobile').innerHTML = '';
     document.getElementById('select-category-mobile').innerHTML = `
     <option disabled selected>Select task category</option>
-    <option style="background-color: rgb(161, 161, 255);">New Category</option>
+    <option style="background-color: rgb(0,0,0); color: white;">New Category</option>
     `;
     categories.forEach(category => {
         document.getElementById('select-category-mobile').innerHTML += categoriesDropdownTemplate(category);
@@ -101,7 +107,7 @@ function renderCategories() {
     document.getElementById('select-category').innerHTML = '';
     document.getElementById('select-category').innerHTML = `
     <option disabled selected>Select task category</option>
-    <option style="background-color: rgb(161, 161, 255);">New Category</option>
+    <option style="background-color: rgb(0,0,0); color: white;">New Category</option>
     `;
     categories.forEach(category => {
         document.getElementById('select-category').innerHTML += categoriesDropdownTemplate(category);
@@ -109,7 +115,7 @@ function renderCategories() {
 }
 
 function categoriesDropdownTemplate(category) {
-    return `<option value="${category['name']}">${category['name']}</option>`;
+    return `<option style="background-color: ${category['color']}" value="${category['name']}">${category['name']}</option>`;
 }
 
 function showAddCategory() {
@@ -152,6 +158,7 @@ async function createNewCategory() {
         await backend.setItem('categories', JSON.stringify(categories));
         dismissCategory();
         renderCategories();
+        renderCategoriesMobile();
     } else {
         alert('Please insert Categoryname and a color. To dismiss click x.');
     }
@@ -159,7 +166,6 @@ async function createNewCategory() {
 }
 
 async function createNewCategoryMobile() {
-    debugger;
     if (selectedColor && document.getElementById('new-category-mobile').value != '') {
         let category = {
             'name': document.getElementById('new-category-mobile').value,
@@ -169,6 +175,7 @@ async function createNewCategoryMobile() {
         await backend.setItem('categories', JSON.stringify(categories));
         dismissCategoryMobile();
         renderCategoriesMobile();
+        renderCategories();
     } else {
         alert('Please insert Categoryname and a color. To dismiss click x.');
     }
@@ -300,7 +307,11 @@ function checkAssignedTo() {
 function createTask() {
     checkAssignedTo();
     if (selectedPriority && contactAssigned && selectedCategory) {
-        saveTask();
+        if (document.getElementById('input-title').value != '') {
+            saveTask();
+        } else {
+            saveTaskMobile();
+        }
         showSuccessMessage();
         clearTask();
     } else {
@@ -324,6 +335,7 @@ function clearTask() {
         document.getElementById('input-title-mobile').value = '';
         document.getElementById('input-description-mobile').value = '';
         document.getElementById('select-category-mobile').selectedIndex = 0;
+        document.getElementById('assign-to-list-mobile').classList.remove('visible');
         document.getElementById('input-date-mobile').value = '';
     }
 }
@@ -348,6 +360,20 @@ async function saveTask() {
         'category': selectedCategory,
         'assigned-contacts': getAssignedContacts(),
         'due-date': document.getElementById('input-date').value,
+        'priority': selectedPriority
+    }
+    tasks.push(task);
+    await backend.setItem('tasks', JSON.stringify(tasks));
+}
+
+async function saveTaskMobile() {
+    let task = {
+        'id': tasks.length,
+        'title': document.getElementById('input-title-mobile').value,
+        'description': document.getElementById('input-description-mobile').value,
+        'category': selectedCategory,
+        'assigned-contacts': getAssignedContactsMobile(),
+        'due-date': document.getElementById('input-date-mobile').value,
         'priority': selectedPriority
     }
     tasks.push(task);
