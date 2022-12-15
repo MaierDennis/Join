@@ -1,5 +1,6 @@
 /* MOBILE VERSION */
 
+/* 1180 PX */
 @media (max-width: 1180px) {
     .heading-search-add {
         width: 95%;
@@ -18,12 +19,9 @@
         height: 40px;
         width: 40px;
     }
-
-
-
 }
 
-
+/* 1024 PX */
 @media(max-width: 1024px) {
     .content-destop {
         display: none;
@@ -67,11 +65,9 @@
         margin-top: 22px;
     }
 
-
-
-
 }
 
+/* 850 PX */
 @media (max-width: 850px) {
     .card-container {
         position: absolute;
@@ -98,7 +94,7 @@
 
 }
 
-
+/* 750 PX */
 @media (max-width: 750px) {
     .heading-search-add {
         position: relative;
@@ -137,6 +133,7 @@
 
 }
 
+/* 500 PX */
 @media(max-width: 500px) {
     .card-title-big {
         font-size: 32px;
@@ -168,7 +165,7 @@
     
 }
 
-
+/* 375 PX */
 @media(max-width: 375px) {
     .card-container {
         top: 0;
@@ -177,6 +174,7 @@
 
 }
 
+/* 350 PX */
 @media (max-width: 350px) {
     .small-heading-mobile {
         font-size: 16px;
@@ -199,7 +197,4 @@
     .board-inputfield {
         width: 150px;
     }
-
-
-
 }
