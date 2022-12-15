@@ -1,4 +1,8 @@
 let tasks = [];
+let tasksToDo = [];
+let tasksProgress = [];
+let tasksFeedback = [];
+let tasksDone = [];
 let categories = [];
 let users = [
     {

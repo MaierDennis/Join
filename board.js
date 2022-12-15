@@ -1,6 +1,5 @@
-let cardOpened = false;
-
 async function initBoard() {
+    console.log('1');
     await init();
     declareArrays();
     renderTasks();
@@ -13,7 +12,6 @@ function closeCard() {
     getElement('overlay').classList.add('d-none');
     getElement('body').classList.add('oflow-y-unset');
     getElement('body').classList.remove('oflow-y-hidden');
-    cardOpened = false;
 }
 //HELP FUNCTIONS 
 
@@ -33,10 +31,12 @@ document.addEventListener('keydown', function (event) {
 
 //render Tasks from Database
 
-let tasksToDo = [];
-let tasksProgress = [];
-let tasksFeedback = [];
-let tasksDone = [];
+function resetArrays() {
+    let tasksToDo = [];
+    let tasksProgress = [];
+    let tasksFeedback = [];
+    let tasksDone = [];
+}
 
 function declareArrays() {
     tasks.forEach(task => {
@@ -54,7 +54,6 @@ function declareArrays() {
             tasksDone.push(task);
         }
     });
-    console.log(tasksToDo);
 }
 
 function renderTasks() {
@@ -86,13 +85,13 @@ function renderTasks() {
 
 function renderPrioritySymbol(task) {
     if (task['priority'] === 'urgent') {
-        document.getElementById('prioritySymbol').src = "assets/img/urgent.svg";
+        document.getElementById(`prioritySymbol${task['id']}`).src = "assets/img/urgent.svg";
     }
     if (task['priority'] === 'medium') {
-        document.getElementById('prioritySymbol').src = 'assets/img/medium.svg';
+        document.getElementById(`prioritySymbol${task['id']}`).src = 'assets/img/medium.svg';
     }
     if (task['priority'] === 'low') {
-        document.getElementById('prioritySymbol').src = 'assets/img/low.svg';
+        document.getElementById(`prioritySymbol${task['id']}`).src = 'assets/img/low.svg';
     }
 }
 
@@ -111,14 +110,14 @@ function contributorsContainerTemplate(contact) {
 
 function taskCardTemplate(task) {
     return /*html*/`
-    <div onclick="openCard()" class="task-card">
+    <div onclick='openCard(${JSON.stringify(task)})' class="task-card">
         <span class="card-category" style="background-color: ${task['category']['color']};">${task['category']['name']}</span>
         <span class="card-title">${task['title']}</span>
         <span class="card-description">${task['description']}</span>
         <div class="card-bottom">
             <div class="contributors-container" id="contributers-container-${task['id']}">
             </div>
-            <img id="prioritySymbol">
+            <img id="prioritySymbol${task['id']}">
         </div>
     </div>
     `;
@@ -126,12 +125,15 @@ function taskCardTemplate(task) {
 
 /*show task details*/
 
-function openCard() {
-    cardOpened = true;
+function openCard(task) {
+    let taskBig = task;
     getElement('card-container').classList.remove('d-none');
     getElement('overlay').classList.remove('d-none');
     getElement('body').classList.add('oflow-y-hid');
     getElement('body').classList.remove('oflow-y-unset');
+    renderTaskDetails(taskBig);
+    renderContributorsContainerDetails(taskBig)
+    renderPriorityTagBig(taskBig);
 }
 
 function doNotClose(event) {
@@ -139,33 +141,57 @@ function doNotClose(event) {
 
 }
 
+function renderTaskDetails(task) {
+    document.getElementById('task-overly-details').innerHTML = '';
+    document.getElementById('task-overly-details').innerHTML = showTaskDetailsTemplate(task);
+}
+
+function renderContributorsContainerDetails(task) {
+    let contacts = task['assigned-contacts'];
+    document.getElementById('contributor-container-container-big').innerHTML = '';
+    contacts.forEach(contact => {
+        document.getElementById('contributor-container-container-big').innerHTML += contributorContainerBigTemplate(contact);
+    });
+}
+
+function contributorContainerBigTemplate(contact) {
+    let firstLetters = contact['name'].slice(0, 2).toUpperCase();
+    return /*html*/ `
+        <div class="contributor-container">
+            <span class="contributors-circle-big " style="margin-right: 32px; background-color: ${contact['bg-color']};">${firstLetters}</span>
+            <span class="due-date-prio" style="margin-bottom: 0 !important ;">${contact['name']}</span>
+        </div>
+    `;
+}
+
+function renderPriorityTagBig(task) {
+    if (task['priority'] === 'urgent') {
+        document.getElementById('priority-tag').src = 'assets/img/urgent-filled.svg';
+    }
+    if (task['priority'] === 'medium') {
+        document.getElementById('priority-tag').src = 'assets/img/urgent-filled.svg';
+    }
+    if (task['priority'] === 'low') {
+        document.getElementById('priority-tag').src = 'assets/img/urgent-filled.svg';
+    }
+}
+
 function showTaskDetailsTemplate(task) {
     return /*html*/ `
-    <span class="card-category-big sales">Sales</span>
-    <span class="card-title-big">Call potential clients</span>
-    <span class="card-description-big">Present product to prospective clients...</span>
+    <span class="card-category-big" style="background-color: ${task['category']['color']};">${task['category']['name']}</span>
+    <span class="card-title-big">${task['title']}</span>
+    <span class="card-description-big">${task['description']}</span>
     <div class="due-date-prio">
         <span style="font-weight:bold; margin-right: 50px;">Due date:</span>
-        <span> 05-08-2022 </span>
+        <span> ${task['due-date']} </span>
     </div>
     <div class="due-date-prio">
         <span style="font-weight:bold; margin-right: 50px;">Priority:</span>
-        <span><img class="priority-tag" src="assets/img/urgent-filled.svg" alt=""></span>
+        <span><img class="priority-tag" id="priority-tag"></span>
     </div>
     <div class="assigned">
         <span class="due-date-prio" style="font-weight:bold;">Assigned to:</span>
-        <div class="contributor-container">
-            <span class="contributors-circle-big yellow-dark" style="margin-right: 32px;">DM</span>
-            <span class="due-date-prio" style="margin-bottom: 0 !important ;">Dennis Maier</span>
-        </div>
-        <div class="contributor-container">
-            <span class="contributors-circle-big lila" style="margin-right: 32px;">NM</span>
-            <span class="due-date-prio" style="margin-bottom: 0 !important ;">Niclas Michel</span>
-        </div>
-        <div class="contributor-container">
-            <span class="contributors-circle-big orange" style="margin-right: 32px;">SV</span>
-            <span class="due-date-prio" style="margin-bottom: 0 !important ;">Simon Vitt</span>
-        </div>
+        <div id="contributor-container-container-big"></div>
     </div>
     `;
 }

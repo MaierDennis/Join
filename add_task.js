@@ -320,6 +320,11 @@ function createTask() {
         }
         showSuccessMessage();
         clearTask();
+        if(!document.getElementById('low-btn-mobile')){
+            resetArrays();
+            renderTasks();
+            hideAddTask();
+        }
     } else {
         alert('Please select a priority and assign a contact!');
     }
