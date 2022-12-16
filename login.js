@@ -44,11 +44,15 @@ async function login() {
 
 }
 
-function guestLogin() {
+async function guestLogin() {
+    let guest = {
+        'name': 'Guest',
+        'email': 'guest@join.de',
+        'password': 'guest'
+    }
 
-    window.open("board.html", "_self");
-    console.log ('Guest is logged in'); 
-
+    await backend.setItem('activeUser', JSON.stringify(guest) );
+    window.location.href = 'board.html';           
 }
 
 
