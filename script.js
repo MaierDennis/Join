@@ -6,6 +6,8 @@ let tasksFeedback = [];
 let tasksDone = [];
 let users = [];
 let activeUser;
+let dueDate;
+
 
 
 async function init() {
@@ -109,7 +111,7 @@ function hideAddTask(){
     statusTaskOnCreate = 'todo';
     document.getElementById('add-task-overlay-board').classList.add('d-none');
     document.getElementById('body').style = '';
-    if(document.getElementById('overlay')){
+    if(document.getElementById('tasks-inprogress-mobile')){
         closeCard();
         document.getElementById('formAddTask').setAttribute("onsubmit", `createTask()`);
     }

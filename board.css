@@ -265,6 +265,11 @@ body {
 
 }
 
+.task-overly-details{
+    display: flex;
+    flex-direction: column;
+}
+
 .card-title-big {
     font-weight: 600;
     font-size: 50px;
@@ -311,6 +316,27 @@ body {
 }
 
 .edit-overlay-btn:hover {
+    background: #29ABE2;
+}
+
+.edit-overlay-btn-delete {
+    width: 57px;
+    height: 57px;
+    background: #2A3647;
+    border-radius: 10px;
+    border: none;
+    position: absolute;
+    bottom: 32px;
+    right: 110px;
+    cursor: pointer;
+}
+
+.edit-overlay-btn-delete img{
+    height: 28px;
+    object-fit: contain;
+}
+
+.edit-overlay-btn-delete:hover {
     background: #29ABE2;
 }
 

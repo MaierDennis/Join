@@ -1,25 +1,26 @@
 
 
-function addUser() {
+async function addUser() {
     let name = document.getElementById('name-signup');
     let email = document.getElementById('email-signup');
     let password = document.getElementById('password-signup');
 
     users.push({ name: name.value, email: email.value, password: password.value });
 
-    backend.setItem('users', JSON.stringify(users));
+    await backend.setItem('users', JSON.stringify(users));
+
+    window.location.href = 'success_signup.html';
 
 
-
-    console.log(users);
+    // console.log(users);
 
     name.value = "";
     email.value = "";
     password.value = "";
 
-    alert('You have signed up successfully. Please log in now.')
 
-    closeSignUp();
+
+    // closeSignUp();
 
 }
 

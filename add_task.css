@@ -209,6 +209,7 @@ select:hover {
 }
 
 .dialog-taskadded {
+    z-index: 1000;
     width: 280px;
     display: flex;
     background-color: #2A3647;
