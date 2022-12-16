@@ -1,5 +1,4 @@
 async function initBoard() {
-    console.log('1');
     await init();
     declareArrays();
     renderTasks();

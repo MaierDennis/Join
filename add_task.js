@@ -2,13 +2,22 @@ let selectedPriority;
 let contactAssigned = false;
 let selectedColor;
 let selectedCategory;
+let contactsAddTask;
 let contactsSorted;
+let categories = [];
 
 async function initAddTask() {
-    await init();
+    await initContactsCategory();
     sortContacts();
     initDestop();
     initMobile();
+}
+
+async function initContactsCategory(){
+    setURL('https://gruppe-400.developerakademie.net/smallest_backend_ever');
+    await downloadFromServer();
+    contactsAddTask = JSON.parse(backend.getItem('contact')) || [];
+    categories = JSON.parse(backend.getItem('categories')) || [];
 }
 
 function initDestop() {
@@ -40,7 +49,7 @@ function initMobile() {
 /*contacts*/
 
 function sortContacts() {
-    contactsSorted = contacts.sort((a, b) => a.name.localeCompare(b.name));
+    contactsSorted = contactsAddTask.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function renderContactsMobile() {

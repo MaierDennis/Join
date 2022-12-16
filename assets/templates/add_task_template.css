@@ -373,7 +373,7 @@ select:hover {
 
     .content-background {
         box-sizing: unset;
-        z-index: 5;
+        z-index: 10;
         top: 84px;
     }
 
