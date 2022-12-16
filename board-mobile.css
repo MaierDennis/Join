@@ -92,6 +92,12 @@
         right: 50px;
     }
 
+    .edit-overlay-btn-delete {
+        position: absolute;
+        bottom: 50px;
+        right: 124px;
+    }
+
 }
 
 /* 750 PX */
@@ -160,6 +166,12 @@
         bottom: 22px;
         right: 44px;
     }
+
+    .edit-overlay-btn-delete {
+        bottom: 22px;
+        right: 120px;
+    }
+    
 
 
     

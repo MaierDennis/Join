@@ -322,7 +322,7 @@ async function createTask() {
         }
         showSuccessMessage();
         clearTask();
-        if(!document.getElementById('low-btn-mobile')){
+        if(document.getElementById('tasks-inprogress-mobile')){
             resetArrays();
             declareArrays();
             renderTasks();

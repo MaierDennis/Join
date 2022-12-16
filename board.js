@@ -55,7 +55,7 @@ function declareArrays() {
     });
 }
 
-function renderTasks(){
+function renderTasks() {
     renderTasksDestop();
     renderTasksMobile();
 }
@@ -245,6 +245,7 @@ function renderPriorityTagBig(task) {
 function showTaskDetailsTemplate(task) {
     return /*html*/ `
     <button class="edit-overlay-btn" onclick="showAddTaskEdit(${task['id']})"><img src="assets/img/pencil.svg" ></button>
+    <button class="edit-overlay-btn-delete" onclick="deleteTask(${task['id']})"><img src="assets/img/trash.png" ></button>
     <span class="card-category-big" style="background-color: ${task['category']['color']};">${task['category']['name']}</span>
     <span class="card-title-big">${task['title']}</span>
     <span class="card-description-big">${task['description']}</span>
@@ -261,4 +262,22 @@ function showTaskDetailsTemplate(task) {
         <div id="contributor-container-container-big"></div>
     </div>
     `;
+}
+
+async function deleteTask(id) {
+    tasks.forEach(task => {
+        if (task['id'] === id) {
+            tasks.splice(id, 1);
+        }
+    });
+    tasks.forEach(task => {
+        if (task['id'] > id) {
+            task['id'] = +task['id'] - 1;
+        }
+    });
+    await backend.setItem('tasks', JSON.stringify(tasks));
+    resetArrays();
+    declareArrays();
+    renderTasks();
+    closeCard();
 }
