@@ -4,7 +4,6 @@ let tasksToDo = [];
 let tasksProgress = [];
 let tasksFeedback = [];
 let tasksDone = [];
-let categories = [];
 let users = [
     {
         'name': 'Niclas Michel',
@@ -31,7 +30,6 @@ async function init() {
     setURL('https://gruppe-400.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
-    categories = JSON.parse(backend.getItem('categories')) || [];
     tasks = JSON.parse(backend.getItem('tasks')) || [];
     contacts = JSON.parse(backend.getItem('contact')) || [];
     activeUser = JSON.parse(backend.getItem('activeUser')) || [];
@@ -49,7 +47,11 @@ async function render(currentSection) {
 /*add templates*/
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
+
+    
+
     for (let i = 0; i < includeElements.length; i++) {
+        console.log(includeElements[i]);
         const element = includeElements[i];
         file = element.getAttribute("w3-include-html"); // "includes/header.html"
         let resp = await fetch(file);

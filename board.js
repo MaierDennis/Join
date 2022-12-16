@@ -1,5 +1,4 @@
 async function initBoard() {
-    console.log('1');
     await init();
     render('board');
     declareArrays();
@@ -245,6 +244,7 @@ function renderPriorityTagBig(task) {
 
 function showTaskDetailsTemplate(task) {
     return /*html*/ `
+    <button class="edit-overlay-btn" onclick="showAddTaskEdit(${task['id']})"><img src="assets/img/pencil.svg" ></button>
     <span class="card-category-big" style="background-color: ${task['category']['color']};">${task['category']['name']}</span>
     <span class="card-title-big">${task['title']}</span>
     <span class="card-description-big">${task['description']}</span>

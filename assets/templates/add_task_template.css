@@ -373,7 +373,7 @@ select:hover {
 
     .content-background {
         box-sizing: unset;
-        z-index: 5;
+        z-index: 10;
         top: 84px;
     }
 
@@ -432,6 +432,14 @@ select:hover {
 
     .div-button {
         margin: 0;
+        width: 200px;
+        height: 77px;
+        background-color:#F6F7F8;
+        z-index: 10;
+        position: fixed;
+        top: 2px;
+        right: 2px;
+        border-radius: 8px;
     }
 }
 
