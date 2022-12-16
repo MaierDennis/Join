@@ -8,7 +8,7 @@ let categories = [];
 
 async function initAddTask() {
     await initContactsCategory();
-    sortContacts();
+    sortContactsAddTask();
     initDestop();
     initMobile();
 }
@@ -29,7 +29,7 @@ function initDestop() {
             checkList.classList.add('visible');
     }
     renderCategories();
-    renderContacts()
+    renderContactsAddTask()
 }
 
 function initMobile() {
@@ -48,7 +48,7 @@ function initMobile() {
 
 /*contacts*/
 
-function sortContacts() {
+function sortContactsAddTask() {
     contactsSorted = contactsAddTask.sort((a, b) => a.name.localeCompare(b.name));
 }
 
@@ -76,7 +76,7 @@ function getAssignedContactsMobile() {
     return assignedContacts;
 }
 
-function renderContacts() {
+function renderContactsAddTask() {
     document.getElementById('contacts-to-assign').innerHTML = '';
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign').innerHTML += `
@@ -410,4 +410,25 @@ function showSuccessMessage() {
     setTimeout(function () {
         document.getElementById("dialog-taskadded").classList.add('d-none');
     }, 3000);
+}
+
+
+/*edit task*/
+function showAddTaskEdit(taskId){
+    let task = getTaskById(taskId);
+    document.getElementById('add-task-overlay-board').classList.remove('d-none');
+    document.getElementById('body').style = 'overflow-y: hidden;';
+    document.getElementById('overlay').classList.add('d-none');
+    renderEditTask(task);
+}
+
+function getTaskById(taskId){
+    let task = tasks.filter(task => task['id'] === taskId);
+    return task[0];
+}
+
+function renderEditTask(task){
+    document.getElementById('input-title').value = task['title'];
+    document.getElementById('input-description').value = task['description'];
+    document.getElementById('input-title').value = task['title'];
 }
