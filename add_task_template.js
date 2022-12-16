@@ -9,11 +9,7 @@ function showAddTaskEdit(taskId) {
 }
 
 async function onsubmitEdit(id){
-    tasks.forEach(task => {
-        if(task['id'] === id){
-            tasks.splice(id, 1);
-        }
-    });
+    tasks.splice(id, 1);
     tasks.forEach(task => {
         if(task['id'] > id){
             task['id'] = +task['id'] - 1;

@@ -6,6 +6,8 @@ let tasksFeedback = [];
 let tasksDone = [];
 let users = [];
 let activeUser;
+let dueDate;
+
 
 
 async function init() {

@@ -190,16 +190,21 @@ function taskCardTemplateMobile(task) {
 }
 
 /*show task details*/
-
 function openCard(task) {
     let taskBig = task;
     getElement('card-container').classList.remove('d-none');
     getElement('overlay').classList.remove('d-none');
     getElement('body').classList.add('oflow-y-hid');
     getElement('body').classList.remove('oflow-y-unset');
+    convertDueDate(taskBig);
     renderTaskDetails(taskBig);
     renderContributorsContainerDetails(taskBig)
     renderPriorityTagBig(taskBig);
+}
+
+function convertDueDate(taskBig){
+    let numbersDueDate = taskBig['due-date'].split("-");
+    dueDate = numbersDueDate[2] + "." + numbersDueDate[1] + "." +numbersDueDate[0];
 }
 
 function doNotClose(event) {
@@ -251,7 +256,7 @@ function showTaskDetailsTemplate(task) {
     <span class="card-description-big">${task['description']}</span>
     <div class="due-date-prio">
         <span style="font-weight:bold; margin-right: 50px;">Due date:</span>
-        <span> ${task['due-date']} </span>
+        <span> ${dueDate} </span>
     </div>
     <div class="due-date-prio">
         <span style="font-weight:bold; margin-right: 50px;">Priority:</span>
@@ -265,11 +270,7 @@ function showTaskDetailsTemplate(task) {
 }
 
 async function deleteTask(id) {
-    tasks.forEach(task => {
-        if (task['id'] === id) {
-            tasks.splice(id, 1);
-        }
-    });
+    tasks.splice(id, 1);
     tasks.forEach(task => {
         if (task['id'] > id) {
             task['id'] = +task['id'] - 1;
