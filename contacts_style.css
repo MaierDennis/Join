@@ -379,7 +379,17 @@ margin-top: 30px;
     flex-direction: row;
     position: relative;
     z-index: 5;
+
+    animation: flyIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
 }
+
+@keyframes flyIn {
+    0% {right:-1500px}
+    100% { right: 0px;}
+}
+
 
 .addedit-contact-design {
     width: 40%;
@@ -714,6 +724,11 @@ margin-top: 30px;
             width: 100%;
             height: 80%;
             margin-top: 10vh;
+        }
+
+        @keyframes flyIn {
+            0% {bottom:-1500px}
+            100% { bottom: 0px;}
         }
     
         .addedit-contact-design {

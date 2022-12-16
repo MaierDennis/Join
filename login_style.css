@@ -33,10 +33,21 @@ body {
     position: absolute;
     top: 50px;
     left: 50px;
+    z-index: 10;
+
+}
+
+@keyframes showLogo  {
+    0% {left: 100vw;}
+    100% {left: 0;}
 }
 
 .join-logo img {
+    position: absolute;
+    /*background-color: rgb(246, 247, 248);*/
     height: 90px;
+    animation: showLogo;
+    animation-duration:2s;
 }
 
 .headline {
