@@ -1,3 +1,12 @@
+/*initialize contacts*/
+async function initContacts(){
+    await init();
+    render('contacts'); 
+    checkContacts(); 
+    showContacts();
+}
+
+
 function closeEditNewContact() {
     document.getElementById('add-contact').classList.add('d-none');
     document.getElementById('edit-contact').classList.add('d-none');

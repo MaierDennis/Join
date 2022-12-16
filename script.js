@@ -34,7 +34,6 @@ async function init() {
     contacts = JSON.parse(backend.getItem('contact')) || [];
     activeUser = JSON.parse(backend.getItem('activeUser')) || [];
     console.log('Active user:', JSON.parse(backend.getItem('activeUser')));
-    checkContacts();
 
 }
 
