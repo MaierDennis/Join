@@ -187,6 +187,7 @@ function showThisContactInfos(i, contactName, contactEmail, contactPhone, initia
     document.getElementById('bigContactPhone').innerHTML = contactPhone;
     document.getElementById('bigInitials').style.backgroundColor = contacts[i]['bg-color'];
     activeContact = i;
+    document.getElementById('addTask-button-contacts').setAttribute("onclick", `showAddTaskContactlist('${contactName}')`);
 }
 
  function editContact() {

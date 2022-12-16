@@ -109,7 +109,7 @@ function hideAddTask(){
     statusTaskOnCreate = 'todo';
     document.getElementById('add-task-overlay-board').classList.add('d-none');
     document.getElementById('body').style = '';
-    if(document.getElementById('overlay')){
+    if(document.getElementById('tasks-container')){
         closeCard();
         document.getElementById('formAddTask').setAttribute("onsubmit", `createTask()`);
     }

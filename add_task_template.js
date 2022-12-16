@@ -73,3 +73,27 @@ function renderAssignedContactsEdit(task) {
         counter++;
     });
 }
+
+/*template contactlist*/
+
+function showAddTaskContactlist(name){
+    let counter = 0;
+    showAddTask('todo');
+    let allInputFieldsContactsEdit = Array.from(document.getElementsByClassName('input-contact'));
+    let allContactsEditList = Array.from(document.getElementsByClassName('input-contact-listitem'));
+    allContactsEditList.forEach(listItem => {
+        if(name === listItem.innerText){
+            allInputFieldsContactsEdit[counter].checked = true;
+        }
+        counter++;
+    });
+    document.getElementById('close-btn').setAttribute("onclick", 'hideAddTaskContactsSection()');
+    document.getElementById('close-addTask-background').setAttribute("onclick", 'hideAddTaskContactsSection()');
+}
+
+function hideAddTaskContactsSection(){
+    document.getElementById('close-btn').setAttribute("onclick", 'hideAddTask()');
+    document.getElementById('close-addTask-background').setAttribute("onclick", 'hideAddTask()');
+    clearTask();
+    hideAddTask();
+}
