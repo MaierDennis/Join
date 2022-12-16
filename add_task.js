@@ -7,17 +7,10 @@ let contactsSorted;
 let categories = [];
 
 async function initAddTask() {
-    await initContactsCategory();
+    await init();
     sortContactsAddTask();
     initDestop();
     initMobile();
-}
-
-async function initContactsCategory(){
-    setURL('https://gruppe-400.developerakademie.net/smallest_backend_ever');
-    await downloadFromServer();
-    contactsAddTask = JSON.parse(backend.getItem('contact')) || [];
-    categories = JSON.parse(backend.getItem('categories')) || [];
 }
 
 function initDestop() {
@@ -375,6 +368,7 @@ function clearAssignedContacts() {
 
 /*upload Task to database*/
 async function saveTask() {
+    debugger;
     let task = {
         'id': tasks.length,
         'title': document.getElementById('input-title').value,
@@ -391,6 +385,7 @@ async function saveTask() {
 }
 
 async function saveTaskMobile() {
+    debugger;
     let task = {
         'id': tasks.length,
         'title': document.getElementById('input-title-mobile').value,
