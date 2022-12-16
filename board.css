@@ -220,6 +220,7 @@ body {
 
 .contributors-container {
     display: flex;
+    overflow-x: auto;
 }
 
 .contributors-circle {
