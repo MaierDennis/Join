@@ -298,6 +298,7 @@ margin-right: 10px;
     position: absolute;
     top: 20px;
     left: 20px;
+    cursor: pointer;
 }
 
 .arrow img {
@@ -361,6 +362,13 @@ margin-right: 10px;
     align-items: center;
     font-size: 13px;
     font-weight: 600;
+}
+
+.forgot-pw-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 

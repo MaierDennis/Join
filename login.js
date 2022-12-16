@@ -33,7 +33,7 @@ async function login() {
     if(user) {
         await backend.setItem('activeUser', JSON.stringify(user));  // saving active user in database 
         alert ('You are logged in. Click "OK" to proceed');  
-        window.location.href = 'board.html';           
+        window.location.href = 'board.html';
         console.log(activeUser);
     } else {
         alert ('User not found');
