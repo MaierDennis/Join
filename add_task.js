@@ -29,7 +29,7 @@ function initDestop() {
             checkList.classList.add('visible');
     }
     renderCategories();
-    renderContacts()
+    renderAllContacts();
 }
 
 function initMobile() {
@@ -76,7 +76,7 @@ function getAssignedContactsMobile() {
     return assignedContacts;
 }
 
-function renderContacts() {
+function renderAllContacts() {
     document.getElementById('contacts-to-assign').innerHTML = '';
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign').innerHTML += `

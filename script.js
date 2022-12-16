@@ -34,6 +34,7 @@ async function init() {
     contacts = JSON.parse(backend.getItem('contact')) || [];
     activeUser = JSON.parse(backend.getItem('activeUser')) || [];
     console.log('Active user:', JSON.parse(backend.getItem('activeUser')));
+    checkContacts();
 
 }
 
@@ -47,7 +48,11 @@ async function render(currentSection) {
 /*add templates*/
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
+
+    
+
     for (let i = 0; i < includeElements.length; i++) {
+        console.log(includeElements[i]);
         const element = includeElements[i];
         file = element.getAttribute("w3-include-html"); // "includes/header.html"
         let resp = await fetch(file);
