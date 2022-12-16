@@ -4,25 +4,7 @@ let tasksToDo = [];
 let tasksProgress = [];
 let tasksFeedback = [];
 let tasksDone = [];
-let users = [
-    {
-        'name': 'Niclas Michel',
-        'email': 'niclas@join.de',
-        'password': '111',
-    },
-
-    {
-        'name': 'Dennis Maier',
-        'email': 'dennis@join.de',
-        'password': '222',
-    },
-
-    {
-        'name': 'Simon Vitt',
-        'email': 'simon@join.de',
-        'password': '333',
-    }
-];
+let users = [];
 let activeUser;
 
 
@@ -31,10 +13,11 @@ async function init() {
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
     tasks = JSON.parse(backend.getItem('tasks')) || [];
+    contactsAddTask = JSON.parse(backend.getItem('contact')) || [];
+    categories = JSON.parse(backend.getItem('categories')) || [];
     contacts = JSON.parse(backend.getItem('contact')) || [];
     activeUser = JSON.parse(backend.getItem('activeUser')) || [];
     console.log('Active user:', JSON.parse(backend.getItem('activeUser')));
-    checkContacts();
 
 }
 

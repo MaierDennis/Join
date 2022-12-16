@@ -23,19 +23,17 @@ function addUser() {
 
 }
 
-function login() {
+async function login() {
     let email = document.getElementById('email-login');
     let password = document.getElementById('password-login');
-
+    
     let user = users.find(u => u.email === email.value && u.password == password.value);
-
     console.log(user);
-
     
     if(user) {
-        window.open("board.html", "_self"); 
+        await backend.setItem('activeUser', JSON.stringify(user));  // saving active user in database 
         alert ('You are logged in. Click "OK" to proceed');  
-        backend.setItem('activeUser', JSON.stringify(user));  // saving active user in database
+        window.location.href = 'board.html';           
         console.log(activeUser);
     } else {
         alert ('User not found');
@@ -46,11 +44,15 @@ function login() {
 
 }
 
-function guestLogin() {
+async function guestLogin() {
+    let guest = {
+        'name': 'Guest',
+        'email': 'guest@join.de',
+        'password': 'guest'
+    }
 
-    window.open("board.html", "_self");
-    console.log ('Guest is logged in'); 
-
+    await backend.setItem('activeUser', JSON.stringify(guest) );
+    window.location.href = 'board.html';           
 }
 
 

@@ -7,17 +7,10 @@ let contactsSorted;
 let categories = [];
 
 async function initAddTask() {
-    await initContactsCategory();
-    sortContacts();
+    await init();
+    sortContactsAddTask();
     initDestop();
     initMobile();
-}
-
-async function initContactsCategory(){
-    setURL('https://gruppe-400.developerakademie.net/smallest_backend_ever');
-    await downloadFromServer();
-    contactsAddTask = JSON.parse(backend.getItem('contact')) || [];
-    categories = JSON.parse(backend.getItem('categories')) || [];
 }
 
 function initDestop() {
@@ -29,7 +22,7 @@ function initDestop() {
             checkList.classList.add('visible');
     }
     renderCategories();
-    renderAllContacts();
+    renderContactsAddTask()
 }
 
 function initMobile() {
@@ -48,7 +41,7 @@ function initMobile() {
 
 /*contacts*/
 
-function sortContacts() {
+function sortContactsAddTask() {
     contactsSorted = contactsAddTask.sort((a, b) => a.name.localeCompare(b.name));
 }
 
@@ -76,7 +69,7 @@ function getAssignedContactsMobile() {
     return assignedContacts;
 }
 
-function renderAllContacts() {
+function renderContactsAddTask() {
     document.getElementById('contacts-to-assign').innerHTML = '';
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign').innerHTML += `
@@ -375,6 +368,7 @@ function clearAssignedContacts() {
 
 /*upload Task to database*/
 async function saveTask() {
+    debugger;
     let task = {
         'id': tasks.length,
         'title': document.getElementById('input-title').value,
@@ -391,6 +385,7 @@ async function saveTask() {
 }
 
 async function saveTaskMobile() {
+    debugger;
     let task = {
         'id': tasks.length,
         'title': document.getElementById('input-title-mobile').value,
@@ -410,4 +405,25 @@ function showSuccessMessage() {
     setTimeout(function () {
         document.getElementById("dialog-taskadded").classList.add('d-none');
     }, 3000);
+}
+
+
+/*edit task*/
+function showAddTaskEdit(taskId){
+    let task = getTaskById(taskId);
+    document.getElementById('add-task-overlay-board').classList.remove('d-none');
+    document.getElementById('body').style = 'overflow-y: hidden;';
+    document.getElementById('overlay').classList.add('d-none');
+    renderEditTask(task);
+}
+
+function getTaskById(taskId){
+    let task = tasks.filter(task => task['id'] === taskId);
+    return task[0];
+}
+
+function renderEditTask(task){
+    document.getElementById('input-title').value = task['title'];
+    document.getElementById('input-description').value = task['description'];
+    document.getElementById('input-title').value = task['title'];
 }

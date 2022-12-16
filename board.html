@@ -18,7 +18,7 @@
     
 </head>
 
-<body id="body" onload="initBoard(), render('board')" id="body">
+<body id="body" onload="initBoard()" id="body">
     <div w3-include-html="assets/templates/add_task_template.html" class="d-none" id="add-task-overlay-board"></div>
     <div w3-include-html="assets/templates/help_template.html"></div>
 
@@ -29,7 +29,6 @@
 
             <img class="close-overlay-btn" src="assets/img/close.svg" onclick="closeCard()">
             <img class="back-overlay-btn" src="assets/img/backButton.svg" onclick="closeCard()">
-            <button class="edit-overlay-btn" onclick="showAddTask()"><img src="assets/img/pencil.svg" ></button>
 
             <div id="task-overly-details"></div>
         </div>
