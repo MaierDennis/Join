@@ -51,7 +51,7 @@ function renderContactsMobile() {
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign-mobile').innerHTML += `
         <li class="input-contact-listitem-mobile" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact-mobile"
-            type="checkbox" />${contactsSorted[i]['name']} </li>
+            type="checkbox" />${contactsSorted[i]['name']}</li>
         `;
     }
 }
@@ -74,7 +74,7 @@ function renderContactsAddTask() {
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign').innerHTML += `
         <li class="input-contact-listitem" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact"
-            type="checkbox" />${contactsSorted[i]['name']} </li>
+            type="checkbox" />${contactsSorted[i]['name']}</li>
         `;
     }
 }
@@ -312,13 +312,13 @@ function checkAssignedTo() {
 }
 
 /*create Task on click create Button*/
-function createTask() {
+async function createTask() {
     checkAssignedTo();
     if (selectedPriority && contactAssigned && selectedCategory) {
         if (document.getElementById('input-title').value != '') {
-            saveTask();
+            await saveTask();
         } else {
-            saveTaskMobile();
+            await saveTaskMobile();
         }
         showSuccessMessage();
         clearTask();
@@ -368,7 +368,6 @@ function clearAssignedContacts() {
 
 /*upload Task to database*/
 async function saveTask() {
-    debugger;
     let task = {
         'id': tasks.length,
         'title': document.getElementById('input-title').value,
@@ -379,13 +378,11 @@ async function saveTask() {
         'priority': selectedPriority,
         'status': statusTaskOnCreate
     }
-
     tasks.push(task);
     await backend.setItem('tasks', JSON.stringify(tasks));
 }
 
 async function saveTaskMobile() {
-    debugger;
     let task = {
         'id': tasks.length,
         'title': document.getElementById('input-title-mobile').value,

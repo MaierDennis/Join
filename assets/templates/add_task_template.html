@@ -21,7 +21,7 @@
     <div class="content-background" onclick="hideAddTask()">
         <div class="content-addtask" onclick="doNotClose(event)">
             <h1 class="addtask-h1">Add task</h1>
-            <form onsubmit="createTask(); return false">
+            <form id="formAddTask" onsubmit="createTask(); return false">
                 <img src="assets/img/close-button-addtask.svg" class="close-btn" onclick="hideAddTask()">
                 <div class="formContentWithButton">
                     <div class="divContentAddtask"
