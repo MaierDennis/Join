@@ -1,0 +1,37 @@
+/* MOBILE VERSION */
+
+@media (max-width: 650px) {
+    .reset-password-area {
+        width: 500px;
+    }
+
+    .reset-password-field {
+        width: 75%;
+
+
+    }
+}
+
+@media (max-width: 550px) {
+    .reset-password-area {
+        width: 350px;
+    }
+
+    .reset-password-field {
+        width: 85%;
+
+
+    }
+    
+
+}
+
+@media (max-width: 375px) {
+    .reset-password-area {
+        width: 280px;
+    }
+
+   
+}
+
+
