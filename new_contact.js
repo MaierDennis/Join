@@ -2,7 +2,6 @@ let contacts = [];
 let alphabetList = [];
 let sortedAlphabetList = [];
 let activeContact = 0;
-let lockFunction = true;
 
 //function to read the informations from display and implement to contacts-array
 function addNewContact() {
@@ -125,13 +124,13 @@ function renderContacts() {
 
 //function to show the first contact from the contacts-array on big screen 
 function showFirstContactInfos() {
-    contactName = contacts[0]['name'];
-    contactEmail = contacts[0]['email'];
-    contactPhone = contacts[0]['phone'];
+    contactName = contacts[activeContact]['name'];
+    contactEmail = contacts[activeContact]['email'];
+    contactPhone = contacts[activeContact]['phone'];
 
     let initials = getInitials(contactName);
 
-    showThisContactInfos(0, contactName, contactEmail, contactPhone, initials);
+    showThisContactInfos(activeContact, contactName, contactEmail, contactPhone, initials);
 }
 
 //function to sort the contacts by its names
@@ -215,4 +214,11 @@ function showThisContactInfos(i, contactName, contactEmail, contactPhone, initia
     newEmail.value = '';
     newPhone.value = '';
 
+}
+
+function changeContactColor(){
+    contacts[activeContact]['bg-color'] = getRandomColor();
+
+    pushAllContacts();
+    checkContacts();
 }
