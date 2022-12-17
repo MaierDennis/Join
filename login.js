@@ -11,17 +11,9 @@ async function addUser() {
 
     window.location.href = 'success_signup.html';
 
-
-    // console.log(users);
-
     name.value = "";
     email.value = "";
     password.value = "";
-
-
-
-    // closeSignUp();
-
 }
 
 async function login() {
@@ -56,6 +48,12 @@ async function guestLogin() {
     window.location.href = 'board.html';           
 }
 
+
+function clearAndRedirect() {
+    window.location.href = 'success_forget_pw.html'
+    document.getElementById('forgot-pw-mail').value = "";
+
+}
 
 // function getData() {
 //     backend.getItem('users');

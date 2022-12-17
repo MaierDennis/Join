@@ -130,11 +130,12 @@
                 </div>
 
                 <div class="forgot-password-email-field">
-                    <form onsubmit="" class="forgot-pw-form">
-                        <input required type="email" class="form-control" placeholder="E-Mail" aria-label="First name">
+                    <form class="forgot-pw-form" action="https://gruppe-400.developerakademie.net/send_mail.php" method="POST">
+                        <input id="forgot-pw-mail" required name="email" type="email" class="form-control" placeholder="E-Mail" aria-label="First name">
+
                         <img class="forgot-password-icon" src="assets/img/mail-icon.svg" alt="">
 
-                        <button class="button" style="margin-top: 22px ;">Send mail</button>
+                        <button type="submit" class="button" style="margin-top: 22px ;">Send mail</button>
 
                     </form>
                 </div>

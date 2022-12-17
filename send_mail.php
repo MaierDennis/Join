@@ -2,7 +2,7 @@
 
 ########### CONFIG ###############
 
-$recipient = 'wb6i9cklac@karenkey.com';
+// $recipient = 'niclas.michel@gmail.com';
 $redirect = 'success_forget_pw.html';
 
 ########### CONFIG END ###########
@@ -39,10 +39,21 @@ switch ($_SERVER['REQUEST_METHOD']) {
     case ("POST"): //Send the email;
         header("Access-Control-Allow-Origin: *");
 
-        $subject = "Contact From " . $_POST['name'];
-        $headers = "From:  noreply@developerakademie.com";
+        $email = $_POST['email']; //getting the email from the form and put it in a variable
 
-        mail($recipient, $subject, $_POST['message'], $headers);
+        $message = "Hello,\n
+        \nFollow this link to reset the password for your Join account.\n
+        \nhttps://gruppe-400.developerakademie.net/reset_password.html?email=".$email."\n
+        \nIgnore this email if you did not ask to reset your password.\n
+        \nThank you\n
+        \nJoin team\n";
+
+        $recipient = $email;
+        $subject = "Join - Reset password";
+        $headers = "From:  noreply@join.de";
+
+        mail($recipient, $subject, $message, $headers);
+        
         header("Location: " . $redirect); 
 
         break;
