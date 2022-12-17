@@ -26,6 +26,14 @@ body {
     padding: 32px;
     border-radius: 40px;
     position: relative;
+
+    animation: flyIn;
+    animation-duration: 1s;
+}
+
+@keyframes flyIn {
+    0% {right:-1500px}
+    100% { right: 0px;}
 }
 
 .close-btn {
@@ -387,6 +395,8 @@ select:hover {
         justify-content: unset;
         overflow-y: scroll;
         overflow-x: hidden;
+
+        animation: none;
     }
 
     .formContentWithButton {

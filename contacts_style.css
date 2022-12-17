@@ -362,7 +362,6 @@ margin-top: 30px;
 
 
 /* Add & Edit Contact Style*/
-
 .addedit-contact-display {
     height: 100%;
     width: 100%;
@@ -370,6 +369,7 @@ margin-top: 30px;
     justify-content: center;
     align-items: center;
     z-index: 2;
+
 }
 
 .addedit-contact {
@@ -390,6 +390,18 @@ margin-top: 30px;
     100% { right: 0px;}
 }
 
+.flyOut {
+    animation: flyOut !important;
+    animation-duration: 3s;
+}
+
+@keyframes flyOut {
+    0% {right:0px;}
+    99% { right: -1500px;} 
+    100% {
+        display: none;
+    }
+}
 
 .addedit-contact-design {
     width: 40%;
