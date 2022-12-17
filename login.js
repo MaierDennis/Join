@@ -25,16 +25,17 @@ async function login() {
     
     if(user) {
         await backend.setItem('activeUser', JSON.stringify(user));  // saving active user in database 
-        alert ('You are logged in. Click "OK" to proceed');  
+        // alert ('You are logged in. Click "OK" to proceed');  
         window.location.href = 'board.html';
         console.log(activeUser);
     } else {
-        alert ('User not found');
+        // alert ('User not found');
+        document.getElementById('user-not-found').classList.remove('d-none');
+        email.value = "";
+        password.value = "";
     }
 
-    email.value = "";
-    password.value = "";
-
+    
 }
 
 async function guestLogin() {
@@ -49,11 +50,6 @@ async function guestLogin() {
 }
 
 
-function clearAndRedirect() {
-    window.location.href = 'success_forget_pw.html'
-    document.getElementById('forgot-pw-mail').value = "";
-
-}
 
 // function getData() {
 //     backend.getItem('users');
