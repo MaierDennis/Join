@@ -26,8 +26,3 @@ function closeSignUp(){
     document.getElementById('signUp-button').classList.remove('d-none');
 }
 
-function startLogo(){
-    $(".start-join-logo").on("click", function() {
-    $(this).toggleClass("lowScreen");
-    });
-}
