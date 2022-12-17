@@ -287,7 +287,13 @@ async function deleteTask(id) {
 function searchTask() {
     showAllTasksSearch();
     matchingTasks = [];
-    searchTaskInput = document.getElementById('searchTaskDestop').value;
+    if(document.body.clientWidth > 1024){
+        searchTaskInput = document.getElementById('searchTaskDestop').value;
+        document.getElementById('searchTaskMobile').value = searchTaskInput;
+    }else{
+        searchTaskInput = document.getElementById('searchTaskMobile').value;
+        document.getElementById('searchTaskDestop').value = searchTaskInput;
+    }
     if (searchTaskInput != '') {
         tasks.forEach(task => {
             let taskTitleLowerCase = task['title'].toLowerCase();
@@ -304,6 +310,7 @@ function removeTasksSearch() {
     tasks.forEach(task => {
         if (!matchingTasks.includes(task)) {
             document.getElementById(`task-card${task['id']}`).classList.add('d-none');
+            document.getElementById(`task-card${task['id']}-mobile`).classList.add('d-none');
         }
     });
 }
@@ -311,5 +318,6 @@ function removeTasksSearch() {
 function showAllTasksSearch() {
     tasks.forEach(task => {
         document.getElementById(`task-card${task['id']}`).classList.remove('d-none');
+        document.getElementById(`task-card${task['id']}-mobile`).classList.remove('d-none');
     });
 }

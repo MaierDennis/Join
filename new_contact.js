@@ -222,4 +222,20 @@ function changeContactColor(){
 
     pushAllContacts();
     checkContacts();
+    updateColorContactsinTasks();
+}
+
+async function updateColorContactsinTasks(){
+    tasks.forEach(task => {
+        let updatedContactsArray = [];
+        task['assigned-contacts'].forEach(contactAssigned => {
+            contacts.forEach(contact => {
+                if(contact['name'] === contactAssigned['name']){
+                    updatedContactsArray.push(contact);
+                }
+            });
+        });
+        task['assigned-contacts'] = updatedContactsArray;
+    });
+    await backend.setItem('tasks', JSON.stringify(tasks));
 }
