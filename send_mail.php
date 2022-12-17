@@ -2,7 +2,6 @@
 
 ########### CONFIG ###############
 
-// $recipient = 'niclas.michel@gmail.com';
 $redirect = 'success_forget_pw.html';
 
 ########### CONFIG END ###########
