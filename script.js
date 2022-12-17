@@ -7,6 +7,8 @@ let tasksDone = [];
 let users = [];
 let activeUser;
 let dueDate;
+let searchTaskInput;
+let matchingTasks = [];
 
 
 

@@ -161,7 +161,7 @@ function contributorsContainerTemplate(contact) {
 
 function taskCardTemplate(task) {
     return /*html*/`
-    <div onclick='openCard(${JSON.stringify(task)})' class="task-card">
+    <div onclick='openCard(${JSON.stringify(task)})' class="task-card" id="task-card${task['id']}">
         <span class="card-category" style="background-color: ${task['category']['color']};">${task['category']['name']}</span>
         <span class="card-title">${task['title']}</span>
         <span class="card-description">${task['description']}</span>
@@ -176,7 +176,7 @@ function taskCardTemplate(task) {
 
 function taskCardTemplateMobile(task) {
     return /*html*/`
-    <div onclick='openCard(${JSON.stringify(task)})' class="task-card">
+    <div onclick='openCard(${JSON.stringify(task)})' class="task-card" id="task-card${task['id']}-mobile">
         <span class="card-category" style="background-color: ${task['category']['color']};">${task['category']['name']}</span>
         <span class="card-title">${task['title']}</span>
         <span class="card-description">${task['description']}</span>
@@ -202,9 +202,9 @@ function openCard(task) {
     renderPriorityTagBig(taskBig);
 }
 
-function convertDueDate(taskBig){
+function convertDueDate(taskBig) {
     let numbersDueDate = taskBig['due-date'].split("-");
-    dueDate = numbersDueDate[2] + "." + numbersDueDate[1] + "." +numbersDueDate[0];
+    dueDate = numbersDueDate[2] + "." + numbersDueDate[1] + "." + numbersDueDate[0];
 }
 
 function doNotClose(event) {
@@ -281,4 +281,35 @@ async function deleteTask(id) {
     declareArrays();
     renderTasks();
     closeCard();
+}
+
+/*search task*/
+function searchTask() {
+    showAllTasksSearch();
+    matchingTasks = [];
+    searchTaskInput = document.getElementById('searchTaskDestop').value;
+    if (searchTaskInput != '') {
+        tasks.forEach(task => {
+            let taskTitleLowerCase = task['title'].toLowerCase();
+            let taskDescriptionLowerCase = task['description'].toLowerCase();
+            if (taskTitleLowerCase.includes(searchTaskInput) || taskDescriptionLowerCase.includes(searchTaskInput)) {
+                matchingTasks.push(task);
+            }
+        });
+        removeTasksSearch();
+    }
+}
+
+function removeTasksSearch() {
+    tasks.forEach(task => {
+        if (!matchingTasks.includes(task)) {
+            document.getElementById(`task-card${task['id']}`).classList.add('d-none');
+        }
+    });
+}
+
+function showAllTasksSearch() {
+    tasks.forEach(task => {
+        document.getElementById(`task-card${task['id']}`).classList.remove('d-none');
+    });
 }
