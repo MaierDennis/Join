@@ -61,7 +61,7 @@
 
             <div class="tasks-container">
 
-                <div class="task">
+                <div class="task" id="todoTasksBoard" ondrop="moveToTodo('todoTasksBoard')" ondragleave="removeHighlight('todoTasksBoard')" ondragover="allowDrop(event); highlight('todoTasksBoard')">
 
                     <div class="tasks-heading">
                         <h3>To do</h3>
@@ -73,7 +73,7 @@
 
                 </div>
 
-                <div class="task">
+                <div class="task" id="progressTasksBoard" ondrop="moveToProgress('progressTasksBoard')" ondragleave="removeHighlight('progressTasksBoard')" ondragover="allowDrop(event); highlight('progressTasksBoard')">
 
                     <div class="tasks-heading">
                         <h3>In progress</h3>
@@ -85,7 +85,7 @@
 
                 </div>
 
-                <div class="task">
+                <div class="task" id="feedbackTasksBoard" ondrop="moveToFeedback('feedbackTasksBoard')" ondragleave="removeHighlight('feedbackTasksBoard')" ondragover="allowDrop(event); highlight('feedbackTasksBoard')">
 
                     <div class="tasks-heading">
                         <h3>Feedback</h3>
@@ -98,7 +98,7 @@
 
                 </div>
 
-                <div class="task">
+                <div class="task" id="doneTasksBoard" ondrop="moveToDone('doneTasksBoard')" ondragleave="removeHighlight('doneTasksBoard')" ondragover="allowDrop(event); highlight('doneTasksBoard')">
 
                     <div class="tasks-heading">
                         <h3>Done</h3>
@@ -137,7 +137,7 @@
 
         <div class="tasks-container">
 
-            <div class="task">
+            <div class="task-mobile">
 
                 <div class="tasks-heading">
                     <h3>To do</h3>
@@ -149,7 +149,7 @@
 
             </div>
 
-            <div class="task">
+            <div class="task-mobile">
 
                 <div class="tasks-heading">
                     <h3>In progress</h3>
@@ -161,7 +161,7 @@
 
             </div>
 
-            <div class="task">
+            <div class="task-mobile">
 
                 <div class="tasks-heading">
                     <h3>Feedback</h3>
@@ -173,7 +173,7 @@
 
             </div>
 
-            <div class="task">
+            <div class="task-mobile">
 
                 <div class="tasks-heading">
                     <h3>Done</h3>

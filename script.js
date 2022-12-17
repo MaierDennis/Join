@@ -9,6 +9,7 @@ let activeUser;
 let dueDate;
 let searchTaskInput;
 let matchingTasks = [];
+let currentDraggedTask;
 
 
 

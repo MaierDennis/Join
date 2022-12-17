@@ -129,7 +129,6 @@ body {
     border: none;
 }
 
-
 .tasks-container {
     width: 90%;
     display: flex;
@@ -138,6 +137,11 @@ body {
 
 .task {
     width: 23%;
+    height: 72vh;
+}
+
+.dragarea-highlight{
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .tasks-heading {
@@ -326,8 +330,8 @@ body {
     border-radius: 10px;
     border: none;
     position: absolute;
-    bottom: 32px;
-    right: 110px;
+    bottom: 96px;
+    right: 32px;
     cursor: pointer;
 }
 
@@ -339,6 +343,49 @@ body {
 .edit-overlay-btn-delete:hover {
     background: #29ABE2;
 }
+.headingMoveStatusBtns{
+    font-size: 22px;
+    margin-bottom: 14px;
+    font-weight: bold;
+}
+
+.moveStatusBtns{
+    display: flex;
+    width: 270px;
+    margin-bottom: 32px;
+}
+
+.edit-overlay-btn-statuslast{
+    font-size: 20px;
+    width: 120px;
+    height: 44px;
+    background: #2A3647;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.edit-overlay-btn-statuslast:hover {
+    background: #29ABE2;
+}
+
+.edit-overlay-btn-statusnext{
+    font-size: 20px;
+    width: 120px;
+    height: 44px;
+    background: #2A3647;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.edit-overlay-btn-statusnext:hover {
+    background: #29ABE2;
+}
+
+
 
 .due-date-prio {
     font-size: 22px;

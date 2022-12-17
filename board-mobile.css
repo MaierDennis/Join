@@ -44,7 +44,7 @@
         flex-direction: column;
     }
 
-    .task {
+    .task-mobile {
         width: 100%;
     }
 
@@ -94,8 +94,8 @@
 
     .edit-overlay-btn-delete {
         position: absolute;
-        bottom: 50px;
-        right: 124px;
+        bottom: 114px;
+        right: 50px;
     }
 
 }
@@ -168,8 +168,17 @@
     }
 
     .edit-overlay-btn-delete {
-        bottom: 22px;
-        right: 120px;
+        bottom: 86px;
+        right: 44px;
+    }
+
+    .headingMoveStatusBtns{
+        font-size: 18px;
+    }
+
+    .moveStatusBtns button{
+        font-size: 18px !important;
+        height: 44px;
     }
     
 

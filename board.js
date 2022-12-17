@@ -161,7 +161,7 @@ function contributorsContainerTemplate(contact) {
 
 function taskCardTemplate(task) {
     return /*html*/`
-    <div onclick='openCard(${JSON.stringify(task)})' class="task-card" id="task-card${task['id']}">
+    <div onclick='openCard(${JSON.stringify(task)})' draggable="true" ondragstart="startDragging(${task['id']})" class="task-card" id="task-card${task['id']}">
         <span class="card-category" style="background-color: ${task['category']['color']};">${task['category']['name']}</span>
         <span class="card-title">${task['title']}</span>
         <span class="card-description">${task['description']}</span>
@@ -200,6 +200,7 @@ function openCard(task) {
     renderTaskDetails(taskBig);
     renderContributorsContainerDetails(taskBig)
     renderPriorityTagBig(taskBig);
+    renderButtons(taskBig);
 }
 
 function convertDueDate(taskBig) {
@@ -247,6 +248,27 @@ function renderPriorityTagBig(task) {
     }
 }
 
+function renderButtons(task) {
+    if (task['status'] === 'todo') {
+        document.getElementById('edit-overlay-btn-statusnext').innerText = 'Progress';
+        document.getElementById('edit-overlay-btn-statuslast').classList.add('d-none');
+    }
+    if (task['status'] === 'progress') {
+        document.getElementById('edit-overlay-btn-statusnext').innerText = 'Feedback';
+        document.getElementById('edit-overlay-btn-statusnext').style = 'margin-left: 24px';
+        document.getElementById('edit-overlay-btn-statuslast').innerText = 'To do';
+    }
+    if (task['status'] === 'feedback') {
+        document.getElementById('edit-overlay-btn-statusnext').innerText = 'Done';
+        document.getElementById('edit-overlay-btn-statusnext').style = 'margin-left: 24px';
+        document.getElementById('edit-overlay-btn-statuslast').innerText = 'Progress';
+    }
+    if (task['status'] === 'done') {
+        document.getElementById('edit-overlay-btn-statusnext').classList.add('d-none');
+        document.getElementById('edit-overlay-btn-statuslast').innerText = 'Feedback';
+    }
+}
+
 function showTaskDetailsTemplate(task) {
     return /*html*/ `
     <button class="edit-overlay-btn" onclick="showAddTaskEdit(${task['id']})"><img src="assets/img/pencil.svg" ></button>
@@ -261,6 +283,11 @@ function showTaskDetailsTemplate(task) {
     <div class="due-date-prio">
         <span style="font-weight:bold; margin-right: 50px;">Priority:</span>
         <span style="display:flex"><img class="priority-tag" id="priority-tag"></span>
+    </div>
+    <span class="headingMoveStatusBtns">Move Task to:</span>
+    <div class="moveStatusBtns">
+        <button class="edit-overlay-btn-statuslast" id="edit-overlay-btn-statuslast" onclick="lastStatus(${task['id']})"></button>
+        <button class="edit-overlay-btn-statusnext" id="edit-overlay-btn-statusnext" onclick="nextStatus(${task['id']})"></button>
     </div>
     <div class="assigned">
         <span class="due-date-prio" style="font-weight:bold;">Assigned to:</span>
@@ -287,10 +314,10 @@ async function deleteTask(id) {
 function searchTask() {
     showAllTasksSearch();
     matchingTasks = [];
-    if(document.body.clientWidth > 1024){
+    if (document.body.clientWidth > 1024) {
         searchTaskInput = document.getElementById('searchTaskDestop').value;
         document.getElementById('searchTaskMobile').value = searchTaskInput;
-    }else{
+    } else {
         searchTaskInput = document.getElementById('searchTaskMobile').value;
         document.getElementById('searchTaskDestop').value = searchTaskInput;
     }
@@ -320,4 +347,98 @@ function showAllTasksSearch() {
         document.getElementById(`task-card${task['id']}`).classList.remove('d-none');
         document.getElementById(`task-card${task['id']}-mobile`).classList.remove('d-none');
     });
+}
+
+async function lastStatus(taskId) {
+    let task = getTaskById(taskId);
+    let currentStatus = task['status'];
+    if (currentStatus === 'done') {
+        task['status'] = 'feedback';
+    }
+    if (currentStatus === 'feedback') {
+        task['status'] = 'progress';
+    }
+    if (currentStatus === 'progress') {
+        task['status'] = 'todo';
+    }
+    await backend.setItem('tasks', JSON.stringify(tasks));
+    resetArrays();
+    declareArrays();
+    renderTasks();
+    closeCard();
+}
+
+async function nextStatus(taskId) {
+    let task = getTaskById(taskId);
+    let currentStatus = task['status'];
+    if (currentStatus === 'todo') {
+        task['status'] = 'progress';
+    }
+    if (currentStatus === 'progress') {
+        task['status'] = 'feedback';
+    }
+    if (currentStatus === 'feedback') {
+        task['status'] = 'done';
+    }
+    await backend.setItem('tasks', JSON.stringify(tasks));
+    resetArrays();
+    declareArrays();
+    renderTasks();
+    closeCard();
+}
+
+
+/*Drag and Drop Funktion */
+function startDragging(taskId) {
+    let task = getTaskById(taskId);
+    currentDraggedTask = task;
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+async function moveToTodo(id){
+    currentDraggedTask['status'] = 'todo';
+    removeHighlight(id);
+    await backend.setItem('tasks', JSON.stringify(tasks));
+    resetArrays();
+    declareArrays();
+    renderTasks();
+}
+
+async function moveToProgress(id){
+    currentDraggedTask['status'] = 'progress';
+    removeHighlight(id);
+    await backend.setItem('tasks', JSON.stringify(tasks));
+    resetArrays();
+    declareArrays();
+    renderTasks();
+}
+
+async function moveToFeedback(id){
+    currentDraggedTask['status'] = 'feedback';
+    removeHighlight(id);
+    await backend.setItem('tasks', JSON.stringify(tasks));
+    resetArrays();
+    declareArrays();
+    renderTasks();
+}
+
+async function moveToDone(id){
+    currentDraggedTask['status'] = 'done';
+    removeHighlight(id);
+    await backend.setItem('tasks', JSON.stringify(tasks));
+    resetArrays();
+    declareArrays();
+    renderTasks();
+}
+
+function highlight(id){
+    document.getElementById(id).classList.add('dragarea-highlight');
+}
+
+function removeHighlight(id){
+    document.getElementById(id).classList.remove('dragarea-highlight');
+    console.log('drop');
 }
