@@ -240,10 +240,10 @@ function renderPriorityTagBig(task) {
         document.getElementById('priority-tag').src = 'assets/img/urgent-filled.svg';
     }
     if (task['priority'] === 'medium') {
-        document.getElementById('priority-tag').src = 'assets/img/urgent-filled.svg';
+        document.getElementById('priority-tag').src = 'assets/img/medium-filled.svg';
     }
     if (task['priority'] === 'low') {
-        document.getElementById('priority-tag').src = 'assets/img/urgent-filled.svg';
+        document.getElementById('priority-tag').src = 'assets/img/low-filled.svg';
     }
 }
 
@@ -260,7 +260,7 @@ function showTaskDetailsTemplate(task) {
     </div>
     <div class="due-date-prio">
         <span style="font-weight:bold; margin-right: 50px;">Priority:</span>
-        <span><img class="priority-tag" id="priority-tag"></span>
+        <span style="display:flex"><img class="priority-tag" id="priority-tag"></span>
     </div>
     <div class="assigned">
         <span class="due-date-prio" style="font-weight:bold;">Assigned to:</span>
