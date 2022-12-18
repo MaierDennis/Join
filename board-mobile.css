@@ -59,7 +59,9 @@
 
 
     .card-category {
-        width: 30%;
+        width: fit-content;
+        max-width: 100%;
+        min-width: 30%;
     }
 
     .heading-search-add {

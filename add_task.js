@@ -97,8 +97,8 @@ function getAssignedContacts() {
 function renderCategoriesMobile() {
     document.getElementById('select-category-mobile').innerHTML = '';
     document.getElementById('select-category-mobile').innerHTML = `
-    <option disabled selected>Select task category</option>
-    <option style="background-color: rgb(0,0,0); color: white;">New Category</option>
+    <option disabled selected style="background-color:grey;">Select task category</option>
+    <option style="color: black;">Create a new Category</option>
     `;
     categories.forEach(category => {
         document.getElementById('select-category-mobile').innerHTML += categoriesDropdownTemplate(category);
@@ -108,8 +108,8 @@ function renderCategoriesMobile() {
 function renderCategories() {
     document.getElementById('select-category').innerHTML = '';
     document.getElementById('select-category').innerHTML = `
-    <option disabled selected>Select task category</option>
-    <option style="background-color: rgb(0,0,0); color: white;">New Category</option>
+    <option disabled selected style="background-color:grey;">Select task category</option>
+    <option style="color: black;">Create a new Category</option>
     `;
     categories.forEach(category => {
         document.getElementById('select-category').innerHTML += categoriesDropdownTemplate(category);
