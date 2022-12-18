@@ -273,23 +273,23 @@ function showTaskDetailsTemplate(task) {
     return /*html*/ `
     <button class="edit-overlay-btn" onclick="showAddTaskEdit(${task['id']})"><img src="assets/img/pencil.svg" ></button>
     <button class="edit-overlay-btn-delete" onclick="deleteTask(${task['id']})"><img src="assets/img/trash.png" ></button>
-    <span class="card-category-big" style="background-color: ${task['category']['color']};">${task['category']['name']}</span>
-    <span class="card-title-big">${task['title']}</span>
-    <span class="card-description-big">${task['description']}</span>
-    <div class="due-date-prio">
+    <span class="directionLTR"><span class="card-category-big" style="background-color: ${task['category']['color']};">${task['category']['name']}</span></span>
+    <span class="card-title-big directionLTR">${task['title']}</span>
+    <span class="card-description-big directionLTR">${task['description']}</span>
+    <div class="due-date-prio directionLTR">
         <span style="font-weight:bold; margin-right: 50px;">Due date:</span>
         <span> ${dueDate} </span>
     </div>
-    <div class="due-date-prio">
+    <div class="due-date-prio directionLTR">
         <span style="font-weight:bold; margin-right: 50px;">Priority:</span>
         <span style="display:flex"><img class="priority-tag" id="priority-tag"></span>
     </div>
-    <span class="headingMoveStatusBtns">Move Task to:</span>
-    <div class="moveStatusBtns">
+    <span class="headingMoveStatusBtns directionLTR">Move Task to:</span>
+    <div class="moveStatusBtns directionLTR">
         <button class="edit-overlay-btn-statuslast" id="edit-overlay-btn-statuslast" onclick="lastStatus(${task['id']})"></button>
         <button class="edit-overlay-btn-statusnext" id="edit-overlay-btn-statusnext" onclick="nextStatus(${task['id']})"></button>
     </div>
-    <div class="assigned">
+    <div class="assigned directionLTR">
         <span class="due-date-prio" style="font-weight:bold;">Assigned to:</span>
         <div id="contributor-container-container-big"></div>
     </div>
@@ -440,5 +440,4 @@ function highlight(id){
 
 function removeHighlight(id){
     document.getElementById(id).classList.remove('dragarea-highlight');
-    console.log('drop');
 }

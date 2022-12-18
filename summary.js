@@ -41,7 +41,6 @@ function getCurrentDay(){
     let currentDayArray = currentDay.split(".");
     let currentMonth = getCurrentMonth(currentDayArray[1]);
     currentDay = currentMonth + " " + currentDayArray[0] + ", " + currentDayArray[2];
-    console.log(currentDay);
     return `<strong>${currentDay}</strong>`
 }
 
