@@ -23,6 +23,17 @@
     <div w3-include-html="assets/templates/add_task_template.html" class="d-none" id="add-task-overlay-board"></div>
     <div w3-include-html="assets/templates/help_template.html"></div>
 
+    <div class="alert-delete-task-container d-none" id="alert-delete-task-container" onclick="closeAlertDelete()">
+        <div class="alert-delete-task" onclick="doNotClose(event)">
+            <img class="close-overlay-btn-delete" src="assets/img/close.svg" onclick="closeAlertDelete()">
+            <h2>Are you sure to delete this task?</h2>
+            <div class="alert-delete-task-btn">
+                <button onclick="closeAlertDelete()">Dismiss</button>
+                <button id="alert-delete-delete-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
 
     <div id="overlay" class="overlay d-none" onclick="closeCard()">
 
@@ -193,7 +204,5 @@
     </div>
 
 </body>
-
-<script src="board.js"></script>
 
 </html>

@@ -272,7 +272,7 @@ function renderButtons(task) {
 function showTaskDetailsTemplate(task) {
     return /*html*/ `
     <button class="edit-overlay-btn" onclick="showAddTaskEdit(${task['id']})"><img src="assets/img/pencil.svg" ></button>
-    <button class="edit-overlay-btn-delete" onclick="deleteTask(${task['id']})"><img src="assets/img/trash.png" ></button>
+    <button class="edit-overlay-btn-delete" onclick="showDeleteTaskAlert(${task['id']})"><img src="assets/img/trash.png" ></button>
     <span class="directionLTR"><span class="card-category-big" style="background-color: ${task['category']['color']};">${task['category']['name']}</span></span>
     <span class="card-title-big directionLTR">${task['title']}</span>
     <span class="card-description-big directionLTR">${task['description']}</span>
@@ -296,6 +296,16 @@ function showTaskDetailsTemplate(task) {
     `;
 }
 
+/*delete Task*/
+function showDeleteTaskAlert(id){
+    document.getElementById('alert-delete-task-container').classList.remove('d-none');
+    document.getElementById('alert-delete-delete-btn').onclick = () => deleteTask(id);
+}
+
+function closeAlertDelete(){
+    document.getElementById('alert-delete-task-container').classList.add('d-none');
+}
+
 async function deleteTask(id) {
     tasks.splice(id, 1);
     tasks.forEach(task => {
@@ -308,6 +318,7 @@ async function deleteTask(id) {
     declareArrays();
     renderTasks();
     closeCard();
+    closeAlertDelete();
 }
 
 /*search task*/
