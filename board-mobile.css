@@ -143,10 +143,12 @@
 @media(max-width: 500px) {
     .card-title-big {
         font-size: 32px;
+        word-wrap: break-word;
     }
-    
+
     .card-description-big {
         font-size: 16px;
+        word-wrap: break-word;
     }
 
     .due-date-prio {
@@ -172,18 +174,18 @@
         right: 44px;
     }
 
-    .headingMoveStatusBtns{
+    .headingMoveStatusBtns {
         font-size: 18px;
     }
 
-    .moveStatusBtns button{
+    .moveStatusBtns button {
         font-size: 18px !important;
         height: 44px;
     }
-    
 
 
-    
+
+
 }
 
 /* 375 PX */
