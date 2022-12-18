@@ -50,10 +50,12 @@
                         <img class="mail-icon" src="assets/img/mail-icon.svg" alt="">
                     </div>
 
-                    <div class="password-field">
-                        <input id="password-login" required type="password" class="form-control" placeholder="Password"
+                    <div class="password-field" >
+                        <input onfocus="changePwIconToEye()"  id="password-login" required type="password" class="form-control" placeholder="Password"
                             aria-label="First name">
-                        <img class="password-icon" src="assets/img/password-icon.svg" alt="">
+                        <img id="pw-icon" class="password-icon" src="assets/img/password-icon.svg" alt="">
+                        <img onclick="changePwToText(event)" id="pw-icon-no-show" class="password-icon d-none" src="assets/img/pw-no-show-icon.svg" style="cursor: pointer ;">
+                        <img onclick="changeTextToPw()" id="pw-icon-show" class="password-icon d-none" src="assets/img/pw-show-icon.svg" style="cursor: pointer ;" >
 
                     </div>
 

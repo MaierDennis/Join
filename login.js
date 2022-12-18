@@ -79,6 +79,39 @@ function checkIfUserExists(e) {
 
 }
 
+function changePwIconToEye() {
+    document.getElementById('pw-icon-no-show').classList.remove('d-none');
+    document.getElementById('pw-icon').classList.add('d-none');
+    document.getElementById('pw-icon-show').classList.add('d-none');
+    
+}
+
+function changePwIconToLock() {
+    document.getElementById('pw-icon-no-show').classList.add('d-none');
+    document.getElementById('pw-icon').classList.remove('d-none');
+
+}
+
+function changePwToText (e) {
+    e.preventDefault();
+    document.getElementById('pw-icon-no-show').classList.add('d-none');
+    document.getElementById('pw-icon-show').classList.remove('d-none');
+
+    document.getElementById('password-login').type = 'text';
+
+
+
+}
+
+function changeTextToPw() {
+    document.getElementById('pw-icon-no-show').classList.remove('d-none');
+    document.getElementById('pw-icon-show').classList.add('d-none');
+
+    document.getElementById('password-login').type = 'password';
+
+
+}
+
 
 // function getData() {
 //     backend.getItem('users');
