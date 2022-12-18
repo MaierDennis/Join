@@ -25,8 +25,12 @@ async function login() {
     
     if(user) {
         await backend.setItem('activeUser', JSON.stringify(user));  // saving active user in database 
-        // alert ('You are logged in. Click "OK" to proceed');  
-        window.location.href = 'board.html';
+        // alert ('You are logged in. Click "OK" to proceed'); 
+        if(document.body.clientWidth > 1024){
+            window.location.href = 'summary.html';
+        } else{
+            window.location.href = 'hello_mobile.html';
+        }
         console.log(activeUser);
     } else {
         // alert ('User not found');
@@ -46,7 +50,11 @@ async function guestLogin() {
     }
 
     await backend.setItem('activeUser', JSON.stringify(guest) );
-    window.location.href = 'board.html';           
+    if(document.body.clientWidth > 1024){
+        window.location.href = 'summary.html';
+    } else{
+        window.location.href = 'hello_mobile.html';
+    }        
 }
 
 

@@ -3,6 +3,7 @@ async function renderSummary(){
     renderFirstRow();
     renderSecondRow();
     renderThirdRow();
+    renderGreeting();
 }
 
 function renderFirstRow(){
