@@ -57,7 +57,7 @@ async function guestLogin() {
     }        
 }
 
-function checkIfUserExists (e) {
+function checkIfUserExists(e) {
     
     let email = document.getElementById('forgot-pw-mail');
     let user = users.find(u => u.email === email.value);
@@ -65,8 +65,8 @@ function checkIfUserExists (e) {
     console.log(user);
     
     if(user) {
-        console.log('User exists:', user);
         return true
+        // console.log('User exists:', user);
         // email.value = '';
     } else {
         e.preventDefault();
