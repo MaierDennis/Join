@@ -132,12 +132,15 @@
                 </div>
 
                 <div class="forgot-password-email-field">
-                    <form class="forgot-pw-form" action="https://gruppe-400.developerakademie.net/send_mail.php" method="POST">
+                    <form onsubmit="checkIfUserExists(event)" class="forgot-pw-form" action="https://gruppe-400.developerakademie.net/send_mail.php" method="POST">
                         <input id="forgot-pw-mail" required name="email" type="email" class="form-control" placeholder="E-Mail" aria-label="First name">
 
                         <img class="forgot-password-icon" src="assets/img/mail-icon.svg" alt="">
 
-                        <button type="submit" class="button" style="margin-top: 22px ;">Send mail</button>
+                        <span id="forgot-user-not-found" class="user-not-found d-none">User not found. Try again</span>
+
+
+                        <button type="submit" class="button" style="margin-top: 16px ;">Send mail</button>
 
                     </form>
                 </div>

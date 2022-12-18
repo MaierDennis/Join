@@ -49,7 +49,7 @@ async function guestLogin() {
         'password': 'guest'
     }
 
-    await backend.setItem('activeUser', JSON.stringify(guest) );
+    await backend.setItem('activeUser', JSON.stringify(guest) );  // saving guest as activeuser in backend
     if(document.body.clientWidth > 1024){
         window.location.href = 'summary.html';
     } else{
@@ -57,6 +57,27 @@ async function guestLogin() {
     }        
 }
 
+function checkIfUserExists (e) {
+    
+    let email = document.getElementById('forgot-pw-mail');
+    let user = users.find(u => u.email === email.value);
+    
+    console.log(user);
+    
+    if(user) {
+        console.log('User exists:', user);
+        return true
+        // email.value = '';
+    } else {
+        e.preventDefault();
+        document.getElementById('forgot-user-not-found').classList.remove('d-none');
+        email.value = "";
+        console.warn('User not found. Try again');
+
+        return false 
+    }
+
+}
 
 
 // function getData() {
