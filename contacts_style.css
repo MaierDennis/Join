@@ -405,7 +405,7 @@ margin-top: 30px;
 
 @keyframes flyOut {
     0% {right:0}
-    100% { right: -1500px;}
+    100% { right: -2500px;}
 }
 
 
