@@ -64,6 +64,21 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
+function flyOutContact() {
+    document.getElementById('add-contact-flyOut').classList.remove('addedit-contact');
+    document.getElementById('add-contact-flyOut').classList.add('new-addedit-contact');
+    document.getElementById('edit-contact-flyOut').classList.remove('addedit-contact');
+    document.getElementById('edit-contact-flyOut').classList.add('new-addedit-contact');
+    setTimeout(displayNoneContacts, 800);
+}
 
+function displayNoneContacts(){
+    document.getElementById('edit-contact').classList.add('d-none');
+    document.getElementById('overlay').classList.add('d-none');
+    document.getElementById('add-contact-flyOut').classList.add('addedit-contact');
+    document.getElementById('add-contact-flyOut').classList.remove('new-addedit-contact');
+    document.getElementById('edit-contact-flyOut').classList.add('addedit-contact');
+    document.getElementById('edit-contact-flyOut').classList.remove('new-addedit-contact');
+}
 
 

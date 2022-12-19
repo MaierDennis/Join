@@ -29,11 +29,11 @@
 
     <div w3-include-html="assets/templates/mobile_template.html"></div>
 
-    <div id="overlay" class="overlay d-none" onclick="closeEditNewContact()">
+    <div id="overlay" class="overlay d-none" onclick="flyOutContact()">
         <div id="add-contact" class="addedit-contact-display d-none">
-            <div class="addedit-contact" onclick="doNotClose(event)">
+            <div id="add-contact-flyOut" class="addedit-contact" onclick="doNotClose(event)">
                 <div class="addedit-contact-design">
-                    <div class="white-x hover" onclick="closeEditNewContact()"><img src="assets/img/x_white.png"></div>
+                    <div class="white-x hover" onclick="flyOutContact()"><img src="assets/img/x_white.png"></div>
                     <div class="addedit-contact-logo"><img src="assets/img/Join_White.png"></div>
                     <div class="addedit-contact-headline">
                         <h2>Add contact</h2>
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="addedit-contact-fields">
-                    <div class="close-x hover" onclick="closeEditNewContact()"><img src="assets/img/X.png"></div>
+                    <div class="close-x hover" onclick="flyOutContact()"><img src="assets/img/X.png"></div>
 
                     <div class="addedit-contact-image"><img src="assets/img/add_contact_img.png"></div>
 
@@ -65,7 +65,7 @@
 
                             <div class="add-contact-buttons">
                                 <div class="button-cancel"><button type="button"
-                                        onclick="closeEditNewContact()">Cancel<img src="assets/img/X.png"></button>
+                                        onclick="flyOutContact()">Cancel<img src="assets/img/X.png"></button>
                                 </div>
                                 <div class="button-create"><button type="submit" onclick="addNewContact()">Create
                                         contact <img src="assets/img/hook.png"></button>
@@ -79,9 +79,9 @@
         </div>
 
         <div id="edit-contact" class="addedit-contact-display d-none">
-            <div class="addedit-contact" onclick="doNotClose(event)">
+            <div id="edit-contact-flyOut" class="addedit-contact" onclick="doNotClose(event)">
                 <div class="addedit-contact-design">
-                    <div class="white-x hover" onclick="closeEditNewContact()"><img src="assets/img/x_white.png"></div>
+                    <div class="white-x hover" onclick="flyOutContact()"><img src="assets/img/x_white.png"></div>
                     <div class="addedit-contact-logo"><img src="assets/img/Join_White.png"></div>
                     <div>
                         <div class="addedit-contact-headline">
@@ -93,7 +93,7 @@
                 </div>
 
                 <div class="addedit-contact-fields">
-                    <div class="close-x hover" onclick="closeEditNewContact()"><img src="assets/img/X.png"></div>
+                    <div class="close-x hover" onclick="flyOutContact()"><img src="assets/img/X.png"></div>
 
                     <div class="addedit-contact-image"><img src="assets/img/add_contact_img.png"></div>
 

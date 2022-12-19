@@ -369,7 +369,6 @@ margin-top: 30px;
     justify-content: center;
     align-items: center;
     z-index: 2;
-
 }
 
 .addedit-contact {
@@ -389,6 +388,25 @@ margin-top: 30px;
     0% {right:-1500px}
     100% { right: 0px;}
 }
+
+.new-addedit-contact {
+    height: 420px;
+    width: 900px;
+    right: -1500px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 5;
+
+    animation: flyOut;
+    animation-duration: 1s;
+}
+
+@keyframes flyOut {
+    0% {right:0}
+    100% { right: -1500px;}
+}
+
 
 .addedit-contact-design {
     width: 40%;
@@ -723,13 +741,33 @@ margin-top: 30px;
             width: 100%;
             height: 80%;
             margin-top: 10vh;
+
+            animation: flyInMobile;
+            animation-duration: 0.8s;
         }
 
-        @keyframes flyIn {
+        .new-addedit-contact {
+            flex-direction: column;
+            width: 100%;
+            height: 80%;
+            bottom: -1500px;
+            margin-top: 10vh;
+            right: 0;
+
+            animation: flyOutMobile;
+            animation-duration: 0.8s;
+        }
+
+        @keyframes flyInMobile {
             0% {bottom:-1500px}
             100% { bottom: 0px;}
         }
-    
+
+        @keyframes flyOutMobile {
+            0% {bottom: 0px}
+            100% { bottom: -1500px;}
+        }
+
         .addedit-contact-design {
             width: 100%;
             height: 43vh;
