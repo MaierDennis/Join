@@ -26,3 +26,7 @@ function closeSignUp(){
     document.getElementById('signUp-button').classList.remove('d-none');
 }
 
+function openIndex() {
+    window.location.href = "index.html"
+}
+

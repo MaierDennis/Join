@@ -29,7 +29,7 @@
         <div id="start-join-logo" class="start-join-logo"><img src="assets/img/Capa 2join-logo.png" alt=""></div>
         <!-- <div class="join-logo"><img src="assets/img/Capa 2join-logo.png" alt=""></div>-->
         <div id="signUp-button" class="login-head">
-            <span class="hover-bright" style="border: none;">Not a Join user?</span>
+            <span class="hover-bright" style="border: none;" onclick="openSignUp()" title="Click to sign up">Not a Join user?</span>
             <Button class="hover-dark" onclick="openSignUp()">Sign up</Button>
         </div>
 
@@ -79,7 +79,7 @@
 
         <div id="sign-up" class="signUp-display  d-none">
             <div class="signUp-area" style="box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);">
-                <div class="arrow" onclick="closeSignUp()"><img src="assets/img/arrow-121-32.png"></div>
+                <div class="arrow" onclick="openIndex()"><img src="assets/img/arrow-121-32.png"></div>
 
                 <div class="headline">
                     <h1>Sign up</h1>
@@ -107,7 +107,14 @@
 
                     </div>
 
-                    <div><button class="button mt-4" type="submit">Sign up</button></div>
+                    <span id="user-not-found" class="user-not-found" style="margin-bottom: -10px ; margin-top: 17px;">User already exists. Please <b style="color: #28ABE2 ;">log in</b> or <b style="text-decoration: underline;">change E-Mail</b>.</span>
+
+
+                    <div style="display: flex ;">
+                        <button class="button mt-4" type="submit">Sign up</button>
+                        <button class="button mt-4" onclick="openIndex()" style="margin-left: 12px ; background-color: #28ABE2 ">Go to Login</button>
+                        
+                    </div>
                 </form>
 
 
