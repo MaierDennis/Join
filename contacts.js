@@ -6,7 +6,6 @@ async function initContacts(){
     showContacts();
 }
 
-
 function closeEditNewContact() {
     document.getElementById('add-contact').classList.add('d-none');
     document.getElementById('edit-contact').classList.add('d-none');
@@ -61,8 +60,10 @@ function doNotClose(event) {
 
 document.addEventListener('keydown', function (event) {
     if (event.key === "Escape") {
-        closeEditNewContact();        // an der Stelle die Funktion einsetzen, die das Fenster schließen soll
+        closeEditNewContact();     
     }
 });
+
+
 
 
