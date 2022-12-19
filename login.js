@@ -4,16 +4,31 @@ async function addUser() {
     let name = document.getElementById('name-signup');
     let email = document.getElementById('email-signup');
     let password = document.getElementById('password-signup');
-
     users.push({ name: name.value, email: email.value, password: password.value });
-
     await backend.setItem('users', JSON.stringify(users));
-
     window.location.href = 'success_signup.html';
-
     name.value = "";
     email.value = "";
     password.value = "";
+}
+
+
+function checkSignUp() {
+    let email = document.getElementById('email-signup');
+    let user = users.find(u => u.email === email.value);
+
+
+    console.log(user);
+
+    if (!user) {
+        addUser();
+    } else {
+        document.getElementById('userExists').classList.remove('d-none');
+        document.getElementById('goToLoginBtn').classList.remove('d-none');
+        email.value = "";
+        console.warn('User not found. Try again');
+        return false
+    }
 }
 
 async function login() {
