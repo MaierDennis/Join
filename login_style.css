@@ -256,7 +256,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     font-size: 12px;
-    margin-top: 7%;
+    margin-top: 7px;
 }
 
 .remember-me {
@@ -618,4 +618,13 @@ margin-right: 10px;
     height: 17px;
 }
 
+/* USER NOT FOUND */
+
+.user-not-found {
+    color: red;
+    font-size: 14px;
+    margin-top: 12px;
+    transition: all 225ms ease-in-out;
+
+}
 

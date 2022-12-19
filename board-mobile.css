@@ -32,6 +32,7 @@
         width: 100%;
         margin-top: 80px;
         padding: 32px;
+        box-sizing: border-box;
     }
 
     .heading-search-add {
@@ -44,7 +45,7 @@
         flex-direction: column;
     }
 
-    .task {
+    .task-mobile {
         width: 100%;
     }
 
@@ -58,7 +59,9 @@
 
 
     .card-category {
-        width: 30%;
+        width: fit-content;
+        max-width: 100%;
+        min-width: 30%;
     }
 
     .heading-search-add {
@@ -94,8 +97,8 @@
 
     .edit-overlay-btn-delete {
         position: absolute;
-        bottom: 50px;
-        right: 124px;
+        bottom: 114px;
+        right: 50px;
     }
 
 }
@@ -143,10 +146,12 @@
 @media(max-width: 500px) {
     .card-title-big {
         font-size: 32px;
+        word-wrap: break-word;
     }
-    
+
     .card-description-big {
         font-size: 16px;
+        word-wrap: break-word;
     }
 
     .due-date-prio {
@@ -168,13 +173,22 @@
     }
 
     .edit-overlay-btn-delete {
-        bottom: 22px;
-        right: 120px;
+        bottom: 86px;
+        right: 44px;
     }
-    
+
+    .headingMoveStatusBtns {
+        font-size: 18px;
+    }
+
+    .moveStatusBtns button {
+        font-size: 18px !important;
+        height: 44px;
+    }
 
 
-    
+
+
 }
 
 /* 375 PX */
@@ -182,6 +196,23 @@
     .card-container {
         top: 0;
         bottom: 0;
+    }
+
+    .alert-delete-task {
+        height: 220px;
+    }    
+
+    .alert-delete-task h2{
+        font-size: 20px;
+    }
+
+    .alert-delete-task-btn{
+        margin-top: 28px;
+    }
+
+    .alert-delete-task-btn button{
+        font-size: 18px;
+        width: 100px;
     }
 
 }

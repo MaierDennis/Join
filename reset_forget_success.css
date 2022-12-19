@@ -1,5 +1,13 @@
 /* MOBILE VERSION */
 
+.join-logo img {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    height: 90px;
+}
+
+
 @media (max-width: 650px) {
     .reset-password-area {
         width: 500px;

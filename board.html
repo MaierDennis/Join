@@ -23,6 +23,17 @@
     <div w3-include-html="assets/templates/add_task_template.html" class="d-none" id="add-task-overlay-board"></div>
     <div w3-include-html="assets/templates/help_template.html"></div>
 
+    <div class="alert-delete-task-container d-none" id="alert-delete-task-container" onclick="closeAlertDelete()">
+        <div class="alert-delete-task" onclick="doNotClose(event)">
+            <img class="close-overlay-btn-delete" src="assets/img/close.svg" onclick="closeAlertDelete()">
+            <h2>Are you sure to delete this task?</h2>
+            <div class="alert-delete-task-btn">
+                <button onclick="closeAlertDelete()">Dismiss</button>
+                <button id="alert-delete-delete-btn" class="alert-delete-delete-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
 
     <div id="overlay" class="overlay d-none" onclick="closeCard()">
 
@@ -61,7 +72,7 @@
 
             <div class="tasks-container">
 
-                <div class="task">
+                <div class="task" id="todoTasksBoard" ondrop="moveToTodo('todoTasksBoard')" ondragleave="removeHighlight('todoTasksBoard')" ondragover="allowDrop(event); highlight('todoTasksBoard')">
 
                     <div class="tasks-heading">
                         <h3>To do</h3>
@@ -73,7 +84,7 @@
 
                 </div>
 
-                <div class="task">
+                <div class="task" id="progressTasksBoard" ondrop="moveToProgress('progressTasksBoard')" ondragleave="removeHighlight('progressTasksBoard')" ondragover="allowDrop(event); highlight('progressTasksBoard')">
 
                     <div class="tasks-heading">
                         <h3>In progress</h3>
@@ -85,7 +96,7 @@
 
                 </div>
 
-                <div class="task">
+                <div class="task" id="feedbackTasksBoard" ondrop="moveToFeedback('feedbackTasksBoard')" ondragleave="removeHighlight('feedbackTasksBoard')" ondragover="allowDrop(event); highlight('feedbackTasksBoard')">
 
                     <div class="tasks-heading">
                         <h3>Feedback</h3>
@@ -98,7 +109,7 @@
 
                 </div>
 
-                <div class="task">
+                <div class="task" id="doneTasksBoard" ondrop="moveToDone('doneTasksBoard')" ondragleave="removeHighlight('doneTasksBoard')" ondragover="allowDrop(event); highlight('doneTasksBoard')">
 
                     <div class="tasks-heading">
                         <h3>Done</h3>
@@ -123,7 +134,7 @@
             <h1 class="main-heading">Board</h1>
             <div class="input-and-button-container">
                 <div class="board-input-container">
-                    <input class="board-inputfield" type="text" placeholder="Find Task">
+                    <input class="board-inputfield" type="text" placeholder="Find Task" id="searchTaskMobile" onkeyup="searchTask()">
                     <div style="display: flex ;">
                         <span class="vertical-line">|</span>
                         <img class="search-icon" src="assets/img/search-icon.svg" alt="">
@@ -137,7 +148,7 @@
 
         <div class="tasks-container">
 
-            <div class="task">
+            <div class="task-mobile">
 
                 <div class="tasks-heading">
                     <h3>To do</h3>
@@ -149,7 +160,7 @@
 
             </div>
 
-            <div class="task">
+            <div class="task-mobile">
 
                 <div class="tasks-heading">
                     <h3>In progress</h3>
@@ -161,7 +172,7 @@
 
             </div>
 
-            <div class="task">
+            <div class="task-mobile">
 
                 <div class="tasks-heading">
                     <h3>Feedback</h3>
@@ -173,7 +184,7 @@
 
             </div>
 
-            <div class="task">
+            <div class="task-mobile">
 
                 <div class="tasks-heading">
                     <h3>Done</h3>
@@ -193,7 +204,5 @@
     </div>
 
 </body>
-
-<script src="board.js"></script>
 
 </html>

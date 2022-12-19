@@ -11,17 +11,9 @@ async function addUser() {
 
     window.location.href = 'success_signup.html';
 
-
-    // console.log(users);
-
     name.value = "";
     email.value = "";
     password.value = "";
-
-
-
-    // closeSignUp();
-
 }
 
 async function login() {
@@ -33,16 +25,21 @@ async function login() {
     
     if(user) {
         await backend.setItem('activeUser', JSON.stringify(user));  // saving active user in database 
-        alert ('You are logged in. Click "OK" to proceed');  
-        window.location.href = 'board.html';
+        // alert ('You are logged in. Click "OK" to proceed'); 
+        if(document.body.clientWidth > 1024){
+            window.location.href = 'summary.html';
+        } else{
+            window.location.href = 'hello_mobile.html';
+        }
         console.log(activeUser);
     } else {
-        alert ('User not found');
+        // alert ('User not found');
+        document.getElementById('user-not-found').classList.remove('d-none');
+        email.value = "";
+        password.value = "";
     }
 
-    email.value = "";
-    password.value = "";
-
+    
 }
 
 async function guestLogin() {
@@ -52,8 +49,67 @@ async function guestLogin() {
         'password': 'guest'
     }
 
-    await backend.setItem('activeUser', JSON.stringify(guest) );
-    window.location.href = 'board.html';           
+    await backend.setItem('activeUser', JSON.stringify(guest) );  // saving guest as activeuser in backend
+    if(document.body.clientWidth > 1024){
+        window.location.href = 'summary.html';
+    } else{
+        window.location.href = 'hello_mobile.html';
+    }        
+}
+
+function checkIfUserExists(e) {
+    
+    let email = document.getElementById('forgot-pw-mail');
+    let user = users.find(u => u.email === email.value);
+    
+    console.log(user);
+    
+    if(user) {
+        return true
+        // console.log('User exists:', user);
+        // email.value = '';
+    } else {
+        e.preventDefault();
+        document.getElementById('forgot-user-not-found').classList.remove('d-none');
+        email.value = "";
+        console.warn('User not found. Try again');
+
+        return false 
+    }
+
+}
+
+function changePwIconToEye() {
+    document.getElementById('pw-icon-no-show').classList.remove('d-none');
+    document.getElementById('pw-icon').classList.add('d-none');
+    document.getElementById('pw-icon-show').classList.add('d-none');
+    
+}
+
+function changePwIconToLock() {
+    document.getElementById('pw-icon-no-show').classList.add('d-none');
+    document.getElementById('pw-icon').classList.remove('d-none');
+
+}
+
+function changePwToText (e) {
+    e.preventDefault();
+    document.getElementById('pw-icon-no-show').classList.add('d-none');
+    document.getElementById('pw-icon-show').classList.remove('d-none');
+
+    document.getElementById('password-login').type = 'text';
+
+
+
+}
+
+function changeTextToPw() {
+    document.getElementById('pw-icon-no-show').classList.remove('d-none');
+    document.getElementById('pw-icon-show').classList.add('d-none');
+
+    document.getElementById('password-login').type = 'password';
+
+
 }
 
 

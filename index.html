@@ -47,12 +47,16 @@
                         <img class="mail-icon" src="assets/img/mail-icon.svg" alt="">
                     </div>
 
-                    <div class="password-field">
-                        <input id="password-login" required type="password" class="form-control" placeholder="Password"
+                    <div class="password-field" >
+                        <input onfocus="changePwIconToEye()"  id="password-login" required type="password" class="form-control" placeholder="Password"
                             aria-label="First name">
-                        <img class="password-icon" src="assets/img/password-icon.svg" alt="">
+                        <img id="pw-icon" class="password-icon" src="assets/img/password-icon.svg" alt="">
+                        <img onclick="changePwToText(event)" id="pw-icon-no-show" class="password-icon d-none" src="assets/img/pw-no-show-icon.svg" style="cursor: pointer ;">
+                        <img onclick="changeTextToPw()" id="pw-icon-show" class="password-icon d-none" src="assets/img/pw-show-icon.svg" style="cursor: pointer ;" >
 
                     </div>
+
+                    <span id="user-not-found" class="user-not-found d-none">User not found. Try again</span>
 
                     <div class="rememberMe-forgotPassword">
                         <div class="remember-me"> <input type="checkbox">Remember me</div>
@@ -127,11 +131,15 @@
                 </div>
 
                 <div class="forgot-password-email-field">
-                    <form onsubmit="" class="forgot-pw-form">
-                        <input required type="email" class="form-control" placeholder="E-Mail" aria-label="First name">
+                    <form onsubmit="checkIfUserExists(event)" class="forgot-pw-form" action="https://gruppe-400.developerakademie.net/send_mail.php" method="POST">
+                        <input id="forgot-pw-mail" required name="email" type="email" class="form-control" placeholder="E-Mail" aria-label="First name">
+
                         <img class="forgot-password-icon" src="assets/img/mail-icon.svg" alt="">
 
-                        <button class="button" style="margin-top: 22px ;">Send mail</button>
+                        <span id="forgot-user-not-found" class="user-not-found d-none">User not found. Try again</span>
+
+
+                        <button type="submit" class="button" style="margin-top: 16px ;">Send mail</button>
 
                     </form>
                 </div>

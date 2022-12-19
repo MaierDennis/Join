@@ -9,6 +9,7 @@ let activeUser;
 let dueDate;
 let searchTaskInput;
 let matchingTasks = [];
+let currentDraggedTask;
 
 
 
@@ -39,7 +40,6 @@ async function includeHTML() {
     
 
     for (let i = 0; i < includeElements.length; i++) {
-        console.log(includeElements[i]);
         const element = includeElements[i];
         file = element.getAttribute("w3-include-html"); // "includes/header.html"
         let resp = await fetch(file);

@@ -31,6 +31,75 @@ body {
     overflow-y: auto;
 }
 
+.alert-delete-task-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert-delete-task {
+    height: 240px;
+    width: 450px;
+    background-color: white;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 48px;
+    box-sizing: border-box;
+}
+
+.close-overlay-btn-delete {
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    cursor: pointer;
+}
+
+.alert-delete-task h2 {
+    text-align: center;
+}
+
+.alert-delete-task-btn {
+    margin-top: 32px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.alert-delete-task-btn button {
+    font-size: 20px;
+    width: 120px;
+    height: 44px;
+    background: #2A3647;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.alert-delete-delete-btn {
+    background-color: red !important;
+}
+
+.alert-delete-delete-btn:hover {
+    background-color: rgb(255, 105, 105) !important;
+}
+
+.alert-delete-task-btn button:hover {
+    background: #29ABE2;
+}
+
 .main-heading {
     font-size: 61px;
     font-weight: 700;
@@ -129,7 +198,6 @@ body {
     border: none;
 }
 
-
 .tasks-container {
     width: 90%;
     display: flex;
@@ -138,6 +206,12 @@ body {
 
 .task {
     width: 23%;
+    height: 100%;
+    min-height: 72vh;
+}
+
+.dragarea-highlight {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .tasks-heading {
@@ -189,9 +263,10 @@ body {
     padding: 4px 25px;
     gap: 10px;
     margin-bottom: 10px;
-    width: 50%;
+    width: fit-content;
+    max-width: 100%;
+    min-width: 30%;
     height: 27px;
-    background: #FF7A00;
     border-radius: 8px;
     color: white;
     font-weight: 300;
@@ -203,10 +278,12 @@ body {
 
 .card-title {
     font-weight: 700;
+    word-wrap: break-word;
 }
 
 .card-description {
     color: #A8A8A8;
+    word-wrap: break-word;
 }
 
 .card-bottom {
@@ -246,34 +323,33 @@ body {
 
 .card-category-big {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 4px 25px;
-    gap: 10px;
-    margin-bottom: 32px;
-    width: 25%;
+    margin-bottom: 24px;
+    margin-top: 24px;
+    min-width: 30%;
+    width: fit-content;
+    max-width: 100%;
     height: 27px;
-    background: #FF7A00;
     border-radius: 8px;
     color: white;
     font-weight: 300;
     font-size: 18px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-
 }
 
-.task-overly-details{
+.task-overly-details {
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+    direction: rtl;
 }
 
 .card-title-big {
     font-weight: 600;
     font-size: 50px;
     margin-bottom: 32px;
+    word-wrap: break-word;
 }
 
 .card-description-big {
@@ -281,7 +357,7 @@ body {
     font-size: 22px;
     font-weight: 300;
     margin-bottom: 32px;
-
+    word-wrap: break-word;
 }
 
 .close-overlay-btn {
@@ -326,12 +402,12 @@ body {
     border-radius: 10px;
     border: none;
     position: absolute;
-    bottom: 32px;
-    right: 110px;
+    bottom: 96px;
+    right: 32px;
     cursor: pointer;
 }
 
-.edit-overlay-btn-delete img{
+.edit-overlay-btn-delete img {
     height: 28px;
     object-fit: contain;
 }
@@ -339,6 +415,49 @@ body {
 .edit-overlay-btn-delete:hover {
     background: #29ABE2;
 }
+
+.headingMoveStatusBtns {
+    font-size: 22px;
+    margin-bottom: 14px;
+    font-weight: bold;
+}
+
+.moveStatusBtns {
+    display: flex;
+    margin-bottom: 32px;
+}
+
+.edit-overlay-btn-statuslast {
+    font-size: 20px;
+    width: 120px;
+    height: 44px;
+    background: #2A3647;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.edit-overlay-btn-statuslast:hover {
+    background: #29ABE2;
+}
+
+.edit-overlay-btn-statusnext {
+    font-size: 20px;
+    width: 120px;
+    height: 44px;
+    background: #2A3647;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.edit-overlay-btn-statusnext:hover {
+    background: #29ABE2;
+}
+
+
 
 .due-date-prio {
     font-size: 22px;
@@ -444,12 +563,12 @@ body {
     border-radius: 20px;
     object-fit: contain;
     background-color: white;
-    padding: 50px;
+    padding: 24px 50px;
+    padding-left: 26px;
     /* right: 28%; */
     /* left: 15%; */
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
 
 }
 
@@ -469,5 +588,7 @@ body {
     font-size: 18px;
 }
 
-
-
+.directionLTR {
+    direction: ltr;
+    margin-left: 24px;
+}
