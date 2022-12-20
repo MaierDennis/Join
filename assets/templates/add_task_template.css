@@ -433,7 +433,7 @@ option {
     .content-background {
         box-sizing: unset;
         z-index: 10;
-        top: 84px;
+        top: 82px;
     }
 
     .content-addtask {

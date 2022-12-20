@@ -34,8 +34,8 @@
     .content-mobile {
         display: block;
         width: 100%;
-        margin-top: 80px;
         padding: 32px;
+        padding-top: 112px;
         box-sizing: border-box;
     }
 

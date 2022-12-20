@@ -34,6 +34,7 @@ async function init() {
 async function render(currentSection) {
     await includeHTML();
     setActiveSection(currentSection);
+    renderUsernameTopper();
 }
 
 
@@ -53,6 +54,12 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
+}
+
+/*render name in topper*/
+function renderUsernameTopper(){
+    document.getElementById('topper-name-destop').innerHTML = `<strong>${activeUser}</strong>`;
+    document.getElementById('topper-name-mobile').innerHTML = `<strong>${activeUser}</strong>`;
 }
 
 /*set currentSection in templates*/

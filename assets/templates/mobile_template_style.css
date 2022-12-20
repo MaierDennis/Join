@@ -32,15 +32,18 @@
         object-fit: contain;
     }
 
-    .profile-pic{
-        border-radius: 100%;
-        border: 1px solid black;
+
+    .topper-name-mobile{
+        color: #29ABE2; 
+        display: flex; 
+        align-items: center; 
+        font-size: larger;
     }
 
-    .profile-pic:hover{
+    .topper-name-mobile:hover{
         cursor: pointer;
     }
-    
+
     .options-mobile{
         display: unset;
         z-index: 8;
@@ -54,7 +57,7 @@
     .options-mobile div{
         position: absolute;
         right: 20px;
-        top: 84px;
+        top: 79px;
         background-color:#2A3647;
         width: 120px;
         border-radius: 16px 0px 16px 16px;
