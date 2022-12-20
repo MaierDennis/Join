@@ -135,7 +135,7 @@ function hideAddTask(){
     document.getElementById('body').style = '';
     if(document.getElementById('tasks-inprogress-mobile')){
         closeCard();
-        document.getElementById('formAddTask').setAttribute("onsubmit", `createTask()`);
+        document.getElementById('formAddTask').setAttribute("onsubmit", `checkTaskToCreate()`);
     }
 }
 

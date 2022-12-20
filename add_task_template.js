@@ -15,8 +15,8 @@ async function onsubmitEdit(id){
             task['id'] = +task['id'] - 1;
         }
     });
-    await createTask();
-    document.getElementById('formAddTask').setAttribute("onsubmit", `createTask(); return false;`);
+    await checkTaskToCreate();
+    document.getElementById('formAddTask').setAttribute("onsubmit", `checkTaskToCreate(); return false;`);
 }
 
 function getTaskById(taskId) {

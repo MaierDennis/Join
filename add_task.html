@@ -28,7 +28,7 @@
         <div w3-include-html="assets/templates/destop_template.html"></div>
         <div class="inner-content" id="inner-content">
             <h1>Add task</h1>
-            <form onsubmit="createTask(); return false">
+            <form onsubmit="checkTaskToCreate(); return false">
                 <div class="formContentWithButton">
                     <div class="divContentAddtask" style="border-right: 1px solid rgb(186, 186, 186); padding-left: 0;">
                         <span style="margin-top: 0;">Title</span>
@@ -43,7 +43,7 @@
                                 <input id="new-category" maxlength="10" placeholder="Name"></input>
                                 <button onclick="dismissCategory()" type="button"><img style="height: 18px;"
                                         src="assets/img/close-button-addtask.svg"></button>
-                                <button onclick="createNewCategory()" type="button"><img
+                                <button onclick="checkNewCategory()" type="button"><img
                                         src="assets/img/check-addtask.svg"></button>
                             </div>
                             <div class="select-color-category">
@@ -98,7 +98,7 @@
     <div class="content-mobile">
         <span style="font-size: small;">Kanban Project Management Tool</span>
         <h1>Add task</h1>
-        <form class="form-mobile" onsubmit="createTask(); return false">
+        <form class="form-mobile" onsubmit="checkTaskToCreate(); return false">
             <span style="margin-top: 0;">Title</span>
             <input required placeholder="Enter a title" id="input-title-mobile">
             <span>Description</span>
@@ -111,7 +111,7 @@
                     <input id="new-category-mobile" maxlength="10" placeholder="Name"></input>
                     <button onclick="dismissCategoryMobile()" type="button"><img style="height: 18px;"
                             src="assets/img/close-button-addtask.svg"></button>
-                    <button onclick="createNewCategoryMobile()" type="button"><img
+                    <button onclick="checkNewCategoryMobile()" type="button"><img
                             src="assets/img/check-addtask.svg"></button>
                 </div>
                 <div class="select-color-category">
