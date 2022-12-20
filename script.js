@@ -1,3 +1,5 @@
+//DEFINING GLOBAL VARIABLES
+
 let statusTaskOnCreate = 'todo';
 let tasks = [];
 let tasksToDo = [];
@@ -21,8 +23,9 @@ async function init() {
     contactsAddTask = JSON.parse(backend.getItem('contact')) || [];
     categories = JSON.parse(backend.getItem('categories')) || [];
     contacts = JSON.parse(backend.getItem('contact')) || [];
-    activeUser = JSON.parse(backend.getItem('activeUser')) || [];
-    console.log('Active user:', JSON.parse(backend.getItem('activeUser')));
+    
+    activeUser = JSON.parse(localStorage.getItem('activeUser')) || [];
+    console.log('Active user:', activeUser.name);
 
 }
 
