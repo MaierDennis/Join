@@ -21,14 +21,24 @@
     <script src="index.js"></script>
     <script src="script.js"></script>
 
+    <script>
+        function noBack() {
+            window.history.pushState(null, null, window.location.href);
+            window.onpopstate = function () {
+                window.history.go(1);
+            };
+        }
+
+    </script>
 </head>
 
-<body onload="init()">
+<body onload="init(); noBack();">
     <div class="complete-page">
         <div id="start-join-logo" class="start-join-logo"><img src="assets/img/Capa 2join-logo.png" alt=""></div>
         <!-- <div class="join-logo"><img src="assets/img/Capa 2join-logo.png" alt=""></div>-->
         <div id="signUp-button" class="login-head">
-            <span class="hover-bright" style="border: none;" onclick="openSignUp()" title="Click to sign up">Not a Join user?</span>
+            <span class="hover-bright" style="border: none;" onclick="openSignUp()" title="Click to sign up">Not a Join
+                user?</span>
             <Button class="hover-dark" onclick="openSignUp()">Sign up</Button>
         </div>
 
@@ -46,12 +56,14 @@
                         <img class="mail-icon" src="assets/img/mail-icon.svg" alt="">
                     </div>
 
-                    <div class="password-field" >
-                        <input onfocus="changePwIconToEye('login')"  id="password-login" required type="password" class="form-control" placeholder="Password"
-                            aria-label="First name">
+                    <div class="password-field">
+                        <input onfocus="checkInputType('password-login', 'login')" id="password-login" required type="password"
+                            class="form-control" placeholder="Password" aria-label="First name">
                         <img id="pw-icon-login" class="password-icon" src="assets/img/password-icon.svg" alt="">
-                        <img onclick="changePwToText('password-login', 'login')" id="pw-no-show-login" class="password-icon d-none" src="assets/img/pw-no-show-icon.svg" style="cursor: pointer ;">
-                        <img onclick="changeTextToPw('password-login', 'login')" id="pw-show-login" class="password-icon d-none" src="assets/img/pw-show-icon.svg" style="cursor: pointer ;" >
+                        <img onclick="changePwToText('password-login', 'login')" id="pw-no-show-login"
+                            class="password-icon d-none" src="assets/img/pw-no-show-icon.svg" style="cursor: pointer ;">
+                        <img onclick="changeTextToPw('password-login', 'login')" id="pw-show-login"
+                            class="password-icon d-none" src="assets/img/pw-show-icon.svg" style="cursor: pointer ;">
 
                     </div>
 
@@ -100,22 +112,28 @@
                     </div>
 
                     <div class="signup-password-field">
-                        <input id="password-signup" onfocus="changePwIconToEye('signup')" required type="password" class="form-control" placeholder="Password"
-                            aria-label="First name">
-                        <img id="pw-icon-signup"  class="password-signup-icon" src="assets/img/password-icon.svg" alt="">
-                        <img onclick="changePwToText('password-signup', 'signup')" id="pw-no-show-signup" class="password-icon d-none" src="assets/img/pw-no-show-icon.svg" style="cursor: pointer ;">
-                        <img onclick="changeTextToPw('password-signup', 'signup')" id="pw-show-signup" class="password-icon d-none" src="assets/img/pw-show-icon.svg" style="cursor: pointer ;" >
+                        <input id="password-signup" onfocus="checkInputType('password-signup', 'signup')" required type="password"
+                            class="form-control" placeholder="Password" aria-label="First name">
+                        <img id="pw-icon-signup" class="password-signup-icon" src="assets/img/password-icon.svg" alt="">
+                        <img onclick="changePwToText('password-signup', 'signup')" id="pw-no-show-signup"
+                            class="password-icon d-none" src="assets/img/pw-no-show-icon.svg" style="cursor: pointer ;">
+                        <img onclick="changeTextToPw('password-signup', 'signup')" id="pw-show-signup"
+                            class="password-icon d-none" src="assets/img/pw-show-icon.svg" style="cursor: pointer ;">
 
 
                     </div>
 
-                    <span id="userExists" class="user-not-found d-none" style="margin-bottom: -10px ; margin-top: 17px;">User already exists. Please <b style="color: #28ABE2 ;">log in</b> or <b style="text-decoration: underline;">change Email</b>.</span>
+                    <span id="userExists" class="user-not-found d-none"
+                        style="margin-bottom: -10px ; margin-top: 17px;">User already exists. Please <b
+                            style="color: #28ABE2 ;">log in</b> or <b style="text-decoration: underline;">change
+                            Email</b>.</span>
 
 
                     <div style="display: flex ;">
                         <button class="button mt-4" type="submit">Sign up</button>
-                        <button id="goToLoginBtn" class="button mt-4 d-none" onclick="openIndex()" style="margin-left: 12px ; background-color: #28ABE2 ">Go to Login</button>
-                        
+                        <button id="goToLoginBtn" class="button mt-4 d-none" onclick="openIndex()"
+                            style="margin-left: 12px ; background-color: #28ABE2 ">Go to Login</button>
+
                     </div>
                 </form>
 
@@ -140,9 +158,11 @@
                 </div>
 
                 <div class="forgot-password-email-field">
-                    <form onsubmit="checkIfUserExists(event)" class="forgot-pw-form" action="https://gruppe-400.developerakademie.net/send_mail.php" method="POST">
-                        
-                        <input id="forgot-pw-mail" required name="email" type="email" class="form-control" placeholder="E-Mail" aria-label="First name">
+                    <form onsubmit="checkIfUserExists(event)" class="forgot-pw-form"
+                        action="https://gruppe-400.developerakademie.net/send_mail.php" method="POST">
+
+                        <input id="forgot-pw-mail" required name="email" type="email" class="form-control"
+                            placeholder="E-Mail" aria-label="First name">
 
                         <img class="forgot-password-icon" src="assets/img/mail-icon.svg" alt="">
 
@@ -154,13 +174,13 @@
                     </form>
                 </div>
 
-                
+
 
             </div>
 
         </div>
 
-        
+
     </div>
 
 

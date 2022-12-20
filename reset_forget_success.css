@@ -7,6 +7,10 @@
     height: 90px;
 }
 
+.t-9 {
+    top: 9px !important;
+}
+
 
 @media (max-width: 650px) {
     .reset-password-area {
