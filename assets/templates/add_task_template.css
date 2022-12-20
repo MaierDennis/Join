@@ -26,14 +26,26 @@ body {
     padding: 32px;
     border-radius: 40px;
     position: relative;
+}
 
+.flyIn {
     animation: flyIn;
-    animation-duration: 1s;
+    animation-duration: 0.8s;
 }
 
 @keyframes flyIn {
     0% {right:-1500px}
     100% { right: 0px;}
+}
+
+.flyOut {
+    animation: flyOut;
+    animation-duration: 1.2s;
+}
+
+@keyframes flyOut {
+    0% {right:0}
+    100% { right: -2500px;}
 }
 
 .close-btn {

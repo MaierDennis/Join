@@ -18,11 +18,11 @@
 </head>
 
 <body onload="initAddTask()">
-    <div class="content-background" id="close-addTask-background" onclick="hideAddTask()">
-        <div class="content-addtask" onclick="doNotClose(event)">
+    <div class="content-background" id="close-addTask-background" onclick="hideAddTaskBoard()">
+        <div id="content-addtask" class="content-addtask flyIn" onclick="doNotClose(event)">
             <h1 class="addtask-h1">Add task</h1>
             <form id="formAddTask" onsubmit="createTask(); return false">
-                <img src="assets/img/close-button-addtask.svg" class="close-btn" id="close-btn" onclick="hideAddTask()">
+                <img src="assets/img/close-button-addtask.svg" class="close-btn" id="close-btn" onclick="hideAddTaskBoard()">
                 <div class="formContentWithButton">
                     <div class="divContentAddtask"
                         style="@media(min-width:1024px){border-right: 1px solid rgb(186, 186, 186); padding-left: 0;}">

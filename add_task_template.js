@@ -88,8 +88,35 @@ function showAddTaskContactlist(name){
 }
 
 function hideAddTaskContactsSection(){
-    document.getElementById('close-btn').setAttribute("onclick", 'hideAddTask()');
-    document.getElementById('close-addTask-background').setAttribute("onclick", 'hideAddTask()');
+    document.getElementById('content-addtask').classList.remove('flyIn');
+    document.getElementById('content-addtask').classList.add('flyOut');
+
     clearTask();
+    if((window.innerWidth > 1024)){
+    setTimeout(hideDivTaskContactSection, 800);
+    }
+    else {
+        hideDivTaskContactSection();
+    }
+
+}
+
+function hideDivTaskContactSection(){
+    document.getElementById('content-addtask').classList.add('flyIn');
+    document.getElementById('content-addtask').classList.remove('flyOut');
+    
     hideAddTask();
+}
+
+function hideAddTaskBoard(){
+    document.getElementById('content-addtask').classList.remove('flyIn');
+    document.getElementById('content-addtask').classList.add('flyOut');
+
+    clearTask();
+    if((window.innerWidth > 1024)){
+    setTimeout(hideDivTaskContactSection, 800);
+    }
+    else {
+        hideDivTaskContactSection();
+    }
 }
