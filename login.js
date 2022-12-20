@@ -59,11 +59,10 @@ async function login() {
 
 async function guestLogin() {
     let guest = {
-        
         'name': 'Guest',
     }
 
-    await localStorage.setItem('activeUser', JSON.stringify(guest));  // saving guest as activeuser in backend
+    await localStorage.setItem('activeUser', JSON.stringify(guest.name));  // saving guest as activeuser in backend
     if (document.body.clientWidth > 1024) {
         window.location.href = 'summary.html';
     } else {
