@@ -1,17 +1,48 @@
-
-async function addUser() {
-    let name = document.getElementById('name-signup');
-    let email = document.getElementById('email-signup');
-    let password = document.getElementById('password-signup');
-    users.push({ name: name.value, email: email.value, password: password.value });
-    await backend.setItem('users', JSON.stringify(users));
-    window.location.href = 'success_signup.html';
-    name.value = "";
-    email.value = "";
-    password.value = "";
+/**
+ * This function checks if the email and password from the inputfields are existing in the database  
+ *      if found --> user proceeds to summary.html
+ *               else --> showing message:"user not found"
+ * 
+ */
+async function login() {
+    let email = document.getElementById('email-login');
+    let password = document.getElementById('password-login');
+    let user = users.find(u => u.email === email.value && u.password == password.value)
+    if (user) {
+        await localStorage.setItem('activeUser', JSON.stringify(user.name));  // saving active user in backend 
+        if (document.body.clientWidth > 1024) {
+            window.location.href = 'summary.html';
+        } else {
+            window.location.href = 'hello_mobile.html';
+        }
+        console.log(activeUser);
+    } else {
+        document.getElementById('user-not-found').classList.remove('d-none');
+        email.value = "";
+        password.value = "";
+    }
 }
 
 
+/**
+ * This function is used to log in as a guest. Mainly for demo purposes
+ * 
+ */
+async function guestLogin() {
+    let guest = { 'name': 'Guest', };
+    await localStorage.setItem('activeUser', JSON.stringify(guest.name));  // saving guest as activeuser in backend
+    if (document.body.clientWidth > 1024) {
+        window.location.href = 'summary.html';
+    } else {
+        window.location.href = 'hello_mobile.html';
+    }
+}
+
+
+/**
+ * This function checks if the email already exists in the database before adding a new user.
+ *
+ */
 function checkSignUp() {
     let email = document.getElementById('email-signup');
     let user = users.find(u => u.email === email.value);
@@ -28,35 +59,29 @@ function checkSignUp() {
     }
 }
 
-async function login() {
-    let email = document.getElementById('email-login');
-    let password = document.getElementById('password-login');
-    let user = users.find(u => u.email === email.value && u.password == password.value)
-    if (user) {
-        await localStorage.setItem('activeUser', JSON.stringify(user.name));  // saving active user in database 
-        if (document.body.clientWidth > 1024) {
-            window.location.href = 'summary.html';
-        } else {
-            window.location.href = 'hello_mobile.html';
-        }
-        console.log(activeUser);
-    } else {
-        document.getElementById('user-not-found').classList.remove('d-none');
-        email.value = "";
-        password.value = "";
-    }
+
+/**
+ * This function adds a user to the database
+ * 
+ */
+async function addUser() {
+    let name = document.getElementById('name-signup');
+    let email = document.getElementById('email-signup');
+    let password = document.getElementById('password-signup');
+    users.push({ name: name.value, email: email.value, password: password.value });
+    await backend.setItem('users', JSON.stringify(users));
+    window.location.href = 'success_signup.html';
+    name.value = "";
+    email.value = "";
+    password.value = "";
 }
 
-async function guestLogin() {
-    let guest = {'name': 'Guest',};
-    await localStorage.setItem('activeUser', JSON.stringify(guest.name));  // saving guest as activeuser in backend
-    if (document.body.clientWidth > 1024) {
-        window.location.href = 'summary.html';
-    } else {
-        window.location.href = 'hello_mobile.html';
-    }
-}
 
+/**
+ * This function is used to check if the user exists in the database before sending a reset password Email
+ * 
+ * @param  {string} e - this event parameter is used to prevent sending the email if the user already exists 
+ */
 function checkIfUserExists(e) {
     let email = document.getElementById('forgot-pw-mail');
     let user = users.find(u => u.email === email.value);
@@ -69,9 +94,13 @@ function checkIfUserExists(e) {
         console.warn('User not found. Try again');
         return false
     }
-
 }
 
+
+/**
+ * This function used to change the users password after getting a personalized link via Email
+ * 
+ */
 async function changePassword() {
     const urlParams = new URLSearchParams(window.location.search);
     const email = urlParams.get('email');
@@ -93,6 +122,11 @@ async function changePassword() {
     }
 }
 
+
+/**
+ * This functions opens up the landing page
+ * 
+ */
 function goToLogin() {
     window.location.href = 'index.html';
 }
@@ -100,6 +134,24 @@ function goToLogin() {
 
 //PASSWORD SHOW AND HIDE FUNCTIONS
 
+
+/**
+ * This functions checks the input type onfocus of the inputfield  
+ * 
+ * @param  {} id - id of the element you want to target
+ * @param  {} name - name of the section you want to target (select from: login, signup, reset, confirm)
+ */
+function checkInputType(id, name) {
+    let typeIsPassword = document.getElementById(id).type == 'password';
+    if (typeIsPassword == true) changePwIconToEye(name);
+}
+
+
+/**
+ * This function changes the password icon to a toggle button to show and hide the password
+ * 
+ * @param  {string} name - name of the section you want to target (select from: login, signup, reset, confirm)
+ */
 function changePwIconToEye(name) {
 
     document.getElementById(`pw-no-show-${name}`).classList.remove('d-none');
@@ -108,22 +160,28 @@ function changePwIconToEye(name) {
 }
 
 
+/**
+ * This function changes the type of the targeted inpufield from password to text while also changing the toggle button
+ * 
+ * @param  {} id - id of the element you want to target
+ * @param  {} name - name of the section you want to target (select from: login, signup, reset, confirm)
+ */
 function changePwToText(id, name) {
     document.getElementById(`pw-no-show-${name}`).classList.add('d-none');
     document.getElementById(`pw-show-${name}`).classList.remove('d-none');
     document.getElementById(id).type = 'text';
-    
 }
 
 
+/**
+ * This function changes the type of the targeted inpufield from text to password while also changing the toggle button
+ * 
+ * @param  {} id - id of the element you want to target
+ * @param  {} name - name of the section you want to target (select from: login, signup, reset, confirm)
+ */
 function changeTextToPw(id, name) {
     document.getElementById(`pw-no-show-${name}`).classList.remove('d-none');
     document.getElementById(`pw-show-${name}`).classList.add('d-none');
     document.getElementById(id).type = 'password';
-}
-
-function checkInputType(id, name) {
-    let typeIsPassword = document.getElementById(id).type == 'password';
-    if (typeIsPassword == true) changePwIconToEye(name);
 }
 
