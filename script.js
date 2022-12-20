@@ -41,6 +41,11 @@ async function render(currentSection) {
     renderUsernameTopper();
 }
 
+async function render(){
+    await includeHTML();
+    renderUsernameTopper();
+}
+
 
 /*add templates*/
 async function includeHTML() {

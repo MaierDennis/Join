@@ -1,5 +1,6 @@
 async function renderGreetingHello(){
     await init();
+    render();
     if(activeUser != 'Guest'){
         document.getElementById('greeting-name-mobile').innerText = activeUser;
     }

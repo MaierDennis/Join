@@ -1,5 +1,6 @@
 async function renderSummary(){
     await init();
+    render('summary');
     renderFirstRow();
     renderSecondRow();
     renderThirdRow();

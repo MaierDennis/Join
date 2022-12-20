@@ -11,6 +11,7 @@ async function initAddTask() {
     sortContactsAddTask();
     initDestop();
     initMobile();
+    render('addtask');
 }
 
 function initDestop() {
