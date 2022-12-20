@@ -3,7 +3,13 @@ let alphabetList = [];
 let sortedAlphabetList = [];
 let activeContact = 0;
 
-//function to read the informations from display and implement to contacts-array
+/**
+ * function to read the informations from display and implement to contacts-array
+ * 
+ * @param {string} name - This is the name of the contact you want to create
+ * @param {string} email - This is the email-adress of the contact you want to create
+ * @param {string} phone - This is the phone-number of the contact you want to create
+ */
 function addNewContact() {
     let name = document.getElementById('contact-name');
     let email = document.getElementById('contact-email');
@@ -29,18 +35,25 @@ function addNewContact() {
     checkContacts();
 }
 
-//function to push the next letter into backend
+/**
+ * function to push the next letter into backend
+ * 
+ */
+//
 function pushAllContacts() {
     backend.setItem('contact', JSON.stringify(contacts));
 }
 
-//function to create parameters the next functions need
+/**
+ * function to create parameters the next functions need
+ * 
+ * @param {string} contactName - This is the name of the contact you want to check
+ * @param {string} firstLetter - This is the first letter of the name of the contact
+ */
 function checkContacts() {
     for (let i = 0; i < contacts.length; i++) {
         let thisContact = contacts[i];
         contactName = thisContact['name'];
-        contactEmail = thisContact['email'];
-        contactPhone = thisContact['phone'];
 
         let firstLetter = getFirstLetter(contactName);
 
@@ -53,14 +66,24 @@ function checkContacts() {
 
 }
 
-//function to check if the letter for alphabet-boxes already exists
+/**
+ * function to check if the letter for alphabet-boxes already exists and if not, push him to array[alphabetList]
+ * 
+ * @param {string} firstLetter - This is the first letter of the name of the contact
+ * @param {Array} alphabetList - This is the array with all fist letters of the contacts
+ */
 function checkAlphabetBox(firstLetter) {
     if (!alphabetList.includes(firstLetter)) {
         alphabetList.push(firstLetter)
     }
 }
 
-//function to sort the letters in alphabetList by alphabet
+/**
+ * function to sort the letters in alphabetList by alphabet
+ * 
+ * @param {string} letter - This is the first letter which gets pushed to array  
+ * @param {Array} sortedAlphabetList - This is the array with all fist letters of the contacts, sorted by alphabet
+ */
 function sortAlphabetList() {
     alphabetList.sort();
     sortedAlphabetList = [];
@@ -71,7 +94,13 @@ function sortAlphabetList() {
     }
 }
 
-//function to create the contact-boxes with the right letters, where the contacts are inserted
+/**
+ * function to create the contact-boxes with the right letters, where the contacts gets inserted
+ * 
+ * @param {Element} contactList - This is the place, new contact-boxes will be created
+ * @param {Array} sortedAlphabetList - This is the array with all fist letters of the contacts, sorted by alphabet
+ * @param {string} letter - This is the letter, the box will be created with
+ */
 function createAlphabetBox() {
     let contactList = document.getElementById('all-contacts');
 
@@ -95,7 +124,16 @@ function createAlphabetBox() {
     }
 }
 
-//function to render all contacts to the list
+/**
+ * function to render all contacts to the list
+ * 
+ * @param {string} thisContact - This is the contact for which the element will be created
+ * @param {string} contactName - This is the name of the contact
+ * @param {string} contactEmail - This is the email-adress of the contact
+ * @param {string} contactPhone - This is the phone-number of the contact
+ * @param {string} firstLetter - This is the first letter of the name of the contact
+ * @param {string} initials - This are the first letters of the parts of name of the contact
+ */
 function renderContacts() {
     contacts.sort(sortContacts('name'));
 
@@ -122,7 +160,15 @@ function renderContacts() {
     }
 }
 
-//function to show the first contact from the contacts-array on big screen 
+/**
+ * function to show the first contact from the contacts-array on big screen 
+ * 
+ * @param {string} activeContact - This is the actual contact showed by details on big screen
+ * @param {string} contactName - This is the name of the contact
+ * @param {string} contactEmail - This is the email-adress of the contact
+ * @param {string} contactPhone - This is the phone-number of the contact
+ * @param {string} initials - This are the first letters of the parts of name of the contact
+ */
 function showFirstContactInfos() {
     contactName = contacts[activeContact]['name'];
     contactEmail = contacts[activeContact]['email'];
@@ -133,7 +179,12 @@ function showFirstContactInfos() {
     showThisContactInfos(activeContact, contactName, contactEmail, contactPhone, initials);
 }
 
-//function to sort the contacts by its names
+/**
+ * function to sort the contacts by its names 
+ * 
+ * @param {string} contactName - This is the name of the contact
+ * 
+ */
 function sortContacts(contactName) {
     return function (a, b) {
         if (a[contactName] > b[contactName]) {
@@ -145,7 +196,13 @@ function sortContacts(contactName) {
     }
 }
 
-// function to get the first letters of all names
+/**
+ * function to get the first letters of all names 
+ * 
+ * @param {string} name - This is the name of the contact
+ * @param {string} initials - This are the first letters of the parts of name of the contact
+ * @param {string} parts - That are all parts of the contact-name
+ */
 function getInitials(name) {
     let parts = name.split(' ')
     let initials = ''
@@ -157,12 +214,21 @@ function getInitials(name) {
     return initials
 }
 
-//function to get the first letter 
+/**
+ * function to get the first letter
+ * 
+ * @param {string} name - This is the name of the contact
+ */
 function getFirstLetter(name) {
     return name.charAt(0);
 }
 
-//function to get a random color
+/**
+ * function to get a random color
+ * 
+ * @param {string} letters - This is a List of usable letters
+ * @param {string} color - This is a random created color
+ */
 function getRandomColor() {
     let letters = '0123456789ABCDEF';
     let color = '#';
@@ -179,7 +245,17 @@ async function deleteUser() {
     await backend.deleteItem('contact',);
 }
 
-//function to show the contact on big screen you clicked on 
+/**
+ * function to show the contact on big screen you clicked on 
+ * 
+ * @param {array} contacts - This is the array with all contacts
+ * @param {number} i - This is the number of the contacts-place in the array
+ * @param {string} contactName - This is the name of the contact
+ * @param {string} contactEmail - This is the email-adress of the contact
+ * @param {string} contactPhone - This is the phone-number of the contact
+ * @param {string} initials - This are the first letters of the parts of name of the contact
+ * @param {string} activeContact - This is the actual contact showed by details on big screen
+ */
 function showThisContactInfos(i, contactName, contactEmail, contactPhone, initials) {
     document.getElementById('bigContactInitials').innerHTML = initials;
     document.getElementById('bigContactName').innerHTML = contactName;
@@ -190,6 +266,16 @@ function showThisContactInfos(i, contactName, contactEmail, contactPhone, initia
     document.getElementById('addTask-button-contacts').setAttribute("onclick", `showAddTaskContactlist('${contactName}')`);
 }
 
+/**
+ * function to edit contact infos after creating
+ * 
+ * @param {array} contacts - This is the array with all contacts
+ * @param {string} newName - This is the new name of the contact which will be changed
+ * @param {string} newEmail - This is the new email-adress of the contact which will be changed
+ * @param {string} newPhone - This is the new phone-number of the contact which will be changed
+ * @param {string} activeContact - This is the actual contact showed by details on big screen
+ * 
+ */
  function editContact() {
     let newName = document.getElementById('edit-name');
     let newEmail = document.getElementById('edit-email');
@@ -217,6 +303,13 @@ function showThisContactInfos(i, contactName, contactEmail, contactPhone, initia
 
 }
 
+/**
+ * function to change the contact-color 
+ * 
+ * @param {array} contacts - This is the array with all contacts
+ * @param {string} activeContact - This is the actual contact showed by details on big screen
+ * 
+ */
 function changeContactColor(){
     contacts[activeContact]['bg-color'] = getRandomColor();
 
@@ -225,6 +318,12 @@ function changeContactColor(){
     updateColorContactsinTasks();
 }
 
+/**
+ * function to update the new color in addTask
+ * 
+ * 
+ * 
+ */
 async function updateColorContactsinTasks(){
     tasks.forEach(task => {
         let updatedContactsArray = [];
