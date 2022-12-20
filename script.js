@@ -15,6 +15,10 @@ let currentDraggedTask;
 let taskJustCreated;
 
 
+/**
+ * 
+ * 
+ */
 
 async function init() {
     setURL('https://gruppe-400.developerakademie.net/smallest_backend_ever');

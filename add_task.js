@@ -46,11 +46,10 @@ function sortContactsAddTask() {
 }
 
 function renderContactsMobile() {
-
     document.getElementById('contacts-to-assign-mobile').innerHTML = '';
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign-mobile').innerHTML += `
-        <li class="input-contact-listitem-mobile" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact-mobile"
+        <li class="input-contact-listitem-mobile" onclick="assignContactOnClick(${i})" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact-mobile" id="input-contact-mobile${i}"
             type="checkbox" style="margin-right: 42px" />${contactsSorted[i]['name']}</li>
         `;
     }
@@ -73,9 +72,19 @@ function renderContactsAddTask() {
     document.getElementById('contacts-to-assign').innerHTML = '';
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign').innerHTML += `
-        <li class="input-contact-listitem" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact"
+        <li class="input-contact-listitem" onclick="assignContactOnClick(${i})" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact" id="input-contact-destop${i}"
             type="checkbox" style="margin-right: 42px" />${contactsSorted[i]['name']}</li>
         `;
+    }
+}
+
+function assignContactOnClick(i) {
+    if (document.getElementById(`input-contact-destop${i}`).checked) {
+        document.getElementById(`input-contact-destop${i}`).checked = false;
+        document.getElementById(`input-contact-mobile${i}`).checked = false;
+    } else {
+        document.getElementById(`input-contact-destop${i}`).checked = true;
+        document.getElementById(`input-contact-mobile${i}`).checked = true;
     }
 }
 
@@ -321,7 +330,7 @@ async function createTask() {
             await saveTaskMobile();
         }
         clearTask();
-        if(document.getElementById('tasks-inprogress-mobile')){
+        if (document.getElementById('tasks-inprogress-mobile')) {
             resetArrays();
             declareArrays();
             renderTasks();

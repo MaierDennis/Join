@@ -341,15 +341,23 @@ option{
     padding: 2px;
     display: none;
     margin: 0;
-    border: 1px solid #ccc;
-    max-height: 82px;
+    max-height: 104px;
     overflow-y: auto;
     margin-left: 8px;
+    border-radius: 12px;
 }
 
 .dropdown-check-list-contacts ul.items li {
     list-style: none;
     color: white;
+    padding: 4px;
+    border-radius: 8px;
+    margin: 4px 0px;
+}
+
+.dropdown-check-list-contacts ul.items li:hover {
+    cursor: pointer;
+    filter: brightness(0.9);
 }
 
 .dropdown-check-list-contacts.visible .items {
