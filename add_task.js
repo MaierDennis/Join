@@ -51,7 +51,7 @@ function renderContactsMobile() {
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign-mobile').innerHTML += `
         <li class="input-contact-listitem-mobile" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact-mobile"
-            type="checkbox" />${contactsSorted[i]['name']}</li>
+            type="checkbox" style="margin-right: 42px" />${contactsSorted[i]['name']}</li>
         `;
     }
 }
@@ -74,7 +74,7 @@ function renderContactsAddTask() {
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign').innerHTML += `
         <li class="input-contact-listitem" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact"
-            type="checkbox" />${contactsSorted[i]['name']}</li>
+            type="checkbox" style="margin-right: 42px" />${contactsSorted[i]['name']}</li>
         `;
     }
 }

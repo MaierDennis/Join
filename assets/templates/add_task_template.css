@@ -364,9 +364,9 @@ option {
     content: "";
     border-left: 2px solid black;
     border-top: 2px solid black;
-    padding: 5px;
-    right: 10px;
-    top: 20%;
+    padding: 2.3px;
+    right: 7px;
+    top: 30%;
     -moz-transform: rotate(-135deg);
     -ms-transform: rotate(-135deg);
     -o-transform: rotate(-135deg);

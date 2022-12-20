@@ -35,6 +35,7 @@ body{
 .headline h1{
     font-size: 50px;
     margin: 0;
+    color: #2A3647;
 }
 
 .headline img{
@@ -67,6 +68,7 @@ body{
     display: flex;
     width: 100%;
     justify-content: space-between;
+    max-height: 180px;
 }
 
 .first-row a{
@@ -97,8 +99,8 @@ body{
 }
 
 .first-row span{
-    width: 64px;
     font-size: 16px;
+    max-width: 82px;
 }
 
 .second-row{
@@ -229,10 +231,10 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    padding-top: 10%;
     color: #2A3647;
     font-size: 46px;
-    padding-left: 7%;
+    width: 52%;
 }
 
 .greeting_name{
@@ -286,6 +288,7 @@ body{
     .headline-mobile h1{
         font-size: 36px;
         margin: 12px 0px;
+        color: #2A3647;
     }
 
     .summary-information-mobile{

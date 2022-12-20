@@ -30,8 +30,8 @@ function renderThirdRow(){
 }
 
 function renderGreeting(){
-    if(activeUser['name'] != 'Guest'){
-        document.getElementById('greeting-name').innerText = activeUser['name'];
+    if(activeUser != 'Guest'){
+        document.getElementById('greeting-name').innerText = activeUser;
     }
 }
 

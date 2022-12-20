@@ -1,7 +1,7 @@
 async function renderGreetingHello(){
     await init();
-    if(activeUser['name'] != 'Guest'){
-        document.getElementById('greeting-name-mobile').innerText = activeUser['name'];
+    if(activeUser != 'Guest'){
+        document.getElementById('greeting-name-mobile').innerText = activeUser;
     }
     setTimeout(() =>{
         window.location.href = 'summary.html';
