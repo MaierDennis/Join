@@ -39,7 +39,7 @@ async function login() {
     console.log(user);
 
     if (user) {
-        await backend.setItem('activeUser', JSON.stringify(user));  // saving active user in database 
+        await localStorage.setItem('activeUser', JSON.stringify(user.name));  // saving active user in database 
         // alert ('You are logged in. Click "OK" to proceed'); 
         if (document.body.clientWidth > 1024) {
             window.location.href = 'summary.html';
@@ -59,12 +59,11 @@ async function login() {
 
 async function guestLogin() {
     let guest = {
+        
         'name': 'Guest',
-        'email': 'guest@join.de',
-        'password': 'guest'
     }
 
-    await backend.setItem('activeUser', JSON.stringify(guest));  // saving guest as activeuser in backend
+    await localStorage.setItem('activeUser', JSON.stringify(guest));  // saving guest as activeuser in backend
     if (document.body.clientWidth > 1024) {
         window.location.href = 'summary.html';
     } else {
@@ -120,6 +119,9 @@ async function changePassword() {
         newPasswordConfirm.value = '';
     }
 }
+
+
+
 
 
 
