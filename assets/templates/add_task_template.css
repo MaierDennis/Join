@@ -362,11 +362,11 @@ option {
 .dropdown-check-list-contacts .anchor:after {
     position: absolute;
     content: "";
-    border-left: 2px solid black;
-    border-top: 2px solid black;
-    padding: 2.3px;
-    right: 7px;
-    top: 30%;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    padding: 2.63px;
+    right: 6px;
+    top: 33%;
     -moz-transform: rotate(-135deg);
     -ms-transform: rotate(-135deg);
     -o-transform: rotate(-135deg);
@@ -397,6 +397,28 @@ option {
 .dropdown-check-list-contacts.visible .items {
     display: block;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .items {
+    scrollbar-width: auto;
+    scrollbar-color: #2a3647 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  .items::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .items::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  .items::-webkit-scrollbar-thumb {
+    background-color: #2a3647;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+  }
 
 @media(max-width:1024px) {
     .background {

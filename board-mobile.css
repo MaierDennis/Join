@@ -27,6 +27,10 @@
         display: none;
     }
 
+    .task-overly-details::-webkit-scrollbar {
+        display: none;
+    }
+
     .content-mobile {
         display: block;
         width: 100%;

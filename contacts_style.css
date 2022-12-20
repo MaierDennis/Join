@@ -68,6 +68,33 @@ h3 {
     align-items: center;
 }
 
+.all-contacts-div {
+    scrollbar-width: auto;
+    scrollbar-color: #2a3647 #ffffff;
+  }
+
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .all-contacts-div {
+    scrollbar-width: auto;
+    scrollbar-color: #2a3647 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  .all-contacts-div::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .all-contacts-div::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  .all-contacts-div::-webkit-scrollbar-thumb {
+    background-color: #2a3647;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+  }
+
 .alphabet-box {
     width: 100%;
     display: flex;

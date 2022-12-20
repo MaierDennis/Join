@@ -31,6 +31,28 @@ body {
     overflow-y: auto;
 }
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .inner-content {
+    scrollbar-width: auto;
+    scrollbar-color: #2a3647 #F6F7F8;
+  }
+
+  /* Chrome, Edge, and Safari */
+  .inner-content::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .inner-content::-webkit-scrollbar-track {
+    background: #F6F7F8;
+  }
+
+  .inner-content::-webkit-scrollbar-thumb {
+    background-color: #2a3647;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+  }
+
 .alert-delete-task-container {
     position: fixed;
     top: 0;
@@ -302,6 +324,28 @@ body {
     overflow-x: auto;
 }
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .icontributors-containertems {
+    scrollbar-width: auto;
+    scrollbar-color: #2a3647 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  .contributors-container::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .contributors-container::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  .contributors-container::-webkit-scrollbar-thumb {
+    background-color: #2a3647;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+  }
+
 .contributors-circle {
     box-sizing: border-box;
     display: flex;
@@ -346,6 +390,28 @@ body {
     overflow-y: scroll;
     direction: rtl;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .task-overly-details {
+    scrollbar-width: auto;
+    scrollbar-color: #2a3647 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  .task-overly-details::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .task-overly-details::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  .task-overly-details::-webkit-scrollbar-thumb {
+    background-color: #2a3647;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+  }
 
 .card-title-big {
     font-weight: 600;
