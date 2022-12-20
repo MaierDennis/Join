@@ -40,7 +40,6 @@ async function login() {
 
     if (user) {
         await localStorage.setItem('activeUser', JSON.stringify(user.name));  // saving active user in database 
-        // alert ('You are logged in. Click "OK" to proceed'); 
         if (document.body.clientWidth > 1024) {
             window.location.href = 'summary.html';
         } else {
@@ -48,7 +47,6 @@ async function login() {
         }
         console.log(activeUser);
     } else {
-        // alert ('User not found');
         document.getElementById('user-not-found').classList.remove('d-none');
         email.value = "";
         password.value = "";
@@ -99,19 +97,19 @@ async function changePassword() {
     let newPassword = document.getElementById('new-password');
     let newPasswordConfirm = document.getElementById('new-password-confirm');
 
-    let findMailInUsers = users.find (u => u.email == email);
+    let findMailInUsers = users.find(u => u.email == email);
 
     if (newPassword.value == newPasswordConfirm.value) {
         findMailInUsers.password = newPassword.value;
 
         console.log('Changing password for this user: ', email);
-        console.log('Password changed to:',findMailInUsers.password);
+        console.log('Password changed to:', findMailInUsers.password);
 
         await backend.setItem('users', JSON.stringify(users));
         window.location.href = 'success_reset_pw.html'
         newPassword.value = '';
         newPasswordConfirm.value = '';
-        
+
     } else {
         document.getElementById('user-not-found').classList.remove('d-none');
         newPassword.value = '';
@@ -121,43 +119,59 @@ async function changePassword() {
 
 
 
-
+function goToLogin() {
+    window.location.href = 'index.html';
+}
 
 
 //PASSWORD SHOW AND HIDE FUNCTIONS
 
-function changePwIconToEye() {
-    document.getElementById('pw-icon-no-show').classList.remove('d-none');
-    document.getElementById('pw-icon').classList.add('d-none');
-    document.getElementById('pw-icon-show').classList.add('d-none');
+function changePwIconToEye(name) {
+
+    document.getElementById(`pw-no-show-${name}`).classList.remove('d-none');
+    document.getElementById(`pw-icon-${name}`).classList.add('d-none');
+    document.getElementById(`pw-show-${name}`).classList.add('d-none');
+}
+
+
+function changePwToText(id, name) {
+    document.getElementById(`pw-no-show-${name}`).classList.add('d-none');
+    document.getElementById(`pw-show-${name}`).classList.remove('d-none');
+    document.getElementById(id).type = 'text';
+}
+
+
+function changeTextToPw(id, name) {
+    document.getElementById(`pw-no-show-${name}`).classList.remove('d-none');
+    document.getElementById(`pw-show-${name}`).classList.add('d-none');
+    document.getElementById(id).type = 'password';
+}
+
+function changePwIcon(id, name) {
+
+    const typeIsPassword = document.getElementById(id).type == 'password';
+
+    if (typeIsPassword) {
+        changePwIconToEye(name);
+    } else {
+        
+
+    }
+
+
+
 
 }
 
-function changePwIconToLock() {
-    document.getElementById('pw-icon-no-show').classList.add('d-none');
-    document.getElementById('pw-icon').classList.remove('d-none');
-
-}
-
-function changePwToText(e) {
-    e.preventDefault();
-    document.getElementById('pw-icon-no-show').classList.add('d-none');
-    document.getElementById('pw-icon-show').classList.remove('d-none');
-
-    document.getElementById('password-login').type = 'text';
 
 
+// function changePwIconToLock() {
+//     document.getElementById('pw-icon-no-show').classList.add('d-none');
+//     document.getElementById('pw-icon').classList.remove('d-none');
 
-}
-
-function changeTextToPw() {
-    document.getElementById('pw-icon-no-show').classList.remove('d-none');
-    document.getElementById('pw-icon-show').classList.add('d-none');
-
-    document.getElementById('password-login').type = 'password';
+// }
 
 
-}
 
 
 // function getData() {

@@ -1,33 +1,17 @@
 <?php
 
-########### CONFIG ###############
+########### CONFIG ###########################
 
-$redirect = 'success_forget_pw.html';
+$redirect = 'success_forget_pw.html';                 //setting redirection to success page 
 
-########### CONFIG END ###########
+########### CONFIG END #######################
 
 
-
-########### Intruction ###########   
+##############################################
 #
-#   This script has been created to send an email to the $recipient
-#   
-#  1) Upload this file to your FTP Server
-#  2) Send a POST rewquest to this file, including
-#     [name] The name of the sender (Absender)
-#     [message] Message that should be send to you
+#   SENDING PERSONALIZED EMAIL TO USER
 #
-##################################
-
-
-
-###############################
-#
-#        DON'T CHANGE ANYTHING FROM HERE!
-#
-#        Ab hier nichts mehr ändern!
-#
-###############################
+##############################################
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case ("OPTIONS"): //Allow preflighting to take place.
@@ -38,22 +22,22 @@ switch ($_SERVER['REQUEST_METHOD']) {
     case ("POST"): //Send the email;
         header("Access-Control-Allow-Origin: *");
 
-        $email = $_POST['email']; //getting the email from the form and put it in a variable
+        $email = $_POST['email'];           //getting email from inputfield and putting it in a variable
 
-        $message = "Hello,\n
+        $message = "Hello,\n                            
         \nFollow this link to reset the password for your Join account.\n
-        \nhttps://gruppe-400.developerakademie.net/reset_password.html?email=".$email."\n
+        \nhttps://gruppe-400.developerakademie.net/reset_password.html?email=".$email."\n   
         \nIgnore this email if you did not ask to reset your password.\n
         \nThank you\n
-        \nJoin team\n";
+        \nJoin team\n";                     // message for the user with personilzed link to reset password
 
-        $recipient = $email;
+        $recipient = $email;                // setting recipient to the email from inputfield
         $subject = "Join - Reset password";
         $headers = "From:  noreply@join.de";
 
-        mail($recipient, $subject, $message, $headers);
+        mail($recipient, $subject, $message, $headers); //sending out email with the parameters inside --> () the round brackets
         
-        header("Location: " . $redirect); 
+        header("Location: " . $redirect);  // redirect to success page
 
         break;
     default: //Reject any non POST or OPTIONS requests.

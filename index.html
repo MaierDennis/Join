@@ -20,7 +20,6 @@
     <script src="login.js"></script>
     <script src="index.js"></script>
     <script src="script.js"></script>
-    <script src="success.js"></script>
 
 </head>
 
@@ -48,11 +47,11 @@
                     </div>
 
                     <div class="password-field" >
-                        <input onfocus="changePwIconToEye()"  id="password-login" required type="password" class="form-control" placeholder="Password"
+                        <input onfocus="changePwIconToEye('login')"  id="password-login" required type="password" class="form-control" placeholder="Password"
                             aria-label="First name">
-                        <img id="pw-icon" class="password-icon" src="assets/img/password-icon.svg" alt="">
-                        <img onclick="changePwToText(event)" id="pw-icon-no-show" class="password-icon d-none" src="assets/img/pw-no-show-icon.svg" style="cursor: pointer ;">
-                        <img onclick="changeTextToPw()" id="pw-icon-show" class="password-icon d-none" src="assets/img/pw-show-icon.svg" style="cursor: pointer ;" >
+                        <img id="pw-icon-login" class="password-icon" src="assets/img/password-icon.svg" alt="">
+                        <img onclick="changePwToText('password-login', 'login')" id="pw-no-show-login" class="password-icon d-none" src="assets/img/pw-no-show-icon.svg" style="cursor: pointer ;">
+                        <img onclick="changeTextToPw('password-login', 'login')" id="pw-show-login" class="password-icon d-none" src="assets/img/pw-show-icon.svg" style="cursor: pointer ;" >
 
                     </div>
 
@@ -101,9 +100,12 @@
                     </div>
 
                     <div class="signup-password-field">
-                        <input id="password-signup" required type="text" class="form-control" placeholder="Password"
+                        <input id="password-signup" onfocus="changePwIconToEye('signup')" required type="password" class="form-control" placeholder="Password"
                             aria-label="First name">
-                        <img class="password-signup-icon" src="assets/img/password-icon.svg" alt="">
+                        <img id="pw-icon-signup"  class="password-signup-icon" src="assets/img/password-icon.svg" alt="">
+                        <img onclick="changePwToText('password-signup', 'signup')" id="pw-no-show-signup" class="password-icon d-none" src="assets/img/pw-no-show-icon.svg" style="cursor: pointer ;">
+                        <img onclick="changeTextToPw('password-signup', 'signup')" id="pw-show-signup" class="password-icon d-none" src="assets/img/pw-show-icon.svg" style="cursor: pointer ;" >
+
 
                     </div>
 
@@ -139,6 +141,7 @@
 
                 <div class="forgot-password-email-field">
                     <form onsubmit="checkIfUserExists(event)" class="forgot-pw-form" action="https://gruppe-400.developerakademie.net/send_mail.php" method="POST">
+                        
                         <input id="forgot-pw-mail" required name="email" type="email" class="form-control" placeholder="E-Mail" aria-label="First name">
 
                         <img class="forgot-password-icon" src="assets/img/mail-icon.svg" alt="">
@@ -157,35 +160,7 @@
 
         </div>
 
-        <div class="reset-password-display d-none">
-            <div class="reset-password-area">
-                <div class="arrow"><img src="assets/img/arrow-121-32.png"></div>
-
-                <div class="headline">
-                    <h1>Reset your password</h1>
-                </div>
-
-                <div class="headline-underline"></div>
-
-                <div class="info-div">
-                    <span>Change your account password</span>
-                </div>
-                <form class="form-style" onsubmit="">
-                    <div class="reset-password-field">
-                        <input required type="text" class="form-control" placeholder="New password"
-                            aria-label="First name">
-                    </div>
-
-                    <div class="reset-password-field">
-                        <input required type="text" class="form-control" placeholder="Confirm password"
-                            aria-label="First name">
-                    </div>
-                </form>
-                <div class="continue-button">Continue</div>
-
-            </div>
-
-        </div>
+        
     </div>
 
 
