@@ -83,17 +83,15 @@ function showAddTaskContactlist(name){
         }
         counter++;
     });
-    document.getElementById('close-btn').setAttribute("onclick", 'hideAddTaskContactsSection()');
-    document.getElementById('close-addTask-background').setAttribute("onclick", 'hideAddTaskContactsSection()');
 }
 
-function hideAddTaskContactsSection(){
+function hideAddTaskTemplate(){
     document.getElementById('content-addtask').classList.remove('flyIn');
     document.getElementById('content-addtask').classList.add('flyOut');
 
     clearTask();
     if((window.innerWidth > 1024)){
-    setTimeout(hideDivTaskContactSection, 800);
+        setTimeout(hideDivTaskContactSection, 800);
     }
     else {
         hideDivTaskContactSection();
@@ -106,17 +104,4 @@ function hideDivTaskContactSection(){
     document.getElementById('content-addtask').classList.remove('flyOut');
     
     hideAddTask();
-}
-
-function hideAddTaskBoard(){
-    document.getElementById('content-addtask').classList.remove('flyIn');
-    document.getElementById('content-addtask').classList.add('flyOut');
-
-    clearTask();
-    if((window.innerWidth > 1024)){
-    setTimeout(hideDivTaskContactSection, 800);
-    }
-    else {
-        hideDivTaskContactSection();
-    }
 }

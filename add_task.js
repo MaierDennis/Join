@@ -320,7 +320,6 @@ async function createTask() {
         } else {
             await saveTaskMobile();
         }
-        showSuccessMessage();
         clearTask();
         if(document.getElementById('tasks-inprogress-mobile')){
             resetArrays();
@@ -328,6 +327,8 @@ async function createTask() {
             renderTasks();
             hideAddTask();
         }
+        localStorage.setItem('taskJustCreated', 'true');
+        window.location.href = 'board.html';
     } else {
         alert('Please select a priority and assign a contact!');
     }
@@ -401,5 +402,6 @@ function showSuccessMessage() {
     document.getElementById("dialog-taskadded").classList.remove('d-none');
     setTimeout(function () {
         document.getElementById("dialog-taskadded").classList.add('d-none');
-    }, 3000);
+        localStorage.setItem('taskJustCreated', 'false');
+    }, 2000);
 }

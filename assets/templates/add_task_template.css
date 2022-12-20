@@ -34,8 +34,13 @@ body {
 }
 
 @keyframes flyIn {
-    0% {right:-1500px}
-    100% { right: 0px;}
+    0% {
+        right: -1500px
+    }
+
+    100% {
+        right: 0px;
+    }
 }
 
 .flyOut {
@@ -44,8 +49,13 @@ body {
 }
 
 @keyframes flyOut {
-    0% {right:0}
-    100% { right: -2500px;}
+    0% {
+        right: 0
+    }
+
+    100% {
+        right: -2500px;
+    }
 }
 
 .close-btn {
@@ -131,7 +141,7 @@ select:hover {
     cursor: pointer;
 }
 
-option{
+option {
     color: white;
 }
 
@@ -253,7 +263,7 @@ option{
     padding: 16px;
     position: fixed;
     top: 78%;
-    left: 50%;
+    left: calc(50% + 116px);
     transform: translateX(-50%);
 }
 
@@ -271,25 +281,25 @@ option{
     display: none;
 }
 
-.new-category{
+.new-category {
     display: flex;
     flex-direction: column;
     margin-left: 8px;
 }
 
-.new-category-name{
+.new-category-name {
     display: flex;
     background-color: white;
     border-radius: 8px;
     border: 1px solid rgb(221, 221, 221);
 }
 
-.new-category-name input{
+.new-category-name input {
     width: 80%;
     border: 0;
 }
 
-.new-category-name button{
+.new-category-name button {
     width: 10%;
     background-color: white;
     border: 0;
@@ -298,35 +308,35 @@ option{
     align-items: center;
 }
 
-.new-category-name button:hover{
+.new-category-name button:hover {
     cursor: pointer;
 }
 
 
-.new-category-name img{
+.new-category-name img {
     height: 12px;
     object-fit: contain;
 }
 
-.select-color-category{
+.select-color-category {
     margin-top: 8px;
     display: flex;
     justify-content: space-evenly;
 }
 
-.select-color-category div{
+.select-color-category div {
     width: 18px;
     height: 18px;
     border: 1px solid white;
     border-radius: 100%;
 }
 
-.select-color-category div:hover{
+.select-color-category div:hover {
     cursor: pointer;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
-.selected-color{
+.selected-color {
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
@@ -427,6 +437,10 @@ option{
         display: none !important;
     }
 
+    .dialog-taskadded {
+        left: 50%;
+    }
+
     .create-task-btn {
         z-index: 10;
         position: fixed;
@@ -463,7 +477,7 @@ option{
         margin: 0;
         width: 200px;
         height: 77px;
-        background-color:#F6F7F8;
+        background-color: #F6F7F8;
         z-index: 10;
         position: fixed;
         top: 2px;

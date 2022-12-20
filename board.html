@@ -17,12 +17,18 @@
     <script src="board.js"></script>
     <script src="add_task.js"></script>
     <script src="add_task_template.js"></script>
+    <script src="new_contact.js"></script>
     
 </head>
 
 <body id="body" onload="initBoard()" id="body">
     <div w3-include-html="assets/templates/add_task_template.html" class="d-none" id="add-task-overlay-board"></div>
     <div w3-include-html="assets/templates/help_template.html"></div>
+
+    <div class="dialog-taskadded d-none" id="dialog-taskadded">
+        <span>Task added to board</span>
+        <img src="assets/img/icon-summary.svg">
+    </div>
 
     <div class="alert-delete-task-container d-none" id="alert-delete-task-container" onclick="closeAlertDelete()">
         <div class="alert-delete-task" onclick="doNotClose(event)">

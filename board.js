@@ -3,8 +3,15 @@ async function initBoard() {
     render('board');
     declareArrays();
     renderTasks();
+    renderSuccessMessage();
 }
 
+function renderSuccessMessage(){
+    taskJustCreated = localStorage.getItem('taskJustCreated');
+    if(taskJustCreated === 'true'){
+        showSuccessMessage();
+    }
+}
 
 // OVERLAY 
 function closeCard() {
@@ -155,8 +162,8 @@ function renderContributorsContainerMobile(task) {
 }
 
 function contributorsContainerTemplate(contact) {
-    let firstLetters = contact['name'].slice(0, 2).toUpperCase();
-    return `<span class="contributors-circle" style="background-color: ${contact['bg-color']}">${firstLetters}</span>`;
+    let lettersContactCircle = getInitials(contact['name']);
+    return `<span class="contributors-circle" style="background-color: ${contact['bg-color']}">${lettersContactCircle}</span>`;
 }
 
 function taskCardTemplate(task) {

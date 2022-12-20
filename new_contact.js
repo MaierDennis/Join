@@ -147,14 +147,14 @@ function sortContacts(contactName) {
 
 // function to get the first letters of all names
 function getInitials(name) {
-    let parts = name.split(' ')
-    let initials = ''
+    let parts = name.split(' ');
+    let initials = '';
     for (let i = 0; i < parts.length; i++) {
         if (parts[i].length > 0 && parts[i] !== '') {
             initials += parts[i][0]
         }
     }
-    return initials
+    return initials;
 }
 
 //function to get the first letter 

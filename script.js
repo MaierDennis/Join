@@ -12,6 +12,7 @@ let dueDate;
 let searchTaskInput;
 let matchingTasks = [];
 let currentDraggedTask;
+let taskJustCreated;
 
 
 
