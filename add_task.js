@@ -71,7 +71,7 @@ function renderContactsMobile() {
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign-mobile').innerHTML += `
         <li class="input-contact-listitem-mobile" onclick="assignContactOnClick(${i})" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact-mobile" id="input-contact-mobile${i}"
-            type="checkbox" style="margin-right: 42px" />${contactsSorted[i]['name']}</li>
+            type="checkbox" onchange="stopPropagationInput(event)" style="margin-right: 42px" />${contactsSorted[i]['name']}</li>
         `;
     }
 }
@@ -101,8 +101,8 @@ function renderContactsAddTask() {
     document.getElementById('contacts-to-assign').innerHTML = '';
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign').innerHTML += `
-        <li class="input-contact-listitem" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><label><input class="input-contact" id="input-contact-destop${i}"
-        onchange="stopPropagationInput(event)" type="checkbox" style="margin-right: 42px"/>${contactsSorted[i]['name']}</label></li>
+        <li class="input-contact-listitem" onclick="assignContactOnClick(${i})" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact" id="input-contact-destop${i}"
+        type="checkbox" onchange="stopPropagationInput(event)" style="margin-right: 42px"/>${contactsSorted[i]['name']}</li>
         `;
     }
 }
