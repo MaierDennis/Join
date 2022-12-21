@@ -1,4 +1,9 @@
-/*edit task*/
+/**
+ * gets called when on editbutton clicked in detailed taskview at the boardpage,
+ * shows addtask template (edit template) with the inputs from the task the user chose to edit,
+ * overrides onclick method from createtask button to the spcifics of the edit function
+ * @param {number} taskId - id from task to edit
+ */
 function showAddTaskEdit(taskId) {
     let task = getTaskById(taskId);
     document.getElementById('add-task-overlay-board').classList.remove('d-none');
@@ -8,6 +13,11 @@ function showAddTaskEdit(taskId) {
     renderEditTask(task);
 }
 
+/**
+ * function gets called when on createbutton clicked in edit template, removes old task from
+ * the taskarray and creates new task with the users changes
+ * @param {number} id - id from task to edit
+ */
 async function onsubmitEdit(id){
     tasks.splice(id, 1);
     tasks.forEach(task => {
@@ -19,11 +29,21 @@ async function onsubmitEdit(id){
     document.getElementById('formAddTask').setAttribute("onsubmit", `checkTaskToCreate(); return false;`);
 }
 
+/**
+ * this functions returns a task by the id asked for from within the tasksarray
+ * @param {number} taskId - id from a task
+ * @returns {object} task - returns task with the id 
+ */
 function getTaskById(taskId) {
     let task = tasks.filter(task => task['id'] === taskId);
     return task[0];
 }
 
+/**
+ * this function renders the data in all the inputfields at the addtask template, 
+ * so that the task, where the user clicked edit, is displayed
+ * @param {object} task - task with all its data (JSON)
+ */
 function renderEditTask(task) {
     document.getElementById('input-title').value = task['title'];
     document.getElementById('input-description').value = task['description'];
@@ -34,6 +54,11 @@ function renderEditTask(task) {
     renderAssignedContactsEdit(task);
 }
 
+/**
+ * function highlights the prioritybutton, which matches the priority of the task to edit,
+ * also declares selectedPriority like that
+ * @param {object} task - task with all its data (JSON)
+ */
 function renderPriorityBtnEdit(task) {
     if (task['priority'] === 'urgent') {
         urgentBtnclicked();
@@ -49,12 +74,24 @@ function renderPriorityBtnEdit(task) {
     }
 }
 
+/**
+ * function selects the category, which matches the category of the task to edit,
+ * also declares selectedCategory like that
+ * @param {object} task - task with all its data (JSON)
+ */
 function renderCategoryEdit(task) {
     document.getElementById('select-category').value = task['category']['name'];
     selectedCategory = task['category'];
 }
 
-
+/**
+ * function selects those contacts, which match the assigned contacts of the task to edit,
+ * also declares assignedContactsEdit like that
+ * @type {Array <HTMLElement>} allContactsEditList - <li> where every contact is in
+ * @type {Array <HTMLElement>} allContactsEditList - <input> connected to every contact is in
+ * @type {Array <Object>} assignedContactsEdit - all contacts assigned to the task to edit
+ * @param {object} task - task with all its data (JSON)
+ */
 function renderAssignedContactsEdit(task) {
     let counter = 0;
     let assignedContactsEdit = task['assigned-contacts'];
@@ -70,8 +107,13 @@ function renderAssignedContactsEdit(task) {
     });
 }
 
-/*template contactlist*/
-
+/**
+ * function gets called in contactssection, when clicked on addTask button in contacts,
+ * automaticaly checks name where function is called in "assign to" list 
+ * @type {Array <HTMLElement>} allContactsEditList - <li> where every contact is in
+ * @type {Array <HTMLElement>} allContactsEditList - <input> connected to every contact is in 
+ * @param {string} name - name of contact where function is called
+ */
 function showAddTaskContactlist(name){
     let counter = 0;
     showAddTask('todo');
@@ -85,6 +127,9 @@ function showAddTaskContactlist(name){
     });
 }
 
+/**
+ * hides addTask template with an animation in board.html
+ */
 function hideAddTaskTemplate(){
     document.getElementById('content-addtask').classList.remove('flyIn');
     document.getElementById('content-addtask').classList.add('flyOut');
@@ -99,9 +144,11 @@ function hideAddTaskTemplate(){
 
 }
 
+/**
+ * hides addTask template with an animation in contacts.html
+ */
 function hideDivTaskContactSection(){
     document.getElementById('content-addtask').classList.add('flyIn');
-    document.getElementById('content-addtask').classList.remove('flyOut');
-    
+    document.getElementById('content-addtask').classList.remove('flyOut'); 
     hideAddTask();
 }

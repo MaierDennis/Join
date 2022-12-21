@@ -532,6 +532,9 @@ function clearTaskMobile() {
     document.getElementById('input-date-mobile').value = '';
 }
 
+/**
+ * uncheck all checked contacts
+ */
 function clearAssignedContacts() {
     let contactsSelection = Array.from(document.getElementsByClassName('input-contact'));
     contactsSelection.forEach(contact => {
@@ -543,7 +546,9 @@ function clearAssignedContacts() {
     });
 }
 
-/*upload Task to database*/
+/**
+ * upload and save Task in database (destop)
+ */
 async function saveTask() {
     let task = {
         'id': tasks.length,
@@ -559,6 +564,10 @@ async function saveTask() {
     await backend.setItem('tasks', JSON.stringify(tasks));
 }
 
+
+/**
+ * upload and save Task in database (mobile)
+ */
 async function saveTaskMobile() {
     let task = {
         'id': tasks.length,
@@ -574,6 +583,9 @@ async function saveTaskMobile() {
     await backend.setItem('tasks', JSON.stringify(tasks));
 }
 
+/**
+ * shows successmassege, that the task is successfully created for 3 seconds
+ */
 function showSuccessMessage() {
     document.getElementById("dialog-taskadded").classList.remove('d-none');
     setTimeout(function () {
