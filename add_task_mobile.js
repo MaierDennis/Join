@@ -6,7 +6,7 @@ function renderContactsMobile() {
     document.getElementById('contacts-to-assign-mobile').innerHTML = '';
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign-mobile').innerHTML += `
-        <li class="input-contact-listitem-mobile" onclick="assignContactOnClick(${i})" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact-mobile" id="input-contact-mobile${i}"
+        <li class="input-contact-listitem-mobile" onclick="assignContactOnClick(${i})" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input onclick="stopPropagationInput(event)" class="input-contact-mobile" id="input-contact-mobile${i}"
             type="checkbox" style="margin-right: 42px" />${contactsSorted[i]['name']}</li>
         `;
     }
