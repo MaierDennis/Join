@@ -12,6 +12,28 @@
     overflow-y: scroll;
 }
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .help-content {
+    scrollbar-width: auto;
+    scrollbar-color: #2a3647 #F6F7F8;
+  }
+
+  /* Chrome, Edge, and Safari */
+  .help-content::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .help-content::-webkit-scrollbar-track {
+    background: #F6F7F8;
+  }
+
+  .help-content::-webkit-scrollbar-thumb {
+    background-color: #2a3647;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+  }
+
 .help-content img{
     position: fixed;
     top: 115px;
