@@ -9,13 +9,8 @@ async function login() {
     let password = document.getElementById('password-login');
     let user = users.find(u => u.email === email.value && u.password == password.value)
     if (user) {
-        await localStorage.setItem('activeUser', JSON.stringify(user.name));  // saving active user in backend 
-        if (document.body.clientWidth > 1024) {
-            window.location.href = 'summary.html';
-        } else {
-            window.location.href = 'hello_mobile.html';
-        }
-        console.log(activeUser);
+        await localStorage.setItem('activeUser', JSON.stringify(user.name));  // saving active user in local storage 
+        checkViewPortAndRedirect()
     } else {
         document.getElementById('user-not-found').classList.remove('d-none');
         email.value = "";
@@ -30,7 +25,7 @@ async function login() {
  */
 async function guestLogin() {
     let guest = { 'name': 'Guest', };
-    await localStorage.setItem('activeUser', JSON.stringify(guest.name));  // saving guest as activeuser in backend
+    await localStorage.setItem('activeUser', JSON.stringify(guest.name));  // saving guest as activeuser in local storage
     if (document.body.clientWidth > 1024) {
         window.location.href = 'summary.html';
     } else {
@@ -46,7 +41,6 @@ async function guestLogin() {
 function checkSignUp() {
     let email = document.getElementById('email-signup');
     let user = users.find(u => u.email === email.value);
-    console.log(user);
     if (!user) {
         addUser();
     } else {
@@ -54,7 +48,6 @@ function checkSignUp() {
         document.getElementById('goToLoginBtn').classList.remove('d-none');
         email.value = "";
         email.focus();
-        console.warn('User not found. Try again');
         return false
     }
 }
@@ -91,35 +84,44 @@ function checkIfUserExists(e) {
         e.preventDefault();
         document.getElementById('forgot-user-not-found').classList.remove('d-none');
         email.value = "";
-        console.warn('User not found. Try again');
         return false
     }
 }
 
 
 /**
- * This function used to change the users password after getting a personalized link via Email
+ * This function extracts users email out of the url and changes the password for this specific user
  * 
  */
-async function changePassword() {
+function changePassword() {
     const urlParams = new URLSearchParams(window.location.search);
     const email = urlParams.get('email');
     let newPassword = document.getElementById('new-password');
     let newPasswordConfirm = document.getElementById('new-password-confirm');
     let findMailInUsers = users.find(u => u.email == email);
     if (newPassword.value == newPasswordConfirm.value) {
-        findMailInUsers.password = newPassword.value;
-        console.log('Changing password for this user: ', email);
-        console.log('Password changed to:', findMailInUsers.password);
-        await backend.setItem('users', JSON.stringify(users));
-        window.location.href = 'success_reset_pw.html'
-        newPassword.value = '';
-        newPasswordConfirm.value = '';
+        settingNewPassword(newPassword, newPasswordConfirm , findMailInUsers);
     } else {
         document.getElementById('user-not-found').classList.remove('d-none');
         newPassword.value = '';
         newPasswordConfirm.value = '';
     }
+}
+
+
+/**
+ * This function is used to overwrite the exsiting password in the database 
+ * 
+ * @param  {string} newPassword - inputfield for the new password
+ * @param  {string} newPasswordConfirm - inputfield to confirm the new password
+ * @param  {string} findMailInUsers - finding the email in the databse
+ */
+async function settingNewPassword(newPassword, newPasswordConfirm, findMailInUsers) {
+    findMailInUsers.password = newPassword.value;
+    await backend.setItem('users', JSON.stringify(users));
+    window.location.href = 'success_reset_pw.html'
+    newPassword.value = '';
+    newPasswordConfirm.value = '';
 }
 
 
@@ -132,8 +134,20 @@ function goToLogin() {
 }
 
 
-//PASSWORD SHOW AND HIDE FUNCTIONS
+/**
+ * This function checks viewport width and redirects to a certain page
+ * 
+ */
+function checkViewPortAndRedirect() {
+    if (document.body.clientWidth > 1024) {
+        window.location.href = 'summary.html';
+    } else {
+        window.location.href = 'hello_mobile.html';
+    }
+}
 
+
+//PASSWORD SHOW AND HIDE FUNCTIONS
 
 /**
  * This functions checks the input type onfocus of the inputfield  
