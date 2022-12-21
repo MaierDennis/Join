@@ -138,8 +138,8 @@ function goToLogin() {
 /**
  * This functions checks the input type onfocus of the inputfield  
  * 
- * @param  {} id - id of the element you want to target
- * @param  {} name - name of the section you want to target (select from: login, signup, reset, confirm)
+ * @param  {string} id - id of the element you want to target
+ * @param  {string} name - name of the section you want to target (select from: login, signup, reset, confirm)
  */
 function checkInputType(id, name) {
     let typeIsPassword = document.getElementById(id).type == 'password';
@@ -163,8 +163,8 @@ function changePwIconToEye(name) {
 /**
  * This function changes the type of the targeted inpufield from password to text while also changing the toggle button
  * 
- * @param  {} id - id of the element you want to target
- * @param  {} name - name of the section you want to target (select from: login, signup, reset, confirm)
+ * @param  {string} id - id of the element you want to target
+ * @param  {string} name - name of the section you want to target (select from: login, signup, reset, confirm)
  */
 function changePwToText(id, name) {
     document.getElementById(`pw-no-show-${name}`).classList.add('d-none');
@@ -176,8 +176,8 @@ function changePwToText(id, name) {
 /**
  * This function changes the type of the targeted inpufield from text to password while also changing the toggle button
  * 
- * @param  {} id - id of the element you want to target
- * @param  {} name - name of the section you want to target (select from: login, signup, reset, confirm)
+ * @param  {string} id - id of the element you want to target
+ * @param  {string} name - name of the section you want to target (select from: login, signup, reset, confirm)
  */
 function changeTextToPw(id, name) {
     document.getElementById(`pw-no-show-${name}`).classList.remove('d-none');
