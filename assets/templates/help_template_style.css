@@ -1,5 +1,4 @@
-
-.help-content{
+.help-content {
     z-index: 100;
     background-color: #F6F7F8;
     position: fixed;
@@ -34,36 +33,36 @@
     border: 1px solid #ffffff;
   }
 
-.help-content img{
+.help-content img {
     position: fixed;
     top: 115px;
     right: 32px;
 }
 
-.help-content img:hover{
+.help-content img:hover {
     cursor: pointer;
 }
 
-.help-content h1{
+.help-content h1 {
     margin: 0;
     font-size: 48px;
     margin-bottom: 40px;
 }
 
-.help-table{
+.help-table {
     margin-top: 44px;
 }
 
 
-.help-table div{
+.help-table div {
     display: flex;
     align-items: center;
 }
 
-.help-table span{
+.help-table span {
     font-size: 24px;
     font-weight: bold;
-    margin-right: 24px ;
+    margin-right: 24px;
 }
 
 /* CSS FOR COLLAPSIBLES */
@@ -78,13 +77,13 @@
     text-align: left;
     outline: none;
     font-size: 15px;
-  }
-  
-  .active, .collapsible:hover {
+}
+
+.active, .collapsible:hover {
     background-color: #555;
-  }
-  
-  .content {
+}
+
+.content {
     padding: 0 18px;
     display: none;
     overflow: hidden;
@@ -94,8 +93,8 @@
 
 
 /* MOBILE VERSION */
-@media(max-width: 1024px){
-    .help-content{
+@media(max-width: 1024px) {
+    .help-content {
         z-index: 1;
         background-color: #F6F7F8;
         position: fixed;
@@ -107,36 +106,67 @@
         box-sizing: border-box;
         overflow-y: scroll;
     }
-    
-    .help-content img{
+
+    .help-content img {
         position: fixed;
         top: 100px;
         right: 12px;
     }
-    
-    .help-content img:hover{
+
+    .help-content img:hover {
         cursor: pointer;
     }
-    
-    .help-content h1{
+
+    .help-content h1 {
         margin: 0;
         font-size: 48px;
         margin-bottom: 40px;
     }
-    
-    .help-table{
+
+    .help-table {
         margin-top: 44px;
     }
-    
-    
-    .help-table div{
+
+
+    .help-table div {
         display: flex;
         align-items: center;
     }
-    
-    .help-table span{
+
+    .help-table span {
         font-size: 24px;
         font-weight: bold;
-        margin-right: 24px ;
+        margin-right: 24px;
     }
+}
+
+
+/* OVERWRITING H ELEMENTS FROM BOOTSTRAP */
+
+.h2-help {
+    display: block !important;
+    font-size: 1.5em !important;
+    margin-top: 0.83em !important;
+    margin-bottom: 0.83em !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    font-weight: bold !important;
+}
+
+.h3-help {
+    display: block !important;
+    font-size: 1.17em !important;
+    margin-block-start: 1em !important;
+    margin-block-end: 1em !important;
+    margin-inline-start: 0px !important;
+    margin-inline-end: 0px !important;
+    font-weight: bold !important;
+}
+ 
+.p-help {
+    display: block !important;
+    margin-block-start: 1em !important;
+    margin-block-end: 1em !important;
+    margin-inline-start: 0px !important;
+    margin-inline-end: 0px !important;
 }
