@@ -147,7 +147,7 @@ function checkViewPortAndRedirect() {
 }
 
 
-//PASSWORD SHOW AND HIDE FUNCTIONS
+//#####*********************PASSWORD SHOW AND HIDE FUNCTIONS************************######################################
 
 /**
  * This functions checks the input type onfocus of the inputfield  
