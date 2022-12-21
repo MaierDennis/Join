@@ -11,7 +11,6 @@ let categories = [];
  */
 async function initAddTask() {
     await init();
-    sortContactsAddTask();
     initDestop();
     initMobile();
     render('addtask');
@@ -23,6 +22,7 @@ async function initAddTask() {
  * @type {HTMLElement} checkList - list of contacts to choose from to assign to the task
  */
 function initDestop() {
+    sortContactsAddTask();
     let checkList = document.getElementById('assign-to-list');
     checkList.getElementsByClassName('anchor')[0].onclick = function () {
         if (checkList.classList.contains('visible'))
@@ -40,6 +40,7 @@ function initDestop() {
  * @type {HTMLElement} checkList - list of contacts to choose from to assign to the task
  */
 function initMobile() {
+    sortContactsAddTask();
     if (document.getElementById('assign-to-list-mobile')) { //checks if mobile is extra (in add Task Template no -mobile IDs)
         let checkList = document.getElementById('assign-to-list-mobile');
         checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
@@ -70,7 +71,7 @@ function renderContactsMobile() {
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign-mobile').innerHTML += `
         <li class="input-contact-listitem-mobile" onclick="assignContactOnClick(${i})" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact-mobile" id="input-contact-mobile${i}"
-            type="checkbox" style="margin-right: 42px" />${contactsSorted[i]['name']}</li>
+            type="checkbox" onchange="stopPropagationInput(event)" style="margin-right: 42px" />${contactsSorted[i]['name']}</li>
         `;
     }
 }
@@ -101,7 +102,7 @@ function renderContactsAddTask() {
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign').innerHTML += `
         <li class="input-contact-listitem" onclick="assignContactOnClick(${i})" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact" id="input-contact-destop${i}"
-            type="checkbox" style="margin-right: 42px" />${contactsSorted[i]['name']}</li>
+        type="checkbox" onchange="stopPropagationInput(event)" style="margin-right: 42px"/>${contactsSorted[i]['name']}</li>
         `;
     }
 }
@@ -130,10 +131,14 @@ function getAssignedContacts() {
 function assignContactOnClick(i) {
     if (document.getElementById(`input-contact-destop${i}`).checked) {
         document.getElementById(`input-contact-destop${i}`).checked = false;
-        document.getElementById(`input-contact-mobile${i}`).checked = false;
+        if(document.getElementById(`input-contact-mobile${i}`)){ //checks if mobile is extra (in add Task Template no -mobile IDs)
+            document.getElementById(`input-contact-mobile${i}`).checked = false;
+        }
     } else {
         document.getElementById(`input-contact-destop${i}`).checked = true;
-        document.getElementById(`input-contact-mobile${i}`).checked = true;
+        if(document.getElementById(`input-contact-mobile${i}`)){ //checks if mobile is extra (in add Task Template no -mobile IDs)
+            document.getElementById(`input-contact-mobile${i}`).checked = true;
+        }
     }
 }
 
@@ -469,7 +474,7 @@ function checkAssignedTo() {
 async function checkTaskToCreate() {
     checkAssignedTo();
     if (selectedPriority && contactAssigned && selectedCategory) {
-        await checkTaskToCreate();
+        await createTask();
     } else {
         alert('Please select a priority, a category and assign a contact!');
     }
@@ -592,4 +597,9 @@ function showSuccessMessage() {
         document.getElementById("dialog-taskadded").classList.add('d-none');
         localStorage.setItem('taskJustCreated', 'false');
     }, 2000);
+}
+
+function stopPropagationInput(event){
+    event.stopPropagation();
+    event.preventDefault();
 }

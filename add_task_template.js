@@ -1,4 +1,13 @@
 /**
+ * 
+ */
+async function initAddTaskTemplate(){
+    await init();
+    sortContactsAddTask();
+    initDestop();
+}
+
+/**
  * gets called when on editbutton clicked in detailed taskview at the boardpage,
  * shows addtask template (edit template) with the inputs from the task the user chose to edit,
  * overrides onclick method from createtask button to the spcifics of the edit function
@@ -6,7 +15,7 @@
  */
 function showAddTaskEdit(taskId) {
     let task = getTaskById(taskId);
-    document.getElementById('add-task-overlay-board').classList.remove('d-none');
+    showAddTask(task['status']);
     document.getElementById('body').style = 'overflow-y: hidden;';
     document.getElementById('overlay').classList.add('d-none');
     document.getElementById('formAddTask').setAttribute("onsubmit", `onsubmitEdit(${task['id']}); return false;`);

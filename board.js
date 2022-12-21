@@ -234,7 +234,7 @@ function renderContributorsContainerDetails(task) {
 }
 
 function contributorContainerBigTemplate(contact) {
-    let firstLetters = contact['name'].slice(0, 2).toUpperCase();
+    let firstLetters = getInitials(contact['name']);
     return /*html*/ `
         <div class="contributor-container">
             <span class="contributors-circle-big " style="margin-right: 32px; background-color: ${contact['bg-color']};">${firstLetters}</span>

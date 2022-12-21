@@ -41,7 +41,7 @@ async function render(currentSection) {
     renderUsernameTopper();
 }
 
-async function render(){
+async function renderWithoutActiveSection(){
     await includeHTML();
     renderUsernameTopper();
 }
@@ -80,7 +80,6 @@ function setActiveSection(currentSection){
     if(currentSection == 'board'){
         document.getElementById('board-section').classList.add('active-content-section');
         document.getElementById('board-section-mobile').classList.add('active-content-section');
-        initAddTask();
     }
     if(currentSection == 'addtask'){
         document.getElementById('addtask-section').classList.add('active-content-section');
@@ -89,7 +88,6 @@ function setActiveSection(currentSection){
     if(currentSection == 'contacts'){
         document.getElementById('contacts-section').classList.add('active-content-section');
         document.getElementById('contacts-section-mobile').classList.add('active-content-section');
-        initAddTask();
     }
     if(currentSection == 'legalnotice'){
         document.getElementById('legalnotice-section').classList.add('active-content-section');
@@ -127,6 +125,8 @@ function showAddTask(statusPro){
     statusTaskOnCreate = statusPro;
     document.getElementById('add-task-overlay-board').classList.remove('d-none');
     document.getElementById('body').style = 'overflow-y: hidden;';
+    initDestop();
+    renderCategories();
 }
 
 function hideAddTask(){
