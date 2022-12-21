@@ -171,7 +171,7 @@ function renderContacts() {
  */
 function generateSingleContacts(i, contactName, contactEmail, contactPhone, initials){
     return `
-    <div onclick="openSingleContact(), showThisContactInfos(${i},'${contactName}', '${contactEmail}', ${contactPhone}, '${initials}')" class="single-contact">
+    <div id="single-contact${i}" onclick="openSingleContact(), showThisContactInfos(${i},'${contactName}', '${contactEmail}', ${contactPhone}, '${initials}')" class="single-contact">
                             <div id="initials${i}" class="initials">${initials}</div>
                             <div class="name-email">
                                 <div class="name-small">${contactName}</div>
@@ -277,6 +277,8 @@ async function deleteUser() {
  * @type {string} activeContact - This is the actual contact showed by details on big screen
  */
 function showThisContactInfos(i, contactName, contactEmail, contactPhone, initials) {
+    resetBGColor();
+
     document.getElementById('bigContactInitials').innerHTML = initials;
     document.getElementById('bigContactName').innerHTML = contactName;
     document.getElementById('bigContactEmail').innerHTML = contactEmail;
@@ -284,6 +286,30 @@ function showThisContactInfos(i, contactName, contactEmail, contactPhone, initia
     document.getElementById('bigInitials').style.backgroundColor = contacts[i]['bg-color'];
     activeContact = i;
     document.getElementById('addTask-button-contacts').setAttribute("onclick", `showAddTaskContactlist('${contactName}')`);
+
+    changeColorBG(i);
+}
+
+/**
+ * function to reset the color of the contact background in the contactlist
+ * 
+ * @type {array} contacts - This is the array with all contacts
+ */
+function resetBGColor(){
+    for (let j = 0; j < contacts.length; j++) {
+        document.getElementById('single-contact'+j).style.backgroundColor = "rgb(255, 255, 255)";
+        document.getElementById('single-contact'+j).style.color = "black";
+    }
+}
+
+/**
+ * function to change the color of the contact background in the contactlist
+ * 
+ * @param {number} i - This is the number of the contacts-place in the array
+ */
+function changeColorBG(i){
+    document.getElementById('single-contact'+i).style.backgroundColor = "rgb(42, 54, 71)";
+    document.getElementById('single-contact'+i).style.color = "white";
 }
 
 /**
