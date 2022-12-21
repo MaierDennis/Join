@@ -1,5 +1,6 @@
-//DEFINING GLOBAL VARIABLES
-
+/**
+ * defining global variables
+ */
 let statusTaskOnCreate = 'todo';
 let tasks = [];
 let tasksToDo = [];
@@ -16,10 +17,14 @@ let taskJustCreated;
 
 
 /**
- * 
- * 
+ * function gets data from server and declares arrays with that data
+ * @type {array<object>} users - array with all user
+ * @type {array<object>} tasks - array with all tasks
+ * @type {array<object>} contactsAddTask - array with all contacts to use in addTask.html and the tamplate
+ * @type {array<object>} categories - array with all categories
+ * @type {array<object>} contacts - array with all contacts
+ * @type {string} activeUser - name of signed in user
  */
-
 async function init() {
     setURL('https://gruppe-400.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
@@ -34,25 +39,33 @@ async function init() {
 
 }
 
-
+/**
+ * function renders templates (e.g. navigationbar, footer, topper, addTaskTemplate),
+ * highlights current section in navbar and footer
+ * @param {string} currentSection - name of the current section
+ */
 async function render(currentSection) {
     await includeHTML();
     setActiveSection(currentSection);
     renderUsernameTopper();
 }
 
+/**
+ * function renders templates (footer, topper),
+ * just used at mobile greeting, because it has no section
+ * @param {string} currentSection - name of the current section
+ */
 async function renderWithoutActiveSection(){
     await includeHTML();
     renderUsernameTopper();
 }
 
 
-/*add templates*/
+/**
+ * includes all needed templates in page and renders those
+ */
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
-
-    
-
     for (let i = 0; i < includeElements.length; i++) {
         const element = includeElements[i];
         file = element.getAttribute("w3-include-html"); // "includes/header.html"
@@ -65,13 +78,18 @@ async function includeHTML() {
     }
 }
 
-/*render name in topper*/
+/**
+ * renders and sets the username of the logged in user in topper
+ */
 function renderUsernameTopper(){
     document.getElementById('topper-name-destop').innerHTML = `<strong>${activeUser}</strong>`;
     document.getElementById('topper-name-mobile').innerHTML = `<strong>${activeUser}</strong>`;
 }
 
-/*set currentSection in templates*/
+/**
+ * highlights the current section in navbar and footer depending on in which section the user is
+ *@param {string} currentSection - the current page the user is in
+ */
 function setActiveSection(currentSection){
     if(currentSection == 'summary'){
         document.getElementById('summary-section').classList.add('active-content-section');
@@ -94,33 +112,45 @@ function setActiveSection(currentSection){
     }
 }
 
-/*on help button clicked destop template*/
+/**
+ * function shows the helppage on each page
+ */
 function showHelp(){
     document.getElementById('body').style = 'overflow-y: hidden;';
     document.getElementById('help-content').classList.remove('d-none');
     document.getElementById('help-button').classList.add('d-none');
 }
 
-/* hide help page*/
+/**
+ * function hides help page
+ */
 function hideHelp(){
     document.getElementById('body').style = '';
     document.getElementById('help-content').classList.add('d-none');
     document.getElementById('help-button').classList.remove('d-none');
 }
 
-/*show LogoutButton*/
+/**
+ * function shows logout button when clicked on name in topper
+ */
 function showLogout(){
     document.getElementById('logout-button').classList.remove('d-none');
     document.getElementById('options-mobile').classList.remove('d-none');
 }
 
-/*hide LogoutButton*/
+/**
+ * function hides logout button
+ */
 function hideLogout(){
     document.getElementById('logout-button').classList.add('d-none');
     document.getElementById('options-mobile').classList.add('d-none');
 }
 
-/*show add Task*/
+/**
+ * shows addtask template to create new task
+ * @type {string} statusTaskOnCreate - variable for different functions to know what status the task shown right now has
+ * @param {string} statusPro - current status of task
+ */
 function showAddTask(statusPro){
     statusTaskOnCreate = statusPro;
     document.getElementById('add-task-overlay-board').classList.remove('d-none');
@@ -129,17 +159,23 @@ function showAddTask(statusPro){
     renderCategories();
 }
 
+/**
+ * hides addtask template
+ */
 function hideAddTask(){
     statusTaskOnCreate = 'todo';
     document.getElementById('add-task-overlay-board').classList.add('d-none');
     document.getElementById('body').style = '';
-    if(document.getElementById('tasks-inprogress-mobile')){
+    if(document.getElementById('tasks-inprogress-mobile')){ //checks if mobile is extra (in add Task Template no -mobile IDs)
         closeCard();
         document.getElementById('formAddTask').setAttribute("onsubmit", `checkTaskToCreate()`);
     }
 }
 
-/*stop Propagation*/
+/**
+ * prevents propagation
+ * @param {event} event - onclickevent 
+ */
 function doNotClose(event) {
     event.stopPropagation();
 }

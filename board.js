@@ -1,3 +1,6 @@
+/**
+ * This function calls important functions on onload of the body to get and render the needed data
+ */
 async function initBoard() {
     await init();
     render('board');
@@ -6,38 +9,38 @@ async function initBoard() {
     renderSuccessMessage();
 }
 
-function renderSuccessMessage(){
+/**
+ * when a new tasks has been successfully created, this method shows successmessage
+ */
+function renderSuccessMessage() {
     taskJustCreated = localStorage.getItem('taskJustCreated');
-    if(taskJustCreated === 'true'){
+    if (taskJustCreated === 'true') {
         showSuccessMessage();
     }
 }
 
-// OVERLAY 
+/**
+ * hides detailed view of task
+ */
 function closeCard() {
-    getElement('card-container').classList.add('d-none');
-    getElement('overlay').classList.add('d-none');
-    getElement('body').classList.add('oflow-y-unset');
-    getElement('body').classList.remove('oflow-y-hidden');
-}
-//HELP FUNCTIONS 
-
-function getElement(id) {
-    return document.getElementById(id);
+    document.getElementById('card-container').classList.add('d-none');
+    document.getElementById('overlay').classList.add('d-none');
+    document.getElementById('body').classList.add('oflow-y-unset');
+    document.getElementById('body').classList.remove('oflow-y-hidden');
 }
 
-
-
-// EVENT LISTENERS
+/**
+ * hides detailes taskview by clicking escape
+ */
 document.addEventListener('keydown', function (event) {
     if (event.key === "Escape") {
         closeCard();        // an der Stelle die Funktion einsetzen, die das Fenster schließen soll
     }
 });
 
-
-//render Tasks from Database
-
+/**
+ * resets array which devide tasks array after their status
+ */
 function resetArrays() {
     tasksToDo = [];
     tasksProgress = [];
@@ -45,6 +48,10 @@ function resetArrays() {
     tasksDone = [];
 }
 
+/**
+ * declares arrays which devide all tasks in tasks array after their status (todo, progress, feedback, done), 
+ * for each status one array
+ */
 function declareArrays() {
     tasks.forEach(task => {
         if (task['status'] === 'todo') {
@@ -62,110 +69,42 @@ function declareArrays() {
     });
 }
 
+/**
+ * calls function to render and show all tasks devided by their status at page
+ */
 function renderTasks() {
     renderTasksDestop();
     renderTasksMobile();
 }
 
+/**
+ * renders and shows all tasks devided by their status at page (destop)
+ */
 function renderTasksDestop() {
     document.getElementById('tasks-todo').innerHTML = '';
-    tasksToDo.forEach(task => {
-        document.getElementById('tasks-todo').innerHTML += taskCardTemplate(task);
-        renderContributorsContainer(task);
-        renderPrioritySymbol(task);
-    });
+    tasksToDo.forEach(task => { renderTaskDestop(task, 'tasks-todo') });
     document.getElementById('tasks-inprogress').innerHTML = '';
-    tasksProgress.forEach(task => {
-        document.getElementById('tasks-inprogress').innerHTML += taskCardTemplate(task);
-        renderContributorsContainer(task);
-        renderPrioritySymbol(task);
-    });
+    tasksProgress.forEach(task => { renderTaskDestop(task, 'tasks-inprogress') });
     document.getElementById('tasks-feedback').innerHTML = '';
-    tasksFeedback.forEach(task => {
-        document.getElementById('tasks-feedback').innerHTML += taskCardTemplate(task);
-        renderContributorsContainer(task);
-        renderPrioritySymbol(task);
-    });
+    tasksFeedback.forEach(task => { renderTaskDestop(task, 'tasks-feedback') });
     document.getElementById('tasks-done').innerHTML = '';
-    tasksDone.forEach(task => {
-        document.getElementById('tasks-done').innerHTML += taskCardTemplate(task);
-        renderContributorsContainer(task);
-        renderPrioritySymbol(task);
-    });
+    tasksDone.forEach(task => { renderTaskDestop(task, 'tasks-done') });
 }
 
-function renderTasksMobile() {
-    document.getElementById('tasks-todo-mobile').innerHTML = '';
-    tasksToDo.forEach(task => {
-        document.getElementById('tasks-todo-mobile').innerHTML += taskCardTemplateMobile(task);
-        renderContributorsContainerMobile(task);
-        renderPrioritySymbolMobile(task);
-    });
-    document.getElementById('tasks-inprogress-mobile').innerHTML = '';
-    tasksProgress.forEach(task => {
-        document.getElementById('tasks-inprogress-mobile').innerHTML += taskCardTemplateMobile(task);
-        renderContributorsContainerMobile(task);
-        renderPrioritySymbolMobile(task);
-    });
-    document.getElementById('tasks-feedback-mobile').innerHTML = '';
-    tasksFeedback.forEach(task => {
-        document.getElementById('tasks-feedback-mobile').innerHTML += taskCardTemplateMobile(task);
-        renderContributorsContainerMobile(task);
-        renderPrioritySymbolMobile(task);
-    });
-    document.getElementById('tasks-done-mobile').innerHTML = '';
-    tasksDone.forEach(task => {
-        document.getElementById('tasks-done-mobile').innerHTML += taskCardTemplateMobile(task);
-        renderContributorsContainerMobile(task);
-        renderPrioritySymbolMobile(task);
-    });
+/**
+ * renders and shows each task with some important details in overview (destop)
+ */
+function renderTaskDestop(task, taskStatus) {
+    document.getElementById(taskStatus).innerHTML += taskCardTemplate(task);
+    renderContributorsContainer(task);
+    renderPrioritySymbol(task);
 }
 
-function renderPrioritySymbol(task) {
-    if (task['priority'] === 'urgent') {
-        document.getElementById(`prioritySymbol${task['id']}`).src = "assets/img/urgent.svg";
-    }
-    if (task['priority'] === 'medium') {
-        document.getElementById(`prioritySymbol${task['id']}`).src = 'assets/img/medium.svg';
-    }
-    if (task['priority'] === 'low') {
-        document.getElementById(`prioritySymbol${task['id']}`).src = 'assets/img/low.svg';
-    }
-}
-
-function renderPrioritySymbolMobile(task) {
-    if (task['priority'] === 'urgent') {
-        document.getElementById(`prioritySymbol${task['id']}-mobile`).src = "assets/img/urgent.svg";
-    }
-    if (task['priority'] === 'medium') {
-        document.getElementById(`prioritySymbol${task['id']}-mobile`).src = 'assets/img/medium.svg';
-    }
-    if (task['priority'] === 'low') {
-        document.getElementById(`prioritySymbol${task['id']}-mobile`).src = 'assets/img/low.svg';
-    }
-}
-
-function renderContributorsContainer(task) {
-    let contacts = task['assigned-contacts'];
-    document.getElementById(`contributers-container-${task['id']}`).innerHTML = '';
-    contacts.forEach(contact => {
-        document.getElementById(`contributers-container-${task['id']}`).innerHTML += contributorsContainerTemplate(contact);
-    });
-}
-
-function renderContributorsContainerMobile(task) {
-    let contacts = task['assigned-contacts'];
-    document.getElementById(`contributers-container-${task['id']}-mobile`).innerHTML = '';
-    contacts.forEach(contact => {
-        document.getElementById(`contributers-container-${task['id']}-mobile`).innerHTML += contributorsContainerTemplate(contact);
-    });
-}
-
-function contributorsContainerTemplate(contact) {
-    let lettersContactCircle = getInitials(contact['name']);
-    return `<span class="contributors-circle" style="background-color: ${contact['bg-color']}">${lettersContactCircle}</span>`;
-}
-
+/**
+ * template to display a task as a card in task overview (destop)
+ * @param {task} task - task object(JSON)
+ * @returns {HTMLElement} - task as card in overview 
+ */
 function taskCardTemplate(task) {
     return /*html*/`
     <div onclick='openCard(${JSON.stringify(task)})' draggable="true" ondragstart="startDragging(${task['id']})" class="task-card" id="task-card${task['id']}">
@@ -181,50 +120,90 @@ function taskCardTemplate(task) {
     `;
 }
 
-function taskCardTemplateMobile(task) {
-    return /*html*/`
-    <div onclick='openCard(${JSON.stringify(task)})' class="task-card" id="task-card${task['id']}-mobile">
-        <span class="card-category" style="background-color: ${task['category']['color']};">${task['category']['name']}</span>
-        <span class="card-title">${task['title']}</span>
-        <span class="card-description">${task['description']}</span>
-        <div class="card-bottom">
-            <div class="contributors-container" id="contributers-container-${task['id']}-mobile">
-            </div>
-            <img id="prioritySymbol${task['id']}-mobile">
-        </div>
-    </div>
-    `;
+/**
+ * checks priority of task and shows depending on it the symbol in taskoverview (destop)
+ * @param {object} task - task object(JSON)
+ */
+function renderPrioritySymbol(task) {
+    if (task['priority'] === 'urgent') {
+        document.getElementById(`prioritySymbol${task['id']}`).src = "assets/img/urgent.svg";
+    }
+    if (task['priority'] === 'medium') {
+        document.getElementById(`prioritySymbol${task['id']}`).src = 'assets/img/medium.svg';
+    }
+    if (task['priority'] === 'low') {
+        document.getElementById(`prioritySymbol${task['id']}`).src = 'assets/img/low.svg';
+    }
 }
 
-/*show task details*/
+/**
+ * checks assignedContacts to task and shows these in taskoverview (desop)
+ * @param {object} task - task object(JSON)
+ */
+function renderContributorsContainer(task) {
+    let contacts = task['assigned-contacts'];
+    document.getElementById(`contributers-container-${task['id']}`).innerHTML = '';
+    contacts.forEach(contact => {
+        document.getElementById(`contributers-container-${task['id']}`).innerHTML += contributorsContainerTemplate(contact);
+    });
+}
+
+/**
+ * template to display a contact in a task at taskoverview
+ * @param {object} contact - contact object(JSON)
+ */
+function contributorsContainerTemplate(contact) {
+    let lettersContactCircle = getInitials(contact['name']);
+    return `<span class="contributors-circle" style="background-color: ${contact['bg-color']}">${lettersContactCircle}</span>`;
+}
+
+/**
+ * opens taskcard as an overlay with more details
+ * @param {object} task - task object(JSON)
+ */
 function openCard(task) {
-    let taskBig = task;
-    getElement('card-container').classList.remove('d-none');
-    getElement('overlay').classList.remove('d-none');
-    getElement('body').classList.add('oflow-y-hid');
-    getElement('body').classList.remove('oflow-y-unset');
-    convertDueDate(taskBig);
-    renderTaskDetails(taskBig);
-    renderContributorsContainerDetails(taskBig)
-    renderPriorityTagBig(taskBig);
-    renderButtons(taskBig);
+    document.getElementById('card-container').classList.remove('d-none');
+    document.getElementById('overlay').classList.remove('d-none');
+    document.getElementById('body').classList.add('oflow-y-hid');
+    document.getElementById('body').classList.remove('oflow-y-unset');
+    convertDueDate(task);
+    renderTaskDetails(task);
+    renderContributorsContainerDetails(task)
+    renderPriorityTagBig(task);
+    renderButtons(task);
 }
 
-function convertDueDate(taskBig) {
-    let numbersDueDate = taskBig['due-date'].split("-");
+/**
+ * converts duedate date form into german dateform
+ * @param {object} task - task object(JSON)
+ */
+function convertDueDate(task) {
+    let numbersDueDate = task['due-date'].split("-");
     dueDate = numbersDueDate[2] + "." + numbersDueDate[1] + "." + numbersDueDate[0];
 }
 
+/**
+ * prevents overlay from closing when clicked on card
+ * @param {event} event - onclick
+ */
 function doNotClose(event) {
     event.stopPropagation();
 
 }
 
+/**
+ * resets innerHtml in cardview, then shows onclicked tasks details
+ * @param {object} task - task object(JSON)
+ */
 function renderTaskDetails(task) {
     document.getElementById('task-overly-details').innerHTML = '';
     document.getElementById('task-overly-details').innerHTML = showTaskDetailsTemplate(task);
 }
 
+/**
+ * shows all assigned Contacts in detailed taskview
+ * @param {object} task - task object(JSON)
+ */
 function renderContributorsContainerDetails(task) {
     let contacts = task['assigned-contacts'];
     document.getElementById('contributor-container-container-big').innerHTML = '';
@@ -233,6 +212,10 @@ function renderContributorsContainerDetails(task) {
     });
 }
 
+/**
+ * template which shows all assigned Contacts in detailed taskview
+ * @param {object} task - task object(JSON)
+ */
 function contributorContainerBigTemplate(contact) {
     let firstLetters = getInitials(contact['name']);
     return /*html*/ `
@@ -243,6 +226,10 @@ function contributorContainerBigTemplate(contact) {
     `;
 }
 
+/**
+ * shows priority of task in detailed taskview
+ * @param {object} task - task object(JSON)
+ */
 function renderPriorityTagBig(task) {
     if (task['priority'] === 'urgent') {
         document.getElementById('priority-tag').src = 'assets/img/urgent-filled.svg';
@@ -255,6 +242,10 @@ function renderPriorityTagBig(task) {
     }
 }
 
+/**
+ * shows buttons to move task to last or next status
+ * @param {object} task - task object(JSON)
+ */
 function renderButtons(task) {
     if (task['status'] === 'todo') {
         document.getElementById('edit-overlay-btn-statusnext').innerText = 'Progress';
@@ -276,6 +267,10 @@ function renderButtons(task) {
     }
 }
 
+/**
+ * cardview overlay template for view of taskdetails
+ * @param {object} task - task object(JSON)
+ */
 function showTaskDetailsTemplate(task) {
     return /*html*/ `
     <button class="edit-overlay-btn" onclick="showAddTaskEdit(${task['id']})"><img src="assets/img/pencil.svg" ></button>
@@ -303,16 +298,27 @@ function showTaskDetailsTemplate(task) {
     `;
 }
 
-/*delete Task*/
-function showDeleteTaskAlert(id){
+/**
+ * gets called when user clicks on teash button in detailed cardview and shows dialod asking user if he is sure to delete the task
+ * @param {number} id - id of task which user wants to delete 
+ */
+function showDeleteTaskAlert(id) {
     document.getElementById('alert-delete-task-container').classList.remove('d-none');
     document.getElementById('alert-delete-delete-btn').onclick = () => deleteTask(id);
 }
 
-function closeAlertDelete(){
+/**
+ * hides delete alert
+ */
+function closeAlertDelete() {
     document.getElementById('alert-delete-task-container').classList.add('d-none');
 }
 
+/**
+ * removes tasks from all arrays and updates database (task is deleted after), 
+ * then closes all overlays and shows task overview of all tasks
+ * @param {number} id - id of task to delete
+ */
 async function deleteTask(id) {
     tasks.splice(id, 1);
     tasks.forEach(task => {
@@ -328,17 +334,16 @@ async function deleteTask(id) {
     closeAlertDelete();
 }
 
-/*search task*/
+/**
+ * gets called on keyup in searchfield, 
+ * checks for each task if it includes the searchinput in description or title, if it does it will be pushed into matchingTasks Array,
+ * then calls function removeSearchTask
+ * @type {Array} matchingTasks - array with all tasks, which include searchinput
+ */
 function searchTask() {
     showAllTasksSearch();
     matchingTasks = [];
-    if (document.body.clientWidth > 1024) {
-        searchTaskInput = document.getElementById('searchTaskDestop').value;
-        document.getElementById('searchTaskMobile').value = searchTaskInput;
-    } else {
-        searchTaskInput = document.getElementById('searchTaskMobile').value;
-        document.getElementById('searchTaskDestop').value = searchTaskInput;
-    }
+    updateSearchDestopMobile();
     if (searchTaskInput != '') {
         tasks.forEach(task => {
             let taskTitleLowerCase = task['title'].toLowerCase();
@@ -351,6 +356,22 @@ function searchTask() {
     }
 }
 
+/**
+ * updates input in search at mobileversion when put into destop and the other way around
+ */
+function updateSearchDestopMobile(){
+    if (document.body.clientWidth > 1024) {
+        searchTaskInput = document.getElementById('searchTaskDestop').value;
+        document.getElementById('searchTaskMobile').value = searchTaskInput;
+    } else {
+        searchTaskInput = document.getElementById('searchTaskMobile').value;
+        document.getElementById('searchTaskDestop').value = searchTaskInput;
+    }
+}
+
+/**
+ * hides all tasks who are not in matchingtasks array
+ */
 function removeTasksSearch() {
     tasks.forEach(task => {
         if (!matchingTasks.includes(task)) {
@@ -360,6 +381,9 @@ function removeTasksSearch() {
     });
 }
 
+/**
+ * function shows all tasks again
+ */
 function showAllTasksSearch() {
     tasks.forEach(task => {
         document.getElementById(`task-card${task['id']}`).classList.remove('d-none');
@@ -367,6 +391,12 @@ function showAllTasksSearch() {
     });
 }
 
+/**
+ * gets called when in detailed task view (overlay) clicked on move to last status button,
+ * checks status of the task, then updates its status and updates database, 
+ * then closes cardview and resets arrays, to update also overview
+ * @param {number} taskId - id of task
+ */
 async function lastStatus(taskId) {
     let task = getTaskById(taskId);
     let currentStatus = task['status'];
@@ -386,6 +416,12 @@ async function lastStatus(taskId) {
     closeCard();
 }
 
+/**
+ * gets called when in detailed task view (overlay) clicked on move to next status button,
+ * checks status of the task, then updates its status and updates database, 
+ * then closes cardview and resets arrays, to update also overview
+ * @param {number} taskId - id of task
+ */
 async function nextStatus(taskId) {
     let task = getTaskById(taskId);
     let currentStatus = task['status'];
@@ -405,57 +441,13 @@ async function nextStatus(taskId) {
     closeCard();
 }
 
-
-/*Drag and Drop Funktion */
-function startDragging(taskId) {
-    let task = getTaskById(taskId);
-    currentDraggedTask = task;
-}
-
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-async function moveToTodo(id){
-    currentDraggedTask['status'] = 'todo';
-    removeHighlight(id);
-    await backend.setItem('tasks', JSON.stringify(tasks));
-    resetArrays();
-    declareArrays();
-    renderTasks();
-}
-
-async function moveToProgress(id){
-    currentDraggedTask['status'] = 'progress';
-    removeHighlight(id);
-    await backend.setItem('tasks', JSON.stringify(tasks));
-    resetArrays();
-    declareArrays();
-    renderTasks();
-}
-
-async function moveToFeedback(id){
-    currentDraggedTask['status'] = 'feedback';
-    removeHighlight(id);
-    await backend.setItem('tasks', JSON.stringify(tasks));
-    resetArrays();
-    declareArrays();
-    renderTasks();
-}
-
-async function moveToDone(id){
-    currentDraggedTask['status'] = 'done';
-    removeHighlight(id);
-    await backend.setItem('tasks', JSON.stringify(tasks));
-    resetArrays();
-    declareArrays();
-    renderTasks();
-}
-
-function highlight(id){
-    document.getElementById(id).classList.add('dragarea-highlight');
-}
-
-function removeHighlight(id){
-    document.getElementById(id).classList.remove('dragarea-highlight');
+/**
+ * shows successmassege, that the task is successfully created for 3 seconds
+ */
+function showSuccessMessage() {
+    document.getElementById("dialog-taskadded").classList.remove('d-none');
+    setTimeout(function () {
+        document.getElementById("dialog-taskadded").classList.add('d-none');
+        localStorage.setItem('taskJustCreated', 'false');
+    }, 2000);
 }
