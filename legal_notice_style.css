@@ -116,6 +116,7 @@ body {
 
     .content-container {
         width: 95%;
+        word-break: break-word;
     }
 
 }
