@@ -6,7 +6,7 @@
  */
 async function renderGreetingHello(){
     await init();
-    render();
+    renderWithoutActiveSection();
     if(activeUser != 'Guest'){
         document.getElementById('greeting-name-mobile').innerText = activeUser;
     }
