@@ -33,7 +33,7 @@ async function init() {
     contactsAddTask = JSON.parse(backend.getItem('contact')) || [];
     categories = JSON.parse(backend.getItem('categories')) || [];
     contacts = JSON.parse(backend.getItem('contact')) || [];
-    
+
     activeUser = JSON.parse(localStorage.getItem('activeUser')) || [];
     console.log('Active user:', activeUser);
 
@@ -95,19 +95,19 @@ function setActiveSection(currentSection){
         document.getElementById('summary-section').classList.add('active-content-section');
         document.getElementById('summary-section-mobile').classList.add('active-content-section');
     }
-    if(currentSection == 'board'){
+    if (currentSection == 'board') {
         document.getElementById('board-section').classList.add('active-content-section');
         document.getElementById('board-section-mobile').classList.add('active-content-section');
     }
-    if(currentSection == 'addtask'){
+    if (currentSection == 'addtask') {
         document.getElementById('addtask-section').classList.add('active-content-section');
         document.getElementById('addtask-section-mobile').classList.add('active-content-section');
     }
-    if(currentSection == 'contacts'){
+    if (currentSection == 'contacts') {
         document.getElementById('contacts-section').classList.add('active-content-section');
         document.getElementById('contacts-section-mobile').classList.add('active-content-section');
     }
-    if(currentSection == 'legalnotice'){
+    if (currentSection == 'legalnotice') {
         document.getElementById('legalnotice-section').classList.add('active-content-section');
     }
 }
@@ -179,3 +179,5 @@ function hideAddTask(){
 function doNotClose(event) {
     event.stopPropagation();
 }
+
+
