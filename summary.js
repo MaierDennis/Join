@@ -46,6 +46,7 @@ function renderThirdRow(){
  * shows name of logged in user at greeting
  */
 function renderGreeting(){
+    document.getElementById('greeting-sentence').innerText = getDaytimeGreeting();
     if(activeUser != 'Guest'){
         document.getElementById('greeting-name').innerText = activeUser;
     }
@@ -62,6 +63,23 @@ function getCurrentDay(){
     let currentMonth = getCurrentMonth(currentDayArray[1]);
     currentDay = currentMonth + " " + currentDayArray[0] + ", " + currentDayArray[2];
     return `<strong>${currentDay}</strong>`
+}
+
+/**
+ * checks the time and depending on that return a greeting
+ * @returns {string} greeting - greeting sentence
+ */
+function getDaytimeGreeting(){
+    let hour = new Date().getHours();
+    if(3 <= hour && hour <= 11){
+        return 'Good morning';
+    }
+    if(11 < hour && hour<= 19){
+        return 'Good afternoon';
+    }
+    if(19 < hour || hour < 3){
+        return 'Good evening';
+    }
 }
 
 /**

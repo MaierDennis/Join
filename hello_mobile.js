@@ -7,6 +7,7 @@
 async function renderGreetingHello(){
     await init();
     renderWithoutActiveSection();
+    document.getElementById('greeting-time-hello').innerText = getDaytimeGreeting();
     if(activeUser != 'Guest'){
         document.getElementById('greeting-name-mobile').innerText = activeUser;
     }
