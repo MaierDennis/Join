@@ -70,7 +70,7 @@ function renderContactsAddTask() {
     document.getElementById('contacts-to-assign').innerHTML = '';
     for (let i = 0; i < contactsSorted.length; i++) {
         document.getElementById('contacts-to-assign').innerHTML += `
-        <li class="input-contact-listitem" onclick="assignContactOnClick(${i})" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input class="input-contact" id="input-contact-destop${i}"
+        <li class="input-contact-listitem" onclick="assignContactOnClick(${i})" style="background-color: ${contactsSorted[i]['bg-color']};" value="${[i]}"><input onclick="stopPropagationInput(event)" class="input-contact" id="input-contact-destop${i}"
         type="checkbox" style="margin-right: 42px"/>${contactsSorted[i]['name']}</li>
         `;
     }
@@ -109,6 +109,14 @@ function assignContactOnClick(i) {
             document.getElementById(`input-contact-mobile${i}`).checked = true;
         }
     }
+}
+
+/**
+ * prevents when on input clicked that onclickfunction of parent gets triggerd
+ * @param {event} event - onclick event
+ */
+function stopPropagationInput(event){
+    event.stopPropagation();
 }
 
 /**

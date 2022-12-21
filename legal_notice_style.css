@@ -64,6 +64,28 @@ body {
     font-size: 18px;
 }
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  .inner-content {
+    scrollbar-width: auto;
+    scrollbar-color: #2a3647 #F6F7F8;
+  }
+
+  /* Chrome, Edge, and Safari */
+  .inner-content::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .inner-content::-webkit-scrollbar-track {
+    background: #F6F7F8;
+  }
+
+  .inner-content::-webkit-scrollbar-thumb {
+    background-color: #2a3647;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+  }
+
 
 
 @media(max-width: 1024px) {
