@@ -89,7 +89,7 @@ function checkContacts() {
     sortAlphabetList();
     createAlphabetBox();
     renderContacts();
-    showEmptyContact();
+    
 }
 
 /**
@@ -350,10 +350,7 @@ function changeContactColor() {
 }
 
 /**
- * function to update the new color in addTask
- * 
- * 
- * 
+ * function to update the color of the assigned contacts depending on the colorchange in the contactsection
  */
 async function updateColorContactsinTasks() {
     tasks.forEach(task => {

@@ -73,6 +73,59 @@
         margin-top: 22px;
     }
 
+    .headingMoveStatusBtns {
+        font-size: 18px;
+        display: unset;
+        margin-bottom: 14px;
+        font-weight: bold;
+        direction: ltr;
+        margin-left: 24px;
+    }
+
+    .moveStatusBtns {
+        display: unset;
+        display: flex;
+        margin-bottom: 32px;
+        direction: ltr;
+        margin-left: 24px;
+    }
+
+    .moveStatusBtns button {
+        font-size: 18px !important;
+        height: 44px;
+    }
+
+    .edit-overlay-btn-statuslast {
+        display: unset;
+        font-size: 20px;
+        width: 120px;
+        height: 44px;
+        background: #2A3647;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        color: white;
+    }
+
+    .edit-overlay-btn-statuslast:hover {
+        background: #29ABE2;
+    }
+
+    .edit-overlay-btn-statusnext {
+        display: unset;
+        font-size: 20px;
+        width: 120px;
+        height: 44px;
+        background: #2A3647;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        color: white;
+    }
+
+    .edit-overlay-btn-statusnext:hover {
+        background: #29ABE2;
+    }
 }
 
 /* 850 PX */
@@ -181,19 +234,6 @@
         bottom: 86px;
         right: 44px;
     }
-
-    .headingMoveStatusBtns {
-        font-size: 18px;
-    }
-
-    .moveStatusBtns button {
-        font-size: 18px !important;
-        height: 44px;
-    }
-
-
-
-
 }
 
 /* 375 PX */
@@ -205,17 +245,17 @@
 
     .alert-delete-task {
         height: 220px;
-    }    
+    }
 
-    .alert-delete-task h2{
+    .alert-delete-task h2 {
         font-size: 20px;
     }
 
-    .alert-delete-task-btn{
+    .alert-delete-task-btn {
         margin-top: 28px;
     }
 
-    .alert-delete-task-btn button{
+    .alert-delete-task-btn button {
         font-size: 18px;
         width: 100px;
     }
@@ -239,7 +279,8 @@
     }
 
     .board-input-container {
-        width: 200px;
+        width: 212px;
+        height: 42px;
     }
 
     .board-inputfield {

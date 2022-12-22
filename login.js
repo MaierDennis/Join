@@ -25,7 +25,7 @@ async function login() {
  */
 async function guestLogin() {
     let guest = { 'name': 'Guest', };
-    await localStorage.setItem('activeUser', JSON.stringify(guest.name));  // saving guest as activeuser in local storage
+    await localStorage.setItem('activeUser', JSON.stringify(guest.name));  // saving guest as active user in local storage
     if (document.body.clientWidth > 1024) {
         window.location.href = 'summary.html';
     } else {
@@ -147,7 +147,7 @@ function checkViewPortAndRedirect() {
 }
 
 
-//PASSWORD SHOW AND HIDE FUNCTIONS
+//-****************************PASSWORD SHOW AND HIDE FUNCTIONS*****************************************************************
 
 /**
  * This functions checks the input type onfocus of the inputfield  
@@ -197,5 +197,64 @@ function changeTextToPw(id, name) {
     document.getElementById(`pw-no-show-${name}`).classList.remove('d-none');
     document.getElementById(`pw-show-${name}`).classList.add('d-none');
     document.getElementById(id).type = 'password';
+}
+
+//-*********************SHOW AND HIDE SECTION ON LOGIN SCREEN ******************************************************************
+
+
+/**
+ * This function displays the "forgot password" section on the login screen
+ * 
+ */
+ function openForgotPassword(){
+    document.getElementById('forgot-password').classList.remove('d-none');
+    document.getElementById('login').classList.add('d-none');
+    document.getElementById('signUp-mobile-button').classList.add('d-none');
+    document.getElementById('signUp-button').classList.add('d-none');
+}
+
+
+/**
+ * This function closes the "forgot password" section on the login screen
+ * 
+ */
+function closeForgotPassword(){
+    document.getElementById('forgot-password').classList.add('d-none');
+    document.getElementById('login').classList.remove('d-none');
+    document.getElementById('signUp-mobile-button').classList.remove('d-none');
+    document.getElementById('signUp-button').classList.remove('d-none');
+}
+
+
+/**
+ * This function displays the "sign up" section on the login screen
+ * 
+ */
+function openSignUp(){
+    document.getElementById('login').classList.add('d-none');
+    document.getElementById('sign-up').classList.remove('d-none');
+    document.getElementById('signUp-mobile-button').classList.add('d-none');
+    document.getElementById('signUp-button').classList.add('d-none');
+}
+
+
+/**
+ * This function closes the "sign up" section on the login screen
+ * 
+ */
+function closeSignUp(){
+    document.getElementById('login').classList.remove('d-none');
+    document.getElementById('sign-up').classList.add('d-none');
+    document.getElementById('signUp-mobile-button').classList.remove('d-none');
+    document.getElementById('signUp-button').classList.remove('d-none');
+}
+
+
+/**
+ * This function redirects to the login page
+ * 
+ */
+function openIndex() {
+    window.location.href = "index.html"
 }
 

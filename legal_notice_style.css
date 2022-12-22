@@ -48,9 +48,9 @@ body {
 .back-overlay-btn {
     height: 35px;
     width: 35px;
-    position: absolute;
-    right: 32px;
-    top: 50px;
+    position: fixed;
+    right: 22px;
+    top: 115px;
     cursor: pointer;
 }
 
@@ -64,6 +64,28 @@ body {
     font-size: 18px;
 }
 
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+.inner-content {
+    scrollbar-width: auto;
+    scrollbar-color: #2a3647 #F6F7F8;
+}
+
+/* Chrome, Edge, and Safari */
+.inner-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.inner-content::-webkit-scrollbar-track {
+    background: #F6F7F8;
+}
+
+.inner-content::-webkit-scrollbar-thumb {
+    background-color: #2a3647;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+}
+
 
 
 @media(max-width: 1024px) {
@@ -74,6 +96,10 @@ body {
 
     .content-mobile {
         display: flex;
+    }
+
+    .content-container {
+        padding-bottom: 80px;
     }
 }
 
@@ -88,16 +114,15 @@ body {
         font-size: 44px;
     }
 
-    .back-overlay-btn {
-        top: 32px;
+    .content-container {
+        width: 95%;
+        word-break: break-word;
     }
 
 }
 
 @media(max-width: 450px) {
-    .back-overlay-btn {
-        right: 0;
-    }
+
 
     .main-heading {
         font-size: 37px;
@@ -105,14 +130,18 @@ body {
 }
 
 @media(max-width: 450px) {
+
     .back-overlay-btn {
-        right: -32px;
-        top: 7px;
+        position: fixed;
+        right: 0px;
+        top: 88px;
+
     }
+
 
     .sub-heading {
         font-size: 23px;
-        text-overflow: ellipsis; 
+        text-overflow: ellipsis;
 
     }
 }
