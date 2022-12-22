@@ -104,6 +104,7 @@ function flyOutContact() {
  */
 function displayNoneContacts(){
     document.getElementById('edit-contact').classList.add('d-none');
+    document.getElementById('add-contact').classList.add('d-none');
     document.getElementById('overlay').classList.add('d-none');
     document.getElementById('add-contact-flyOut').classList.add('addedit-contact');
     document.getElementById('add-contact-flyOut').classList.remove('new-addedit-contact');

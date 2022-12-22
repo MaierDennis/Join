@@ -274,6 +274,16 @@ async function deleteUser() {
     await backend.deleteItem('contact',);
 }
 
+
+function dataForShowInfo(){
+    let name = contacts[activeContact]['name'];
+    let email = contacts[activeContact]['email'];
+    let phone = contacts[activeContact]['phone'];
+    let initials = getInitials(name);
+
+    showThisContactInfos(name, email, phone, initials);
+}
+
 /**
  * function to show the contact on big screen you clicked on 
  * 
@@ -313,7 +323,8 @@ function editContact() {
     contacts[activeContact]['phone'] = newPhone.value;
     pushAllContacts();
     checkContacts();
-    closeEditNewContact();
+    flyOutContact();
+    dataForShowInfo();
     newName.value = '';
     newEmail.value = '';
     newPhone.value = '';
