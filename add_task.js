@@ -395,6 +395,7 @@ async function checkTaskToCreate() {
  * tasks in the usual board overview
  */
 async function createTask() {
+    debugger;
     if (document.getElementById('input-title').value != '') {
         await saveTask();
     } else {
@@ -406,9 +407,11 @@ async function createTask() {
         declareArrays();
         renderTasks();
         hideAddTask();
+        showSuccessMessage();
+    }else{
+        window.location.href = 'board.html';
     }
     localStorage.setItem('taskJustCreated', 'true');
-    window.location.href = 'board.html';
 }
 
 /**
