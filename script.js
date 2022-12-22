@@ -18,7 +18,7 @@ let taskJustCreated;
 
 /**
  * function gets data from server and declares arrays with that data
- * @type {array<object>} users - array with all user
+ * @type {array<object>} users - array with all users
  * @type {array<object>} tasks - array with all tasks
  * @type {array<object>} contactsAddTask - array with all contacts to use in addTask.html and the tamplate
  * @type {array<object>} categories - array with all categories
@@ -78,6 +78,7 @@ async function includeHTML() {
     }
 }
 
+
 /**
  * renders and sets the username of the logged in user in topper
  */
@@ -85,6 +86,7 @@ function renderUsernameTopper(){
     document.getElementById('topper-name-destop').innerHTML = `<strong>${activeUser}</strong>`;
     document.getElementById('topper-name-mobile').innerHTML = `<strong>${activeUser}</strong>`;
 }
+
 
 /**
  * highlights the current section in navbar and footer depending on in which section the user is
@@ -112,6 +114,7 @@ function setActiveSection(currentSection){
     }
 }
 
+
 /**
  * function shows the helppage on each page
  */
@@ -120,6 +123,7 @@ function showHelp(){
     document.getElementById('help-content').classList.remove('d-none');
     document.getElementById('help-button').classList.add('d-none');
 }
+
 
 /**
  * function hides help page
@@ -130,6 +134,7 @@ function hideHelp(){
     document.getElementById('help-button').classList.remove('d-none');
 }
 
+
 /**
  * function shows logout button when clicked on name in topper
  */
@@ -138,6 +143,7 @@ function showLogout(){
     document.getElementById('options-mobile').classList.remove('d-none');
 }
 
+
 /**
  * function hides logout button
  */
@@ -145,6 +151,7 @@ function hideLogout(){
     document.getElementById('logout-button').classList.add('d-none');
     document.getElementById('options-mobile').classList.add('d-none');
 }
+
 
 /**
  * shows addtask template to create new task
@@ -159,6 +166,7 @@ function showAddTask(statusPro){
     renderCategories();
 }
 
+
 /**
  * hides addtask template
  */
@@ -172,6 +180,7 @@ function hideAddTask(){
     }
 }
 
+
 /**
  * prevents propagation
  * @param {event} event - onclickevent 
@@ -179,6 +188,7 @@ function hideAddTask(){
 function doNotClose(event) {
     event.stopPropagation();
 }
+
 
 /**
  * getting data from backend and rendering page afterwards
