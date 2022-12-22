@@ -57,6 +57,7 @@ function renderEditTask(task) {
     document.getElementById('input-title').value = task['title'];
     document.getElementById('input-description').value = task['description'];
     document.getElementById('input-date').value = task['due-date'];
+    document.getElementById('selected-category-colorDiv').style = `background-color: ${task['category']['color']}`;
     statusTaskOnCreate = task['status'];
     renderPriorityBtnEdit(task);
     renderCategoryEdit(task);
