@@ -26,7 +26,6 @@ function addNewContact() {
         'bg-color': randomColor
     }
     lastAddedContact = contact['name'];
-    console.log(lastAddedContact);
 
     name.value = '';
     email.value = '';
