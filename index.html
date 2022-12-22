@@ -19,22 +19,10 @@
 
     <script src="mini_backend.js"></script>
     <script src="login.js"></script>
-    <script src="index.js"></script>
     <script src="script.js"></script>
-
-    <script>
-        function noBack() {
-            window.history.pushState(null, null, window.location.href);
-            window.onpopstate = function () {
-                window.history.go(1);
-            };
-        }
-    </script>
-
-
 </head>
 
-<body onload="init(); noBack();">
+<body onload="init()">
     <div class="complete-page">
         <div id="start-join-logo" class="start-join-logo"><img src="assets/img/Capa 2join-logo.png" alt=""></div>
         <!-- <div class="join-logo"><img src="assets/img/Capa 2join-logo.png" alt=""></div>-->

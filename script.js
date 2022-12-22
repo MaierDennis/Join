@@ -180,4 +180,13 @@ function doNotClose(event) {
     event.stopPropagation();
 }
 
+/**
+ * getting data from backend and rendering page afterwards
+ * 
+ */
+async function initLegalNotice(){
+    await init();
+    render('legalnotice');
+}
+
 
