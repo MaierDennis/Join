@@ -19,27 +19,29 @@ function addNewContact() {
 
     let randomColor = getRandomColor();
 
-    let contact = {
-        'name': name.value,
-        'email': email.value,
-        'phone': phone.value,
-        'bg-color': randomColor
-    }
+    let contact = {'name': name.value, 'email': email.value, 'phone': phone.value, 'bg-color': randomColor}
     lastAddedContact = contact['name'];
 
     name.value = '';
     email.value = '';
     phone.value = '';
-
     contacts.push(contact);
 
     flyOutContact();
     pushAllContacts();
     checkContacts();
-
     showNewContact();
 }
 
+/**
+ * function to show the new created contact
+ * 
+ * @type {string} contactName - This is the name of the contact you want to create
+ * @type {string} contactEmail - This is the email-adress of the contact you want to create
+ * @type {string} contactPhone - This is the phone-number of the contact you want to create
+ * @type {string} initials - This are the first letters of the parts of name of the contact
+ * @type {number} placeInArray - This is the place of the element in the array
+ */
 function showNewContact() {
     document.getElementById('complete-contact').classList.remove('d-none');
     let placeInArray = findJSONInArray();
@@ -54,9 +56,13 @@ function showNewContact() {
     showThisContactInfos(contactName, contactEmail, contactPhone, initials);
 }
 
+/**
+ * function to find the place of the element in the array
+ * 
+ */
 function findJSONInArray() {
     let i = -1;
-    var index = contacts.findIndex(function (item, i) {
+    let index = contacts.findIndex(function (item, i) {
         return item.name === lastAddedContact
     });
     return index;
@@ -66,7 +72,6 @@ function findJSONInArray() {
  * function to push the next letter into backend
  * 
  */
-//
 function pushAllContacts() {
     backend.setItem('contact', JSON.stringify(contacts));
 }
@@ -206,6 +211,10 @@ function generateSingleContacts(i, contactName, contactEmail, contactPhone, init
                         </div>`;
 }
 
+/**
+ * function to set activeContact 
+ * 
+ */
 function setActiveUser(i){
     activeContact = i;
 }
@@ -294,7 +303,7 @@ async function deleteUser() {
  * @param {string} contactEmail - This is the email-adress of the contact
  * @param {string} contactPhone - This is the phone-number of the contact
  * @param {string} initials - This are the first letters of the parts of name of the contact
- * @type {string} activeContact - This is the actual contact showed by details on big screen
+ * @type {number} activeContact - This is the number of the actual contact showed by details on big screen
  */
 function showThisContactInfos(contactName, contactEmail, contactPhone, initials) {
         document.getElementById('bigContactInitials').innerHTML = initials;
@@ -312,33 +321,29 @@ function showThisContactInfos(contactName, contactEmail, contactPhone, initials)
  * @type {string} newName - This is the new name of the contact which will be changed
  * @type {string} newEmail - This is the new email-adress of the contact which will be changed
  * @type {string} newPhone - This is the new phone-number of the contact which will be changed
- * @type {string} activeContact - This is the actual contact showed by details on big screen
+ * @type {number} activeContact - This is the number of the actual contact
  * 
  */
 function editContact() {
     let newName = document.getElementById('edit-name');
     let newEmail = document.getElementById('edit-email');
     let newPhone = document.getElementById('edit-phone');
-
     contacts[activeContact]['name'] = newName.value;
     contacts[activeContact]['email'] = newEmail.value;
     contacts[activeContact]['phone'] = newPhone.value;
-
     pushAllContacts();
     checkContacts();
     closeEditNewContact();
-
     newName.value = '';
     newEmail.value = '';
     newPhone.value = '';
-
 }
 
 /**
  * function to change the contact-color 
  * 
  * @type {array} contacts - This is the array with all contacts
- * @type {string} activeContact - This is the actual contact showed by details on big screen
+ * @type {number} activeContact - This is the number of the actual contact
  * 
  */
 function changeContactColor() {
