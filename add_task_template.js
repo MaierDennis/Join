@@ -70,18 +70,8 @@ function renderEditTask(task) {
  * @param {object} task - task with all its data (JSON)
  */
 function renderPriorityBtnEdit(task) {
-    if (task['priority'] === 'urgent') {
-        urgentBtnclicked();
-        selectedPriority = 'urgent';
-    }
-    if (task['priority'] === 'medium') {
-        mediumBtnclicked();
-        selectedPriority = 'medium';
-    }
-    if (task['priority'] === 'low') {
-        lowBtnclicked();
-        selectedPriority = 'low';
-    }
+    selectedPriority = task['priority'];
+    priorityBtnClicked(selectedPriority);
 }
 
 /**

@@ -94,6 +94,18 @@ select {
     background-color: white;
 }
 
+.urgent{
+    background-color: red !important;
+}
+
+.medium{
+    background-color: orange !important;
+}
+
+.low{
+    background-color: green !important;
+}
+
 select:focus {
     outline: none;
 }

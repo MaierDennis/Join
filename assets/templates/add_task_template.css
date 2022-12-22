@@ -126,6 +126,18 @@ textarea:focus {
     outline: none;
 }
 
+.urgent{
+    background-color: red !important;
+}
+
+.medium{
+    background-color: orange !important ;
+}
+
+.low{
+    background-color: green !important;
+}
+
 select {
     font-family: Inter;
     font-size: 16px;

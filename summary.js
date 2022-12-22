@@ -88,42 +88,9 @@ function getDaytimeGreeting(){
  * @returns {string} month - name of the month
  */
 function getCurrentMonth(i){
-    if(i === '01'){
-        return 'January';
-    }
-    if(i === '02'){
-        return 'February';
-    }
-    if(i === '03'){
-        return 'March';
-    }
-    if(i === '04'){
-        return 'April';
-    }
-    if(i === '05'){
-        return 'May';
-    }
-    if(i === '06'){
-        return 'June';
-    }
-    if(i === '07'){
-        return 'July';
-    }
-    if(i === '08'){
-        return 'August';
-    }
-    if(i === '09'){
-        return 'September';
-    }
-    if(i === '10'){
-        return 'October';
-    }
-    if(i === '11'){
-        return 'November';
-    }
-    if(i === '12'){
-        return 'December';
-    }
+    const date = new Date();
+    date.setMonth(i - 1);
+    return date.toLocaleString('en-us', {month: 'long'});
 }
 
 /**

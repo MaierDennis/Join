@@ -125,15 +125,7 @@ function taskCardTemplate(task) {
  * @param {object} task - task object(JSON)
  */
 function renderPrioritySymbol(task) {
-    if (task['priority'] === 'urgent') {
-        document.getElementById(`prioritySymbol${task['id']}`).src = "assets/img/urgent.svg";
-    }
-    if (task['priority'] === 'medium') {
-        document.getElementById(`prioritySymbol${task['id']}`).src = 'assets/img/medium.svg';
-    }
-    if (task['priority'] === 'low') {
-        document.getElementById(`prioritySymbol${task['id']}`).src = 'assets/img/low.svg';
-    }
+    document.getElementById(`prioritySymbol${task['id']}`).src = `assets/img/${task['priority']}.svg`;
 }
 
 /**
@@ -231,15 +223,7 @@ function contributorContainerBigTemplate(contact) {
  * @param {object} task - task object(JSON)
  */
 function renderPriorityTagBig(task) {
-    if (task['priority'] === 'urgent') {
-        document.getElementById('priority-tag').src = 'assets/img/urgent-filled.svg';
-    }
-    if (task['priority'] === 'medium') {
-        document.getElementById('priority-tag').src = 'assets/img/medium-filled.svg';
-    }
-    if (task['priority'] === 'low') {
-        document.getElementById('priority-tag').src = 'assets/img/low-filled.svg';
-    }
+    document.getElementById('priority-tag').src = `assets/img/${task['priority']}-filled.svg`;
 }
 
 /**
