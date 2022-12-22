@@ -1,7 +1,8 @@
 let contacts = [];
 let alphabetList = [];
 let sortedAlphabetList = [];
-let activeContact = 0;
+let activeContact;
+let lastAddedContact;
 
 /**
  * function to read the informations from display and implement to contacts-array
@@ -9,6 +10,7 @@ let activeContact = 0;
  * @type {string} name - This is the name of the contact you want to create
  * @type {string} email - This is the email-adress of the contact you want to create
  * @type {string} phone - This is the phone-number of the contact you want to create
+ * @type {string} initials - This are the first letters of the parts of name of the contact
  */
 function addNewContact() {
     let name = document.getElementById('contact-name');
@@ -23,6 +25,8 @@ function addNewContact() {
         'phone': phone.value,
         'bg-color': randomColor
     }
+    lastAddedContact = contact['name'];
+    console.log(lastAddedContact);
 
     name.value = '';
     email.value = '';
@@ -30,9 +34,32 @@ function addNewContact() {
 
     contacts.push(contact);
 
-    closeEditNewContact();
+    flyOutContact();
     pushAllContacts();
     checkContacts();
+
+    showNewContact();
+}
+
+function showNewContact() {
+    document.getElementById('complete-contact').classList.remove('d-none');
+    let placeInArray = findJSONInArray();
+
+
+    contactName = contacts[placeInArray]['name'];
+    contactEmail = contacts[placeInArray]['email'];
+    contactPhone = contacts[placeInArray]['phone'];
+    let initials = getInitials(contactName);
+
+    showThisContactInfos(placeInArray, contactName, contactEmail, contactPhone, initials);
+}
+
+function findJSONInArray() {
+    let i = -1;
+    var index = contacts.findIndex(function (item, i) {
+        return item.name === lastAddedContact
+    });
+    return index;
 }
 
 /**
@@ -62,8 +89,7 @@ function checkContacts() {
     sortAlphabetList();
     createAlphabetBox();
     renderContacts();
-    showFirstContactInfos();
-
+    showEmptyContact();
 }
 
 /**
@@ -118,7 +144,7 @@ function createAlphabetBox() {
  * 
  * @param {string} letter - This is the letter, the box will be created with
  */
-function generateLetterBox(letter){
+function generateLetterBox(letter) {
     return `
     <div class="alphabet-box">
         <div class="first-letter-box">
@@ -169,9 +195,9 @@ function renderContacts() {
  * @param {string} contactPhone - This is the phone-number of the contact
  * @param {string} initials - This are the first letters of the parts of name of the contact
  */
-function generateSingleContacts(i, contactName, contactEmail, contactPhone, initials){
+function generateSingleContacts(i, contactName, contactEmail, contactPhone, initials) {
     return `
-    <div onclick="openSingleContact(), showThisContactInfos(${i},'${contactName}', '${contactEmail}', ${contactPhone}, '${initials}')" class="single-contact">
+    <div onclick="openSingleContact(), showThisContactInfos(${i},'${contactName}', '${contactEmail}', ${contactPhone}, '${initials}'), setActiveUser(${i})" class="single-contact">
                             <div id="initials${i}" class="initials">${initials}</div>
                             <div class="name-email">
                                 <div class="name-small">${contactName}</div>
@@ -180,24 +206,18 @@ function generateSingleContacts(i, contactName, contactEmail, contactPhone, init
                         </div>`;
 }
 
-/**
- * function to show the first contact from the contacts-array on big screen 
- * 
- * @type {string} activeContact - This is the actual contact showed by details on big screen
- * @type {string} contactName - This is the name of the contact
- * @type {string} contactEmail - This is the email-adress of the contact
- * @type {string} contactPhone - This is the phone-number of the contact
- * @type {string} initials - This are the first letters of the parts of name of the contact
- */
-function showFirstContactInfos() {
-    contactName = contacts[activeContact]['name'];
-    contactEmail = contacts[activeContact]['email'];
-    contactPhone = contacts[activeContact]['phone'];
-
-    let initials = getInitials(contactName);
-
-    showThisContactInfos(activeContact, contactName, contactEmail, contactPhone, initials);
+function setActiveUser(i){
+    activeContact = i;
 }
+
+/**
+ * function to show the empty screen after loading 
+ * 
+ */
+function showEmptyContact() {
+    document.getElementById('complete-contact').classList.add('d-none');
+}
+
 
 /**
  * function to sort the contacts by its names 
@@ -277,13 +297,12 @@ async function deleteUser() {
  * @type {string} activeContact - This is the actual contact showed by details on big screen
  */
 function showThisContactInfos(i, contactName, contactEmail, contactPhone, initials) {
-    document.getElementById('bigContactInitials').innerHTML = initials;
-    document.getElementById('bigContactName').innerHTML = contactName;
-    document.getElementById('bigContactEmail').innerHTML = contactEmail;
-    document.getElementById('bigContactPhone').innerHTML = contactPhone;
-    document.getElementById('bigInitials').style.backgroundColor = contacts[i]['bg-color'];
-    activeContact = i;
-    document.getElementById('addTask-button-contacts').setAttribute("onclick", `showAddTaskContactlist('${contactName}')`);
+        document.getElementById('bigContactInitials').innerHTML = initials;
+        document.getElementById('bigContactName').innerHTML = contactName;
+        document.getElementById('bigContactEmail').innerHTML = contactEmail;
+        document.getElementById('bigContactPhone').innerHTML = contactPhone;
+        document.getElementById('bigInitials').style.backgroundColor = contacts[i]['bg-color'];
+        document.getElementById('addTask-button-contacts').setAttribute("onclick", `showAddTaskContactlist('${contactName}')`);
 }
 
 /**
@@ -296,20 +315,15 @@ function showThisContactInfos(i, contactName, contactEmail, contactPhone, initia
  * @type {string} activeContact - This is the actual contact showed by details on big screen
  * 
  */
- function editContact() {
+function editContact() {
     let newName = document.getElementById('edit-name');
     let newEmail = document.getElementById('edit-email');
     let newPhone = document.getElementById('edit-phone');
-    
-    if (newName.value !== ``) {
-        contacts[activeContact]['name'] = newName.value;
-    }
-    if (newEmail.value !== '') {
-        contacts[activeContact]['email'] = newEmail.value;
-    }
-    if (newPhone.value !== '') {
-        contacts[activeContact]['phone'] = newPhone.value;
-    }
+
+    contacts[activeContact]['name'] = newName.value;
+    contacts[activeContact]['email'] = newEmail.value;
+    contacts[activeContact]['phone'] = newPhone.value;
+
     pushAllContacts();
     checkContacts();
     closeEditNewContact();
@@ -327,7 +341,7 @@ function showThisContactInfos(i, contactName, contactEmail, contactPhone, initia
  * @type {string} activeContact - This is the actual contact showed by details on big screen
  * 
  */
-function changeContactColor(){
+function changeContactColor() {
     contacts[activeContact]['bg-color'] = getRandomColor();
 
     pushAllContacts();
@@ -341,12 +355,12 @@ function changeContactColor(){
  * 
  * 
  */
-async function updateColorContactsinTasks(){
+async function updateColorContactsinTasks() {
     tasks.forEach(task => {
         let updatedContactsArray = [];
         task['assigned-contacts'].forEach(contactAssigned => {
             contacts.forEach(contact => {
-                if(contact['name'] === contactAssigned['name']){
+                if (contact['name'] === contactAssigned['name']) {
                     updatedContactsArray.push(contact);
                 }
             });

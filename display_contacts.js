@@ -2,8 +2,8 @@
 async function initContacts(){
     await init();
     render('contacts'); 
-    checkContacts(); 
     showContacts();
+    checkContacts(); 
 }
 
 /**
@@ -23,9 +23,9 @@ function openEditContact() {
     document.getElementById('edit-contact').classList.remove('d-none');
     document.getElementById('overlay').classList.remove('d-none');
 
-    document.getElementById('edit-name').placeholder = (contacts[activeContact]['name']);
-    document.getElementById('edit-email').placeholder = (contacts[activeContact]['email']);
-    document.getElementById('edit-phone').placeholder = (contacts[activeContact]['phone']);
+    document.getElementById('edit-name').value = (contacts[activeContact]['name']);
+    document.getElementById('edit-email').value = (contacts[activeContact]['email']);
+    document.getElementById('edit-phone').value = (contacts[activeContact]['phone']);
 }
 
 /**
