@@ -45,13 +45,14 @@ function showNewContact() {
     document.getElementById('complete-contact').classList.remove('d-none');
     let placeInArray = findJSONInArray();
 
+    activeContact = placeInArray;
 
     contactName = contacts[placeInArray]['name'];
     contactEmail = contacts[placeInArray]['email'];
     contactPhone = contacts[placeInArray]['phone'];
     let initials = getInitials(contactName);
 
-    showThisContactInfos(placeInArray, contactName, contactEmail, contactPhone, initials);
+    showThisContactInfos(contactName, contactEmail, contactPhone, initials);
 }
 
 function findJSONInArray() {
@@ -197,7 +198,7 @@ function renderContacts() {
  */
 function generateSingleContacts(i, contactName, contactEmail, contactPhone, initials) {
     return `
-    <div onclick="openSingleContact(), showThisContactInfos(${i},'${contactName}', '${contactEmail}', ${contactPhone}, '${initials}'), setActiveUser(${i})" class="single-contact">
+    <div onclick="openSingleContact(), setActiveUser(${i}), showThisContactInfos('${contactName}', '${contactEmail}', ${contactPhone}, '${initials}')" class="single-contact">
                             <div id="initials${i}" class="initials">${initials}</div>
                             <div class="name-email">
                                 <div class="name-small">${contactName}</div>
@@ -296,12 +297,12 @@ async function deleteUser() {
  * @param {string} initials - This are the first letters of the parts of name of the contact
  * @type {string} activeContact - This is the actual contact showed by details on big screen
  */
-function showThisContactInfos(i, contactName, contactEmail, contactPhone, initials) {
+function showThisContactInfos(contactName, contactEmail, contactPhone, initials) {
         document.getElementById('bigContactInitials').innerHTML = initials;
         document.getElementById('bigContactName').innerHTML = contactName;
         document.getElementById('bigContactEmail').innerHTML = contactEmail;
         document.getElementById('bigContactPhone').innerHTML = contactPhone;
-        document.getElementById('bigInitials').style.backgroundColor = contacts[i]['bg-color'];
+        document.getElementById('bigInitials').style.backgroundColor = contacts[activeContact]['bg-color'];
         document.getElementById('addTask-button-contacts').setAttribute("onclick", `showAddTaskContactlist('${contactName}')`);
 }
 
@@ -344,8 +345,14 @@ function editContact() {
 function changeContactColor() {
     contacts[activeContact]['bg-color'] = getRandomColor();
 
+    let name = contacts[activeContact]['name'];
+    let email = contacts[activeContact]['email'];
+    let phone = contacts[activeContact]['phone'];
+    let initials = getInitials(name);
+
     pushAllContacts();
     checkContacts();
+    showThisContactInfos(name, email, phone, initials);
     updateColorContactsinTasks();
 }
 
