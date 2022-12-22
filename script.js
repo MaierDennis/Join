@@ -168,7 +168,7 @@ function hideAddTask(){
     document.getElementById('body').style = '';
     if(document.getElementById('tasks-inprogress-mobile')){ //checks if mobile is extra (in add Task Template no -mobile IDs)
         closeCard();
-        document.getElementById('formAddTask').setAttribute("onsubmit", `checkTaskToCreate()`);
+        document.getElementById('formAddTask').setAttribute("onsubmit", `checkTaskToCreate(); return false;`);
     }
 }
 

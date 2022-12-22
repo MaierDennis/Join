@@ -147,8 +147,8 @@ body {
 }
 
 .board-input-container {
-    height: 45px;
-    width: 250px;
+    height: 42px;
+    width: 260px;
     padding: 3px 7px;
     border: 1px solid #A8A8A8;
     border-radius: 10px;
@@ -485,47 +485,20 @@ body {
 }
 
 .headingMoveStatusBtns {
-    font-size: 22px;
-    margin-bottom: 14px;
-    font-weight: bold;
+    display: none;
 }
 
 .moveStatusBtns {
-    display: flex;
-    margin-bottom: 32px;
+    display: none;
 }
 
 .edit-overlay-btn-statuslast {
-    font-size: 20px;
-    width: 120px;
-    height: 44px;
-    background: #2A3647;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    color: white;
-}
-
-.edit-overlay-btn-statuslast:hover {
-    background: #29ABE2;
+    display: none;
 }
 
 .edit-overlay-btn-statusnext {
-    font-size: 20px;
-    width: 120px;
-    height: 44px;
-    background: #2A3647;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    color: white;
+    display: none;
 }
-
-.edit-overlay-btn-statusnext:hover {
-    background: #29ABE2;
-}
-
-
 
 .due-date-prio {
     font-size: 22px;

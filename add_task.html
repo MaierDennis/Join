@@ -36,9 +36,12 @@
                         <input required placeholder="Enter a title" id="input-title">
                         <span>Description</span>
                         <textarea required placeholder="Enter a description" id="input-description"></textarea>
-                        <span>Category</span>
-                        <select required id="select-category" onchange="showAddCategory()">
-                        </select>
+                        <div style="position: relative; display: flex; flex-direction: column;">
+                            <span>Category</span>
+                            <div class="selected-category-color" id="selected-category-colorDiv"></div>
+                            <select required id="select-category" onchange="showAddCategory()">
+                            </select>
+                        </div>
                         <div class="new-category d-none" id="create-category">
                             <div class="new-category-name">
                                 <input id="new-category" maxlength="10" placeholder="Name"></input>
@@ -104,9 +107,12 @@
             <input required placeholder="Enter a title" id="input-title-mobile">
             <span>Description</span>
             <textarea required placeholder="Enter a description" id="input-description-mobile"></textarea>
-            <span>Category</span>
-            <select required id="select-category-mobile" onchange="showAddCategoryMobile()">
-            </select>
+            <div style="position: relative; display: flex; flex-direction: column;">
+                <span>Category</span>
+                <div class="selected-category-color" id="selected-category-colorDiv-mobile"></div>
+                <select required id="select-category-mobile" onchange="showAddCategoryMobile()">
+                </select>
+            </div>
             <div class="new-category d-none" id="create-category-mobile">
                 <div class="new-category-name">
                     <input id="new-category-mobile" maxlength="10" placeholder="Name"></input>

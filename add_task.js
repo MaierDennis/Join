@@ -100,12 +100,12 @@ function getAssignedContacts() {
 function assignContactOnClick(i) {
     if (document.getElementById(`input-contact-destop${i}`).checked) {
         document.getElementById(`input-contact-destop${i}`).checked = false;
-        if(document.getElementById(`input-contact-mobile${i}`)){ //checks if mobile is extra (in add Task Template no -mobile IDs)
+        if (document.getElementById(`input-contact-mobile${i}`)) { //checks if mobile is extra (in add Task Template no -mobile IDs)
             document.getElementById(`input-contact-mobile${i}`).checked = false;
         }
     } else {
         document.getElementById(`input-contact-destop${i}`).checked = true;
-        if(document.getElementById(`input-contact-mobile${i}`)){ //checks if mobile is extra (in add Task Template no -mobile IDs)
+        if (document.getElementById(`input-contact-mobile${i}`)) { //checks if mobile is extra (in add Task Template no -mobile IDs)
             document.getElementById(`input-contact-mobile${i}`).checked = true;
         }
     }
@@ -115,7 +115,7 @@ function assignContactOnClick(i) {
  * prevents when on input clicked that onclickfunction of parent gets triggerd
  * @param {event} event - onclick event
  */
-function stopPropagationInput(event){
+function stopPropagationInput(event) {
     event.stopPropagation();
 }
 
@@ -156,8 +156,10 @@ function showAddCategory() {
     if (selectedIndex === 1) {
         document.getElementById('select-category').classList.add('d-none');
         document.getElementById('create-category').classList.remove('d-none');
+        document.getElementById('selected-category-colorDiv').classList.add('d-none');
     } else {
         selectedCategory = categories[selectedIndex - 2];
+        document.getElementById('selected-category-colorDiv').style = `background-color: ${selectedCategory['color']}`;
     }
 }
 
@@ -191,7 +193,7 @@ function checkNewCategory() {
     if (selectedColor && document.getElementById('new-category').value != '') {
         createNewCategory();
     } else {
-        alert('Please insert Categoryname and a color. To dismiss click x.');
+        alert('Please insert category name and a color!');
     }
 }
 
@@ -206,8 +208,12 @@ async function createNewCategory() {
     }
     categories.push(category);
     await backend.setItem('categories', JSON.stringify(categories));
+    selectedCategory = categories[categories.length - 1];
+    document.getElementById('selected-category-colorDiv').style = `background-color: ${categories[categories.length - 1]['color']}`;
     dismissCategory();
     renderCategories();
+    document.getElementById('select-category').value = selectedCategory['name'];
+    document.getElementById('selected-category-colorDiv').classList.remove('d-none');
     if (document.getElementById(`urgent-btn-mobile`)) { //checks if mobile is extra (in add Task Template no -mobile IDs)
         renderCategoriesMobile();
     }
@@ -219,13 +225,15 @@ async function createNewCategory() {
  * @type {string} selectedColor - resets selected color
  */
 function dismissCategory() {
-    document.getElementById('new-category').value = '';
     if (document.getElementsByClassName('selected-color').length > 0) {
         document.getElementsByClassName('selected-color')[0].classList.remove('selected-color');
     }
     document.getElementById('select-category').classList.remove('d-none');
     document.getElementById('create-category').classList.add('d-none');
-    document.getElementById('select-category').selectedIndex = 0;
+    if (selectedCategory) {
+        document.getElementById('select-category').value = selectedCategory['name'];
+        document.getElementById('selected-category-colorDiv').classList.remove('d-none');
+    }
     selectedColor = null;
 }
 
@@ -374,7 +382,7 @@ async function checkTaskToCreate() {
     if (selectedPriority && contactAssigned && selectedCategory) {
         await createTask();
     } else {
-        alert('Please select a priority, a category and assign a contact!');
+        alert('Please make sure to select a priority, a category and to assign a contact!');
     }
 }
 
@@ -412,6 +420,7 @@ function clearTask() {
     document.getElementById('input-description').value = '';
     document.getElementById('select-category').selectedIndex = 0;
     document.getElementById('assign-to-list').classList.remove('visible');
+    document.getElementById('selected-category-colorDiv').style = `background-color: white`;
     clearAssignedContacts();
     contactAssigned = false;
     selectedPriority = false;

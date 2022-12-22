@@ -58,8 +58,10 @@ function showAddCategoryMobile() {
     if (selectedIndex === 1) {
         document.getElementById('select-category-mobile').classList.add('d-none');
         document.getElementById('create-category-mobile').classList.remove('d-none');
+        document.getElementById('selected-category-colorDiv-mobile').classList.add('d-none');
     } else {
         selectedCategory = categories[selectedIndex - 2];
+        document.getElementById('selected-category-colorDiv-mobile').style = `background-color: ${selectedCategory['color']}`;
     }
 }
 
@@ -72,7 +74,7 @@ function checkNewCategoryMobile() {
     if (selectedColor && document.getElementById('new-category-mobile').value != '') {
         createNewCategoryMobile();
     } else {
-        alert('Please insert Categoryname and a color. To dismiss click x.');
+        alert('Please insert a categoryname and a color!');
     }
     selectedColor = null;
 }
@@ -88,9 +90,13 @@ async function createNewCategoryMobile() {
     }
     categories.push(category);
     await backend.setItem('categories', JSON.stringify(categories));
+    selectedCategory = categories[categories.length - 1];
+    document.getElementById('selected-category-colorDiv-mobile').style = `background-color: ${categories[categories.length - 1]['color']}`;
     dismissCategoryMobile();
     renderCategoriesMobile();
     renderCategories();
+    document.getElementById('select-category-mobile').value = selectedCategory['name'];
+    document.getElementById('selected-category-colorDiv-mobile').classList.remove('d-none');
 }
 
 /** (mobile)
@@ -105,7 +111,10 @@ function dismissCategoryMobile() {
     }
     document.getElementById('select-category-mobile').classList.remove('d-none');
     document.getElementById('create-category-mobile').classList.add('d-none');
-    document.getElementById('select-category-mobile').selectedIndex = 0;
+    if (selectedCategory) {
+        document.getElementById('select-category-mobile').value = selectedCategory['name'];
+        document.getElementById('selected-category-colorDiv-mobile').classList.remove('d-none');
+    }
     selectedColor = null;
 }
 
@@ -119,6 +128,7 @@ function clearTaskMobile() {
     document.getElementById('select-category-mobile').selectedIndex = 0;
     document.getElementById('assign-to-list-mobile').classList.remove('visible');
     document.getElementById('input-date-mobile').value = '';
+    document.getElementById('selected-category-colorDiv-mobile').style = `background-color: white`;
 }
 
 

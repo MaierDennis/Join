@@ -287,7 +287,7 @@ function showTaskDetailsTemplate(task) {
         <span style="display:flex"><img class="priority-tag" id="priority-tag"></span>
     </div>
     <span class="headingMoveStatusBtns directionLTR">Move Task to:</span>
-    <div class="moveStatusBtns directionLTR">
+    <div class="moveStatusBtns">
         <button class="edit-overlay-btn-statuslast" id="edit-overlay-btn-statuslast" onclick="lastStatus(${task['id']})"></button>
         <button class="edit-overlay-btn-statusnext" id="edit-overlay-btn-statusnext" onclick="nextStatus(${task['id']})"></button>
     </div>
@@ -363,9 +363,11 @@ function updateSearchDestopMobile(){
     if (document.body.clientWidth > 1024) {
         searchTaskInput = document.getElementById('searchTaskDestop').value;
         document.getElementById('searchTaskMobile').value = searchTaskInput;
+        searchTaskInput = searchTaskInput.toLowerCase();
     } else {
         searchTaskInput = document.getElementById('searchTaskMobile').value;
         document.getElementById('searchTaskDestop').value = searchTaskInput;
+        searchTaskInput = searchTaskInput.toLowerCase();
     }
 }
 
