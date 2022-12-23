@@ -244,15 +244,8 @@ function dismissCategory() {
  */
 function clickPriorityButton(id) {
     unsetBtnClicked();
-    if (id == 'urgent-btn-mobile' || id == 'urgent-btn') {
-        urgentBtnclicked();
-    }
-    if (id == 'medium-btn-mobile' || id == 'medium-btn') {
-        mediumBtnclicked();
-    }
-    if (id == 'low-btn-mobile' || id == 'low-btn') {
-        lowBtnclicked();
-    }
+    priorityBtnClicked(id);
+    selectedPriority = id;
     defineSelectedPriority(id);
 }
 
@@ -287,9 +280,9 @@ function unsetBtnClicked() {
  */
 function resetBtnClickedUrgent() {
     document.getElementById('urgent-btn').classList.remove('choosePriorityPicked');
-    document.getElementById('urgent-btn').style = '';
+    document.getElementById('urgent-btn').classList.remove('urgent');
     if (document.getElementById('urgent-btn-mobile')) {  //checks if mobile is extra (in add Task Template no -mobile IDs)
-        document.getElementById('urgent-btn-mobile').style = '';
+        document.getElementById('urgent-btn-mobile').classList.remove('urgent');
         document.getElementById('urgent-btn-mobile').classList.remove('choosePriorityPicked');
     }
 }
@@ -299,9 +292,9 @@ function resetBtnClickedUrgent() {
  */
 function resetBtnClickedMedium() {
     document.getElementById('medium-btn').classList.remove('choosePriorityPicked');
-    document.getElementById('medium-btn').style = '';
+    document.getElementById('medium-btn').classList.remove('medium');
     if (document.getElementById('medium-btn-mobile')) {  //checks if mobile is extra (in add Task Template no -mobile IDs)
-        document.getElementById('medium-btn-mobile').style = '';
+        document.getElementById('medium-btn-mobile').classList.remove('medium');
         document.getElementById('medium-btn-mobile').classList.remove('choosePriorityPicked');
     }
 }
@@ -311,13 +304,23 @@ function resetBtnClickedMedium() {
  */
 function resetBtnClickedLow() {
     document.getElementById('low-btn').classList.remove('choosePriorityPicked');
-    document.getElementById('low-btn').style = '';
+    document.getElementById('low-btn').classList.remove('low');
     if (document.getElementById('low-btn-mobile')) {  //checks if mobile is extra (in add Task Template no -mobile IDs)
-        document.getElementById('low-btn-mobile').style = '';
+        document.getElementById('low-btn-mobile').classList.remove('low');
         document.getElementById('low-btn-mobile').classList.remove('choosePriorityPicked');
     }
 }
 
+function priorityBtnClicked(selectedPriority){
+    document.getElementById(`${selectedPriority}-btn`).classList.add('choosePriorityPicked');
+    document.getElementById(`${selectedPriority}-btn`).classList.add(`${selectedPriority}`);
+    if (document.getElementById(`${selectedPriority}-btn-mobile`)) {  //checks if mobile is extra (in add Task Template no -mobile IDs)
+        document.getElementById(`${selectedPriority}-btn-mobile`).classList.add(`${selectedPriority}`);
+        document.getElementById(`${selectedPriority}-btn-mobile`).classList.add('choosePriorityPicked');
+    }
+}
+
+/*
 /**
  * highlights priority button "urgent" when selected
  */

@@ -46,15 +46,7 @@ function taskCardTemplateMobile(task) {
  * @param {object} task - task object(JSON)
  */
 function renderPrioritySymbolMobile(task) {
-    if (task['priority'] === 'urgent') {
-        document.getElementById(`prioritySymbol${task['id']}-mobile`).src = "assets/img/urgent.svg";
-    }
-    if (task['priority'] === 'medium') {
-        document.getElementById(`prioritySymbol${task['id']}-mobile`).src = 'assets/img/medium.svg';
-    }
-    if (task['priority'] === 'low') {
-        document.getElementById(`prioritySymbol${task['id']}-mobile`).src = 'assets/img/low.svg';
-    }
+    document.getElementById(`prioritySymbol${task['id']}-mobile`).src = `assets/img/${task['priority']}.svg`;
 }
 
 /**
