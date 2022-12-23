@@ -308,7 +308,6 @@ function dataForShowInfo(){
  * function to show the contact on big screen you clicked on 
  * 
  * @type {array} contacts - This is the array with all contacts
- * @param {number} i - This is the number of the contacts-place in the array
  * @param {string} contactName - This is the name of the contact
  * @param {string} contactEmail - This is the email-adress of the contact
  * @param {string} contactPhone - This is the phone-number of the contact
