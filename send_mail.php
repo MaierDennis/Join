@@ -26,7 +26,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
         $message = "Hello,\n                            
         \nFollow this link to reset the password for your Join account.\n
-        \nhttps://gruppe-400.developerakademie.net/reset_password.html?email=".$email."\n   
+        \nhttps://dennis-maier.developerakademie.net/Modul_10_-_Join/reset_password.html?email=".$email."\n   
         \nIgnore this email if you did not ask to reset your password.\n
         \nThank you\n
         \nJoin team\n";                     // message for the user with personilzed link to reset password
