@@ -8,7 +8,7 @@ async function initContacts(){
 }
 
 /**
- * function to open the div to create a contact
+ * Open the div to create a contact
  * 
  */
 function openNewContact() {
@@ -17,7 +17,7 @@ function openNewContact() {
 }
 
 /**
- * function to open the div to edit a contact
+ * Open the div to edit a contact
  * 
  */
 function openEditContact() {
@@ -30,7 +30,7 @@ function openEditContact() {
 }
 
 /**
- * function to show all contacts in a list
+ * Show all contacts in a list
  * 
  */
 function showContacts() {
@@ -45,7 +45,7 @@ function showContacts() {
 }
 
 /**
- * function to show the details of a contact on big screen
+ * Show the details of a contact on big screen
  * 
  */
 function openSingleContact() {
@@ -60,7 +60,7 @@ function openSingleContact() {
 }
 
 /**
- * function to close the details of a contact on big screen
+ * Close the details of a contact on big screen
  * 
  */
 function closeSingleContact() {
@@ -69,7 +69,7 @@ function closeSingleContact() {
 }
 
 /**
- * function to not close the div by click
+ * Do not close the div by click
  * 
  */
 function doNotClose(event) {
@@ -77,7 +77,7 @@ function doNotClose(event) {
 }
 
 /**
- * function to close div by pressing escape
+ * Close div by pressing escape
  * 
  */
 document.addEventListener('keydown', function (event) {
@@ -87,7 +87,7 @@ document.addEventListener('keydown', function (event) {
 });
 
 /**
- * function to animate the div for flying out
+ * Animate the div for flying out
  * 
  */
 function flyOutContact() {
@@ -99,7 +99,7 @@ function flyOutContact() {
 }
 
 /**
- * function to set the div on d-none after animating
+ * Set the div on d-none after animating
  * 
  */
 function displayNoneContacts(){
