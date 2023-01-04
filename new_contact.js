@@ -5,12 +5,9 @@ let activeContact;
 let lastAddedContact;
 
 /**
- * function to read the informations from display and implement to contacts-array
+ * Read informations from display and implement to contacts-array
  * 
- * @type {string} name - This is the name of the contact you want to create
- * @type {string} email - This is the email-adress of the contact you want to create
- * @type {string} phone - This is the phone-number of the contact you want to create
- * @type {string} initials - This are the first letters of the parts of name of the contact
+ * 
  */
 function addNewContact() {
     let name = document.getElementById('contact-name');
@@ -30,12 +27,9 @@ function addNewContact() {
 }
 
 /**
- * function to show the contact, which has been created
+ * Show the contact, which has been created
  * 
- * @type {string} contactName - This is the name of the contact
- * @type {string} contactEmail - This is the email-adress of the contact
- * @type {string} contactPhone - This is the phone-number of the contact
- * @type {string} initials - This are the first letters of the parts of name of the contact
+ * 
  */
 function showNewContact() {
     document.getElementById('complete-contact').classList.remove('d-none');
@@ -52,8 +46,10 @@ function showNewContact() {
 }
 
 /**
- * function to find the right JSON in the contacts-array
+ * Find the right JSON in the contacts-array
  * 
+ * 
+ * @returns {number} - returns the place of the JSON in the array
  */
 function findJSONInArray() {
     let i = -1;
@@ -64,7 +60,7 @@ function findJSONInArray() {
 }
 
 /**
- * function to push the next letter into backend
+ * Push the next letter into backend
  * 
  */
 function pushAllContacts() {
@@ -72,10 +68,9 @@ function pushAllContacts() {
 }
 
 /**
- * function to create parameters the next functions need
+ * Create parameters the next functions need
  * 
- * @type {string} contactName - This is the name of the contact you want to check
- * @type {string} firstLetter - This is the first letter of the name of the contact
+ * 
  */
 function checkContacts() {
     for (let i = 0; i < contacts.length; i++) {
@@ -93,10 +88,9 @@ function checkContacts() {
 }
 
 /**
- * function to check if the letter for alphabet-boxes already exists and if not, push him to array[alphabetList]
+ * Check if the letter for alphabet-boxes already exists and if not, push him to array[alphabetList]
  * 
- * @param {string} firstLetter - This is the first letter of the name of the contact
- * @type {Array} alphabetList - This is the array with all fist letters of the contacts
+ * @param {string} firstLetter - The first letter of the name of the contact
  */
 function checkAlphabetBox(firstLetter) {
     if (!alphabetList.includes(firstLetter)) {
@@ -105,10 +99,9 @@ function checkAlphabetBox(firstLetter) {
 }
 
 /**
- * function to sort the letters in alphabetList by alphabet
+ * Sort the letters in alphabetList by alphabet
  * 
- * @type {string} letter - This is the first letter which gets pushed to array  
- * @type {Array} sortedAlphabetList - This is the array with all fist letters of the contacts, sorted by alphabet
+ * 
  */
 function sortAlphabetList() {
     alphabetList.sort();
@@ -121,11 +114,9 @@ function sortAlphabetList() {
 }
 
 /**
- * function to create the contact-boxes with the right letters, where the contacts gets inserted
+ * Create the contact-boxes with the right letters, where the contacts gets inserted
  * 
- * @type {Element} contactList - This is the place, new contact-boxes will be created
- * @type {Array} sortedAlphabetList - This is the array with all fist letters of the contacts, sorted by alphabet
- * @type {string} letter - This is the letter, the box will be created with
+ * 
  */
 function createAlphabetBox() {
     let contactList = document.getElementById('all-contacts');
@@ -140,9 +131,10 @@ function createAlphabetBox() {
 }
 
 /**
- * function to return the html code for the boxes
+ * Return the html code for the boxes
  * 
- * @param {string} letter - This is the letter, the box will be created with
+ * @param {string} letter - The letter, the box will be created with
+ * @returns {HTMLElement} - Returns letter-boxes with the right letter
  */
 function generateLetterBox(letter) {
     return `
@@ -160,14 +152,9 @@ function generateLetterBox(letter) {
 
 
 /**
- * function to render all contacts to the list
+ * Render all contacts to the list
  * 
- * @type {string} thisContact - This is the contact for which the element will be created
- * @type {string} contactName - This is the name of the contact
- * @type {string} contactEmail - This is the email-adress of the contact
- * @type {string} contactPhone - This is the phone-number of the contact
- * @type {string} firstLetter - This is the first letter of the name of the contact
- * @type {string} initials - This are the first letters of the parts of name of the contact
+ * 
  */
 function renderContacts() {
     contacts.sort(sortContacts('name'));
@@ -187,13 +174,14 @@ function renderContacts() {
 }
 
 /**
- * function to render all contacts to the list
+ * Render all contacts to the list
  * 
- * @param {number} i - This is the number of the selected contact
- * @param {string} contactName - This is the name of the contact
- * @param {string} contactEmail - This is the email-adress of the contact
- * @param {string} contactPhone - This is the phone-number of the contact
- * @param {string} initials - This are the first letters of the parts of name of the contact
+ * @param {number} i - Number of the selected contact
+ * @param {string} contactName - Name of the contact
+ * @param {string} contactEmail - Email-adress of the contact
+ * @param {string} contactPhone - Phone-number of the contact
+ * @param {string} initials - The first letters of the parts of name of the contact
+ * @returns {HTMLElement} - Returns the HTML to create contacts
  */
 function generateSingleContacts(i, contactName, contactEmail, contactPhone, initials) {
     return `
@@ -207,7 +195,7 @@ function generateSingleContacts(i, contactName, contactEmail, contactPhone, init
 }
 
 /**
- * function to set the active-user
+ * Set active-user
  * 
  */
 function setActiveUser(i){
@@ -215,7 +203,7 @@ function setActiveUser(i){
 }
 
 /**
- * function to show the empty screen after loading 
+ * Show the empty screen after loading 
  * 
  */
 function showEmptyContact() {
@@ -224,9 +212,10 @@ function showEmptyContact() {
 
 
 /**
- * function to sort the contacts by its names 
+ * Sort the contacts by its names 
  * 
- * @param {string} contactName - This is the name of the contact
+ * @param {string} contactName - Name of the contact
+ * @returns {number} - Returns the number to sort the letters
  * 
  */
 function sortContacts(contactName) {
@@ -241,11 +230,10 @@ function sortContacts(contactName) {
 }
 
 /**
- * function to get the first letters of all names 
+ * Get the first letters of all names 
  * 
- * @param {string} name - This is the name of the contact
- * @type {string} initials - This are the first letters of the parts of name of the contact
- * @type {string} parts - That are all parts of the contact-name
+ * @param {string} name - Name of the contact
+ * @returns {string} - Returns the initials
  */
 function getInitials(name) {
     let parts = name.split(' ');
@@ -259,19 +247,20 @@ function getInitials(name) {
 }
 
 /**
- * function to get the first letter
+ * Get the first letter
  * 
- * @param {string} name - This is the name of the contact
+ * @param {string} name - Name of the contact
+ * @returns {string} - Returns the first letter
  */
 function getFirstLetter(name) {
     return name.charAt(0);
 }
 
 /**
- * function to get a random color
+ * Get a random color
  * 
- * @type {string} letters - This is a List of usable letters
- * @type {string} color - This is a random created color
+ * @returns {string} - Returns a random color
+ * 
  */
 function getRandomColor() {
     let letters = '0123456789ABCDEF';
@@ -283,19 +272,23 @@ function getRandomColor() {
 }
 
 
-/* Zum leeren der Kontakte*/
+/**
+ * Delete contacts
+ * 
+ * 
+ */
 
 async function deleteUser() {
     await backend.deleteItem('contact',);
 }
 
 /**
- * function to get data for other functions
+ * Get data for other functions
  * 
- * @type {string} name - This is the name of the contact
- * @type {string} email - This is the email-adress of the contact
- * @type {string} phone - This is the phone-number of the contact
- * @type {string} initials - This are the first letters of the parts of name of the contact
+ * @param {string} name - Name of the contact
+ * @param {string} email - Email-adress of the contact
+ * @param {string} phone - Phone-number of the contact
+ * @param {string} initials - The first letters of the parts of name of the contact
  */
 function dataForShowInfo(){
     let name = contacts[activeContact]['name'];
@@ -307,14 +300,13 @@ function dataForShowInfo(){
 }
 
 /**
- * function to show the contact on big screen you clicked on 
+ * Show the contact on big screen you clicked on 
  * 
- * @type {array} contacts - This is the array with all contacts
- * @param {string} contactName - This is the name of the contact
- * @param {string} contactEmail - This is the email-adress of the contact
- * @param {string} contactPhone - This is the phone-number of the contact
- * @param {string} initials - This are the first letters of the parts of name of the contact
- * @type {string} activeContact - This is the actual contact showed by details on big screen
+ * 
+ * @param {string} contactEmail - Email-adress of the contact
+ * @param {string} contactPhone - Phone-number of the contact
+ * @param {string} initials - The first letters of the parts of name of the contact
+ * @param {string} activeContact - Actual contact showed by details on big screen
  */
 function showThisContactInfos(contactName, contactEmail, contactPhone, initials) {
         resetBGColor();
@@ -330,9 +322,9 @@ function showThisContactInfos(contactName, contactEmail, contactPhone, initials)
 }
 
 /**
- * function to reset the color of the contact background in the contactlist
+ * Reset the color of the contact background in the contactlist
  * 
- * @type {array} contacts - This is the array with all contacts
+ * 
  */
 function resetBGColor(){
     for (let j = 0; j < contacts.length; j++) {
@@ -342,9 +334,9 @@ function resetBGColor(){
 }
 
 /**
- * function to change the color of the contact background in the contactlist
+ * Change the color of the contact background in the contactlist
  * 
- * @param {number} i - This is the number of the contacts-place in the array
+ * @param {number} i - Number of the contacts-place in the array
  */
 function changeColorBG(i){
     document.getElementById('single-contact'+i).style.backgroundColor = "rgb(42, 54, 71)";
@@ -352,13 +344,9 @@ function changeColorBG(i){
 }
 
 /**
- * function to edit contact infos after creating
+ * Edit contact infos after creating
  * 
- * @type {array} contacts - This is the array with all contacts
- * @type {string} newName - This is the new name of the contact which will be changed
- * @type {string} newEmail - This is the new email-adress of the contact which will be changed
- * @type {string} newPhone - This is the new phone-number of the contact which will be changed
- * @type {string} activeContact - This is the actual contact showed by details on big screen
+ * 
  * 
  */
 function editContact() {
@@ -378,10 +366,8 @@ function editContact() {
 }
 
 /**
- * function to change the contact-color 
+ * Change the contact-color 
  * 
- * @type {array} contacts - This is the array with all contacts
- * @type {string} activeContact - This is the actual contact showed by details on big screen
  * 
  */
 function changeContactColor() {
@@ -399,7 +385,9 @@ function changeContactColor() {
 }
 
 /**
- * function to update the color of the assigned contacts depending on the colorchange in the contactsection
+ * Update the color of the assigned contacts depending on the colorchange in the contactsection
+ * 
+ * 
  */
 async function updateColorContactsinTasks() {
     tasks.forEach(task => {
